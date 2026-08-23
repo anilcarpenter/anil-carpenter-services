@@ -1120,77 +1120,44 @@ table th {
 
 
 /* ================= END ================= */
-/* =========================================================
-   ARTICLE PAGE — FULL WIDTH CLEAN CONTENT
-   Article खुद किसी बड़े card में नहीं रहेगा
-   ========================================================= */
+/* ==========================================
+   ARTICLE PAGE — REMOVE MAIN ARTICLE CARD
+   ========================================== */
 
 .featured-blog .featured-blog-card {
-    max-width: 900px;
+    width: 100% !important;
+    max-width: 900px !important;
 
-    /* बड़ा card हटाएँ */
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 
-    /* केवल content spacing */
-    padding: 10px 0;
+    padding: 10px 0 !important;
+    margin: 0 auto !important;
 }
 
-/* Article के अंदर text readable रहे */
-.featured-blog .featured-blog-card h2 {
-    margin-top: 35px;
-    margin-bottom: 14px;
+/* Article section itself stays clean */
+.featured-blog {
+    background: transparent !important;
 }
 
-.featured-blog .featured-blog-card h2:first-child {
-    margin-top: 0;
-}
-
-.featured-blog .featured-blog-card h3 {
-    margin-top: 28px;
-    margin-bottom: 10px;
-    color: #202124;
-}
-
-.featured-blog .featured-blog-card p {
-    margin-bottom: 20px;
-    color: #5f6368;
-    line-height: 1.8;
-}
-
-.featured-blog .featured-blog-card ul {
-    margin: 15px 0 25px;
-    padding-left: 20px;
-}
-
-.featured-blog .featured-blog-card ul li {
-    margin-bottom: 8px;
-    color: #5f6368;
-}
-
-/* Article की table ही हल्के card जैसी रहे */
+/* Article text remains normal */
+.featured-blog .featured-blog-card h2,
+.featured-blog .featured-blog-card h3,
+.featured-blog .featured-blog-card p,
+.featured-blog .featured-blog-card ul,
 .featured-blog .featured-blog-card table {
-    background: rgba(255,255,255,0.72);
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(60,64,67,0.05);
+    background: transparent !important;
 }
 
-/* Mobile */
-@media (max-width:768px) {
+/* ==========================================
+   RELATED ARTICLES — CARDS REMAIN
+   ========================================== */
 
-    .featured-blog .featured-blog-card {
-        padding: 5px 0;
-    }
-
-    .featured-blog .featured-blog-card h2 {
-        font-size: 27px;
-    }
-
-    .featured-blog .featured-blog-card h3 {
-        font-size: 20px;
-    }
+.related-articles .blog-card {
+    background: rgba(255, 255, 255, 0.74) !important;
+    border: 1px solid rgba(218, 220, 224, 0.9) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 3px 14px rgba(60, 64, 67, 0.06) !important;
 }
