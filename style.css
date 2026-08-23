@@ -1782,3 +1782,37 @@ table th {
     }
 
 }
+/* ===== FINAL ARTICLE HEADING SIZE ===== */
+
+@media screen and (max-width: 768px) {
+
+    /* Article का मुख्य Title */
+    body .page-banner h1 {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 14px !important;
+    }
+
+    /* Article के सभी H2 */
+    body .featured-blog .featured-blog-card h2 {
+        font-size: 22px !important;
+        line-height: 1.4 !important;
+        margin-top: 30px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Article के सभी H3 */
+    body .featured-blog .featured-blog-card h3 {
+        font-size: 19px !important;
+        line-height: 1.4 !important;
+        margin-top: 25px !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Article का सामान्य text */
+    body .featured-blog .featured-blog-card p {
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+    }
+
+}
