@@ -762,12 +762,13 @@ async function loadCarpenters(){
       throw new Error("Network error");
     }
 
-    const data =
-      await response.json();
+    const data = await response.json();
 
-    carpenters = Array.isArray(data) ? data : [];
+carpenters = Array.isArray(data)
+  ? data
+  : (Array.isArray(data.data) ? data.data : []);
 
-    displayCarpenters(carpenters);
+displayCarpenters(carpenters);
 
   }
 
