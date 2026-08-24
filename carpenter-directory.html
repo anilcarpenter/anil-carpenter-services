@@ -1,278 +1,724 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Carpenter Directory | Anil Carpenter</title>
 
-<meta name="description"
-content="Carpenter Directory में अपने शहर और जिले के Carpenter खोजें। नए और अनुभवी Carpenter अपनी पहचान और काम की जानकारी Community में जोड़ सकते हैं।">
+<meta name="description" content="Carpenter Directory में अपने शहर के नए और अनुभवी Carpenter खोजें और Carpenter Community से जुड़ें।">
 
-<meta name="robots" content="index,follow">
+<style>
 
-<link rel="canonical"
-href="https://www.anilcarpenter.com/carpenter-directory.html">
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-<link rel="stylesheet" href="style.css">
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f6f7f9;
+  color:#202124;
+}
 
-<link rel="icon" href="favicon.ico">
+.container{
+  width:92%;
+  max-width:1150px;
+  margin:auto;
+}
 
+/* HEADER */
+
+.header{
+  background:#111827;
+  color:#fff;
+  padding:15px 0;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:21px;
+  font-weight:700;
+}
+
+.logo span{
+  color:#f59e0b;
+}
+
+.back{
+  color:#fff;
+  text-decoration:none;
+  border:1px solid #4b5563;
+  padding:8px 13px;
+  border-radius:8px;
+  font-size:14px;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#111827,#374151);
+  color:#fff;
+  text-align:center;
+  padding:60px 20px 85px;
+}
+
+.hero-icon{
+  font-size:48px;
+  margin-bottom:8px;
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  max-width:680px;
+  margin:auto;
+  color:#d1d5db;
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* SEARCH */
+
+.search-area{
+  margin-top:-35px;
+  position:relative;
+}
+
+.search-box{
+  background:#fff;
+  max-width:950px;
+  margin:auto;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 12px 35px rgba(0,0,0,.12);
+}
+
+.search-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr auto;
+  gap:12px;
+}
+
+.search-grid input,
+.search-grid select{
+  width:100%;
+  padding:14px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  font-size:15px;
+  outline:none;
+  background:#fff;
+}
+
+.search-grid input:focus,
+.search-grid select:focus{
+  border-color:#f59e0b;
+}
+
+.search-btn{
+  border:0;
+  background:#f59e0b;
+  color:#111827;
+  padding:0 22px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* DIRECTORY */
+
+.directory{
+  padding:55px 0 70px;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-heading .small{
+  color:#f59e0b;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.section-heading h2{
+  font-size:30px;
+  margin:6px 0;
+}
+
+.section-heading p{
+  color:#6b7280;
+}
+
+/* CARDS */
+
+.directory-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.carpenter-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:23px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+  transition:.25s;
+}
+
+.carpenter-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 30px rgba(0,0,0,.11);
+}
+
+.profile-top{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:17px;
+}
+
+.profile-photo{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#fff3cd,#fde68a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:31px;
+  flex-shrink:0;
+}
+
+.profile-name{
+  font-size:19px;
+  font-weight:700;
+}
+
+.location{
+  color:#6b7280;
+  font-size:13px;
+  margin-top:3px;
+}
+
+.verified{
+  display:inline-block;
+  color:#15803d;
+  font-size:12px;
+  font-weight:700;
+  margin-top:3px;
+}
+
+.badges{
+  margin:10px 0;
+}
+
+.badge{
+  display:inline-block;
+  background:#f3f4f6;
+  color:#374151;
+  padding:6px 9px;
+  border-radius:20px;
+  font-size:12px;
+  margin:3px 2px 3px 0;
+}
+
+.work{
+  color:#4b5563;
+  font-size:14px;
+  line-height:1.6;
+  min-height:45px;
+  margin-top:10px;
+}
+
+.card-buttons{
+  display:flex;
+  gap:9px;
+  margin-top:18px;
+}
+
+.card-buttons a{
+  flex:1;
+  text-align:center;
+  padding:11px 8px;
+  border-radius:9px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+}
+
+.whatsapp{
+  background:#22c55e;
+  color:#fff;
+}
+
+.view-profile{
+  background:#111827;
+  color:#fff;
+}
+
+/* EMPTY */
+
+.empty{
+  display:none;
+  background:#fff;
+  text-align:center;
+  padding:45px 20px;
+  border-radius:16px;
+  color:#6b7280;
+}
+
+/* CTA */
+
+.community-cta{
+  background:linear-gradient(135deg,#111827,#1f2937);
+  color:#fff;
+  text-align:center;
+  padding:55px 20px;
+}
+
+.community-cta h2{
+  font-size:29px;
+  margin-bottom:9px;
+}
+
+.community-cta p{
+  max-width:620px;
+  margin:0 auto 23px;
+  color:#d1d5db;
+}
+
+.join-btn{
+  display:inline-block;
+  background:#f59e0b;
+  color:#111827;
+  padding:14px 25px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* FOOTER */
+
+.footer{
+  background:#0b1120;
+  color:#9ca3af;
+  text-align:center;
+  padding:25px 15px;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .directory-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .search-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .search-btn{
+    padding:13px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero{
+    padding:43px 18px 70px;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .search-box{
+    padding:16px;
+    border-radius:14px;
+  }
+
+  .search-grid{
+    grid-template-columns:1fr;
+  }
+
+  .directory{
+    padding:42px 0 55px;
+  }
+
+  .section-heading h2{
+    font-size:25px;
+  }
+
+  .directory-grid{
+    grid-template-columns:1fr;
+  }
+
+  .carpenter-card{
+    padding:20px;
+  }
+
+  .card-buttons a{
+    padding:12px 5px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .back{
+    font-size:12px;
+  }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
-<div class="website">
-
-
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header class="header">
 
-<div class="container">
+<div class="container header-inner">
 
-<div class="logo">
-
-<a href="index.html">
-
-🪚 <span>Anil Carpenter</span>
-
+<a href="index.html" class="logo">
+🪚 <span>Anil</span> Carpenter
 </a>
 
-</div>
-
-
-<button
-class="menu-btn"
-id="menuBtn"
-type="button"
-aria-label="Open Menu">
-
-<span></span>
-<span></span>
-<span></span>
-
-</button>
-
-
-<nav class="menu" id="menu">
-
-<ul>
-
-<li>
-<a href="index.html">Home</a>
-</li>
-
-<li>
-<a href="services.html">Services</a>
-</li>
-
-<li>
-<a href="projects.html">Projects</a>
-</li>
-
-<li>
-<a href="blog.html">Blog</a>
-</li>
-
-<li>
-<a href="carpenter-community.html">
-Community
+<a href="carpenter-community.html" class="back">
+← Community
 </a>
-</li>
-
-<li>
-<a href="carpenter-directory.html"
-class="active">
-Directory
-</a>
-</li>
-
-<li>
-<a href="about.html">About</a>
-</li>
-
-<li>
-<a href="contact.html">Contact</a>
-</li>
-
-</ul>
-
-</nav>
 
 </div>
 
 </header>
 
 
-<!-- ================= DIRECTORY HERO ================= -->
+<!-- HERO -->
 
-<section class="page-banner">
+<section class="hero">
 
-<div class="container">
-
-<p class="community-label">
-🪚 CARPENTER DIRECTORY
-</p>
+<div class="hero-icon">
+👷‍♂️
+</div>
 
 <h1>
 Carpenter Directory
 </h1>
 
 <p>
-अपने शहर और जिले के Carpenter खोजें,
-कारीगरों से जुड़ें और अपने हुनर को आगे बढ़ाएं।
+अपने शहर और जिले के Carpenter भाइयों को खोजें।
+हुनर, अनुभव और काम के अनुसार सही कारीगर से जुड़ें।
 </p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section class="search-area">
+
+<div class="container">
+
+<div class="search-box">
+
+<div class="search-grid">
+
+<input
+type="search"
+id="search"
+placeholder="🔎 नाम या काम खोजें">
+
+<input
+type="text"
+id="city"
+placeholder="📍 शहर / जिला">
+
+<select id="experience">
+
+<option value="">
+अनुभव चुनें
+</option>
+
+<option value="New Carpenter">
+New Carpenter
+</option>
+
+<option value="1-2 Years">
+1–2 Years
+</option>
+
+<option value="3-5 Years">
+3–5 Years
+</option>
+
+<option value="5-10 Years">
+5–10 Years
+</option>
+
+<option value="10+ Years">
+10+ Years
+</option>
+
+</select>
+
+<button
+class="search-btn"
+onclick="searchCarpenters()">
+
+खोजें
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ================= INTRO ================= -->
+<!-- DIRECTORY -->
 
-<section class="community-intro">
-
-<div class="container">
-
-<div class="community-intro-content">
-
-<h2>
-अपने आसपास का Carpenter खोजें
-</h2>
-
-<p>
-यह Directory नए और अनुभवी Carpenter भाइयों
-को एक जगह जोड़ने की शुरुआत है।
-</p>
-
-<p>
-भविष्य में यहां अलग-अलग शहरों और जिलों के
-कारीगर अपनी Profile बनाकर अपने काम और
-विशेषज्ञता की जानकारी साझा कर सकेंगे।
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SEARCH AREA ================= -->
-
-<section class="community-options">
+<section class="directory">
 
 <div class="container">
 
-<div class="section-title">
+<div class="section-heading">
 
-<span>
-FIND A CARPENTER
-</span>
+<div class="small">
+CARPENTER COMMUNITY
+</div>
 
 <h2>
-Carpenter खोजें
+👷 हमारे Carpenter
 </h2>
 
 <p>
-शहर, जिला या काम के अनुसार Carpenter खोजने की सुविधा
-जल्द उपलब्ध होगी।
+Community से जुड़े कारीगरों की Directory
 </p>
 
 </div>
 
 
-<div class="community-grid">
+<div
+id="directoryGrid"
+class="directory-grid">
 
 
-<!-- SEARCH BY CITY -->
+<!-- DEMO CARD -->
 
-<article class="community-card">
+<article class="carpenter-card">
 
-<div class="community-icon">
-📍
-</div>
+<div class="profile-top">
 
-<h3>
-शहर से खोजें
-</h3>
-
-<p>
-अपने शहर के Carpenter को खोजें और
-अपने आसपास उपलब्ध कारीगरों से जुड़ें।
-</p>
-
-<a href="#carpenter-list"
-class="community-btn">
-
-शहर देखें →
-
-</a>
-
-</article>
-
-
-<!-- SEARCH BY SKILL -->
-
-<article class="community-card">
-
-<div class="community-icon">
-🪚
-</div>
-
-<h3>
-काम के अनुसार खोजें
-</h3>
-
-<p>
-Furniture, Modular Kitchen, Wardrobe,
-Repairing और अन्य काम के विशेषज्ञ Carpenter खोजें।
-</p>
-
-<a href="#carpenter-list"
-class="community-btn">
-
-विशेषज्ञ देखें →
-
-</a>
-
-</article>
-
-
-<!-- JOIN DIRECTORY -->
-
-<article class="community-card">
-
-<div class="community-icon">
+<div class="profile-photo">
 👷
 </div>
 
-<h3>
-अपना नाम जोड़ें
-</h3>
+<div>
 
-<p>
-अगर आप Carpenter हैं तो भविष्य में
-अपनी Profile Directory में जोड़ सकेंगे।
+<div class="profile-name">
+Anil Carpenter
+</div>
+
+<div class="location">
+📍 Sant Kabir Nagar, Uttar Pradesh
+</div>
+
+<div class="verified">
+✓ Community Member
+</div>
+
+</div>
+
+</div>
+
+
+<div class="badges">
+
+<span class="badge">
+⭐ 10+ Years
+</span>
+
+<span class="badge">
+🛠️ Furniture
+</span>
+
+</div>
+
+
+<p class="work">
+🪚 Furniture • Wardrobe • Modular Kitchen •
+Door • Repairing
 </p>
 
-<a href="join-carpenter.html"
-class="community-btn">
 
-Carpenter जोड़ें →
+<div class="card-buttons">
+
+<a
+href="https://wa.me/918341188318"
+target="_blank"
+class="whatsapp">
+
+💬 WhatsApp
 
 </a>
+
+<a
+href="join-carpenter.html"
+class="view-profile">
+
+Profile →
+
+</a>
+
+</div>
 
 </article>
 
 
 </div>
 
+
+<div id="empty" class="empty">
+
+<h3>
+🔎 Carpenter नहीं मिला
+</h3>
+
+<p>
+नाम, शहर या अनुभव बदलकर फिर खोजें।
+</p>
+
+</div>
+
 </div>
 
 </section>
+
+
+<!-- CTA -->
+
+<section class="community-cta">
+
+<div class="container">
+
+<h2>
+क्या आप Carpenter हैं? 🪚
+</h2>
+
+<p>
+अपना Profile Carpenter Directory में जोड़ें
+और देशभर के Carpenter Community Network का हिस्सा बनें।
+</p>
+
+<a
+href="join-carpenter.html"
+class="join-btn">
+
+👷 Carpenter जोड़ें →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<p>
+© 2026 Anil Carpenter • Carpenter Community
+</p>
+
+</footer>
+
+
+<script>
+
+function searchCarpenters(){
+
+  const search =
+  document.getElementById("search")
+  .value
+  .toLowerCase()
+  .trim();
+
+  const city =
+  document.getElementById("city")
+  .value
+  .toLowerCase()
+  .trim();
+
+  const experience =
+  document.getElementById("experience")
+  .value
+  .toLowerCase()
+  .trim();
+
+  const cards =
+  document.querySelectorAll(".carpenter-card");
+
+  let found = false;
+
+  cards.forEach(function(card){
+
+    const text =
+    card.innerText.toLowerCase();
+
+    const matchSearch =
+    !search || text.includes(search);
+
+    const matchCity =
+    !city || text.includes(city);
+
+    const matchExperience =
+    !experience || text.includes(experience);
+
+    if(
+      matchSearch &&
+      matchCity &&
+      matchExperience
+    ){
+
+      card.style.display = "block";
+      found = true;
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("empty").style.display =
+  found
