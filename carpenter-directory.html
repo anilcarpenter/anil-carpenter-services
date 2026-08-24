@@ -725,8 +725,444 @@ function searchCarpenters(){
 
 }
 
-</script>
+<script>
 
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxC92boo7tCf9qDFLTm6vCntg0BNxIePXgi0dbGM9WmTyxvr3zH37rH0_vVWbYkSjftbA/exec";
+
+
+let carpenters = [];
+
+
+/* =========================
+   LOAD CARPENTER DATA
+========================= */
+
+async function loadCarpenters(){
+
+  const grid =
+    document.getElementById("directoryGrid");
+
+  const empty =
+    document.getElementById("empty");
+
+  grid.innerHTML = `
+    <div style="
+      grid-column:1/-1;
+      text-align:center;
+      padding:45px 20px;
+      color:#777;
+    ">
+      ⏳ Carpenter Directory लोड हो रही है...
+    </div>
+  `;
+
+  try{
+
+    const response =
+      await fetch(SCRIPT_URL);
+
+    if(!response.ok){
+      throw new Error("Network error");
+    }
+
+    const data =
+      await response.json();
+
+    carpenters = Array.isArray(data) ? data : [];
+
+    displayCarpenters(carpenters);
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    grid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:45px 20px;
+        background:#fff;
+        border-radius:16px;
+      ">
+        <div style="font-size:38px;">⚠️</div>
+        <h3>Directory अभी लोड नहीं हो सकी</h3>
+        <p style="color:#777;margin-top:8px;">
+          कृपया कुछ देर बाद दोबारा कोशिश करें।
+        </p>
+      </div>
+    `;
+
+    empty.style.display = "none";
+  }
+
+}
+
+
+/* =========================
+   DISPLAY CARPENTERS
+========================= */
+
+function displayCarpenters(list){
+
+  const grid =
+    document.getElementById("directoryGrid");
+
+  const empty =
+    document.getElementById("empty");
+
+  grid.innerHTML = "";
+
+  if(!list.length){
+
+    empty.style.display = "block";
+
+    return;
+  }
+
+  empty.style.display = "none";
+
+
+  list.forEach(function(person){
+
+    const name =
+      person.Name || "Carpenter";
+
+    const mobile =
+      person.Mobile || "";
+
+    const city =
+      person.City || "स्थान उपलब्ध नहीं";
+
+    const experience =
+      person.Experience || "अनुभव उपलब्ध नहीं";
+
+    const work =
+      person.Work || "Carpenter";
+
+    const about =
+      person.About || "";
+
+    const whatsapp =
+      person.WhatsApp || mobile;
+
+    const profile =
+      person.Profile || "";
+
+
+    /* WhatsApp number साफ करना */
+
+    const whatsappNumber =
+      String(whatsapp)
+      .replace(/\D/g,"");
+
+
+    let whatsappLink = "";
+
+    if(whatsappNumber){
+
+      let number = whatsappNumber;
+
+      if(number.length === 10){
+        number = "91" + number;
+      }
+
+      whatsappLink =
+        "https://wa.me/" + number;
+    }
+
+
+    /* Profile photo */
+
+    let photoHTML = `
+      <div class="profile-photo">
+        👷
+      </div>
+    `;
+
+    if(profile){
+
+      photoHTML = `
+        <div class="profile-photo"
+             style="
+             overflow:hidden;
+             background:#f3f4f6;
+             ">
+
+          <img
+            src="${escapeHTML(profile)}"
+            alt="${escapeHTML(name)}"
+            style="
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            "
+            onerror="this.style.display='none';this.parentElement.innerHTML='👷';"
+          >
+
+        </div>
+      `;
+    }
+
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "carpenter-card";
+
+
+    card.dataset.name =
+      name.toLowerCase();
+
+    card.dataset.city =
+      city.toLowerCase();
+
+    card.dataset.experience =
+      experience.toLowerCase();
+
+    card.dataset.work =
+      work.toLowerCase();
+
+
+    card.innerHTML = `
+
+      <div class="profile-top">
+
+        ${photoHTML}
+
+        <div>
+
+          <div class="profile-name">
+            ${escapeHTML(name)}
+          </div>
+
+          <div class="location">
+            📍 ${escapeHTML(city)}
+          </div>
+
+          <div class="verified">
+            ✓ Community Member
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="badges">
+
+        <span class="badge">
+          ⭐ ${escapeHTML(experience)}
+        </span>
+
+        <span class="badge">
+          🛠️ ${escapeHTML(work)}
+        </span>
+
+      </div>
+
+
+      <p class="work">
+        🪚 ${escapeHTML(work)}
+        ${about ? " • " + escapeHTML(about) : ""}
+      </p>
+
+
+      <div class="card-buttons">
+
+        ${
+          whatsappLink
+          ?
+          `
+          <a
+            href="${whatsappLink}"
+            target="_blank"
+            rel="noopener"
+            class="whatsapp">
+
+            💬 WhatsApp
+
+          </a>
+          `
+          :
+          `
+          <a
+            href="javascript:void(0)"
+            class="whatsapp"
+            style="opacity:.5;">
+
+            WhatsApp
+
+          </a>
+          `
+        }
+
+
+        <a
+          href="join-carpenter.html"
+          class="view-profile">
+
+          Profile →
+
+        </a>
+
+      </div>
+
+    `;
+
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchCarpenters(){
+
+  const search =
+    document.getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const city =
+    document.getElementById("city")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const experience =
+    document.getElementById("experience")
+    .value
+    .toLowerCase()
+    .trim();
+
+
+  const cards =
+    document.querySelectorAll(".carpenter-card");
+
+  const empty =
+    document.getElementById("empty");
+
+  let found = false;
+
+
+  cards.forEach(function(card){
+
+    const name =
+      card.dataset.name || "";
+
+    const cardCity =
+      card.dataset.city || "";
+
+    const cardExperience =
+      card.dataset.experience || "";
+
+    const work =
+      card.dataset.work || "";
+
+
+    const searchMatch =
+      !search ||
+      name.includes(search) ||
+      work.includes(search);
+
+
+    const cityMatch =
+      !city ||
+      cardCity.includes(city);
+
+
+    const experienceMatch =
+      !experience ||
+      cardExperience.includes(experience);
+
+
+    if(
+      searchMatch &&
+      cityMatch &&
+      experienceMatch
+    ){
+
+      card.style.display = "block";
+
+      found = true;
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+
+  empty.style.display =
+    found ? "none" : "block";
+
+}
+
+
+/* =========================
+   SAFE TEXT
+========================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    loadCarpenters();
+
+  }
+);
+
+
+/* Enter दबाने पर Search */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Enter" &&
+      (
+        document.activeElement.id === "search" ||
+        document.activeElement.id === "city"
+      )
+    ){
+
+      searchCarpenters();
+
+    }
+
+  }
+);
+
+</script>
 
 </body>
 </html>
