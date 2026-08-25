@@ -581,14 +581,20 @@ Door • Repairing
 
 <div class="card-buttons">
 
-<a
-href="https://wa.me/918341188318"
-target="_blank"
-class="whatsapp">
+  ${
+    whatsappLink
+    ?
+    `
+    <a
+      href="${whatsappLink}"
+      target="_blank"
+      rel="noopener"
+      class="whatsapp">
 
-💬 WhatsApp
+      💬 WhatsApp
 
-</a>
+    </a>
+    `
 
 <a
   href="carpenter-profile.html?mobile=${encodeURIComponent(mobile)}"
