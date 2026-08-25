@@ -823,29 +823,28 @@ function displayCarpenters(list){
   list.forEach(function(person){
 
     const name =
-      person.Name || "Carpenter";
+  person.Name || person.name || "Carpenter";
 
-    const mobile =
-      person.Mobile || "";
+const mobile =
+  person.Mobile || person.mobile || "";
 
-    const city =
-      person.City || "स्थान उपलब्ध नहीं";
+const city =
+  person.City || person.city || "स्थान उपलब्ध नहीं";
 
-    const experience =
-      person.Experience || "अनुभव उपलब्ध नहीं";
+const experience =
+  person.Experience || person.experience || "अनुभव उपलब्ध नहीं";
 
-    const work =
-      person.Work || "Carpenter";
+const work =
+  person.Work || person.work || "Carpenter";
 
-    const about =
-      person.About || "";
+const about =
+  person.About || person.about || "";
 
-    const whatsapp =
-      person.WhatsApp || mobile;
+const whatsapp =
+  person.WhatsApp || person.whatsapp || mobile;
 
-    const profile =
-      person.Profile || "";
-
+const profile =
+  person.Profile || person.profile || "";
 
     /* WhatsApp number साफ करना */
 
