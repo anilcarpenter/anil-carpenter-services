@@ -2046,3 +2046,177 @@ table th {
     }
 
 }
+/* =========================================================
+   NEW CARPENTER PAGE
+   ========================================================= */
+
+.new-carpenter-guide {
+    padding: 60px 0;
+    background: transparent;
+}
+
+.new-carpenter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.new-carpenter-card {
+    padding: 25px;
+
+    border: 1px solid rgba(218, 220, 224, 0.9);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    box-shadow: 0 3px 14px rgba(60, 64, 67, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.new-carpenter-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #dadce0;
+
+    box-shadow: 0 6px 20px rgba(60, 64, 67, 0.10);
+}
+
+.guide-icon {
+    margin-bottom: 12px;
+    font-size: 30px;
+}
+
+.new-carpenter-card h3 {
+    margin-bottom: 10px;
+
+    color: #202124;
+
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.new-carpenter-card p {
+    margin-bottom: 14px;
+
+    color: #5f6368;
+
+    line-height: 1.7;
+}
+
+.new-carpenter-card a {
+    display: inline-block;
+
+    color: #1a73e8;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.new-carpenter-card a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= NEW CARPENTER TIPS ================= */
+
+.new-carpenter-tips {
+    padding: 60px 0;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e8eaed;
+}
+
+.tips-list {
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.tip-item {
+    display: grid;
+
+    grid-template-columns: 60px 1fr;
+
+    gap: 20px;
+
+    padding: 22px 0;
+
+    border-top: 1px solid #dadce0;
+}
+
+.tip-item:last-child {
+    border-bottom: 1px solid #dadce0;
+}
+
+.tip-item > strong {
+    color: #1a73e8;
+
+    font-size: 22px;
+}
+
+.tip-item h3 {
+    margin-bottom: 6px;
+
+    color: #202124;
+
+    font-size: 19px;
+}
+
+.tip-item p {
+    color: #5f6368;
+
+    line-height: 1.7;
+}
+
+
+/* ================= NEW CARPENTER TABLET ================= */
+
+@media (max-width: 900px) {
+
+    .new-carpenter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ================= NEW CARPENTER MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .new-carpenter-guide {
+        padding: 45px 0;
+    }
+
+    .new-carpenter-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .new-carpenter-card {
+        padding: 22px;
+    }
+
+    .new-carpenter-tips {
+        padding: 45px 0;
+    }
+
+    .tip-item {
+        grid-template-columns: 45px 1fr;
+
+        gap: 12px;
+
+        padding: 20px 0;
+    }
+
+    .tip-item h3 {
+        font-size: 18px;
+    }
+
+}
