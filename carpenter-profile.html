@@ -389,52 +389,38 @@ Carpenter Profile लोड हो रही है...
 
 </footer>
 
-
-<script>
-
-/* =========================
-   GOOGLE APPS SCRIPT
-========================= */
+  <script>
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzTXG6UJfx1QYN_azzEK8eq2EM9W8f0thNEuynzqvvK33DN_dJV_VIW3SK6btw1UtU/exec";
 
 
 /* =========================
-   GET PROFILE PARAMETER
+   PROFILE LINK से NAME/MOBILE
 ========================= */
 
 function getProfileValue(){
 
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-  const name =
-    params.get("name");
-
-  const mobile =
-    params.get("mobile");
+  const params = new URLSearchParams(
+    window.location.search
+  );
 
   return {
-    name: name ? name.trim() : "",
-    mobile: mobile ? mobile.trim() : ""
+    name: (params.get("name") || "").trim(),
+    mobile: (params.get("mobile") || "").trim()
   };
 
 }
 
 
 /* =========================
-   LOAD PROFILE
+   PROFILE LOAD
 ========================= */
 
 async function loadProfile(){
 
   const container =
-    document.getElementById(
-      "profileContainer"
-    );
+    document.getElementById("profileContainer");
 
   const profile =
     getProfileValue();
@@ -444,11 +430,10 @@ async function loadProfile(){
 
     showError(
       "Carpenter Profile नहीं मिला",
-      "Profile link में Carpenter की जानकारी मौजूद नहीं है।"
+      "Profile link में Carpenter का नाम या मोबाइल नंबर मौजूद नहीं है।"
     );
 
     return;
-
   }
 
 
@@ -457,12 +442,9 @@ async function loadProfile(){
     const response =
       await fetch(SCRIPT_URL);
 
-
     if(!response.ok){
 
-      throw new Error(
-        "Network error"
-      );
+      throw new Error("Network error");
 
     }
 
@@ -475,56 +457,51 @@ async function loadProfile(){
       Array.isArray(data)
       ? data
       : (
-        Array.isArray(data.data)
-        ? data.data
-        : []
-      );
+          Array.isArray(data.data)
+          ? data.data
+          : []
+        );
 
 
-    /* GOOGLE SHEET ARRAY → OBJECT */
+    /* Google Sheet Array को Object में बदलना */
 
     if(
       rows.length &&
       Array.isArray(rows[0])
     ){
 
-      rows =
-        rows.map(function(row){
+      rows = rows.map(function(row){
 
-          return {
+        return {
 
-            Name:
-              row[0] || "",
+          Name: row[0] || "",
+          Mobile: row[1] || "",
+          City: row[2] || "",
+          Experience: row[3] || "",
+          Work: row[4] || "",
+          About: row[5] || "",
+          WhatsApp: row[6] || row[1] || "",
+          Purpose: row[7] || ""
 
-            Mobile:
-              row[1] || "",
+        };
 
-            City:
-              row[2] || "",
-
-            Experience:
-              row[3] || "",
-
-            Work:
-              row[4] || "",
-
-            About:
-              row[5] || "",
-
-            WhatsApp:
-              row[6] || row[1] || "",
-
-            Purpose:
-              row[7] || ""
-
-          };
-
-        });
+      });
 
     }
 
 
-    /* FIND CARPENTER */
+    /* Carpenter खोजें */
+
+    const searchName =
+      profile.name
+      .toLowerCase()
+      .trim();
+
+
+    const searchMobile =
+      profile.mobile
+      .replace(/\D/g,"");
+
 
     const person =
       rows.find(function(item){
@@ -534,7 +511,9 @@ async function loadProfile(){
             item.Name ||
             item.name ||
             ""
-          ).trim().toLowerCase();
+          )
+          .toLowerCase()
+          .trim();
 
 
         const mobile =
@@ -542,50 +521,25 @@ async function loadProfile(){
             item.Mobile ||
             item.mobile ||
             ""
-          ).replace(/\D/g,"");
+          )
+          .replace(/\D/g,"");
 
 
-        /* NAME MATCH */
-
-        if(profile.name){
-
-          const searchName =
-            profile.name
-            .trim()
-            .toLowerCase();
-
-          if(name === searchName){
-
-            return true;
-
-          }
-
-        }
+        const nameMatch =
+          searchName &&
+          name === searchName;
 
 
-        /* MOBILE MATCH */
-
-        if(profile.mobile){
-
-          const searchMobile =
-            profile.mobile
-            .replace(/\D/g,"");
-
-
-          if(
+        const mobileMatch =
+          searchMobile &&
+          (
             mobile === searchMobile ||
             mobile === "91" + searchMobile ||
-            ("91" + mobile) === searchMobile
-          ){
-
-            return true;
-
-          }
-
-        }
+            searchMobile === "91" + mobile
+          );
 
 
-        return false;
+        return nameMatch || mobileMatch;
 
       });
 
@@ -628,9 +582,7 @@ async function loadProfile(){
 function displayProfile(person){
 
   const container =
-    document.getElementById(
-      "profileContainer"
-    );
+    document.getElementById("profileContainer");
 
 
   const name =
@@ -675,8 +627,6 @@ function displayProfile(person){
     mobile;
 
 
-  /* WHATSAPP */
-
   const whatsappNumber =
     String(whatsapp)
     .replace(/\D/g,"");
@@ -700,26 +650,18 @@ function displayProfile(person){
 
 
     whatsappLink =
-      "https://wa.me/" +
-      number;
+      "https://wa.me/" + number;
 
   }
 
 
-  /* CALL */
-
-  const phoneNumber =
-    String(mobile)
-    .replace(/\D/g,"");
-
-
   const phoneLink =
-    phoneNumber
-    ? "tel:" + phoneNumber
+    mobile
+    ? "tel:" +
+      String(mobile)
+      .replace(/\D/g,"")
     : "#";
 
-
-  /* SHARE URL */
 
   const shareURL =
     window.location.origin +
@@ -739,54 +681,40 @@ function displayProfile(person){
 
   container.innerHTML = `
 
-    <div class="profile-cover">
-    </div>
+    <div class="profile-cover"></div>
 
 
     <div class="profile-main">
 
 
       <div class="profile-photo">
-
         👷
-
       </div>
 
 
       <div class="profile-name">
-
         ${escapeHTML(name)}
-
       </div>
 
 
       <div class="location">
-
         📍 ${escapeHTML(city)}
-
       </div>
 
 
       <div class="verified">
-
         ✓ Community Member
-
       </div>
 
 
       <div class="badges">
 
         <span class="badge">
-
           ⭐ ${escapeHTML(experience)}
-
         </span>
 
-
         <span class="badge">
-
           🛠️ ${escapeHTML(work)}
-
         </span>
 
       </div>
@@ -799,9 +727,7 @@ function displayProfile(person){
         </h2>
 
         <p>
-
           ${escapeHTML(about)}
-
         </p>
 
       </div>
@@ -817,9 +743,7 @@ function displayProfile(person){
           </div>
 
           <div class="info-value">
-
             ${escapeHTML(city)}
-
           </div>
 
         </div>
@@ -832,9 +756,7 @@ function displayProfile(person){
           </div>
 
           <div class="info-value">
-
             ${escapeHTML(experience)}
-
           </div>
 
         </div>
@@ -847,9 +769,7 @@ function displayProfile(person){
           </div>
 
           <div class="info-value">
-
             ${escapeHTML(work)}
-
           </div>
 
         </div>
@@ -862,11 +782,9 @@ function displayProfile(person){
           </div>
 
           <div class="info-value">
-
             ${escapeHTML(
               mobile || "उपलब्ध नहीं"
             )}
-
           </div>
 
         </div>
@@ -882,9 +800,7 @@ function displayProfile(person){
         </h2>
 
         <span class="badge">
-
           ${escapeHTML(work)}
-
         </span>
 
       </div>
@@ -913,7 +829,7 @@ function displayProfile(person){
 
 
         ${
-          phoneNumber
+          mobile
           ?
           `
           <a
@@ -932,7 +848,7 @@ function displayProfile(person){
         <button
           type="button"
           class="share"
-          onclick="shareProfile()">
+          onclick="shareProfile('${escapeJS(name)}')">
 
           🔗 Share
 
@@ -957,7 +873,7 @@ function displayProfile(person){
    SHARE
 ========================= */
 
-async function shareProfile(){
+async function shareProfile(name){
 
   const url =
     window.currentProfileURL ||
@@ -971,41 +887,37 @@ async function shareProfile(){
       await navigator.share({
 
         title:
-          document.title,
+          name +
+          " | Carpenter Profile",
 
         text:
-          "Carpenter Community पर Carpenter Profile देखें।",
+          "Carpenter Community पर " +
+          name +
+          " की Profile देखें।",
 
-        url:url
+        url: url
 
       });
 
     }
-
     catch(error){
 
-      console.log(
-        "Share cancelled"
-      );
+      console.log("Share cancelled");
 
     }
 
   }
-
   else{
 
     try{
 
-      await navigator.clipboard.writeText(
-        url
-      );
+      await navigator.clipboard.writeText(url);
 
       alert(
         "Profile link copy हो गया।"
       );
 
     }
-
     catch(error){
 
       prompt(
@@ -1090,6 +1002,20 @@ function escapeHTML(value){
 
 
 /* =========================
+   SAFE JAVASCRIPT
+========================= */
+
+function escapeJS(value){
+
+  return String(value)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/\r?\n/g,"\\n");
+
+}
+
+
+/* =========================
    START
 ========================= */
 
@@ -1102,8 +1028,7 @@ document.addEventListener(
   }
 );
 
-</script>
-
+        </script>
 </body>
 
 </html>
