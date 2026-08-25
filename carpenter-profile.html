@@ -470,7 +470,7 @@ const SCRIPT_URL =
    GET PROFILE NAME
 ========================= */
 
-function getProfileName(){
+ function getProfileName(){
 
   const params =
     new URLSearchParams(
@@ -479,8 +479,11 @@ function getProfileName(){
 
   return (
     params.get("name") ||
+    params.get("mobile") ||
     ""
   ).trim();
+
+ }
 
 }
 
@@ -497,17 +500,18 @@ async function loadProfile(){
     );
 
   const profileName =
-    getProfileName();
+  getProfileName();
 
+if(!profileName){
 
-  if(!profileName){
+  showError(
+    "Carpenter Profile नहीं मिला",
+    "Profile link में Carpenter की जानकारी मौजूद नहीं है।"
+  );
 
-    showError(
-      "Carpenter Profile नहीं मिला",
-      "Profile link में Carpenter का नाम मौजूद नहीं है।"
-    );
+  return;
 
-    return;
+}
 
   }
 
@@ -591,24 +595,43 @@ async function loadProfile(){
     */
 
     const person =
-      rows.find(function(item){
+  rows.find(function(item){
 
-        const name =
-          item.Name ||
-          item.name ||
-          "";
+    const name =
+      item.Name ||
+      item.name ||
+      "";
 
-        return (
-          String(name)
-          .trim()
-          .toLowerCase()
-          ===
-          profileName
-          .trim()
-          .toLowerCase()
-        );
+    const mobile =
+      item.Mobile ||
+      item.mobile ||
+      "";
 
-      });
+    const searchValue =
+      profileName
+      .replace(/\D/g,"");
+
+    const sheetMobile =
+      String(mobile)
+      .replace(/\D/g,"");
+
+    const nameMatch =
+      String(name)
+      .trim()
+      .toLowerCase()
+      ===
+      profileName
+      .trim()
+      .toLowerCase();
+
+    const mobileMatch =
+      sheetMobile === searchValue ||
+      sheetMobile ===
+      ("91" + searchValue);
+
+    return nameMatch || mobileMatch;
+
+  });
 
 
     if(!person){
