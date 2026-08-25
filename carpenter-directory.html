@@ -762,9 +762,70 @@ async function loadCarpenters(){
 
     const data = await response.json();
 
-carpenters = Array.isArray(data)
+/* Google Sheet से आने वाला DATA */
+
+let rows = Array.isArray(data)
   ? data
   : (Array.isArray(data.data) ? data.data : []);
+
+if (!rows.length) {
+  carpenters = [];
+  displayCarpenters(carpenters);
+  return;
+}
+
+/*
+  Sheet Columns:
+
+  0 = Name
+  1 = Mobile
+  2 = City
+  3 = Experience
+  4 = Work
+  5 = About
+  6 = WhatsApp
+  7 = Purpose
+*/
+
+/* अगर Google Script ARRAY भेज रहा है */
+if (Array.isArray(rows[0])) {
+
+  carpenters = rows.map(function(row){
+
+    return {
+      Name: row[0] || "",
+      Mobile: row[1] || "",
+      City: row[2] || "",
+      Experience: row[3] || "",
+      Work: row[4] || "",
+      About: row[5] || "",
+      WhatsApp: row[6] || row[1] || "",
+      Purpose: row[7] || ""
+    };
+
+  });
+
+}
+
+/* अगर Google Script OBJECT भेज रहा है */
+else {
+
+  carpenters = rows.map(function(person){
+
+    return {
+      Name: person.Name || person.name || "",
+      Mobile: person.Mobile || person.mobile || "",
+      City: person.City || person.city || "",
+      Experience: person.Experience || person.experience || "",
+      Work: person.Work || person.work || "",
+      About: person.About || person.about || "",
+      WhatsApp: person.WhatsApp || person.whatsapp || person.Mobile || person.mobile || "",
+      Purpose: person.Purpose || person.purpose || ""
+    };
+
+  });
+
+}
 
 displayCarpenters(carpenters);
 
