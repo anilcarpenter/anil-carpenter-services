@@ -793,7 +793,23 @@ font-size:13px;
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+const SUPABASE_URL =
+"https://dvfbprtvuthzojbxaou.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_FsFay7fTJSIS6LNDyjbmVA_cSEVSpJg";
+
+const supabaseClient =
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+console.log("✅ Supabase connected:", !!supabaseClient);
 
 /* =========================
    PHOTO PREVIEW
