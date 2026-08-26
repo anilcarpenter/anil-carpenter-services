@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Carpenter Login | Anil Carpenter Community</title>
 
@@ -14,61 +10,32 @@ content="width=device-width, initial-scale=1.0">
 content="Anil Carpenter Community में अपने Carpenter Profile में Login करें।">
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
 <header class="header">
-
 <div class="container">
 
 <div class="logo">
-
 <a href="index.html">
 🪚 <span>Anil Carpenter</span>
 </a>
-
 </div>
 
 <nav class="menu">
-
 <ul>
-
-<li>
-<a href="index.html">Home</a>
-</li>
-
-<li>
-<a href="services.html">Services</a>
-</li>
-
-<li>
-<a href="projects.html">Projects</a>
-</li>
-
-<li>
-<a href="blog.html">Blog</a>
-</li>
-
-<li>
-<a href="carpenter-community.html">Community</a>
-</li>
-
-<li>
-<a href="about.html">About</a>
-</li>
-
-<li>
-<a href="contact.html">Contact</a>
-</li>
-
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="carpenter-community.html">Community</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul>
-
 </nav>
 
 </div>
-
 </header>
 
 
@@ -97,23 +64,22 @@ content="Anil Carpenter Community में अपने Carpenter Profile म�
 
 <h2>Community Login</h2>
 
-<form>
+
+<form id="loginForm">
+
 
 <p>
-
 <label for="email">
-Email या Mobile Number
+Email
 </label>
-
 </p>
 
 <p>
 
 <input
-type="text"
+type="email"
 id="email"
-name="email"
-placeholder="Email या Mobile Number"
+placeholder="अपना Email"
 required
 style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
 
@@ -121,11 +87,9 @@ style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
 
 
 <p>
-
 <label for="password">
 Password
 </label>
-
 </p>
 
 <p>
@@ -133,7 +97,6 @@ Password
 <input
 type="password"
 id="password"
-name="password"
 placeholder="Password"
 required
 style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
@@ -141,10 +104,17 @@ style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
 </p>
 
 
+<p
+id="loginMessage"
+style="margin:12px 0;font-weight:700;">
+</p>
+
+
 <p>
 
 <button
 type="submit"
+id="loginBtn"
 class="btn primary-btn">
 
 🔐 Login करें
@@ -175,6 +145,7 @@ Sign Up करें →
 
 </p>
 
+
 </div>
 
 </div>
@@ -201,8 +172,113 @@ Sign Up करें →
 </footer>
 
 
-<script src="script.js"></script>
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://dvfbprtvuthzojbxaoua.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_FsFay7fTJSIS6LNDyjbmVA_cSEVSpJg";
+
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+
+
+const loginForm =
+document.getElementById("loginForm");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const loginMessage =
+document.getElementById("loginMessage");
+
+
+loginForm.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+
+const email =
+document.getElementById("email")
+.value.trim();
+
+
+const password =
+document.getElementById("password")
+.value;
+
+
+loginBtn.disabled = true;
+
+loginBtn.textContent =
+"⏳ Login हो रहा है...";
+
+loginMessage.textContent = "";
+
+
+
+const { data, error } =
+await supabaseClient.auth.signInWithPassword({
+
+email: email,
+
+password: password
+
+});
+
+
+
+if(error){
+
+loginMessage.textContent =
+"❌ " + error.message;
+
+loginMessage.style.color =
+"red";
+
+loginBtn.disabled = false;
+
+loginBtn.textContent =
+"🔐 Login करें";
+
+return;
+
+}
+
+
+
+loginMessage.textContent =
+"✅ Login सफल!";
+
+loginMessage.style.color =
+"green";
+
+
+setTimeout(function(){
+
+window.location.href =
+"carpenter-community.html";
+
+},700);
+
+
+});
+
+</script>
 
 </body>
-
 </html>
