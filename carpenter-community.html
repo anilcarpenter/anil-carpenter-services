@@ -854,95 +854,125 @@ function previewPhoto(event){
    CREATE POST
 ========================= */
 
-function createPost(){
+async function createPost(){
 
-  const text =
-    document
+  const text = document
     .getElementById("postText")
     .value
     .trim();
 
-  const photo =
-    document
-    .getElementById("photoPreview")
-    .src;
+  const photoInput = document
+    .getElementById("photoInput");
 
-
-  if(!text && !photo){
-
-    alert(
-      "पहले कुछ लिखें या फोटो चुनें।"
-    );
-
+  if(!text){
+    alert("कृपया पोस्ट में कुछ लिखें।");
     return;
-
   }
 
+  try {
 
-  const post = {
+    let photoUrl = null;
 
-    id:
-      Date.now(),
+    /* =========================
+       PHOTO UPLOAD
+    ========================= */
 
-    name:
-      "Anil Carpenter",
+    if(photoInput.files.length > 0){
 
-    text:
-      text,
+      const file = photoInput.files[0];
 
-    photo:
-      photo || "",
+      const fileExt = file.name.split(".").pop();
 
-    likes:
-      0,
+      const fileName =
+        `${crypto.randomUUID()}.${fileExt}`;
 
-    comments:
-      [],
+      const filePath = fileName;
 
-    time:
-      new Date().toLocaleString(
-        "hi-IN"
-      )
+      const { error: uploadError } =
+        await supabaseClient
+          .storage
+          .from("community-posts")
+          .upload(filePath, file);
 
-  };
+      if(uploadError){
+        console.error(uploadError);
+        alert("फोटो अपलोड नहीं हो सकी।");
+        return;
+      }
 
+      const { data } =
+        supabaseClient
+          .storage
+          .from("community-posts")
+          .getPublicUrl(filePath);
 
-  let posts =
-    JSON.parse(
-      localStorage.getItem(
-        "carpenterPosts"
-      ) || "[]"
-    );
+      photoUrl = data.publicUrl;
+    }
 
+    /* =========================
+       CURRENT USER
+    ========================= */
 
-  posts.unshift(post);
+    const {
+      data: { user }
+    } = await supabaseClient.auth.getUser();
 
+    if(!user){
+      alert("पोस्ट करने के लिए पहले Sign In करें।");
+      return;
+    }
 
-  localStorage.setItem(
-    "carpenterPosts",
-    JSON.stringify(posts)
-  );
+    /* =========================
+       SAVE POST IN SUPABASE
+    ========================= */
 
+    const { error } =
+      await supabaseClient
+        .from("community_posts")
+        .insert({
+          user_id: user.id,
+          text: text,
+          photo_url: photoUrl
+        });
 
-  document
-  .getElementById("postText")
-  .value = "";
+    if(error){
+      console.error(error);
+      alert("पोस्ट सेव नहीं हुई।");
+      return;
+    }
 
+    /* =========================
+       CLEAR FORM
+    ========================= */
 
-  document
-  .getElementById("photoInput")
-  .value = "";
+    document
+      .getElementById("postText")
+      .value = "";
 
+    photoInput.value = "";
 
-  document
-  .getElementById("photoPreview")
-  .style.display = "none";
+    const preview =
+      document.getElementById("photoPreview");
 
+    if(preview){
+      preview.src = "";
+      preview.style.display = "none";
+    }
 
-  loadPosts();
+    alert("✅ पोस्ट सफलतापूर्वक शेयर हो गई!");
 
+    /* पोस्ट दोबारा लोड */
+    if(typeof loadPosts === "function"){
+      loadPosts();
+    }
+
+  } catch(error){
+
+    console.error(error);
+
+    alert("कुछ गलती हुई। Console में Error देखें।");
+  }
 }
-
 
 /* =========================
    LOAD POSTS
