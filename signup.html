@@ -1,1 +1,380 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Carpenter Sign Up | Anil Carpenter Community</title>
+
+<meta name="description"
+content="Anil Carpenter Community से जुड़ने के लिए अपना Carpenter Account बनाएं।">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+<div class="container">
+
+<div class="logo">
+<a href="index.html">
+🪚 <span>Anil Carpenter</span>
+</a>
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="carpenter-community.html">Community</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+
+<main>
+
+<section class="community-intro">
+
+<div class="container">
+
+<h1>📝 Carpenter Sign Up</h1>
+
+<p>
+Carpenter Community में अपना Account बनाएं
+और दूसरे कारीगरों से जुड़ें।
+</p>
+
+</div>
+
+</section>
+
+
+<section class="community-steps">
+
+<div class="container">
+
+<div class="mission-box">
+
+<h2>अपना Carpenter Account बनाएं</h2>
+
+
+<form id="signupForm">
+
+
+<p>
+<label for="name">
+पूरा नाम
+</label>
+</p>
+
+<p>
+<input
+type="text"
+id="name"
+placeholder="अपना नाम लिखें"
+required
+style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
+</p>
+
+
+<p>
+<label for="mobile">
+Mobile Number
+</label>
+</p>
+
+<p>
+<input
+type="tel"
+id="mobile"
+placeholder="अपना मोबाइल नंबर"
+required
+style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
+</p>
+
+
+<p>
+<label for="email">
+Email
+</label>
+</p>
+
+<p>
+<input
+type="email"
+id="email"
+placeholder="अपना Email"
+required
+style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
+</p>
+
+
+<p>
+<label for="skill">
+Carpenter Skill
+</label>
+</p>
+
+<p>
+<input
+type="text"
+id="skill"
+placeholder="जैसे Furniture, Kitchen, Wardrobe"
+required
+style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
+</p>
+
+
+<p>
+<label for="password">
+Password
+</label>
+</p>
+
+<p>
+<input
+type="password"
+id="password"
+minlength="6"
+placeholder="कम से कम 6 अक्षर"
+required
+style="width:100%;padding:12px;border:1px solid #dadce0;border-radius:6px;">
+</p>
+
+
+<p
+id="signupMessage"
+style="margin:12px 0;font-weight:700;">
+</p>
+
+
+<p>
+
+<button
+type="submit"
+id="signupBtn"
+class="btn primary-btn">
+
+📝 Sign Up करें
+
+</button>
+
+</p>
+
+</form>
+
+
+<p style="margin-top:20px;">
+
+पहले से Account है?
+
+<a href="login.html">
+Login करें →
+</a>
+
+</p>
+
+
+<p>
+
+<a href="carpenter-community.html">
+← Community पर वापस जाएं
+</a>
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Anil Carpenter. All Rights Reserved.
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://dvfbprtvuthzojbxaoua.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_FsFay7fTJSIS6LNDyjbmVA_cSEVSpJg";
+
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+
+
+const form =
+document.getElementById("signupForm");
+
+const btn =
+document.getElementById("signupBtn");
+
+const message =
+document.getElementById("signupMessage");
+
+
+form.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+
+const name =
+document.getElementById("name")
+.value.trim();
+
+
+const mobile =
+document.getElementById("mobile")
+.value.trim();
+
+
+const email =
+document.getElementById("email")
+.value.trim();
+
+
+const skill =
+document.getElementById("skill")
+.value.trim();
+
+
+const password =
+document.getElementById("password")
+.value;
+
+
+btn.disabled = true;
+
+btn.textContent =
+"⏳ Account बनाया जा रहा है...";
+
+
+message.textContent = "";
+
+message.style.color = "";
+
+
+
+const { data, error } =
+await supabaseClient.auth.signUp({
+
+email: email,
+
+password: password,
+
+options: {
+
+data: {
+
+full_name: name,
+
+phone: mobile,
+
+skills: skill
+
+}
+
+}
+
+});
+
+
+
+if(error){
+
+message.textContent =
+"❌ " + error.message;
+
+message.style.color =
+"red";
+
+btn.disabled = false;
+
+btn.textContent =
+"📝 Sign Up करें";
+
+return;
+
+}
+
+
+
+if(data.session){
+
+message.textContent =
+"✅ Account बन गया! Community में जा रहे हैं...";
+
+message.style.color =
+"green";
+
+
+setTimeout(function(){
+
+window.location.href =
+"carpenter-community.html";
+
+},1000);
+
+
+}else{
+
+message.textContent =
+"✅ Account बन गया। Email verification मांगा जाए तो Email verify करें, फिर Login करें।";
+
+message.style.color =
+"green";
+
+btn.disabled = false;
+
+btn.textContent =
+"📝 Sign Up करें";
+
+form.reset();
+
+}
+
+});
+
+</script>
+
+</body>
+                                    </html>
