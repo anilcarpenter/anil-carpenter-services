@@ -272,6 +272,29 @@ function tab(name){
 function openMenu(){
   document.getElementById("sideMenu").classList.add("active");
 }
+  function menuAction(action){
+
+  if(action === "profile"){
+    window.location.href = "profile.html";
+  }
+
+  else if(action === "edit"){
+    edit();
+  }
+
+  else if(action === "signin"){
+    window.location.href = "login.html";
+  }
+
+  else if(action === "signup"){
+    window.location.href = "join-carpenter.html";
+  }
+
+  else{
+    alert(action + " का option जल्द उपलब्ध होगा।");
+  }
+
+  }
 </script>
 <!-- MENU PANEL -->
 <div id="sideMenu" class="side-menu">
