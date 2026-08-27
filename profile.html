@@ -2163,24 +2163,234 @@ async function checkFollowStatus(){
 /* =========================
    FOLLOW BUTTON
 ========================= */
+/* =========================
+   FOLLOW SYSTEM
+========================= */
+
+let isFollowing = false;
+
+
+/* CHECK FOLLOW STATUS */
+
+async function checkFollowStatus(){
+
+  try{
+
+    const followDoc =
+    await getDoc(
+      doc(
+        db,
+        "users",
+        userId,
+        "followers",
+        userId
+      )
+    );
+
+    isFollowing =
+    followDoc.exists();
+
+    updateFollowButton();
+
+  }
+  catch(error){
+
+    console.error(
+      "FOLLOW STATUS ERROR:",
+      error
+    );
+
+  }
+
+}
+
+
+/* UPDATE BUTTON */
+
+function updateFollowButton(){
+
+  if(isFollowing){
+
+    followBtn.textContent =
+    "✓ Following";
+
+    followBtn.style.background =
+    "#22c55e";
+
+    followBtn.style.color =
+    "white";
+
+  }
+  else{
+
+    followBtn.textContent =
+    "➕ Follow";
+
+    followBtn.style.background =
+    "#f59e0b";
+
+    followBtn.style.color =
+    "#111827";
+
+  }
+
+}
+
+
+/* FOLLOW / UNFOLLOW */
 
 followBtn.addEventListener(
   "click",
   async function(){
 
-    /*
-     * अभी अपने Profile को
-     * खुद Follow करने से रोकें
-     */
+    if(
+      !userId
+    ){
 
-    showMessage(
-      "यह आपका अपना Profile है"
-    );
+      showMessage(
+        "User ID नहीं मिला"
+      );
+
+      return;
+
+    }
+
+
+    followBtn.disabled =
+    true;
+
+
+    try{
+
+      const followerRef =
+      doc(
+        db,
+        "users",
+        userId,
+        "followers",
+        userId
+      );
+
+
+      const followingRef =
+      doc(
+        db,
+        "users",
+        userId,
+        "following",
+        userId
+      );
+
+
+      const existingFollow =
+      await getDoc(
+        followerRef
+      );
+
+
+      /* =====================
+         UNFOLLOW
+      ===================== */
+
+      if(
+        existingFollow.exists()
+      ){
+
+        await setDoc(
+          followerRef,
+          {
+            user_id:
+            userId,
+
+            removed_at:
+            serverTimestamp()
+          }
+        );
+
+
+        isFollowing =
+        false;
+
+        showMessage(
+          "Unfollow किया गया"
+        );
+
+      }
+
+
+      /* =====================
+         FOLLOW
+      ===================== */
+
+      else{
+
+        await setDoc(
+          followerRef,
+          {
+            user_id:
+            userId,
+
+            followed_at:
+            serverTimestamp()
+          }
+        );
+
+
+        await setDoc(
+          followingRef,
+          {
+            user_id:
+            userId,
+
+            followed_at:
+            serverTimestamp()
+          }
+        );
+
+
+        isFollowing =
+        true;
+
+        showMessage(
+          "✅ Following"
+        );
+
+      }
+
+
+      await loadStats();
+
+      updateFollowButton();
+
+    }
+    catch(error){
+
+      console.error(
+        "FOLLOW ERROR:",
+        error
+      );
+
+
+      showMessage(
+        "Follow नहीं हो सका: " +
+        error.message
+      );
+
+    }
+    finally{
+
+      followBtn.disabled =
+      false;
+
+    }
 
   }
 );
 
 
+/* START FOLLOW STATUS */
+
+checkFollowStatus();
 /* =========================
    MESSAGE
 ========================= */
