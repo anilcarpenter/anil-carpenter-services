@@ -3154,10 +3154,18 @@ async function checkFollowStatus(){
     return;
   }
 
+  /* अपनी Profile पर ही Follow बंद */
+
+if(userId === currentUserId){
+
   followBtn.disabled = true;
 
   followBtn.textContent =
     "✓ आपकी Profile";
+
+}else{
+
+  followBtn.disabled = false;
 
 }
 
