@@ -849,9 +849,8 @@ function previewPhoto(event){
 
 }
 
-
-/* =========================
-   CREATE POST
+ /* =========================
+   CREATE POST - SUPABASE
 ========================= */
 
 async function createPost(){
@@ -864,86 +863,68 @@ async function createPost(){
   const photoInput = document
     .getElementById("photoInput");
 
-  if(!text){
-    alert("कृपया पोस्ट में कुछ लिखें।");
+  if(!text && photoInput.files.length === 0){
+    alert("कृपया Post में कुछ लिखें या Photo चुनें");
     return;
   }
 
-  try {
+  try{
+
+    const { data: { user }, error: userError } =
+      await supabaseClient.auth.getUser();
+
+    if(userError || !user){
+      alert("पहले Login करें");
+      return;
+    }
 
     let photoUrl = null;
-
-    /* =========================
-       PHOTO UPLOAD
-    ========================= */
 
     if(photoInput.files.length > 0){
 
       const file = photoInput.files[0];
 
-      const fileExt = file.name.split(".").pop();
+      const fileExt =
+        file.name.split(".").pop();
 
       const fileName =
         `${crypto.randomUUID()}.${fileExt}`;
-
-      const filePath = fileName;
 
       const { error: uploadError } =
         await supabaseClient
           .storage
           .from("community-posts")
-          .upload(filePath, file);
+          .upload(fileName, file);
 
       if(uploadError){
         console.error(uploadError);
-        alert("फोटो अपलोड नहीं हो सकी।");
+        alert("Photo upload नहीं हो सकी");
         return;
       }
 
-      const { data } =
+      const { data: urlData } =
         supabaseClient
           .storage
           .from("community-posts")
-          .getPublicUrl(filePath);
+          .getPublicUrl(fileName);
 
-      photoUrl = data.publicUrl;
+      photoUrl = urlData.publicUrl;
     }
 
-    /* =========================
-       CURRENT USER
-    ========================= */
-
-    const {
-      data: { user }
-    } = await supabaseClient.auth.getUser();
-
-    if(!user){
-      alert("पोस्ट करने के लिए पहले Sign In करें।");
-      return;
-    }
-
-    /* =========================
-       SAVE POST IN SUPABASE
-    ========================= */
-
-    const { error } =
+    const { error: insertError } =
       await supabaseClient
         .from("community_posts")
         .insert({
           user_id: user.id,
-          text: text,
-          photo_url: photoUrl
+          post_text: text || null,
+          image_url: photoUrl
         });
 
-    if(error){
-      console.error(error);
-      alert("पोस्ट सेव नहीं हुई।");
+    if(insertError){
+      console.error(insertError);
+      alert("Post save नहीं हुई");
       return;
     }
-
-    /* =========================
-       CLEAR FORM
-    ========================= */
 
     document
       .getElementById("postText")
@@ -959,231 +940,19 @@ async function createPost(){
       preview.style.display = "none";
     }
 
-    alert("✅ पोस्ट सफलतापूर्वक शेयर हो गई!");
+    alert("✅ Post सफलतापूर्वक शेयर हो गई!");
 
-    /* पोस्ट दोबारा लोड */
     if(typeof loadPosts === "function"){
       loadPosts();
     }
 
-  } catch(error){
+  }catch(error){
 
     console.error(error);
 
-    alert("कुछ गलती हुई। Console में Error देखें।");
+    alert("Post करते समय Error आया");
   }
 }
-
-/* =========================
-   LOAD POSTS
-========================= */
-
-function loadPosts(){
-
-  const feed =
-    document.getElementById("feed");
-
-
-  const posts =
-    JSON.parse(
-      localStorage.getItem(
-        "carpenterPosts"
-      ) || "[]"
-    );
-
-
-  if(!posts.length){
-
-    feed.innerHTML = `
-
-      <div class="empty">
-
-        <div style="font-size:40px;">
-          👷
-        </div>
-
-        <p style="margin-top:8px;">
-          अभी कोई Post नहीं है।
-        </p>
-
-        <p style="font-size:13px;margin-top:5px;">
-          सबसे पहले आप Post करें!
-        </p>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  feed.innerHTML = "";
-
-
-  posts.forEach(function(post){
-
-    const card =
-      document.createElement("article");
-
-    card.className =
-      "post-card";
-
-
-    card.innerHTML = `
-
-      <div class="post-user">
-
-        <div class="avatar">
-          👷
-        </div>
-
-        <div>
-
-          <div class="user-name">
-            ${escapeHTML(post.name)}
-          </div>
-
-          <div class="post-time">
-            ${escapeHTML(post.time)}
-          </div>
-
-        </div>
-
-      </div>
-
-
-      ${
-        post.text
-        ?
-        `
-        <div class="post-text">
-          ${escapeHTML(post.text)}
-        </div>
-        `
-        :
-        ""
-      }
-
-
-      ${
-        post.photo
-        ?
-        `
-        <img
-          class="post-image"
-          src="${post.photo}"
-          alt="Carpenter Post">
-        `
-        :
-        ""
-      }
-
-
-      <div class="post-buttons">
-
-        <button
-          onclick="likePost(${post.id})">
-
-          ❤️ ${post.likes}
-
-        </button>
-
-
-        <button
-          onclick="focusComment(${post.id})">
-
-          💬 Comment
-
-        </button>
-
-
-        <button
-          onclick="sharePost(${post.id})">
-
-          🔗 Share
-
-        </button>
-
-      </div>
-
-
-      <div
-        id="comments-${post.id}"
-        class="comments">
-
-        ${
-          renderComments(post.comments)
-        }
-
-      </div>
-
-
-      <div class="comment-box">
-
-        <input
-          id="comment-${post.id}"
-          class="comment-input"
-          placeholder="Comment लिखें...">
-
-        <button
-          class="comment-send"
-          onclick="addComment(${post.id})">
-
-          भेजें
-
-        </button>
-
-      </div>
-
-    `;
-
-
-    feed.appendChild(card);
-
-  });
-
-}
-
-
-/* =========================
-   LIKE
-========================= */
-
-function likePost(id){
-
-  let posts =
-    JSON.parse(
-      localStorage.getItem(
-        "carpenterPosts"
-      ) || "[]"
-    );
-
-
-  const post =
-    posts.find(
-      p => p.id === id
-    );
-
-
-  if(post){
-
-    post.likes++;
-
-  }
-
-
-  localStorage.setItem(
-    "carpenterPosts",
-    JSON.stringify(posts)
-  );
-
-
-  loadPosts();
-
-}
-
 
 /* =========================
    COMMENT
