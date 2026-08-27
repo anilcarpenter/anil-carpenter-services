@@ -1030,15 +1030,34 @@ async function loadPosts(){
           }
         );
 
-    if(error){
+if(error){
 
-      console.error(
-        "Load posts error:",
-        error
-      );
+  console.error(
+    "Load posts error:",
+    error
+  );
 
-      feed.innerHTML = `
+  feed.innerHTML = `
+    <div class="empty">
 
+      <div style="font-size:40px;">
+        ⚠️
+      </div>
+
+      <p style="margin-top:8px;">
+        Posts लोड नहीं हो सके
+      </p>
+
+      <p style="font-size:13px;margin-top:8px;color:#d00;">
+        ${escapeHTML(error.message || "Unknown Supabase error")}
+      </p>
+
+    </div>
+  `;
+
+  return;
+
+}
         <div class="empty">
 
           <div style="font-size:40px;">
