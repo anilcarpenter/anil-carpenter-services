@@ -1159,33 +1159,12 @@ photoInput.addEventListener(
 );
 
 
-/* =========================
-   EDIT PROFILE BUTTON
-========================= */
-
-editBtn.addEventListener(
-  "click",
-  function(){
-
-    if(
-      editBox.style.display ===
-      "block"
-    ){
-
-      editBox.style.display =
-        "none";
-
-    }
-    else{
-
-      editBox.style.display =
-        "block";
-
-    }
-
-  }
-);
-
+editBtn.addEventListener("click", () => {
+  editBox.style.display =
+    editBox.style.display === "none" || editBox.style.display === ""
+      ? "block"
+      : "none";
+});
 
 /* =========================
    SAVE BUTTON
