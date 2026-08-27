@@ -107,7 +107,11 @@ button{
        src="https://picsum.photos/200">
 
   <div class="name">Anil Carpenter</div>
-  <div class="username" id="profileUsername">@anilcarpenter</div>
+  <<div class="username"
+     id="profileUsername"
+     onclick="createAccount()">
+  @anilcarpenter
+</div>
 
   <div class="bio">
     Furniture Work.<br>
@@ -145,6 +149,9 @@ button{
 </div>
 
 <script>
+  function createAccount(){
+  alert("✨ Create Account\n\nअपना नया Carpenter Community Account बनाइए।");
+  }
 function follow(){
   alert("Follow system यहाँ खुलेगा");
 }
