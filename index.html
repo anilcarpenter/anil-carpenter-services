@@ -9,14 +9,14 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Anil Carpenter | Door-to-Door Carpenter Service | Sant Kabir Nagar
+Anil Carpenter | Carpenter Knowledge & Community
 </title>
 
 <meta name="description"
-content="संत कबीर नगर में Door-to-Door Carpenter Service। Furniture Repair, Modular Kitchen, Wardrobe, TV Unit, Interior Work और Custom Furniture बनाने की Professional Service।">
+content="Anil Carpenter - Carpenter Knowledge, Community और जरूरी Carpenter Guides एक ही जगह।">
 
 <meta name="keywords"
-content="Anil Carpenter, Carpenter Sant Kabir Nagar, Furniture Repair, Modular Kitchen, Wardrobe, Interior Work, Carpenter Near Me">
+content="Anil Carpenter, Carpenter Community, Carpenter Knowledge, Carpenter Guide, Furniture Making">
 
 <meta name="author"
 content="Anil Carpenter">
@@ -25,262 +25,610 @@ content="Anil Carpenter">
 content="index,follow">
 
 <meta name="theme-color"
-content="#7b4b27">
-
-<meta name="format-detection"
-content="telephone=no">
+content="#111827">
 
 <link rel="canonical"
 href="https://www.anilcarpenter.com/">
 
-<!-- Google AdSense -->
-<script
-async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5821960391066614"
-crossorigin="anonymous">
-</script>
-
-<!-- Open Graph -->
-<meta property="og:type"
-content="website">
-
-<meta property="og:title"
-content="Anil Carpenter">
-
-<meta property="og:description"
-content="Professional Door-to-Door Carpenter Service in Sant Kabir Nagar.">
-
-<meta property="og:url"
-content="https://www.anilcarpenter.com/">
-
-<meta property="og:site_name"
-content="Anil Carpenter">
-
-<!-- Twitter -->
-<meta name="twitter:card"
-content="summary_large_image">
-
-<meta name="twitter:title"
-content="Anil Carpenter">
-
-<meta name="twitter:description"
-content="Professional Carpenter Service">
-
 <link rel="icon"
 href="favicon.ico">
 
-<link rel="stylesheet"
-href="style.css">
-
-
-<!-- =====================================================
-     FINAL MENU CSS
-===================================================== -->
 
 <style>
 
-.final-header{
-  background:#111827;
-  color:#fff;
-  position:relative;
-  z-index:3000;
-}
+/* =========================
+   RESET
+========================= */
 
-.final-header-inner{
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:0 15px;
-}
-
-.final-logo{
-  color:#fff;
-  text-decoration:none;
-  font-size:21px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.final-logo span{
-  color:#f59e0b;
-}
-
-.final-menu-btn{
-  border:0;
-  background:transparent;
-  color:#fff;
-  font-size:18px;
-  font-weight:700;
-  cursor:pointer;
-  padding:10px 12px;
-  margin-left:10px;
-}
-
-.final-profile-btn{
-  margin-left:auto;
-  border:1px solid #4b5563;
-  background:#1f2937;
-  color:#fff;
-  border-radius:10px;
-  padding:9px 13px;
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 
-/* LEFT DRAWER */
+body{
 
-.final-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:3500;
-  display:none;
-}
+  font-family:
+  Arial,
+  "Noto Sans Devanagari",
+  sans-serif;
 
-.final-overlay.open{
-  display:block;
-}
-
-.final-drawer{
-  position:fixed;
-  top:0;
-  left:-340px;
-  width:320px;
-  max-width:88vw;
-  height:100vh;
-  background:#fff;
-  z-index:4000;
-  box-shadow:5px 0 25px rgba(0,0,0,.20);
-  transition:left .25s ease;
-  overflow-y:auto;
-}
-
-.final-drawer.open{
-  left:0;
-}
-
-.final-drawer-head{
-  height:68px;
-  background:#111827;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  font-size:20px;
-  font-weight:800;
-}
-
-.final-drawer-head button{
-  border:0;
-  background:transparent;
-  color:#fff;
-  font-size:27px;
-  cursor:pointer;
-}
-
-.final-nav{
-  padding:12px 9px 25px;
-}
-
-.final-nav a{
-  display:block;
-  color:#111827;
-  text-decoration:none;
-  padding:15px 13px;
-  border-radius:9px;
-  font-size:16px;
-  font-weight:600;
-}
-
-.final-nav a:hover{
   background:#f3f4f6;
+
+  color:#202124;
+
 }
 
 
-/* RIGHT PROFILE PANEL */
+/* =========================
+   CONTAINER
+========================= */
 
-.final-profile-panel{
-  position:fixed;
-  top:72px;
-  right:10px;
-  width:315px;
-  max-width:calc(100vw - 20px);
-  max-height:calc(100vh - 85px);
-  overflow-y:auto;
+.container{
+
+  width:94%;
+
+  max-width:900px;
+
+  margin:auto;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+  background:#111827;
+
+  color:#fff;
+
+  padding:13px 0;
+
+  position:sticky;
+
+  top:0;
+
+  z-index:1000;
+
+  box-shadow:
+  0 2px 10px
+  rgba(0,0,0,.15);
+
+}
+
+
+.header-inner{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+}
+
+
+/* LEFT MENU */
+
+.menu-btn{
+
+  border:1px solid #4b5563;
+
+  background:#1f2937;
+
+  color:#fff;
+
+  padding:8px 12px;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  font-weight:700;
+
+}
+
+
+/* CENTER LOGO */
+
+.logo{
+
+  color:#fff;
+
+  text-decoration:none;
+
+  font-size:19px;
+
+  font-weight:800;
+
+  text-align:center;
+
+  flex:1;
+
+}
+
+
+.logo span{
+
+  color:#f59e0b;
+
+}
+
+
+/* RIGHT PROFILE */
+
+.profile-btn{
+
+  color:#fff;
+
+  text-decoration:none;
+
+  border:1px solid #4b5563;
+
+  background:#1f2937;
+
+  padding:8px 11px;
+
+  border-radius:8px;
+
+  font-size:13px;
+
+  font-weight:700;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+  background:
+  linear-gradient(
+    135deg,
+    #111827,
+    #374151
+  );
+
+  color:#fff;
+
+  text-align:center;
+
+  padding:38px 15px 35px;
+
+}
+
+
+.hero-icon{
+
+  font-size:42px;
+
+  margin-bottom:8px;
+
+}
+
+
+.hero h1{
+
+  font-size:28px;
+
+  margin-bottom:10px;
+
+}
+
+
+.hero p{
+
+  color:#d1d5db;
+
+  font-size:14px;
+
+  line-height:1.6;
+
+}
+
+
+/* =========================
+   KNOWLEDGE COMMUNITY
+========================= */
+
+.community-section{
+
+  padding:30px 0 45px;
+
+}
+
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:22px;
+
+}
+
+
+.section-title h2{
+
+  font-size:23px;
+
+  margin-bottom:8px;
+
+}
+
+
+.section-title p{
+
+  color:#6b7280;
+
+  font-size:14px;
+
+  line-height:1.6;
+
+}
+
+
+/* =========================
+   8 BLOCKS
+========================= */
+
+.guide-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:14px;
+
+}
+
+
+.guide-card{
+
+  display:block;
 
   background:#fff;
-  color:#111827;
+
+  border:1px solid #e5e7eb;
 
   border-radius:14px;
-  box-shadow:0 10px 35px rgba(0,0,0,.25);
 
-  z-index:4500;
-  display:none;
-}
+  padding:22px 15px;
 
-.final-profile-panel.open{
-  display:block;
-}
+  text-align:center;
 
-.final-profile-section{
-  padding:8px 9px;
-  border-bottom:1px solid #e5e7eb;
-}
-
-.final-profile-title{
-  padding:9px 10px;
-  color:#6b7280;
-  font-size:14px;
-  font-weight:800;
-}
-
-.final-profile-panel a{
-  display:block;
   color:#111827;
+
   text-decoration:none;
-  padding:12px 10px;
-  border-radius:9px;
+
+  box-shadow:
+  0 4px 14px
+  rgba(0,0,0,.05);
+
+  transition:
+  transform .2s ease,
+  box-shadow .2s ease,
+  border-color .2s ease;
+
+}
+
+
+.guide-card:hover{
+
+  transform:translateY(-3px);
+
+  border-color:#f59e0b;
+
+  box-shadow:
+  0 7px 20px
+  rgba(0,0,0,.10);
+
+}
+
+
+.guide-icon{
+
+  font-size:34px;
+
+  margin-bottom:10px;
+
+}
+
+
+.guide-card strong{
+
+  display:block;
+
   font-size:15px;
-  font-weight:500;
+
 }
 
-.final-profile-panel a:hover{
+
+.guide-card p{
+
+  color:#6b7280;
+
+  font-size:12px;
+
+  margin-top:6px;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+  background:#0b1120;
+
+  color:#d1d5db;
+
+  padding:28px 0 0;
+
+}
+
+
+.footer-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:12px;
+
+}
+
+
+.footer a{
+
+  display:block;
+
+  color:#d1d5db;
+
+  text-decoration:none;
+
+  padding:7px 0;
+
+  font-size:13px;
+
+}
+
+
+.footer a:hover{
+
+  color:#f59e0b;
+
+}
+
+
+.footer-title{
+
+  color:#fff;
+
+  font-weight:800;
+
+  margin-bottom:7px;
+
+  font-size:15px;
+
+}
+
+
+.footer-bottom{
+
+  border-top:
+  1px solid #374151;
+
+  margin-top:20px;
+
+  padding:18px 10px;
+
+  text-align:center;
+
+  font-size:12px;
+
+  color:#9ca3af;
+
+}
+
+
+/* =========================
+   SITE MENU
+========================= */
+
+.site-menu{
+
+  position:fixed;
+
+  top:0;
+
+  left:-340px;
+
+  width:320px;
+
+  max-width:88%;
+
+  height:100vh;
+
+  background:#fff;
+
+  z-index:9999;
+
+  overflow-y:auto;
+
+  box-shadow:
+  6px 0 25px
+  rgba(0,0,0,.22);
+
+  transition:
+  left .25s ease;
+
+}
+
+
+.site-menu.active{
+
+  left:0;
+
+}
+
+
+.site-menu-header{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  background:#111827;
+
+  color:#fff;
+
+  padding:17px 16px;
+
+  font-size:18px;
+
+  position:sticky;
+
+  top:0;
+
+}
+
+
+.site-menu-header button{
+
+  border:0;
+
+  background:transparent;
+
+  color:#fff;
+
+  font-size:20px;
+
+  cursor:pointer;
+
+}
+
+
+.site-menu-body{
+
+  padding:10px;
+
+}
+
+
+.site-menu-body a{
+
+  display:block;
+
+  text-decoration:none;
+
+  color:#111827;
+
+  background:#fff;
+
+  padding:14px 13px;
+
+  margin:3px 0;
+
+  border-radius:10px;
+
+  font-size:15px;
+
+  font-weight:700;
+
+}
+
+
+.site-menu-body a:hover{
+
   background:#f3f4f6;
+
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
-  .final-header-inner{
-    min-height:62px;
-    padding:0 10px;
+  .container{
+
+    width:92%;
+
   }
 
-  .final-logo{
+
+  .logo{
+
     font-size:17px;
+
   }
 
-  .final-menu-btn{
-    font-size:16px;
-    padding:8px;
-    margin-left:2px;
-  }
 
-  .final-profile-btn{
+  .menu-btn,
+  .profile-btn{
+
+    font-size:12px;
+
     padding:8px 9px;
-    font-size:13px;
+
   }
 
-  .final-profile-panel{
-    top:64px;
-    right:8px;
-    width:300px;
+
+  .hero h1{
+
+    font-size:24px;
+
+  }
+
+
+  .guide-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:10px;
+
+  }
+
+
+  .guide-card{
+
+    padding:18px 9px;
+
+  }
+
+
+  .guide-icon{
+
+    font-size:30px;
+
+  }
+
+
+  .footer-grid{
+
+    grid-template-columns:
+    1fr 1fr;
+
   }
 
 }
@@ -292,389 +640,81 @@ href="style.css">
 
 <body>
 
-<div class="website">
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+<div class="container header-inner">
 
 
-<!-- =====================================================
-     FINAL HEADER
-===================================================== -->
+<button
+type="button"
+class="menu-btn"
+id="menuBtn"
+aria-label="Open Menu"
+aria-expanded="false">
 
-<header class="final-header">
+☰ Menu
 
-  <div class="container final-header-inner">
-
-    <!-- LOGO -->
-    <a href="index.html"
-       class="final-logo">
-      🪚 <span>Anil</span> Carpenter
-    </a>
+</button>
 
 
-    <!-- LEFT MENU BUTTON -->
-    <button
-      class="final-menu-btn"
-      type="button"
-      onclick="openFinalMenu()"
-      aria-label="Open Menu">
-      ☰ Menu
-    </button>
+<a
+href="index.html"
+class="logo">
+
+🪚 <span>Anil Carpenter</span>
+
+</a>
 
 
-    <!-- RIGHT PROFILE BUTTON -->
-    <button
-      class="final-profile-btn"
-      type="button"
-      onclick="toggleFinalProfile()"
-      aria-expanded="false">
-      👤 Profile
-    </button>
+<a
+href="profile.html"
+class="profile-btn">
 
-  </div>
+👤 Profile
+
+</a>
+
+
+</div>
 
 </header>
 
 
-<!-- =====================================================
-     OVERLAY
-===================================================== -->
 
-<div
-  id="finalOverlay"
-  class="final-overlay"
-  onclick="closeFinalMenus()">
-</div>
-
-
-<!-- =====================================================
-     LEFT MENU
-     
-     सिर्फ WEBSITE NAVIGATION
-     
-     यहां Account/Profile/Settings/Help वाले
-     options नहीं हैं।
-===================================================== -->
-
-<aside
-  id="finalDrawer"
-  class="final-drawer"
-  aria-label="Website Menu">
-
-  <div class="final-drawer-head">
-
-    <span>
-      ☰ Menu
-    </span>
-
-    <button
-      type="button"
-      onclick="closeFinalMenus()"
-      aria-label="Close Menu">
-      ✕
-    </button>
-
-  </div>
-
-
-  <nav class="final-nav">
-
-    <a href="carpenter-community.html">
-      🪚 Carpenter Community
-    </a>
-
-    <a href="blog.html">
-      📰 Blog Posts
-    </a>
-
-    <a href="services.html">
-      🚪 Door-to-Door Carpenter Service
-    </a>
-
-    <a href="about.html">
-      📝 About Anil Carpenter
-    </a>
-
-    <a href="privacy-policy.html">
-      🔒 Privacy Policy
-    </a>
-
-    <a href="terms-and-conditions.html">
-      📜 Terms &amp; Conditions
-    </a>
-
-  </nav>
-
-</aside>
-
-
-<!-- =====================================================
-     RIGHT PROFILE MENU
-     
-     यहां पूरा Account / Settings /
-     Accessibility / Community / Help रहेगा।
-===================================================== -->
-
-<div
-  id="finalProfilePanel"
-  class="final-profile-panel"
-  aria-label="Profile Menu">
-
-
-  <!-- ACCOUNT -->
-
-  <div class="final-profile-section">
-
-    <div class="final-profile-title">
-      👤 Account
-    </div>
-
-    <a href="profile.html">
-      👤 My Profile
-    </a>
-
-    <a href="profile.html#edit">
-      ✏️ Edit Profile
-    </a>
-
-    <a href="login.html">
-      🔐 Sign In
-    </a>
-
-    <a href="join-carpenter.html">
-      🆕 Create Account
-    </a>
-
-    <a href="forgot-credentials.html">
-      🔑 Forgot Credentials / OTP
-    </a>
-
-  </div>
-
-
-  <!-- SETTINGS -->
-
-  <div class="final-profile-section">
-
-    <div class="final-profile-title">
-      ⚙️ Settings
-    </div>
-
-    <a href="settings.html">
-      ⚙️ Settings
-    </a>
-
-    <a href="settings.html#notifications">
-      🔔 Notifications
-    </a>
-
-    <a href="settings.html#privacy">
-      🔒 Privacy
-    </a>
-
-    <a href="settings.html#security">
-      🛡️ Security
-    </a>
-
-  </div>
-
-
-  <!-- ACCESSIBILITY -->
-
-  <div class="final-profile-section">
-
-    <div class="final-profile-title">
-      ♿ Accessibility
-    </div>
-
-    <a href="accessibility.html#text-size">
-      🔤 Text Size
-    </a>
-
-    <a href="accessibility.html#dark-mode">
-      🌙 Dark Mode
-    </a>
-
-    <a href="accessibility.html#high-contrast">
-      🎨 High Contrast
-    </a>
-
-    <a href="accessibility.html#reduce-motion">
-      🔊 Reduce Motion
-    </a>
-
-  </div>
-
-
-  <!-- COMMUNITY -->
-
-  <div class="final-profile-section">
-
-    <div class="final-profile-title">
-      💰 Community
-    </div>
-
-    <a href="carpenter-pro.html">
-      ⭐ Carpenter Pro
-    </a>
-
-    <a href="promote-my-work.html">
-      📢 Promote My Work
-    </a>
-
-    <a href="business-profile.html">
-      🏪 Business Profile
-    </a>
-
-  </div>
-
-
-  <!-- HELP -->
-
-  <div class="final-profile-section">
-
-    <div class="final-profile-title">
-      ❓ Help
-    </div>
-
-    <a href="community-guidelines.html">
-      📖 Community Guidelines
-    </a>
-
-    <a href="help-support.html">
-      ❓ Help &amp; Support
-    </a>
-
-    <a href="report-problem.html">
-      🚩 Report a Problem
-    </a>
-
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero">
 
-<div class="container hero-container">
+<div class="container">
 
 
-<div class="hero-content">
+<div class="hero-icon">
 
-<span class="hero-badge">
-⭐ Trusted Carpenter Since 2018
-</span>
+👷‍♂️
+
+</div>
 
 
 <h1>
-Door-to-Door Carpenter Service in Sant Kabir Nagar
+
+Carpenter Knowledge & Community
+
 </h1>
 
 
 <p>
-Furniture Repair, Modular Kitchen, Wardrobe, TV Unit,
-Wooden Door, Interior Work और Custom Furniture बनाने की
-Professional Service.
+
+Carpenter भाइयों के लिए जरूरी Knowledge,
+Guides और Community एक ही जगह।
+
 </p>
-
-
-<div class="hero-buttons">
-
-<a
-href="tel:+918341188318"
-class="btn primary-btn">
-📞 Call Now
-</a>
-
-
-<a
-href="https://wa.me/918341188318"
-target="_blank"
-rel="noopener noreferrer"
-class="btn whatsapp-btn">
-💬 WhatsApp
-</a>
-
-</div>
-
-
-<div class="hero-features">
-
-<div class="feature-item">
-✅ 8+ Years Experience
-</div>
-
-<div class="feature-item">
-✅ Door-to-Door Service
-</div>
-
-<div class="feature-item">
-✅ Reasonable Price
-</div>
-
-<div class="feature-item">
-✅ Quality Work
-</div>
-
-</div>
-
-</div>
-
-
-<div class="hero-card">
-
-<div class="business-card">
-
-<h2>
-🪚 Anil Carpenter
-</h2>
-
-<p>
-Furniture Repair
-</p>
-
-<p>
-Modular Kitchen
-</p>
-
-<p>
-Wardrobe
-</p>
-
-<p>
-TV Unit
-</p>
-
-<p>
-Interior Work
-</p>
-
-<hr>
-
-<p>
-📍 Pachpokhari Bazar
-</p>
-
-<p>
-Sant Kabir Nagar
-</p>
-
-<p>
-📞 +91 83411 88318
-</p>
-
-</div>
-
-</div>
 
 
 </div>
@@ -682,564 +722,215 @@ Sant Kabir Nagar
 </section>
 
 
-<!-- =====================================================
-     SERVICES
-===================================================== -->
 
-<section class="services">
+<!-- =========================
+     8 KNOWLEDGE BLOCKS
+========================= -->
 
-<div class="container">
+<main>
 
-<div class="section-title">
-
-<span>
-Our Services
-</span>
-
-<h2>
-Professional Carpenter Services
-</h2>
-
-<p>
-घर और ऑफिस के लिए सभी प्रकार की कारपेंट्री सेवाएँ एक ही जगह।
-</p>
-
-</div>
-
-
-<div class="services-grid">
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🪑
-</div>
-
-<h3>
-Furniture Repair
-</h3>
-
-<p>
-पुरानी कुर्सी, टेबल, बेड, सोफा और सभी प्रकार के लकड़ी के
-फर्नीचर की मजबूत मरम्मत।
-</p>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🍽️
-</div>
-
-<h3>
-Modular Kitchen
-</h3>
-
-<p>
-सुंदर, मजबूत और आधुनिक मॉड्यूलर किचन डिज़ाइन एवं इंस्टॉलेशन।
-</p>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🚪
-</div>
-
-<h3>
-Wardrobe
-</h3>
-
-<p>
-Bedroom Wardrobe, Sliding Wardrobe और Custom Storage Solutions।
-</p>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-📺
-</div>
-
-<h3>
-TV Unit
-</h3>
-
-<p>
-आधुनिक और आकर्षक TV Unit तथा Wall Panel Design।
-</p>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🛏️
-</div>
-
-<h3>
-Custom Furniture
-</h3>
-
-<p>
-आपकी आवश्यकता के अनुसार बेड, अलमारी, टेबल और अन्य लकड़ी का
-फर्नीचर तैयार किया जाता है।
-</p>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🏠
-</div>
-
-<h3>
-Interior Work
-</h3>
-
-<p>
-घर और ऑफिस के लिए लकड़ी का इंटीरियर, पार्टिशन, सीलिंग और
-सजावटी कार्य।
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     WHY CHOOSE US
-===================================================== -->
-
-<section class="why-us">
+<section class="community-section">
 
 <div class="container">
 
+
 <div class="section-title">
 
-<span>
-Why Choose Us
-</span>
-
 <h2>
-Why Customers Trust Anil Carpenter
+
+🪚 Carpenter Knowledge & Community
+
 </h2>
 
+
 <p>
-गुणवत्ता, समय की पाबंदी और उचित कीमत हमारी सबसे बड़ी पहचान है।
+
+नीचे किसी भी विषय पर क्लिक करके
+उसके अंदर की पूरी जानकारी पढ़ सकते हैं।
+
 </p>
 
 </div>
 
 
-<div class="why-grid">
+
+<div class="guide-grid">
 
 
-<div class="why-card">
+<!-- 1 -->
 
-<div class="why-icon">
-⭐
+<a
+href="join-carpenter.html"
+class="guide-card">
+
+<div class="guide-icon">
+👷
 </div>
 
-<h3>
-8+ Years Experience
-</h3>
+<strong>
+Carpenter Join
+</strong>
 
 <p>
-आठ वर्षों से फर्नीचर और कारपेंट्री के क्षेत्र में लगातार काम
-करने का अनुभव।
+Carpenter Community से जुड़ें
 </p>
 
-</div>
+</a>
 
 
-<div class="why-card">
 
-<div class="why-icon">
+<!-- 2 -->
+
+<a
+href="carpenter-tools.html"
+class="guide-card">
+
+<div class="guide-icon">
 🛠️
 </div>
 
-<h3>
-Quality Work
-</h3>
+<strong>
+Carpenter Tools
+</strong>
 
 <p>
-हर काम मजबूत, साफ़-सुथरा और लंबे समय तक चलने वाला किया जाता है।
+जरूरी औजार और Tools की जानकारी
 </p>
 
-</div>
-
-
-<div class="why-card">
-
-<div class="why-icon">
-🏠
-</div>
-
-<h3>
-Door-to-Door Service
-</h3>
-
-<p>
-आपके घर या ऑफिस पर पहुँचकर सुविधा के साथ सेवा उपलब्ध कराई जाती है।
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="why-icon">
-💰
-</div>
-
-<h3>
-Reasonable Price
-</h3>
-
-<p>
-उचित कीमत में गुणवत्तापूर्ण कारपेंट्री सेवा उपलब्ध कराई जाती है।
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     STATS
-===================================================== -->
-
-<section class="stats">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>
-Our Achievement
-</span>
-
-<h2>
-Our Work at a Glance
-</h2>
-
-<p>
-विश्वास और गुणवत्ता के साथ लगातार बढ़ते कदम।
-</p>
-
-</div>
-
-
-<div class="stats-grid">
-
-
-<div class="stat-box">
-
-<h3>
-8+
-</h3>
-
-<p>
-Years Experience
-</p>
-
-</div>
-
-
-<div class="stat-box">
-
-<h3>
-1000+
-</h3>
-
-<p>
-Furniture Works
-</p>
-
-</div>
-
-
-<div class="stat-box">
-
-<h3>
-500+
-</h3>
-
-<p>
-Happy Customers
-</p>
-
-</div>
-
-
-<div class="stat-box">
-
-<h3>
-100%
-</h3>
-
-<p>
-Customer Satisfaction
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CUSTOMER REVIEWS
-===================================================== -->
-
-<section class="reviews">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>
-Customer Reviews
-</span>
-
-<h2>
-What Our Customers Say
-</h2>
-
-<p>
-हमारे ग्राहकों का विश्वास ही हमारी सबसे बड़ी पहचान है।
-</p>
-
-</div>
-
-
-<div class="review-grid">
-
-
-<div class="review-card">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-"पुरानी अलमारी की मरम्मत बहुत बढ़िया तरीके से की गई।
-काम समय पर पूरा हुआ और कीमत भी उचित रही।"
-</p>
-
-<h4>
-★★★★★ संत कबीर नगर
-</h4>
-
-</div>
-
-
-<div class="review-card">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-"Modular Kitchen का काम साफ़-सुथरा और मजबूत है।
-व्यवहार भी बहुत अच्छा रहा।"
-</p>
-
-<h4>
-★★★★★ स्थानीय ग्राहक
-</h4>
-
-</div>
-
-
-<div class="review-card">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-"Door-to-Door Service की वजह से हमें कहीं जाने की जरूरत नहीं पड़ी।
-काम शानदार रहा।"
-</p>
-
-<h4>
-★★★★★ संतुष्ट ग्राहक
-</h4>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     LATEST BLOG
-===================================================== -->
-
-<section class="latest-blog">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>
-Latest Blog
-</span>
-
-<h2>
-Furniture Tips &amp; Guides
-</h2>
-
-<p>
-कारपेंट्री और फर्नीचर से जुड़ी उपयोगी जानकारी हिंदी में पढ़ें।
-</p>
-
-</div>
-
-
-<div class="blog-grid">
-
-
-<article class="blog-card">
-
-<div class="blog-category">
-Furniture Repair
-</div>
-
-<h3>
-टूटी हुई लकड़ी की कुर्सी की मरम्मत कैसे करें?
-</h3>
-
-<p>
-लकड़ी की कुर्सी की मरम्मत करने के आसान और सुरक्षित तरीके जानिए।
-</p>
-
-<a
-href="articles/tooti-hui-kursi-ki-marammat.html"
-class="read-more">
-पूरा पढ़ें →
-</a>
-
-</article>
-
-
-<article class="blog-card">
-
-<div class="blog-category">
-Wood Guide
-</div>
-
-<h3>
-मजबूत फर्नीचर के लिए कौन-सी लकड़ी सबसे अच्छी है?
-</h3>
-
-<p>
-सागौन, शीशम, साल और प्लाईवुड में अंतर को आसान भाषा में समझें।
-</p>
-
-<a
-href="articles/best-wood-for-furniture.html"
-class="read-more">
-पूरा पढ़ें →
-</a>
-
-</article>
-
-
-<article class="blog-card">
-
-<div class="blog-category">
-Modular Kitchen
-</div>
-
-<h3>
-मॉड्यूलर किचन बनवाने से पहले किन बातों का ध्यान रखें?
-</h3>
-
-<p>
-कम बजट में टिकाऊ और आधुनिक मॉड्यूलर किचन बनवाने की पूरी जानकारी।
-</p>
-
-<a
-href="articles/modular-kitchen-guide.html"
-class="read-more">
-पूरा पढ़ें →
-</a>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT CTA
-===================================================== -->
-
-<section class="contact-cta">
-
-<div class="container">
-
-<h2>
-Need a Professional Carpenter?
-</h2>
-
-<p>
-Furniture Repair, Modular Kitchen, Wardrobe, TV Unit,
-Interior Work और Custom Furniture के लिए आज ही संपर्क करें।
-</p>
-
-
-<div class="cta-buttons">
-
-<a
-href="tel:+918341188318"
-class="btn primary-btn">
-📞 Call Now
 </a>
 
 
+
+<!-- 3 -->
+
 <a
-href="https://wa.me/918341188318"
-target="_blank"
-rel="noopener noreferrer"
-class="btn whatsapp-btn">
-💬 WhatsApp
+href="experienced-carpenter.html"
+class="guide-card">
+
+<div class="guide-icon">
+⭐
+</div>
+
+<strong>
+Experienced Carpenter
+</strong>
+
+<p>
+अनुभवी Carpenter के लिए जानकारी
+</p>
+
 </a>
+
+
+
+<!-- 4 -->
+
+<a
+href="furniture-making.html"
+class="guide-card">
+
+<div class="guide-icon">
+🪑
+</div>
+
+<strong>
+Furniture Making
+</strong>
+
+<p>
+Furniture बनाने की जानकारी
+</p>
+
+</a>
+
+
+
+<!-- 5 -->
+
+<a
+href="carpenter-joints.html"
+class="guide-card">
+
+<div class="guide-icon">
+🔨
+</div>
+
+<strong>
+Carpenter Joints
+</strong>
+
+<p>
+Wood Joints और उनकी जानकारी
+</p>
+
+</a>
+
+
+
+<!-- 6 -->
+
+<a
+href="measurement-marking.html"
+class="guide-card">
+
+<div class="guide-icon">
+📐
+</div>
+
+<strong>
+Measurement & Marking
+</strong>
+
+<p>
+Measurement और Marking Guide
+</p>
+
+</a>
+
+
+
+<!-- 7 -->
+
+<a
+href="new-carpenter.html"
+class="guide-card">
+
+<div class="guide-icon">
+🌱
+</div>
+
+<strong>
+New Carpenter
+</strong>
+
+<p>
+नए Carpenter के लिए Guide
+</p>
+
+</a>
+
+
+
+<!-- 8 -->
+
+<a
+href="learn-carpentry.html"
+class="guide-card">
+
+<div class="guide-icon">
+📚
+</div>
+
+<strong>
+Learn Carpentry
+</strong>
+
+<p>
+Carpentry सीखने की जानकारी
+</p>
+
+</a>
+
 
 </div>
 
@@ -1251,391 +942,312 @@ class="btn whatsapp-btn">
 </main>
 
 
-<!-- =====================================================
+
+<!-- =========================
+     SITE MENU
+========================= -->
+
+<div
+id="siteMenu"
+class="site-menu">
+
+
+<div class="site-menu-header">
+
+<strong>
+☰ Menu
+</strong>
+
+
+<button
+type="button"
+id="closeSiteMenuBtn"
+aria-label="Close Menu">
+
+✕
+
+</button>
+
+</div>
+
+
+
+<div class="site-menu-body">
+
+
+<a href="profile.html">
+👤 My Profile
+</a>
+
+
+<a href="create-account.html">
+📝 Create Account
+</a>
+
+
+<a href="login.html">
+🔐 Login
+</a>
+
+
+<a href="forgot-password.html">
+🔑 Forgot Credentials / OTP
+</a>
+
+
+<a href="carpenter-community.html">
+🪚 Carpenter Community
+</a>
+
+
+<a href="blog.html">
+📰 Blog Posts
+</a>
+
+
+<a href="door-to-door-carpenter-service.html">
+🚪 Door-to-Door Carpenter Service
+</a>
+
+
+<a href="about.html">
+📝 About Anil Carpenter
+</a>
+
+
+<a href="privacy.html">
+🔒 Privacy Policy
+</a>
+
+
+<a href="terms.html">
+📜 Terms &amp; Conditions
+</a>
+
+
+<a href="become-a-carpenter.html">
+👷 Become a Carpenter
+</a>
+
+
+<a href="accessibility.html">
+♿ Accessibility
+</a>
+
+
+<a href="settings.html">
+⚙️ Settings
+</a>
+
+
+<a href="help.html">
+❓ Help &amp; Support
+</a>
+
+
+<a href="report.html">
+🚩 Report a Problem
+</a>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer class="footer">
 
 <div class="container">
+
 
 <div class="footer-grid">
 
 
 <div>
 
-<h3>
-Anil Carpenter
-</h3>
-
-<p>
-Professional Door-to-Door Carpenter Service in Sant Kabir Nagar.
-</p>
-
+<div class="footer-title">
+Important Links
 </div>
 
 
-<div>
-
-<h3>
-Quick Links
-</h3>
-
-<ul>
-
-<li>
-<a href="index.html">
-Home
-</a>
-</li>
-
-<li>
-<a href="services.html">
-Services
-</a>
-</li>
-
-<li>
-<a href="projects.html">
-Projects
-</a>
-</li>
-
-<li>
-<a href="blog.html">
-Blog
-</a>
-</li>
-
-<li>
-<a href="carpenter-community.html">
-Community
-</a>
-</li>
-
-<li>
 <a href="about.html">
 About
 </a>
-</li>
 
-<li>
-<a href="contact.html">
-Contact
+
+<a href="privacy.html">
+Privacy Policy
 </a>
-</li>
 
-</ul>
+
+<a href="terms.html">
+Terms &amp; Conditions
+</a>
+
+
+<a href="accessibility.html">
+Accessibility
+</a>
 
 </div>
+
 
 
 <div>
 
-<h3>
+<div class="footer-title">
+Community
+</div>
+
+
+<a href="carpenter-community.html">
+Carpenter Community
+</a>
+
+
+<a href="blog.html">
+Blog Posts
+</a>
+
+
+<a href="become-a-carpenter.html">
+Become a Carpenter
+</a>
+
+
+<a href="contact.html">
 Contact
-</h3>
-
-<p>
-📞 +91 83411 88318
-</p>
-
-<p>
-📍 Pachpokhari Bazar
-<br>
-Sant Kabir Nagar
-<br>
-Uttar Pradesh
-</p>
-
-<p>
-📷 Instagram
-<br>
-@anilcarpenter_sknagar
-</p>
+</a>
 
 </div>
 
 
 </div>
 
+
+
+<!-- COPYRIGHT -->
 
 <div class="footer-bottom">
 
-<p>
-© 2026 Anil Carpenter. All Rights Reserved.
-</p>
+© 2026 Anil Carpenter.
+All Rights Reserved.
 
 </div>
+
 
 </div>
 
 </footer>
 
 
-<!-- =====================================================
-     FLOATING BUTTONS
-===================================================== -->
 
-<div class="floating-buttons">
-
-
-<a
-href="tel:+918341188318"
-class="floating-call"
-aria-label="Call Anil Carpenter">
-📞
-</a>
-
-
-<a
-href="https://wa.me/918341188318"
-target="_blank"
-rel="noopener noreferrer"
-class="floating-whatsapp"
-aria-label="WhatsApp Anil Carpenter">
-💬
-</a>
-
-
-<button
-id="backToTop"
-class="back-to-top"
-type="button"
-aria-label="Back To Top">
-⬆️
-</button>
-
-
-</div>
-
-
-<!-- =====================================================
-     FINAL MENU JAVASCRIPT
-===================================================== -->
+<!-- =========================
+     MENU JAVASCRIPT
+========================= -->
 
 <script>
 
-function openFinalMenu(){
-
-  const drawer =
-    document.getElementById("finalDrawer");
-
-  const overlay =
-    document.getElementById("finalOverlay");
-
-  const profile =
-    document.getElementById("finalProfilePanel");
-
-  drawer.classList.add("open");
-
-  overlay.classList.add("open");
-
-  profile.classList.remove("open");
-
-}
+const menuBtn =
+document.getElementById("menuBtn");
 
 
-function toggleFinalProfile(){
-
-  const panel =
-    document.getElementById("finalProfilePanel");
-
-  const drawer =
-    document.getElementById("finalDrawer");
-
-  const overlay =
-    document.getElementById("finalOverlay");
-
-  const button =
-    document.querySelector(".final-profile-btn");
+const siteMenu =
+document.getElementById("siteMenu");
 
 
-  const isOpen =
-    panel.classList.toggle("open");
+const closeSiteMenuBtn =
+document.getElementById("closeSiteMenuBtn");
 
 
-  drawer.classList.remove("open");
+/* OPEN MENU */
 
-  overlay.classList.remove("open");
+menuBtn.addEventListener(
+"click",
+function(){
 
-  button.setAttribute(
-    "aria-expanded",
-    isOpen ? "true" : "false"
-  );
+siteMenu.classList.add("active");
+
+menuBtn.setAttribute(
+"aria-expanded",
+"true"
+);
 
 }
-
-
-function closeFinalMenus(){
-
-  document
-    .getElementById("finalDrawer")
-    .classList.remove("open");
-
-  document
-    .getElementById("finalProfilePanel")
-    .classList.remove("open");
-
-  document
-    .getElementById("finalOverlay")
-    .classList.remove("open");
-
-  document
-    .querySelector(".final-profile-btn")
-    .setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-}
-
-
-/* ESC KEY */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Escape"){
-      closeFinalMenus();
-    }
-
-  }
 );
 
 
-/* OUTSIDE PROFILE CLICK */
+/* CLOSE MENU */
 
-document.addEventListener(
-  "click",
-  function(event)
-   {
+closeSiteMenuBtn.addEventListener(
+"click",
+function(){
 
-    const panel =
-      document.getElementById(
-        "finalProfilePanel"
-      );
+siteMenu.classList.remove("active");
 
-    const button =
-      document.querySelector(
-        ".final-profile-btn"
-      );
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
 
-    const drawer =
-      document.getElementById(
-        "finalDrawer"
-      );
-
-    const overlay =
-      document.getElementById(
-        "finalOverlay"
-      );
-
-
-    if (
-      panel.classList.contains("open") &&
-      !panel.contains(event.target) &&
-      !button.contains(event.target)
-    ) {
-
-      panel.classList.remove("open");
-
-      button.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    }
-
-  }
+}
 );
 
 
-/* =====================================================
-   CLOSE MENUS WHEN A PROFILE LINK IS CLICKED
-===================================================== */
+/* CLOSE MENU AFTER LINK CLICK */
 
-document
-  .querySelectorAll(".final-profile-panel a")
-  .forEach(function(link){
-
-    link.addEventListener(
-      "click",
-      function(){
-
-        document
-          .getElementById("finalProfilePanel")
-          .classList.remove("open");
-
-        document
-          .getElementById("finalOverlay")
-          .classList.remove("open");
-
-      }
-    );
-
-  });
+const menuLinks =
+siteMenu.querySelectorAll("a");
 
 
-/* =====================================================
-   CLOSE LEFT MENU WHEN LINK IS CLICKED
-===================================================== */
+menuLinks.forEach(
+function(link){
 
-document
-  .querySelectorAll(".final-nav a")
-  .forEach(function(link){
+link.addEventListener(
+"click",
+function(){
 
-    link.addEventListener(
-      "click",
-      function(){
+siteMenu.classList.remove("active");
 
-        document
-          .getElementById("finalDrawer")
-          .classList.remove("open");
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
 
-        document
-          .getElementById("finalOverlay")
-          .classList.remove("open");
+}
+);
 
-      }
-    );
-
-  });
+}
+);
 
 
-/* =====================================================
-   BACK TO TOP
-===================================================== */
+/* ESCAPE KEY */
 
-const backToTop =
-  document.getElementById("backToTop");
+document.addEventListener(
+"keydown",
+function(event){
 
+if(event.key === "Escape"){
 
-if(backToTop){
+siteMenu.classList.remove("active");
 
-  backToTop.addEventListener(
-    "click",
-    function(){
-
-      window.scrollTo({
-        top:0,
-        behavior:"smooth"
-      });
-
-    }
-  );
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
 
 }
 
-
-/* =====================================================
-   FINISH
-===================================================== */
+}
+);
 
 </script>
 
-</div>
 
 </body>
 
