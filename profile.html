@@ -905,7 +905,14 @@ if(!userId){
   );
 
 }
+const urlParams =
+  new URLSearchParams(
+    window.location.search
+  );
 
+const profileUserId =
+  urlParams.get("id") ||
+  userId;
 
 /* =========================
    HTML ELEMENTS
