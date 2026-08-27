@@ -1,1 +1,1850 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Carpenter Profile | Anil Carpenter Community</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .topbar {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .community-btn {
+      border: 1px solid #6b7280;
+      background: transparent;
+      color: white;
+      padding: 9px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .profile-box {
+      background: white;
+      text-align: center;
+      padding: 38px 20px 30px;
+    }
+
+    .profile-photo-wrap {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 18px;
+    }
+
+    #profilePhoto {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #f59e0b;
+      background: #e5e7eb;
+    }
+
+    .profile-name {
+      margin: 8px 0 4px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .profile-username {
+      color: #6b7280;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .profile-bio {
+      color: #4b5563;
+      font-size: 17px;
+      margin-bottom: 16px;
+    }
+
+    .profile-location {
+      color: #6b7280;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 55px;
+      margin: 20px 0 28px;
+    }
+
+    .stat {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 25px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .stat-label {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .action-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      border: none;
+      padding: 13px 25px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #followBtn {
+      background: #f59e0b;
+      color: #111827;
+      min-width: 125px;
+    }
+
+    #followBtn.following {
+      background: #111827;
+      color: white;
+    }
+
+    #editBtn {
+      background: #111827;
+      color: white;
+    }
+
+    .posts-section {
+      padding: 22px 20px 50px;
+    }
+
+    .section-title {
+      font-size: 23px;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+
+    #postsContainer {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .post-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .empty {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-box {
+      background: white;
+      width: 100%;
+      max-width: 430px;
+      max-height: 80vh;
+      overflow-y: auto;
+      border-radius: 18px;
+      padding: 22px;
+      position: relative;
+    }
+
+    .modal-title {
+      margin: 0 0 18px;
+      font-size: 22px;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      border: none;
+      background: #e5e7eb;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .user-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 4px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .user-item img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #f59e0b;
+    }
+
+    .user-info {
+      flex: 1;
+    }
+
+    .user-name {
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .user-username {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .message {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      background: #111827;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      display: none;
+      z-index: 2000;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .edit-box {
+      display: none;
+      margin-top: 25px;
+      text-align: left;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .edit-box.show {
+      display: block;
+    }
+
+    .edit-box label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 700;
+    }
+
+    .edit-box input,
+    .edit-box textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .edit-box textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    #saveBtn {
+      margin-top: 16px;
+      background: #f59e0b;
+      color: #111827;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .profile-name {
+        font-size: 26px;
+      }
+
+      .stats {
+        gap: 35px;
+      }
+
+      .stat-number {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">🪚 <span style="color:#f59e0b;">Anil</span> Carpenter</div>
+
+    <a href="carpenter-community.html" class="community-btn">
+      ← Community
+    </a>
+  </header>
+
+  <main>
+
+    <section class="profile-box">
+
+      <div class="profile-photo-wrap">
+        <img
+          id="profilePhoto"
+          src="https://via.placeholder.com/130"
+          alt="Carpenter Profile">
+      </div>
+
+      <h1 id="profileName" class="profile-name">
+        Carpenter
+      </h1>
+
+      <div id="profileUsername" class="profile-username">
+        @carpenter
+      </div>
+
+      <div id="profileBio" class="profile-bio">
+        Carpenter Community Member
+      </div>
+
+      <div id="profileLocation" class="profile-location">
+        📍 Location not added
+      </div>
+
+      <div class="stats">
+
+        <div class="stat" id="followersStat">
+          <span id="followersCount" class="stat-number">0</span>
+          <span class="stat-label">Followers</span>
+        </div>
+
+        <div class="stat" id="followingStat">
+          <span id="followingCount" class="stat-number">0</span>
+          <span class="stat-label">Following</span>
+        </div>
+
+        <div class="stat">
+          <span id="postsCount" class="stat-number">0</span>
+          <span class="stat-label">Posts</span>
+        </div>
+
+      </div>
+
+      <div class="action-row">
+
+        <button id="followBtn" class="action-btn">
+          ＋ Follow
+        </button>
+
+        <button id="editBtn" class="action-btn">
+          ✏️ Edit Profile
+        </button>
+
+      </div>
+
+      <div id="editBox" class="edit-box">
+
+        <label for="nameInput">Name</label>
+        <input
+          id="nameInput"
+          type="text"
+          maxlength="60"
+          placeholder="अपना नाम">
+
+        <label for="usernameInput">Username</label>
+        <input
+          id="usernameInput"
+          type="text"
+          maxlength="30"
+          placeholder="username">
+
+        <label for="bioInput">Bio</label>
+        <textarea
+          id="bioInput"
+          maxlength="200"
+          placeholder="अपने बारे में लिखें"></textarea>
+
+        <label for="locationInput">Location</label>
+        <input
+          id="locationInput"
+          type="text"
+          maxlength="100"
+          placeholder="जगह">
+
+        <label for="photoInput">Profile Photo</label>
+        <input
+          id="photoInput"
+          type="file"
+          accept="image/*">
+
+        <button id="saveBtn">
+          💾 Save Profile
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="posts-section">
+
+      <h2 class="section-title">📸 Posts</h2>
+
+      <div id="postsContainer">
+        <div class="empty">
+          Posts loading...
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOLLOWERS / FOLLOWING MODAL -->
+
+  <div id="usersModal" class="modal">
+
+    <div class="modal-box">
+
+      <button id="closeModalBtn" class="close-btn">
+        ×
+      </button>
+
+      <h2 id="modalTitle" class="modal-title">
+        Users
+      </h2>
+
+      <div id="usersList">
+        <div class="empty">
+          Loading...
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="message" class="message"></div>
+
+
+  <!-- =====================================================
+       FIREBASE
+       ===================================================== -->
+
+  <script type="module">
+
+    import {
+      initializeApp
+    } from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc,
+      deleteDoc,
+      collection,
+      getDocs,
+      query,
+      where,
+      serverTimestamp
+    } from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+    /* =====================================================
+       FIREBASE CONFIG
+       ===================================================== */
+
+    const firebaseConfig = {
+
+      apiKey:
+        "AIzaSyCKTMSuuxEvj0ZTT9CAJW5NgJ9ynH6Qsto",
+
+      authDomain:
+        "anil-carpenter-community.firebaseapp.com",
+
+      projectId:
+        "anil-carpenter-community",
+
+      storageBucket:
+        "anil-carpenter-community.firebasestorage.app",
+
+      messagingSenderId:
+        "835868472367",
+
+      appId:
+        "1:835868472367:web:a320614a701cd3bbf102da",
+
+      measurementId:
+        "G-BDDMVGQP4T"
+    };
+
+
+    /* =====================================================
+       INITIALIZE FIREBASE
+       ===================================================== */
+
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore(app);
+
+
+    /* =====================================================
+       CURRENT USER ID
+       ===================================================== */
+
+    let userId =
+      localStorage.getItem("userId");
+
+
+    /*
+      अगर login के बाद userId नहीं मिला,
+      तो temporary ID बनाया जाएगा।
+    */
+
+    if (!userId) {
+
+      userId =
+        "user_" +
+        crypto.randomUUID();
+
+      localStorage.setItem(
+        "userId",
+        userId
+      );
+    }
+
+
+    /* =====================================================
+       TARGET PROFILE ID
+       ===================================================== */
+
+    const urlParams =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    /*
+      अगर URL में ?userId=... है,
+      तो उसी profile को खोलेंगे।
+
+      अगर userId नहीं है,
+      तो current user की profile खुलेगी।
+    */
+
+    const profileUserId =
+      urlParams.get("userId") || userId;
+
+
+    /* =====================================================
+       DOM ELEMENTS
+       ===================================================== */
+
+    const profilePhoto =
+      document.getElementById(
+        "profilePhoto"
+      );
+
+    const profileName =
+      document.getElementById(
+        "profileName"
+      );
+
+    const profileUsername =
+      document.getElementById(
+        "profileUsername"
+      );
+
+    const profileBio =
+      document.getElementById(
+        "profileBio"
+      );
+
+    const profileLocation =
+      document.getElementById(
+        "profileLocation"
+      );
+
+    const followersCount =
+      document.getElementById(
+        "followersCount"
+      );
+
+    const followingCount =
+      document.getElementById(
+        "followingCount"
+      );
+
+    const postsCount =
+      document.getElementById(
+        "postsCount"
+      );
+
+    const followBtn =
+      document.getElementById(
+        "followBtn"
+      );
+
+    const editBtn =
+      document.getElementById(
+        "editBtn"
+      );
+
+    const editBox =
+      document.getElementById(
+        "editBox"
+      );
+
+    const saveBtn =
+      document.getElementById(
+        "saveBtn"
+      );
+
+    const nameInput =
+      document.getElementById(
+        "nameInput"
+      );
+
+    const usernameInput =
+      document.getElementById(
+        "usernameInput"
+      );
+
+    const bioInput =
+      document.getElementById(
+        "bioInput"
+      );
+
+    const locationInput =
+      document.getElementById(
+        "locationInput"
+      );
+
+    const photoInput =
+      document.getElementById(
+        "photoInput"
+      );
+
+    const postsContainer =
+      document.getElementById(
+        "postsContainer"
+      );
+
+    const followersStat =
+      document.getElementById(
+        "followersStat"
+      );
+
+    const followingStat =
+      document.getElementById(
+        "followingStat"
+      );
+
+    const usersModal =
+      document.getElementById(
+        "usersModal"
+      );
+
+    const closeModalBtn =
+      document.getElementById(
+        "closeModalBtn"
+      );
+
+    const modalTitle =
+      document.getElementById(
+        "modalTitle"
+      );
+
+    const usersList =
+      document.getElementById(
+        "usersList"
+      );
+
+    const messageBox =
+      document.getElementById(
+        "message"
+      );
+
+
+    /* =====================================================
+       MESSAGE FUNCTION
+       ===================================================== */
+
+    function showMessage(text) {
+
+      messageBox.textContent = text;
+
+      messageBox.classList.add(
+        "show"
+      );
+
+      setTimeout(() => {
+
+        messageBox.classList.remove(
+          "show"
+        );
+
+      }, 2500);
+    }
+
+
+    /* =====================================================
+       BASIC STATE
+       ===================================================== */
+
+    let currentProfileData = null;
+
+    let oldPhotoUrl = null;
+
+    let selectedPhotoFile = null;
+/* =========================================================
+   PART 2
+   PROFILE LOAD + FOLLOW / UNFOLLOW SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   GET TARGET PROFILE ID
+========================================================= */
+
+const pageParams = new URLSearchParams(
+  window.location.search
+);
+
+const targetProfileId =
+  pageParams.get("userId") || userId;
+
+
+/* =========================================================
+   PROFILE DATA LOAD
+========================================================= */
+
+async function loadProfileData(){
+
+  try{
+
+    const profileRef = doc(
+      db,
+      "users",
+      targetProfileId
+    );
+
+    const profileSnap =
+      await getDoc(profileRef);
+
+    if(!profileSnap.exists()){
+
+      showMessage(
+        "❌ Profile नहीं मिला"
+      );
+
+      return null;
+    }
+
+    const data =
+      profileSnap.data();
+
+    currentProfileData =
+      data;
+
+    return data;
+
+  }
+  catch(error){
+
+    console.error(
+      "PROFILE LOAD ERROR:",
+      error
+    );
+
+    showMessage(
+      "❌ Profile load नहीं हो पाया"
+    );
+
+    return null;
+  }
+
+}
+
+
+/* =========================================================
+   CHECK FOLLOW STATUS
+========================================================= */
+
+async function getFollowStatus(){
+
+  try{
+
+    /* अपना profile */
+
+    if(targetProfileId === userId){
+
+      return false;
+    }
+
+
+    const followingRef =
+      doc(
+        db,
+        "users",
+        userId,
+        "following",
+        targetProfileId
+      );
+
+
+    const followingSnap =
+      await getDoc(
+        followingRef
+      );
+
+
+    return followingSnap.exists();
+
+  }
+  catch(error){
+
+    console.error(
+      "CHECK FOLLOW ERROR:",
+      error
+    );
+
+    return false;
+  }
+
+}
+
+
+/* =========================================================
+   UPDATE FOLLOW BUTTON
+========================================================= */
+
+async function refreshFollowButton(){
+
+  const button =
+    document.getElementById(
+      "followBtn"
+    );
+
+
+  if(!button){
+
+    return;
+  }
+
+
+  /* अपना profile */
+
+  if(targetProfileId === userId){
+
+    button.textContent =
+      "👤 Your Profile";
+
+    button.disabled =
+      true;
+
+    button.style.opacity =
+      "0.6";
+
+    return;
+  }
+
+
+  button.disabled =
+    true;
+
+
+  const isFollowing =
+    await getFollowStatus();
+
+
+  if(isFollowing){
+
+    button.textContent =
+      "✓ Following";
+
+    button.classList.add(
+      "following"
+    );
+
+  }
+  else{
+
+    button.textContent =
+      "➕ Follow";
+
+    button.classList.remove(
+      "following"
+    );
+
+  }
+
+
+  button.disabled =
+    false;
+
+}
+
+
+/* =========================================================
+   FOLLOW USER
+========================================================= */
+
+async function doFollow(){
+
+  if(!userId){
+
+    showMessage(
+      "❌ Login जरूरी है"
+    );
+
+    return;
+  }
+
+
+  if(!targetProfileId){
+
+    showMessage(
+      "❌ Profile ID नहीं मिली"
+    );
+
+    return;
+  }
+
+
+  if(targetProfileId === userId){
+
+    showMessage(
+      "आप अपने ही profile को Follow नहीं कर सकते"
+    );
+
+    return;
+  }
+
+
+  const button =
+    document.getElementById(
+      "followBtn"
+    );
+
+
+  if(button){
+
+    button.disabled =
+      true;
+
+    button.textContent =
+      "⏳ Following...";
+  }
+
+
+  try{
+
+    /* =====================================================
+       TARGET USER → FOLLOWERS
+    ===================================================== */
+
+    const followerRef =
+      doc(
+        db,
+        "users",
+        targetProfileId,
+        "followers",
+        userId
+      );
+
+
+    await setDoc(
+      followerRef,
+      {
+
+        user_id:
+          userId,
+
+        created_at:
+          serverTimestamp()
+
+      }
+    );
+
+
+    /* =====================================================
+       CURRENT USER → FOLLOWING
+    ===================================================== */
+
+    const followingRef =
+      doc(
+        db,
+        "users",
+        userId,
+        "following",
+        targetProfileId
+      );
+
+
+    await setDoc(
+      followingRef,
+      {
+
+        user_id:
+          targetProfileId,
+
+        created_at:
+          serverTimestamp()
+
+      }
+    );
+
+
+    showMessage(
+      "✅ Follow किया गया"
+    );
+
+
+    await refreshFollowButton();
+
+
+    if(
+      typeof loadStats ===
+      "function"
+    ){
+
+      await loadStats();
+
+    }
+
+  }
+  catch(error){
+
+    console.error(
+      "FOLLOW ERROR:",
+      error
+    );
+
+
+    showMessage(
+      "❌ Follow करने में समस्या हुई"
+    );
+
+
+    if(button){
+
+      button.disabled =
+        false;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   UNFOLLOW USER
+========================================================= */
+
+async function doUnfollow(){
+
+  if(!userId){
+
+    showMessage(
+      "❌ Login जरूरी है"
+    );
+
+    return;
+  }
+
+
+  if(!targetProfileId){
+
+    return;
+  }
+
+
+  const button =
+    document.getElementById(
+      "followBtn"
+    );
+
+
+  if(button){
+
+    button.disabled =
+      true;
+
+    button.textContent =
+      "⏳ Unfollowing...";
+  }
+
+
+  try{
+
+    /* =====================================================
+       REMOVE FROM TARGET FOLLOWERS
+    ===================================================== */
+
+    const followerRef =
+      doc(
+        db,
+        "users",
+        targetProfileId,
+        "followers",
+        userId
+      );
+
+
+    await deleteDoc(
+      followerRef
+    );
+
+
+    /* =====================================================
+       REMOVE FROM CURRENT USER FOLLOWING
+    ===================================================== */
+
+    const followingRef =
+      doc(
+        db,
+        "users",
+        userId,
+        "following",
+        targetProfileId
+      );
+
+
+    await deleteDoc(
+      followingRef
+    );
+
+
+    showMessage(
+      "✅ Unfollow किया गया"
+    );
+
+
+    await refreshFollowButton();
+
+
+    if(
+      typeof loadStats ===
+      "function"
+    ){
+
+      await loadStats();
+
+    }
+
+  }
+  catch(error){
+
+    console.error(
+      "UNFOLLOW ERROR:",
+      error
+    );
+
+
+    showMessage(
+      "❌ Unfollow करने में समस्या हुई"
+    );
+
+
+    if(button){
+
+      button.disabled =
+        false;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   FOLLOW BUTTON CLICK
+========================================================= */
+
+const followButtonElement =
+  document.getElementById(
+    "followBtn"
+  );
+
+
+if(followButtonElement){
+
+  followButtonElement.addEventListener(
+    "click",
+    async function(){
+
+      try{
+
+        const isFollowing =
+          await getFollowStatus();
+
+
+        if(isFollowing){
+
+          await doUnfollow();
+
+        }
+        else{
+
+          await doFollow();
+
+        }
+
+      }
+      catch(error){
+
+        console.error(
+          "FOLLOW BUTTON ERROR:",
+          error
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   INITIAL FOLLOW BUTTON STATE
+========================================================= */
+
+refreshFollowButton();
+
+
+/* =========================================================
+   END OF PART 2
+   PART 3 WILL CONTINUE BELOW THIS LINE
+========================================================= */
+    /* =====================================================
+   FOLLOW / UNFOLLOW SYSTEM
+===================================================== */
+
+const profileUserId =
+  new URLSearchParams(
+    window.location.search
+  ).get("userId") || userId;
+
+
+/* =====================================================
+   CHECK FOLLOW STATUS
+===================================================== */
+
+async function checkFollowStatus(){
+
+  try{
+
+    /* अपनी Profile */
+    if(profileUserId === userId){
+
+      followBtn.textContent =
+        "👤 Your Profile";
+
+      followBtn.disabled =
+        true;
+
+      followBtn.style.opacity =
+        "0.6";
+
+      return;
+    }
+
+
+    /* Target user के followers में
+       current user की ID */
+    const followerRef =
+      doc(
+        db,
+        "users",
+        profileUserId,
+        "followers",
+        userId
+      );
+
+
+    const followerSnap =
+      await getDoc(
+        followerRef
+      );
+
+
+    if(followerSnap.exists()){
+
+      followBtn.textContent =
+        "✓ Following";
+
+      followBtn.classList.add(
+        "following"
+      );
+
+    }
+    else{
+
+      followBtn.textContent =
+        "➕ Follow";
+
+      followBtn.classList.remove(
+        "following"
+      );
+
+    }
+
+  }
+  catch(error){
+
+    console.error(
+      "FOLLOW STATUS ERROR:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   FOLLOW / UNFOLLOW BUTTON
+===================================================== */
+
+followBtn.addEventListener(
+  "click",
+  async function(){
+
+    /* अपनी Profile पर Follow नहीं */
+    if(profileUserId === userId){
+
+      showMessage(
+        "यह आपकी अपनी Profile है"
+      );
+
+      return;
+    }
+
+
+    followBtn.disabled =
+      true;
+
+    followBtn.textContent =
+      "⏳ Please wait...";
+
+
+    try{
+
+      /* =========================
+         FOLLOWER ENTRY
+      ========================= */
+
+      const followerRef =
+        doc(
+          db,
+          "users",
+          profileUserId,
+          "followers",
+          userId
+        );
+
+
+      /* =========================
+         FOLLOWING ENTRY
+      ========================= */
+
+      const followingRef =
+        doc(
+          db,
+          "users",
+          userId,
+          "following",
+          profileUserId
+        );
+
+
+      /* पहले check करें */
+      const existingFollow =
+        await getDoc(
+          followerRef
+        );
+
+
+      /* =========================
+         UNFOLLOW
+      ========================= */
+
+      if(existingFollow.exists()){
+
+        await deleteDoc(
+          followerRef
+        );
+
+        await deleteDoc(
+          followingRef
+        );
+
+
+        followBtn.textContent =
+          "➕ Follow";
+
+        followBtn.classList.remove(
+          "following"
+        );
+
+
+        showMessage(
+          "✓ Unfollow कर दिया"
+        );
+
+      }
+
+
+      /* =========================
+         FOLLOW
+      ========================= */
+
+      else{
+
+        await setDoc(
+          followerRef,
+          {
+            user_id:
+              userId,
+
+            followed_user_id:
+              profileUserId,
+
+            created_at:
+              serverTimestamp()
+          }
+        );
+
+
+        await setDoc(
+          followingRef,
+          {
+            user_id:
+              userId,
+
+            following_user_id:
+              profileUserId,
+
+            created_at:
+              serverTimestamp()
+          }
+        );
+
+
+        followBtn.textContent =
+          "✓ Following";
+
+        followBtn.classList.add(
+          "following"
+        );
+
+
+        showMessage(
+          "❤️ Following"
+        );
+
+      }
+
+
+      /* =========================
+         REFRESH COUNTS
+      ========================= */
+
+      await loadStats();
+
+
+      /* =========================
+         REFRESH BUTTON
+      ========================= */
+
+      await checkFollowStatus();
+
+    }
+    catch(error){
+
+      console.error(
+        "FOLLOW ERROR:",
+        error
+      );
+
+
+      showMessage(
+        "❌ Follow नहीं हो पाया: " +
+        (
+          error.message ||
+          "Unknown error"
+        )
+      );
+
+
+      await checkFollowStatus();
+
+    }
+    finally{
+
+      if(profileUserId !== userId){
+
+        followBtn.disabled =
+          false;
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   CHECK FOLLOW ON PAGE LOAD
+===================================================== */
+
+checkFollowStatus();
+    /* =====================================================
+   FOLLOW / UNFOLLOW SYSTEM
+===================================================== */
+
+const profileUserId =
+  new URLSearchParams(
+    window.location.search
+  ).get("userId") || userId;
+
+
+/* =====================================================
+   CHECK FOLLOW STATUS
+===================================================== */
+
+async function checkFollowStatus(){
+
+  try{
+
+    /* अपनी Profile */
+    if(profileUserId === userId){
+
+      followBtn.textContent =
+        "👤 Your Profile";
+
+      followBtn.disabled =
+        true;
+
+      followBtn.style.opacity =
+        "0.6";
+
+      return;
+    }
+
+
+    /* Target user के followers में
+       current user की ID */
+    const followerRef =
+      doc(
+        db,
+        "users",
+        profileUserId,
+        "followers",
+        userId
+      );
+
+
+    const followerSnap =
+      await getDoc(
+        followerRef
+      );
+
+
+    if(followerSnap.exists()){
+
+      followBtn.textContent =
+        "✓ Following";
+
+      followBtn.classList.add(
+        "following"
+      );
+
+    }
+    else{
+
+      followBtn.textContent =
+        "➕ Follow";
+
+      followBtn.classList.remove(
+        "following"
+      );
+
+    }
+
+  }
+  catch(error){
+
+    console.error(
+      "FOLLOW STATUS ERROR:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   FOLLOW / UNFOLLOW BUTTON
+===================================================== */
+
+followBtn.addEventListener(
+  "click",
+  async function(){
+
+    /* अपनी Profile पर Follow नहीं */
+    if(profileUserId === userId){
+
+      showMessage(
+        "यह आपकी अपनी Profile है"
+      );
+
+      return;
+    }
+
+
+    followBtn.disabled =
+      true;
+
+    followBtn.textContent =
+      "⏳ Please wait...";
+
+
+    try{
+
+      /* =========================
+         FOLLOWER ENTRY
+      ========================= */
+
+      const followerRef =
+        doc(
+          db,
+          "users",
+          profileUserId,
+          "followers",
+          userId
+        );
+
+
+      /* =========================
+         FOLLOWING ENTRY
+      ========================= */
+
+      const followingRef =
+        doc(
+          db,
+          "users",
+          userId,
+          "following",
+          profileUserId
+        );
+
+
+      /* पहले check करें */
+      const existingFollow =
+        await getDoc(
+          followerRef
+        );
+
+
+      /* =========================
+         UNFOLLOW
+      ========================= */
+
+      if(existingFollow.exists()){
+
+        await deleteDoc(
+          followerRef
+        );
+
+        await deleteDoc(
+          followingRef
+        );
+
+
+        followBtn.textContent =
+          "➕ Follow";
+
+        followBtn.classList.remove(
+          "following"
+        );
+
+
+        showMessage(
+          "✓ Unfollow कर दिया"
+        );
+
+      }
+
+
+      /* =========================
+         FOLLOW
+      ========================= */
+
+      else{
+
+        await setDoc(
+          followerRef,
+          {
+            user_id:
+              userId,
+
+            followed_user_id:
+              profileUserId,
+
+            created_at:
+              serverTimestamp()
+          }
+        );
+
+
+        await setDoc(
+          followingRef,
+          {
+            user_id:
+              userId,
+
+            following_user_id:
+              profileUserId,
+
+            created_at:
+              serverTimestamp()
+          }
+        );
+
+
+        followBtn.textContent =
+          "✓ Following";
+
+        followBtn.classList.add(
+          "following"
+        );
+
+
+        showMessage(
+          "❤️ Following"
+        );
+
+      }
+
+
+      /* =========================
+         REFRESH COUNTS
+      ========================= */
+
+      await loadStats();
+
+
+      /* =========================
+         REFRESH BUTTON
+      ========================= */
+
+      await checkFollowStatus();
+
+    }
+    catch(error){
+
+      console.error(
+        "FOLLOW ERROR:",
+        error
+      );
+
+
+      showMessage(
+        "❌ Follow नहीं हो पाया: " +
+        (
+          error.message ||
+          "Unknown error"
+        )
+      );
+
+
+      await checkFollowStatus();
+
+    }
+    finally{
+
+      if(profileUserId !== userId){
+
+        followBtn.disabled =
+          false;
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   CHECK FOLLOW ON PAGE LOAD
+===================================================== */
+
+checkFollowStatus();
