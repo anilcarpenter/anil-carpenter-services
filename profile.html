@@ -193,17 +193,6 @@ body{
   resize:vertical;
 }
 
-.photo-label{
-  display:inline-block;
-  margin-top:8px;
-  background:#e5e7eb;
-  padding:9px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:700;
-  font-size:13px;
-}
-
 .save-btn{
   width:100%;
   margin-top:16px;
@@ -214,6 +203,11 @@ body{
   border-radius:9px;
   font-weight:800;
   cursor:pointer;
+}
+
+.save-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
 }
 
 /* POSTS */
@@ -306,7 +300,6 @@ body{
 
 </header>
 
-
 <main>
 
 <section class="profile">
@@ -348,14 +341,10 @@ class="location"
 📍 Location not added
 </div>
 
-
 <div class="stats">
 
 <div class="stat">
-<div
-id="followersCount"
-class="stat-number"
->
+<div id="followersCount" class="stat-number">
 0
 </div>
 <div class="stat-label">
@@ -364,10 +353,7 @@ Followers
 </div>
 
 <div class="stat">
-<div
-id="followingCount"
-class="stat-number"
->
+<div id="followingCount" class="stat-number">
 0
 </div>
 <div class="stat-label">
@@ -376,10 +362,7 @@ Following
 </div>
 
 <div class="stat">
-<div
-id="postsCount"
-class="stat-number"
->
+<div id="postsCount" class="stat-number">
 0
 </div>
 <div class="stat-label">
@@ -388,7 +371,6 @@ Posts
 </div>
 
 </div>
-
 
 <div class="profile-buttons">
 
@@ -409,7 +391,6 @@ type="button"
 </button>
 
 </div>
-
 
 <!-- EDIT PROFILE -->
 
@@ -485,7 +466,6 @@ type="button"
 
 </section>
 
-
 <!-- POSTS -->
 
 <section class="posts">
@@ -510,7 +490,6 @@ type="button"
 
 </main>
 
-
 <div
 id="message"
 class="message"
@@ -522,35 +501,36 @@ Saved
 <script type="module">
 
 import {
-initializeApp
+  initializeApp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
 import {
-getFirestore,
-doc,
-getDoc,
-setDoc,
-collection,
-getDocs,
-query,
-where,
-orderBy,
-serverTimestamp
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-  
+
+
 import {
-getStorage,
-ref,
-uploadBytes,
-getDownloadURL
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
 
 /* =========================
    FIREBASE
@@ -558,26 +538,26 @@ from
 
 const firebaseConfig = {
 
-apiKey:
-"AIzaSyCKTMSuuxEVj0ZTT9CAJW5NgJ9ynH6Qsto",
+  apiKey:
+  "AIzaSyCKTMSuuxEVj0ZTT9CAJW5NgJ9ynH6Qsto",
 
-authDomain:
-"anil-carpenter-community.firebaseapp.com",
+  authDomain:
+  "anil-carpenter-community.firebaseapp.com",
 
-projectId:
-"anil-carpenter-community",
+  projectId:
+  "anil-carpenter-community",
 
-storageBucket:
-"anil-carpenter-community.firebasestorage.app",
+  storageBucket:
+  "anil-carpenter-community.firebasestorage.app",
 
-messagingSenderId:
-"835868472367",
+  messagingSenderId:
+  "835868472367",
 
-appId:
-"1:835868472367:web:a320614a701cd3bbf102da",
+  appId:
+  "1:835868472367:web:a320614a701cd3bbf102da",
 
-measurementId:
-"G-BDDMVGQP4T"
+  measurementId:
+  "G-BDDMVGQP4T"
 
 };
 
@@ -585,9 +565,12 @@ measurementId:
 const app =
 initializeApp(firebaseConfig);
 
+
 const db =
 getFirestore(app);
-  const storage =
+
+
+const storage =
 getStorage(app);
 
 
@@ -597,19 +580,19 @@ getStorage(app);
 
 let userId =
 localStorage.getItem(
-"carpenterUserId"
+  "carpenterUserId"
 );
 
 
 if(!userId){
 
-userId =
-crypto.randomUUID();
+  userId =
+  crypto.randomUUID();
 
-localStorage.setItem(
-"carpenterUserId",
-userId
-);
+  localStorage.setItem(
+    "carpenterUserId",
+    userId
+  );
 
 }
 
@@ -620,97 +603,97 @@ userId
 
 const profilePhoto =
 document.getElementById(
-"profilePhoto"
+  "profilePhoto"
 );
 
 const profileName =
 document.getElementById(
-"profileName"
+  "profileName"
 );
 
 const profileUsername =
 document.getElementById(
-"profileUsername"
+  "profileUsername"
 );
 
 const profileBio =
 document.getElementById(
-"profileBio"
+  "profileBio"
 );
 
 const profileLocation =
 document.getElementById(
-"profileLocation"
+  "profileLocation"
 );
 
 const followersCount =
 document.getElementById(
-"followersCount"
+  "followersCount"
 );
 
 const followingCount =
 document.getElementById(
-"followingCount"
+  "followingCount"
 );
 
 const postsCount =
 document.getElementById(
-"postsCount"
+  "postsCount"
 );
 
 const followBtn =
 document.getElementById(
-"followBtn"
+  "followBtn"
 );
 
 const editBtn =
 document.getElementById(
-"editBtn"
+  "editBtn"
 );
 
 const editBox =
 document.getElementById(
-"editBox"
+  "editBox"
 );
 
 const photoInput =
 document.getElementById(
-"photoInput"
+  "photoInput"
 );
 
 const nameInput =
 document.getElementById(
-"nameInput"
+  "nameInput"
 );
 
 const usernameInput =
 document.getElementById(
-"usernameInput"
+  "usernameInput"
 );
 
 const bioInput =
 document.getElementById(
-"bioInput"
+  "bioInput"
 );
 
 const locationInput =
 document.getElementById(
-"locationInput"
+  "locationInput"
 );
 
 const saveBtn =
 document.getElementById(
-"saveBtn"
+  "saveBtn"
 );
 
 const userPosts =
 document.getElementById(
-"userPosts"
+  "userPosts"
 );
 
 const message =
 document.getElementById(
-"message"
+  "message"
 );
 
 
@@ -721,66 +704,79 @@ document.getElementById(
 const defaultPhoto =
 "data:image/svg+xml;charset=UTF-8," +
 encodeURIComponent(`
+
 <svg xmlns="http://www.w3.org/2000/svg"
 width="300"
 height="300">
-<rect width="300" height="300"
-fill="#fde68a"/>
-<text x="150"
+
+<rect
+width="300"
+height="300"
+fill="#fde68a"
+ />
+
+<text
+x="150"
 y="175"
 text-anchor="middle"
-font-size="110">
+font-size="110"
+>
 👷
 </text>
+
 </svg>
+
 `);
 
 
 /* =========================
-   PHOTO
+   PHOTO PREVIEW
 ========================= */
 
 photoInput.addEventListener(
-"change",
-function(){
+  "change",
+  function(){
 
-const file =
-photoInput.files[0];
+    const file =
+    photoInput.files[0];
 
-if(!file){
-return;
-}
+    if(!file){
+      return;
+    }
 
-if(
-!file.type.startsWith("image/")
-){
 
-showMessage(
-"कृपया Image चुनें"
-);
+    if(
+      !file.type.startsWith("image/")
+    ){
 
-photoInput.value = "";
+      showMessage(
+        "कृपया Image चुनें"
+      );
 
-return;
+      photoInput.value = "";
 
-}
+      return;
+    }
 
-const reader =
-new FileReader();
 
-reader.onload =
-function(e){
+    const reader =
+    new FileReader();
 
-profilePhoto.src =
-e.target.result;
 
-};
+    reader.onload =
+    function(e){
 
-reader.readAsDataURL(
-file
-);
+      profilePhoto.src =
+      e.target.result;
 
-}
+    };
+
+
+    reader.readAsDataURL(
+      file
+    );
+
+  }
 );
 
 
@@ -789,25 +785,35 @@ file
 ========================= */
 
 editBtn.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-if(
-editBox.style.display ===
-"block"
-){
+    if(
+      editBox.style.display ===
+      "block"
+    ){
 
-editBox.style.display =
-"none";
+      editBox.style.display =
+      "none";
 
-}else{
+    }else{
 
-editBox.style.display =
-"block";
+      editBox.style.display =
+      "block";
 
-}
+    }
 
-}
+  }
+);
+
+
+/* =========================
+   SAVE BUTTON
+========================= */
+
+saveBtn.addEventListener(
+  "click",
+  saveProfile
 );
 
 
@@ -815,226 +821,383 @@ editBox.style.display =
    SAVE PROFILE
 ========================= */
 
-saveBtn.addEventListener(
-"click",
-saveProfile
-);
-
-
 async function saveProfile(){
 
-const name =
-nameInput.value.trim();
-
-let username =
-usernameInput.value
-.trim()
-.toLowerCase()
-.replace(
-/[^a-z0-9_]/g,
-""
-);
-
-const bio =
-bioInput.value.trim();
-
-const location =
-locationInput.value.trim();
+  const name =
+  nameInput.value.trim();
 
 
-if(!name){
-
-showMessage(
-"नाम लिखें"
-);
-
-return;
-
-}
-
-
-if(!username){
-
-showMessage(
-"Username लिखें"
-);
-
-return;
-
-}
+  let username =
+  usernameInput.value
+  .trim()
+  .toLowerCase()
+  .replace(
+    /[^a-z0-9_]/g,
+    ""
+  );
 
 
-saveBtn.disabled =
-true;
-
-saveBtn.textContent =
-"⏳ Saving...";
+  const bio =
+  bioInput.value.trim();
 
 
-try{
+  const location =
+  locationInput.value.trim();
 
-let photo = null;
 
-if(photoInput.files[0]){
+  if(!name){
 
-    const file = photoInput.files[0];
+    showMessage(
+      "नाम लिखें"
+    );
 
-    // Compress photo before Firebase upload
-    const compressedFile = await new Promise((resolve, reject) => {
+    return;
 
-        const reader = new FileReader();
+  }
 
-        reader.onload = () => {
 
-            const img = new Image();
+  if(!username){
 
-            img.onload = () => {
+    showMessage(
+      "Username लिखें"
+    );
 
-                const maxSize = 800;
+    return;
 
-                let width = img.width;
-                let height = img.height;
+  }
 
-                if(width > height){
-                    if(width > maxSize){
-                        height = Math.round(height * maxSize / width);
-                        width = maxSize;
-                    }
-                }else{
-                    if(height > maxSize){
-                        width = Math.round(width * maxSize / height);
-                        height = maxSize;
-                    }
-                }
 
-                const canvas = document.createElement("canvas");
+  saveBtn.disabled =
+  true;
 
-                canvas.width = width;
-                canvas.height = height;
 
-                const ctx = canvas.getContext("2d");
+  saveBtn.textContent =
+  "⏳ Saving...";
 
-                ctx.drawImage(img, 0, 0, width, height);
 
-                canvas.toBlob(
-                    blob => {
-                        if(blob){
-                            resolve(blob);
-                        }else{
-                            reject(new Error("Photo compression failed"));
-                        }
-                    },
-                    "image/jpeg",
-                    0.75
-                );
-            };
+  try{
 
-            img.onerror = reject;
-            img.src = reader.result;
-        };
+    let photo = null;
 
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-    });
 
-    const fileRef = ref(
+    /* =========================
+       PHOTO UPLOAD
+    ========================= */
+
+    if(
+      photoInput.files[0]
+    ){
+
+      const file =
+      photoInput.files[0];
+
+
+      /*
+       * Compress photo before
+       * Firebase Storage upload
+       */
+
+      const compressedFile =
+      await compressImage(
+        file
+      );
+
+
+      const fileRef =
+      ref(
         storage,
         "profile-photos/" +
         userId +
         "/" +
         Date.now() +
         ".jpg"
-    );
+      );
 
-    await uploadBytes(
+
+      await uploadBytes(
         fileRef,
         compressedFile,
         {
-            contentType: "image/jpeg"
+          contentType:
+          "image/jpeg"
         }
-    );
+      );
 
-    photo = await getDownloadURL(
+
+      photo =
+      await getDownloadURL(
         fileRef
+      );
+
+    }
+
+    /* =========================
+       EXISTING PHOTO
+    ========================= */
+
+    else if(
+      profilePhoto.src &&
+      profilePhoto.src !==
+      defaultPhoto
+    ){
+
+      photo =
+      profilePhoto.src;
+
+    }
+
+
+    /* =========================
+       SAVE PROFILE DATA
+    ========================= */
+
+    await setDoc(
+      doc(
+        db,
+        "users",
+        userId
+      ),
+      {
+
+        user_id:
+        userId,
+
+        full_name:
+        name,
+
+        username:
+        username,
+
+        bio:
+        bio,
+
+        location:
+        location,
+
+        photo_url:
+        photo,
+
+        updated_at:
+        serverTimestamp()
+
+      },
+      {
+        merge:true
+      }
     );
 
-}
 
-}else if(
-  profilePhoto.src &&
-  profilePhoto.src !== defaultPhoto
-){
-
-  photo = profilePhoto.src;
-
-}
-
-/* PROFILE DATA */
-
-await setDoc(
-doc(
-db,
-"users",
-userId
-),
-{
-
-user_id:
-userId,
-
-full_name:
-name,
-
-username:
-username,
-
-bio:
-bio,
-
-location:
-location,
-
-photo_url:
-photo,
-
-updated_at:
-serverTimestamp()
-
-},
-{
-merge:true
-}
-);
+    showMessage(
+      "✅ Profile Save हो गई"
+    );
 
 
-showMessage(
-"✅ Profile Save हो गई"
-);
+    editBox.style.display =
+    "none";
 
-editBox.style.display =
-"none";
+
+    await loadProfile();
+
+  }
+  catch(error){
+
+    console.error(
+      "PROFILE SAVE ERROR:",
+      error
+    );
+
+
+    showMessage(
+      "Profile save नहीं हुई: " +
+      (
+        error.message ||
+        "Unknown error"
+      )
+    );
+
+  }
+  finally{
+
+    saveBtn.disabled =
+    false;
+
+
+    saveBtn.textContent =
+    "💾 Profile Save करें";
+
+  }
 
 }
-catch(error){
-console.error(
-error
-);
 
-showMessage(
-"Profile save नहीं हुई: " +
-error.message
-);
 
-}
-finally{
+/* =========================
+   IMAGE COMPRESSION
+========================= */
 
-saveBtn.disabled =
-false;
+function compressImage(file){
 
-saveBtn.textContent =
-"💾 Profile Save करें";
+  return new Promise(
+    function(resolve,reject){
 
-}
+      const reader =
+      new FileReader();
+
+
+      reader.onload =
+      function(){
+
+        const img =
+        new Image();
+
+
+        img.onload =
+        function(){
+
+          const maxSize =
+          800;
+
+
+          let width =
+          img.width;
+
+
+          let height =
+          img.height;
+
+
+          if(
+            width > height
+          ){
+
+            if(
+              width > maxSize
+            ){
+
+              height =
+              Math.round(
+                height *
+                maxSize /
+                width
+              );
+
+              width =
+              maxSize;
+
+            }
+
+          }
+
+          else{
+
+            if(
+              height > maxSize
+            ){
+
+              width =
+              Math.round(
+                width *
+                maxSize /
+                height
+              );
+
+              height =
+              maxSize;
+
+            }
+
+          }
+
+
+          const canvas =
+          document.createElement(
+            "canvas"
+          );
+
+
+          canvas.width =
+          width;
+
+
+          canvas.height =
+          height;
+
+
+          const ctx =
+          canvas.getContext(
+            "2d"
+          );
+
+
+          ctx.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+          );
+
+
+          canvas.toBlob(
+            function(blob){
+
+              if(blob){
+
+                resolve(blob);
+
+              }else{
+
+                reject(
+                  new Error(
+                    "Photo compression failed"
+                  )
+                );
+
+              }
+
+            },
+            "image/jpeg",
+            0.75
+          );
+
+        };
+
+
+        img.onerror =
+        function(){
+
+          reject(
+            new Error(
+              "Image load failed"
+            )
+          );
+
+        };
+
+
+        img.src =
+        reader.result;
+
+      };
+
+
+      reader.onerror =
+      function(){
+
+        reject(
+          new Error(
+            "File read failed"
+          )
+        );
+
+      };
+
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
 
 }
 
@@ -1045,116 +1208,134 @@ saveBtn.textContent =
 
 async function loadProfile(){
 
-try{
+  try{
 
-const snap =
-await getDoc(
-doc(
-db,
-"users",
-userId
-)
-);
-
-
-if(snap.exists()){
-
-const data =
-snap.data();
+    const snap =
+    await getDoc(
+      doc(
+        db,
+        "users",
+        userId
+      )
+    );
 
 
-profileName.textContent =
-data.full_name ||
-"Carpenter";
+    if(
+      snap.exists()
+    ){
+
+      const data =
+      snap.data();
 
 
-profileUsername.textContent =
-"@" +
-(
-data.username ||
-"carpenter"
-);
+      profileName.textContent =
+      data.full_name ||
+      "Carpenter";
 
 
-profileBio.textContent =
-data.bio ||
-"Carpenter Community Member";
+      profileUsername.textContent =
+      "@" +
+      (
+        data.username ||
+        "carpenter"
+      );
 
 
-profileLocation.textContent =
-data.location
-?
-"📍 " +
-data.location
-:
-"📍 Location not added";
+      profileBio.textContent =
+      data.bio ||
+      "Carpenter Community Member";
 
 
-if(
-data.photo_url
-){
-
-profilePhoto.src =
-data.photo_url;
-
-}else{
-
-profilePhoto.src =
-defaultPhoto;
-
-}
+      profileLocation.textContent =
+      data.location
+      ?
+      "📍 " +
+      data.location
+      :
+      "📍 Location not added";
 
 
-/* EDIT VALUES */
+      if(
+        data.photo_url
+      ){
 
-nameInput.value =
-data.full_name ||
-"";
+        profilePhoto.src =
+        data.photo_url;
 
-usernameInput.value =
-data.username ||
-"";
+      }else{
 
-bioInput.value =
-data.bio ||
-"";
+        profilePhoto.src =
+        defaultPhoto;
 
-locationInput.value =
-data.location ||
-"";
+      }
 
-}else{
 
-profilePhoto.src =
-defaultPhoto;
+      /* EDIT VALUES */
 
-nameInput.value =
-"Carpenter";
+      nameInput.value =
+      data.full_name ||
+      "";
 
-usernameInput.value =
-"carpenter";
 
-bioInput.value =
-"Carpenter Community Member";
+      usernameInput.value =
+      data.username ||
+      "";
 
-}
 
-await loadStats();
+      bioInput.value =
+      data.bio ||
+      "";
 
-await loadUserPosts();
 
-}
-catch(error){
+      locationInput.value =
+      data.location ||
+      "";
 
-console.error(
-error
-);
+    }
 
-showMessage(
-"Profile load नहीं हुई"
-);
+    else{
 
-}
+      profilePhoto.src =
+      defaultPhoto;
+
+
+      nameInput.value =
+      "Carpenter";
+
+
+      usernameInput.value =
+      "carpenter";
+
+
+      bioInput.value =
+      "Carpenter Community Member";
+
+
+      locationInput.value =
+      "";
+
+    }
+
+
+    await loadStats();
+
+
+    await loadUserPosts();
+
+  }
+  catch(error){
+
+    console.error(
+      "PROFILE LOAD ERROR:",
+      error
+    );
+
+
+    showMessage(
+      "Profile load नहीं हुई"
+    );
+
+  }
 
 }
 
@@ -1165,46 +1346,46 @@ showMessage(
 
 async function loadStats(){
 
-try{
+  try{
 
-const followersSnapshot =
-await getDocs(
-collection(
-db,
-"users",
-userId,
-"followers"
-)
-);
-
-
-const followingSnapshot =
-await getDocs(
-collection(
-db,
-"users",
-userId,
-"following"
-)
-);
+    const followersSnapshot =
+    await getDocs(
+      collection(
+        db,
+        "users",
+        userId,
+        "followers"
+      )
+    );
 
 
-followersCount.textContent =
-followersSnapshot.size;
+    const followingSnapshot =
+    await getDocs(
+      collection(
+        db,
+        "users",
+        userId,
+        "following"
+      )
+    );
 
 
-followingCount.textContent =
-followingSnapshot.size;
+    followersCount.textContent =
+    followersSnapshot.size;
 
 
-}
-catch(error){
+    followingCount.textContent =
+    followingSnapshot.size;
 
-console.error(
-error
-);
+  }
+  catch(error){
 
-}
+    console.error(
+      "STATS ERROR:",
+      error
+    );
+
+  }
 
 }
 
@@ -1215,152 +1396,167 @@ error
 
 async function loadUserPosts(){
 
-try{
+  try{
 
-const postsRef =
-collection(
-db,
-"community_posts"
-);
-
-
-const q =
-query(
-postsRef,
-where(
-"user_id",
-"==",
-userId
-)
-);
+    const postsRef =
+    collection(
+      db,
+      "community_posts"
+    );
 
 
-const snapshot =
-await getDocs(q);
+    const q =
+    query(
+      postsRef,
+      where(
+        "user_id",
+        "==",
+        userId
+      )
+    );
 
 
-postsCount.textContent =
-snapshot.size;
+    const snapshot =
+    await getDocs(q);
 
 
-if(snapshot.empty){
-
-userPosts.innerHTML = `
-
-<div class="empty">
-
-📸
-
-<p style="margin-top:8px;">
-अभी कोई Post नहीं है।
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
+    postsCount.textContent =
+    snapshot.size;
 
 
-userPosts.innerHTML =
-"";
+    if(
+      snapshot.empty
+    ){
+
+      userPosts.innerHTML = `
+
+        <div class="empty">
+
+          📸
+
+          <p style="margin-top:8px;">
+            अभी कोई Post नहीं है।
+          </p>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
 
 
-snapshot.forEach(
-function(postDoc){
-
-const post =
-postDoc.data();
+    userPosts.innerHTML =
+    "";
 
 
-const card =
-document.createElement(
-"div"
-);
+    snapshot.forEach(
+      function(postDoc){
+
+        const post =
+        postDoc.data();
 
 
-card.className =
-"post-card";
+        const card =
+        document.createElement(
+          "div"
+        );
 
 
-if(post.post_text){
-
-const text =
-document.createElement(
-"div"
-);
-
-text.className =
-"post-text";
-
-text.textContent =
-post.post_text;
-
-card.appendChild(
-text
-);
-
-}
+        card.className =
+        "post-card";
 
 
-if(post.image_url){
+        if(
+          post.post_text
+        ){
 
-const image =
-document.createElement(
-"img"
-);
-
-image.className =
-"post-image";
-
-image.src =
-post.image_url;
-
-image.alt =
-"Carpenter Post";
-
-image.loading =
-"lazy";
-
-card.appendChild(
-image
-);
-
-}
+          const text =
+          document.createElement(
+            "div"
+          );
 
 
-userPosts.appendChild(
-card
-);
-
-}
-);
+          text.className =
+          "post-text";
 
 
-}
-catch(error){
+          text.textContent =
+          post.post_text;
 
-console.error(
-error
-);
 
-userPosts.innerHTML = `
+          card.appendChild(
+            text
+          );
 
-<div class="empty">
+        }
 
-⚠️
 
-<p style="margin-top:8px;">
-Posts load नहीं हो सके।
-</p>
+        if(
+          post.image_url
+        ){
 
-</div>
+          const image =
+          document.createElement(
+            "img"
+          );
 
-`;
 
-}
+          image.className =
+          "post-image";
+
+
+          image.src =
+          post.image_url;
+
+
+          image.alt =
+          "Carpenter Post";
+
+
+          image.loading =
+          "lazy";
+
+
+          card.appendChild(
+            image
+          );
+
+        }
+
+
+        userPosts.appendChild(
+          card
+        );
+
+      }
+    );
+
+  }
+  catch(error){
+
+    console.error(
+      "POSTS ERROR:",
+      error
+    );
+
+
+    userPosts.innerHTML = `
+
+      <div class="empty">
+
+        ⚠️
+
+        <p style="margin-top:8px;">
+          Posts load नहीं हो सके।
+        </p>
+
+      </div>
+
+    `;
+
+  }
 
 }
 
@@ -1370,14 +1566,14 @@ Posts load नहीं हो सके।
 ========================= */
 
 followBtn.addEventListener(
-"click",
-async function(){
+  "click",
+  async function(){
 
-showMessage(
-"Follow system अगले Step में जोड़ेंगे"
-);
+    showMessage(
+      "Follow system अगले Step में जोड़ेंगे"
+    );
 
-}
+  }
 );
 
 
@@ -1387,22 +1583,23 @@ showMessage(
 
 function showMessage(text){
 
-message.textContent =
-text;
-
-message.style.display =
-"block";
+  message.textContent =
+  text;
 
 
-setTimeout(
-function(){
+  message.style.display =
+  "block";
 
-message.style.display =
-"none";
 
-},
-2500
-);
+  setTimeout(
+    function(){
+
+      message.style.display =
+      "none";
+
+    },
+    2500
+  );
 
 }
 
