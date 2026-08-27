@@ -542,7 +542,15 @@ serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
+  
+import {
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 /* =========================
    FIREBASE
@@ -579,6 +587,8 @@ initializeApp(firebaseConfig);
 
 const db =
 getFirestore(app);
+  const storage =
+getStorage(app);
 
 
 /* =========================
@@ -863,56 +873,39 @@ saveBtn.textContent =
 
 try{
 
-let photo =
-profilePhoto.src;
+let photo = null;
 
+if(photoInput.files[0]){
 
-if(!photo ||
-photo === defaultPhoto){
+  const file = photoInput.files[0];
 
-photo =
-null;
+  const fileRef = ref(
+    storage,
+    "profile-photos/" +
+    userId +
+    "/" +
+    Date.now() +
+    "-" +
+    file.name.replace(/[^a-zA-Z0-9._-]/g, "_")
+  );
 
-}
+  await uploadBytes(
+    fileRef,
+    file
+  );
 
+  photo = await getDownloadURL(
+    fileRef
+  );
 
-/*
-   Profile photo को अभी
-   local/browser data के रूप में
-   रखा जा रहा है।
-*/
-
-if(
-photoInput.files[0]
+}else if(
+  profilePhoto.src &&
+  profilePhoto.src !== defaultPhoto
 ){
 
-const file =
-photoInput.files[0];
-
-const reader =
-new FileReader();
-
-photo =
-await new Promise(
-(resolve,reject)=>{
-
-reader.onload =
-() => resolve(
-reader.result
-);
-
-reader.onerror =
-reject;
-
-reader.readAsDataURL(
-file
-);
+  photo = profilePhoto.src;
 
 }
-);
-
-}
-
 
 /* PROFILE DATA */
 
