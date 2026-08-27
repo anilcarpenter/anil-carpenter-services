@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anil Carpenter Profile</title>
 
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f5f7;
+  color:#111827;
+}
+.header{
+  height:58px;
+  background:#111827;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  font-size:18px;
+  font-weight:bold;
+}
+.header b{color:#f59e0b}
+
+.profile{
+  background:white;
+  text-align:center;
+  padding:25px 15px 18px;
+}
+.photo{
+  width:105px;
+  height:105px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #f59e0b;
+}
+.name{font-size:25px;font-weight:800;margin-top:12px}
+.username{color:#6b7280;margin-top:4px}
+.bio{margin:15px auto 5px;max-width:400px;color:#374151}
+.location{color:#6b7280;margin:8px}
+
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:45px;
+  margin:22px 0;
+}
+.stats b{display:block;font-size:21px}
+.stats span{color:#6b7280;font-size:13px}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+button{
+  border:0;
+  border-radius:10px;
+  padding:11px 20px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.follow{background:#f59e0b}
+.message{background:#e5e7eb}
+.edit{background:#111827;color:white}
+
+.tabs{
+  display:flex;
+  background:white;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
+.tabs button{
+  flex:1;
+  background:white;
+  border-radius:0;
+  padding:15px 5px;
+}
+
+.content{
+  padding:20px;
+}
+.post{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <span>🪚 <b>Anil</b> Carpenter</span>
+  <span>☰</span>
+</div>
+
+<section class="profile">
+
+  <img class="photo"
+       src="https://picsum.photos/200">
+
+  <div class="name">Anil Carpenter</div>
+  <div class="username">@anilcarpenter</div>
+
+  <div class="bio">
+    Furniture Work.<br>
+    Pachpokhari Bazar SK Nagar
+  </div>
+
+  <div class="location">📍 Khalilabad, Sant Kabir Nagar</div>
+
+  <div class="stats">
+    <div><b>40</b><span>Posts</span></div>
+    <div><b>5425</b><span>Followers</span></div>
+    <div><b>52</b><span>Following</span></div>
+  </div>
+
+  <div class="buttons">
+    <button class="follow" onclick="follow()">➕ Follow</button>
+    <button class="message" onclick="message()">💬 Message</button>
+    <button class="edit" onclick="edit()">✏️ Edit Profile</button>
+  </div>
+
+</section>
+
+<div class="tabs">
+  <button onclick="tab('Posts')">📷 Posts</button>
+  <button onclick="tab('Followers')">👥 Followers</button>
+  <button onclick="tab('Following')">👤 Following</button>
+  <button onclick="tab('Story')">⭕ Story</button>
+</div>
+
+<div class="content" id="content">
+  <div class="post">
+    📷 <b>Posts</b>
+    <p>यहाँ user की posts दिखाई देंगी।</p>
+  </div>
+</div>
+
+<script>
+function follow(){
+  alert("Follow system यहाँ खुलेगा");
+}
+
+function message(){
+  alert("Message box यहाँ खुलेगा");
+}
+
+function edit(){
+  alert("Edit Profile यहाँ खुलेगा");
+}
+
+function tab(name){
+  document.getElementById("content").innerHTML =
+    "<div class='post'><h3>"+name+"</h3><p>"+name+
+    " का section यहाँ खुलेगा।</p></div>";
+}
+</script>
+
+</body>
+</html>
