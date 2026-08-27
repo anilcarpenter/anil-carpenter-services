@@ -12,7 +12,7 @@ content="width=device-width, initial-scale=1.0">
 
 <meta
 name="description"
-content="Carpenter Community में Carpenter भाई पोस्ट करें, चर्चा करें और एक-दूसरे से जुड़ें।">
+content="Carpenter Community में Carpenter भाई अपना काम, अनुभव, सवाल और फोटो शेयर करें।">
 
 <style>
 
@@ -34,9 +34,7 @@ body{
   margin:auto;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .header{
   background:#111827;
@@ -79,9 +77,7 @@ body{
   font-size:12px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   background:linear-gradient(
@@ -89,6 +85,7 @@ body{
     #111827,
     #374151
   );
+
   color:#fff;
   padding:35px 15px;
   text-align:center;
@@ -108,17 +105,13 @@ body{
   font-size:14px;
 }
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 .community{
   padding:25px 0 50px;
 }
 
-/* =========================
-   CREATE POST
-========================= */
+/* CREATE POST */
 
 .create-post{
   background:#fff;
@@ -178,22 +171,19 @@ body{
 
 .post-btn:disabled{
   opacity:.6;
-  cursor:not-allowed;
 }
 
 #photoPreview{
   display:none;
   width:100%;
   max-width:100%;
-  max-height:300px;
+  max-height:250px;
   object-fit:cover;
   border-radius:12px;
   margin-top:12px;
 }
 
-/* =========================
-   FEED TITLE
-========================= */
+/* FEED */
 
 .feed-title{
   font-size:20px;
@@ -201,9 +191,23 @@ body{
   margin-bottom:13px;
 }
 
-/* =========================
-   POST CARD
-========================= */
+.loading{
+  background:#fff;
+  border-radius:15px;
+  padding:35px;
+  text-align:center;
+  color:#6b7280;
+}
+
+.empty{
+  text-align:center;
+  padding:40px 20px;
+  color:#6b7280;
+  background:#fff;
+  border-radius:15px;
+}
+
+/* POST CARD */
 
 .post-card{
   background:#fff;
@@ -222,13 +226,20 @@ body{
 .avatar{
   width:45px;
   height:45px;
+  min-width:45px;
   border-radius:50%;
   background:#fde68a;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:24px;
-  flex-shrink:0;
+  overflow:hidden;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .user-name{
@@ -246,7 +257,6 @@ body{
   line-height:1.7;
   font-size:15px;
   white-space:pre-wrap;
-  word-break:break-word;
 }
 
 .post-image{
@@ -257,9 +267,7 @@ body{
   margin-top:13px;
 }
 
-/* =========================
-   POST BUTTONS
-========================= */
+/* BUTTONS */
 
 .post-buttons{
   display:flex;
@@ -273,7 +281,7 @@ body{
   flex:1;
   border:0;
   background:#f3f4f6;
-  padding:9px 5px;
+  padding:9px;
   border-radius:8px;
   cursor:pointer;
   font-weight:700;
@@ -283,9 +291,12 @@ body{
   background:#e5e7eb;
 }
 
-/* =========================
-   COMMENTS
-========================= */
+.like-button.liked{
+  background:#fee2e2;
+  color:#dc2626;
+}
+
+/* COMMENTS */
 
 .comments{
   margin-top:12px;
@@ -297,7 +308,6 @@ body{
   border-radius:9px;
   margin-top:7px;
   font-size:13px;
-  line-height:1.5;
 }
 
 .comment-name{
@@ -312,16 +322,10 @@ body{
 
 .comment-input{
   flex:1;
-  min-width:0;
   border:1px solid #d1d5db;
   border-radius:8px;
   padding:9px;
   outline:none;
-  font-family:inherit;
-}
-
-.comment-input:focus{
-  border-color:#f59e0b;
 }
 
 .comment-send{
@@ -333,53 +337,13 @@ body{
   cursor:pointer;
 }
 
-/* =========================
-   EMPTY
-========================= */
-
-.empty{
-  text-align:center;
-  padding:40px 20px;
-  color:#6b7280;
-  background:#fff;
-  border-radius:15px;
-}
-
-/* =========================
-   KNOWLEDGE BLOCKS
-========================= */
+/* GUIDES */
 
 .community-guides{
   padding:28px 0;
 }
 
-.guide-grid{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(150px,1fr));
-  gap:14px;
-}
-
-.guide-card{
-  display:block;
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  padding:18px;
-  text-align:center;
-  color:inherit;
-  text-decoration:none;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-
-.guide-icon{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -387,8 +351,12 @@ body{
     font-size:16px;
   }
 
+  .header-buttons{
+    gap:4px;
+  }
+
   .directory-btn{
-    padding:6px 8px;
+    padding:6px 7px;
     font-size:11px;
   }
 
@@ -398,10 +366,6 @@ body{
 
   .post-actions{
     flex-direction:row;
-  }
-
-  .post-buttons button{
-    font-size:12px;
   }
 
 }
@@ -430,7 +394,6 @@ class="logo">
 
 </a>
 
-
 <div class="header-buttons">
 
 <a
@@ -440,7 +403,6 @@ class="directory-btn">
 ➕ Sign Up
 
 </a>
-
 
 <a
 href="login.html"
@@ -479,7 +441,7 @@ Carpenter भाइयों का अपना Online Community Network
 
 
 <!-- =========================
-     COMMUNITY
+     MAIN
 ========================= -->
 
 <main class="community">
@@ -496,7 +458,6 @@ Carpenter भाइयों का अपना Online Community Network
 <div class="create-title">
 ✍️ आज क्या शेयर करना चाहते हैं?
 </div>
-
 
 <textarea
 id="postText"
@@ -558,15 +519,9 @@ onclick="createPost()">
 
 <div id="feed">
 
-<div class="empty">
+<div class="loading">
 
-<div style="font-size:40px;">
-⏳
-</div>
-
-<p style="margin-top:8px;">
-Posts लोड हो रही हैं...
-</p>
+⏳ Posts लोड हो रहे हैं...
 
 </div>
 
@@ -580,13 +535,14 @@ Posts लोड हो रही हैं...
      KNOWLEDGE BLOCKS
 ========================= -->
 
-<section
-class="community-guides">
+<section class="community-guides">
 
 <div class="container">
 
-<div
-style="text-align:center;margin-bottom:20px;">
+<div style="
+text-align:center;
+margin-bottom:20px;
+">
 
 <h2>
 🪚 Carpenter Knowledge & Community
@@ -599,14 +555,28 @@ Carpenter भाइयों के लिए जरूरी guides और comm
 </div>
 
 
-<div class="guide-grid">
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:14px;
+">
 
 
 <a
 href="join-carpenter.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 👷
 </div>
 
@@ -619,9 +589,19 @@ Carpenter Join
 
 <a
 href="carpenter-tools.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 🛠️
 </div>
 
@@ -634,9 +614,19 @@ Carpenter Tools
 
 <a
 href="experienced-carpenter.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 ⭐
 </div>
 
@@ -649,9 +639,19 @@ Experienced Carpenter
 
 <a
 href="furniture-making.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 🪑
 </div>
 
@@ -664,9 +664,19 @@ Furniture Making
 
 <a
 href="carpenter-joints.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 🔨
 </div>
 
@@ -679,9 +689,19 @@ Carpenter Joints
 
 <a
 href="measurement-marking.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 📐
 </div>
 
@@ -694,9 +714,19 @@ Measurement & Marking
 
 <a
 href="new-carpenter.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 🌱
 </div>
 
@@ -709,9 +739,19 @@ New Carpenter
 
 <a
 href="learn-carpentry.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 📚
 </div>
 
@@ -724,9 +764,19 @@ Learn Carpentry
 
 <a
 href="wood-board-guide.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 🪵
 </div>
 
@@ -739,9 +789,19 @@ Wood & Board Guide
 
 <a
 href="carpenter-work-guide.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 📋
 </div>
 
@@ -754,9 +814,19 @@ Carpenter Work Guide
 
 <a
 href="carpenter-directory.html"
-class="guide-card">
+style="
+display:block;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:18px;
+text-align:center;
+color:inherit;
+text-decoration:none;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+">
 
-<div class="guide-icon">
+<div style="font-size:28px;margin-bottom:8px;">
 👥
 </div>
 
@@ -773,6 +843,7 @@ Carpenter Directory
 
 </section>
 
+
 </main>
 
 
@@ -780,8 +851,7 @@ Carpenter Directory
      FOOTER
 ========================= -->
 
-<footer
-style="
+<footer style="
 background:#0b1120;
 color:#9ca3af;
 text-align:center;
@@ -798,24 +868,20 @@ font-size:13px;
      SUPABASE
 ========================= -->
 
-<script
-src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
-/* =========================
-   SUPABASE CONFIG
-========================= */
+/* =====================================================
+   SUPABASE CONNECTION
+===================================================== */
 
 const SUPABASE_URL =
 "https://dvfbprtvuthzojbxaou.supabase.co";
 
-
 const SUPABASE_PUBLISHABLE_KEY =
 "sb_publishable_FsFay7fTJSIS6LNDyjbmVA_cSEVSpJg";
-
 
 const supabaseClient =
 window.supabase.createClient(
@@ -823,16 +889,50 @@ window.supabase.createClient(
   SUPABASE_PUBLISHABLE_KEY
 );
 
-
 console.log(
   "✅ Supabase connected:",
   !!supabaseClient
 );
 
 
-/* =========================
+/* =====================================================
+   CURRENT USER
+===================================================== */
+
+let currentUser = null;
+
+
+/* =====================================================
+   GET CURRENT USER
+===================================================== */
+
+async function getCurrentUser(){
+
+  const {
+    data,
+    error
+  } =
+  await supabaseClient.auth.getUser();
+
+  if(error){
+
+    console.error(
+      "User error:",
+      error
+    );
+
+    return null;
+
+  }
+
+  return data.user || null;
+
+}
+
+
+/* =====================================================
    PHOTO PREVIEW
-========================= */
+===================================================== */
 
 function previewPhoto(event){
 
@@ -843,7 +943,6 @@ function previewPhoto(event){
     document.getElementById(
       "photoPreview"
     );
-
 
   if(!file){
 
@@ -856,7 +955,6 @@ function previewPhoto(event){
 
   }
 
-
   if(!file.type.startsWith("image/")){
 
     alert(
@@ -865,17 +963,12 @@ function previewPhoto(event){
 
     event.target.value = "";
 
-    preview.style.display =
-      "none";
-
     return;
 
   }
 
-
   const reader =
     new FileReader();
-
 
   reader.onload =
     function(e){
@@ -888,15 +981,14 @@ function previewPhoto(event){
 
     };
 
-
   reader.readAsDataURL(file);
 
 }
 
 
-/* =========================
+/* =====================================================
    CREATE POST
-========================= */
+===================================================== */
 
 async function createPost(){
 
@@ -906,11 +998,9 @@ async function createPost(){
       .value
       .trim();
 
-
   const photoInput =
     document
       .getElementById("photoInput");
-
 
   const postButton =
     document
@@ -935,29 +1025,15 @@ async function createPost(){
 
     postButton.disabled = true;
 
-    postButton.innerText =
+    postButton.textContent =
       "⏳ Post हो रही है...";
 
 
-    /* =========================
-       CURRENT USER
-    ========================= */
-
-    const {
-      data: {
-        user
-      },
-      error: userError
-    } =
-      await supabaseClient
-        .auth
-        .getUser();
+    currentUser =
+      await getCurrentUser();
 
 
-    if(
-      userError ||
-      !user
-    ){
+    if(!currentUser){
 
       alert(
         "पहले Login करें।"
@@ -997,23 +1073,22 @@ async function createPost(){
       const {
         error: uploadError
       } =
-        await supabaseClient
-          .storage
-          .from("community-posts")
-          .upload(
-            fileName,
-            file,
-            {
-              cacheControl:"3600",
-              upsert:false
-            }
-          );
+      await supabaseClient
+        .storage
+        .from("community-posts")
+        .upload(
+          fileName,
+          file,
+          {
+            cacheControl:"3600",
+            upsert:false
+          }
+        );
 
 
       if(uploadError){
 
         console.error(
-          "Upload Error:",
           uploadError
         );
 
@@ -1029,12 +1104,12 @@ async function createPost(){
       const {
         data: urlData
       } =
-        supabaseClient
-          .storage
-          .from("community-posts")
-          .getPublicUrl(
-            fileName
-          );
+      supabaseClient
+        .storage
+        .from("community-posts")
+        .getPublicUrl(
+          fileName
+        );
 
 
       photoUrl =
@@ -1044,32 +1119,32 @@ async function createPost(){
 
 
     /* =========================
-       SAVE POST IN SUPABASE
+       SAVE POST
     ========================= */
 
     const {
       error: insertError
     } =
-      await supabaseClient
-        .from("community_posts")
-        .insert({
+    await supabaseClient
+      .from("community_posts")
+      .insert({
 
-          user_id:
-            user.id,
+        user_id:
+          currentUser.id,
 
-          post_text:
-            text || null,
+        post_text:
+          text || null,
 
-          image_url:
-            photoUrl
+        image_url:
+          photoUrl
 
-        });
+      });
 
 
     if(insertError){
 
       console.error(
-        "Insert Error:",
+        "Insert error:",
         insertError
       );
 
@@ -1119,14 +1194,11 @@ async function createPost(){
 
   }
 
-
   catch(error){
 
     console.error(
-      "Create Post Error:",
       error
     );
-
 
     alert(
       "Post करते समय Error आया।"
@@ -1134,13 +1206,12 @@ async function createPost(){
 
   }
 
-
   finally{
 
     postButton.disabled =
       false;
 
-    postButton.innerText =
+    postButton.textContent =
       "🚀 Post करें";
 
   }
@@ -1148,9 +1219,9 @@ async function createPost(){
 }
 
 
-/* =========================
-   LOAD POSTS
-========================= */
+/* =====================================================
+   LOAD POSTS FROM SUPABASE
+===================================================== */
 
 async function loadPosts(){
 
@@ -1160,60 +1231,44 @@ async function loadPosts(){
     );
 
 
-  if(!feed) return;
-
-
   feed.innerHTML = `
-
-    <div class="empty">
-
-      <div style="font-size:40px;">
-        ⏳
-      </div>
-
-      <p style="margin-top:8px;">
-        Posts लोड हो रही हैं...
-      </p>
-
+    <div class="loading">
+      ⏳ Community Posts लोड हो रहे हैं...
     </div>
-
   `;
 
 
   try{
 
+    /*
+      IMPORTANT:
+      यहां localStorage बिल्कुल इस्तेमाल नहीं हो रहा।
+      Posts सीधे Supabase से आ रहे हैं।
+    */
+
     const {
       data: posts,
       error
     } =
-      await supabaseClient
-        .from("community_posts")
-        .select(`
-          id,
-          user_id,
-          post_text,
-          image_url,
-          likes_count,
-          created_at
-        `)
-        .order(
-          "created_at",
-          {
-            ascending:false
-          }
-        );
+    await supabaseClient
+      .from("community_posts")
+      .select("*")
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      );
 
 
     if(error){
 
       console.error(
-        "Load Posts Error:",
+        "Load posts error:",
         error
       );
 
-
       feed.innerHTML = `
-
         <div class="empty">
 
           <div style="font-size:40px;">
@@ -1221,11 +1276,10 @@ async function loadPosts(){
           </div>
 
           <p style="margin-top:8px;">
-            Posts लोड नहीं हो सकीं।
+            Posts लोड नहीं हो सके।
           </p>
 
         </div>
-
       `;
 
       return;
@@ -1250,14 +1304,8 @@ async function loadPosts(){
             अभी कोई Post नहीं है।
           </p>
 
-          <p
-          style="
-          font-size:13px;
-          margin-top:5px;
-          ">
-
+          <p style="font-size:13px;margin-top:5px;">
             सबसे पहले आप Post करें!
-
           </p>
 
         </div>
@@ -1268,6 +1316,74 @@ async function loadPosts(){
 
     }
 
+
+    /* =========================
+       GET USER PROFILES
+    ========================= */
+
+    const userIds =
+      [
+        ...new Set(
+          posts.map(
+            post => post.user_id
+          )
+        )
+      ];
+
+
+    let profiles = [];
+
+
+    if(userIds.length > 0){
+
+      const {
+        data: profileData,
+        error: profileError
+      } =
+      await supabaseClient
+        .from("carpenter_profiles")
+        .select(
+          "id, user_id, full_name"
+        )
+        .in(
+          "user_id",
+          userIds
+        );
+
+
+      if(!profileError){
+
+        profiles =
+          profileData || [];
+
+      }
+
+    }
+
+
+    /* =========================
+       PROFILE MAP
+    ========================= */
+
+    const profileMap =
+      {};
+
+
+    profiles.forEach(
+      function(profile){
+
+        profileMap[
+          profile.user_id
+        ] =
+          profile;
+
+      }
+    );
+
+
+    /* =========================
+       RENDER
+    ========================= */
 
     feed.innerHTML = "";
 
@@ -1285,19 +1401,24 @@ async function loadPosts(){
           "post-card";
 
 
-        card.id =
-          "post-" + post.id;
+        const profile =
+          profileMap[
+            post.user_id
+          ];
 
 
-        const date =
-          new Date(
+        const userName =
+          profile &&
+          profile.full_name
+            ?
+              profile.full_name
+            :
+              "Carpenter";
+
+
+        const time =
+          formatDate(
             post.created_at
-          ).toLocaleString(
-            "hi-IN",
-            {
-              dateStyle:"medium",
-              timeStyle:"short"
-            }
           );
 
 
@@ -1309,16 +1430,14 @@ async function loadPosts(){
               👷
             </div>
 
-
             <div>
 
               <div class="user-name">
-                Carpenter Member
+                ${escapeHTML(userName)}
               </div>
 
-
               <div class="post-time">
-                ${escapeHTML(date)}
+                ${escapeHTML(time)}
               </div>
 
             </div>
@@ -1328,23 +1447,23 @@ async function loadPosts(){
 
           ${
             post.post_text
-            ?
-            `
+              ?
+              `
               <div class="post-text">
                 ${escapeHTML(
                   post.post_text
                 )}
               </div>
-            `
-            :
-            ""
+              `
+              :
+              ""
           }
 
 
           ${
             post.image_url
-            ?
-            `
+              ?
+              `
               <img
                 class="post-image"
                 src="${escapeHTML(
@@ -1353,27 +1472,29 @@ async function loadPosts(){
                 alt="Carpenter Post"
                 loading="lazy"
               >
-            `
-            :
-            ""
+              `
+              :
+              ""
           }
 
-
-          <div class="post-buttons">
+<div class="post-buttons">
 
             <button
-              type="button"
-              onclick="likePost('${post.id}')">
+              class="like-button"
+              onclick="likePost('${post.id}', this)"
+            >
 
               ❤️
-              ${post.likes_count || 0}
+              ${Number(
+                post.likes_count || 0
+              )}
 
             </button>
 
 
             <button
-              type="button"
-              onclick="focusComment('${post.id}')">
+              onclick="focusComment('${post.id}')"
+            >
 
               💬 Comment
 
@@ -1381,8 +1502,8 @@ async function loadPosts(){
 
 
             <button
-              type="button"
-              onclick="sharePost('${post.id}')">
+              onclick="sharePost('${post.id}')"
+            >
 
               🔗 Share
 
@@ -1393,8 +1514,8 @@ async function loadPosts(){
 
           <div
             id="comments-${post.id}"
-            class="comments">
-          </div>
+            class="comments"
+          ></div>
 
 
           <div class="comment-box">
@@ -1405,11 +1526,10 @@ async function loadPosts(){
               placeholder="Comment लिखें..."
             >
 
-
             <button
-              type="button"
               class="comment-send"
-              onclick="addComment('${post.id}')">
+              onclick="addComment('${post.id}')"
+            >
 
               भेजें
 
@@ -1420,28 +1540,27 @@ async function loadPosts(){
         `;
 
 
-        feed.appendChild(card);
+        feed.appendChild(
+          card
+        );
 
       }
     );
 
-
   }
-
 
   catch(error){
 
     console.error(
-      "Load Error:",
       error
     );
-
 
     feed.innerHTML = `
 
       <div class="empty">
 
-        ❌ कुछ तकनीकी समस्या हुई।
+        ⚠️
+        Community load नहीं हो सकी।
 
       </div>
 
@@ -1452,34 +1571,37 @@ async function loadPosts(){
 }
 
 
-/* =========================
+/* =====================================================
    LIKE POST
-========================= */
+===================================================== */
 
-async function likePost(id){
+async function likePost(
+  id,
+  button
+){
 
   try{
 
     const {
       data: post,
-      error: getError
+      error: findError
     } =
-      await supabaseClient
-        .from("community_posts")
-        .select(
-          "likes_count"
-        )
-        .eq(
-          "id",
-          id
-        )
-        .single();
+    await supabaseClient
+      .from("community_posts")
+      .select(
+        "likes_count"
+      )
+      .eq(
+        "id",
+        id
+      )
+      .single();
 
 
-    if(getError){
+    if(findError){
 
       console.error(
-        getError
+        findError
       );
 
       return;
@@ -1488,24 +1610,26 @@ async function likePost(id){
 
 
     const newLikes =
-      (post.likes_count || 0) + 1;
+      Number(
+        post.likes_count || 0
+      ) + 1;
 
 
     const {
       error: updateError
     } =
-      await supabaseClient
-        .from("community_posts")
-        .update({
+    await supabaseClient
+      .from("community_posts")
+      .update({
 
-          likes_count:
-            newLikes
+        likes_count:
+          newLikes
 
-        })
-        .eq(
-          "id",
-          id
-        );
+      })
+      .eq(
+        "id",
+        id
+      );
 
 
     if(updateError){
@@ -1513,7 +1637,6 @@ async function likePost(id){
       console.error(
         updateError
       );
-
 
       alert(
         "Like नहीं हो सका।"
@@ -1524,15 +1647,19 @@ async function likePost(id){
     }
 
 
-    await loadPosts();
+    button.innerHTML =
+      `❤️ ${newLikes}`;
+
+
+    button.classList.add(
+      "liked"
+    );
 
   }
-
 
   catch(error){
 
     console.error(
-      "Like Error:",
       error
     );
 
@@ -1541,11 +1668,11 @@ async function likePost(id){
 }
 
 
-/* =========================
+/* =====================================================
    COMMENT
-========================= */
+===================================================== */
 
-function addComment(id){
+async function addComment(id){
 
   const input =
     document.getElementById(
@@ -1553,7 +1680,11 @@ function addComment(id){
     );
 
 
-  if(!input) return;
+  if(!input){
+
+    return;
+
+  }
 
 
   const text =
@@ -1567,53 +1698,157 @@ function addComment(id){
   }
 
 
+  currentUser =
+    await getCurrentUser();
+
+
+  if(!currentUser){
+
+    alert(
+      "Comment करने के लिए पहले Login करें।"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    अभी Comment browser में localStorage
+    में रखा जा रहा है।
+  */
+
+  let comments =
+    JSON.parse(
+      localStorage.getItem(
+        "communityComments"
+      ) || "{}"
+    );
+
+
+  if(!comments[id]){
+
+    comments[id] = [];
+
+  }
+
+
+  comments[id].push({
+
+    name:
+      "Anil Carpenter",
+
+    text:
+      text,
+
+    time:
+      new Date()
+        .toLocaleString(
+          "hi-IN"
+        )
+
+  });
+
+
+  localStorage.setItem(
+    "communityComments",
+    JSON.stringify(
+      comments
+    )
+  );
+
+
+  input.value = "";
+
+
+  renderStoredComments(
+    id
+  );
+
+}
+
+
+/* =====================================================
+   RENDER COMMENTS
+===================================================== */
+
+function renderStoredComments(
+  id
+){
+
   const box =
     document.getElementById(
       "comments-" + id
     );
 
 
-  if(!box) return;
+  if(!box){
+
+    return;
+
+  }
 
 
-  const comment =
-    document.createElement(
-      "div"
+  const comments =
+    JSON.parse(
+      localStorage.getItem(
+        "communityComments"
+      ) || "{}"
     );
 
 
-  comment.className =
-    "comment";
+  const list =
+    comments[id] || [];
 
 
-  comment.innerHTML = `
+  if(!list.length){
 
-    <span class="comment-name">
-      Carpenter Member
-    </span>
+    box.innerHTML = "";
 
-    <br>
+    return;
 
-    ${escapeHTML(text)}
-
-  `;
+  }
 
 
-  box.appendChild(
-    comment
-  );
+  box.innerHTML =
+    list
+      .map(
+        function(comment){
 
+          return `
 
-  input.value = "";
+            <div class="comment">
+
+              <span class="comment-name">
+                ${escapeHTML(
+                  comment.name
+                )}
+              </span>
+
+              <br>
+
+              ${escapeHTML(
+                comment.text
+              )}
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
 
 }
 
 
-/* =========================
-   COMMENT FOCUS
-========================= */
+/* =====================================================
+   FOCUS COMMENT
+===================================================== */
 
-function focusComment(id){
+function focusComment(
+  id
+){
 
   const input =
     document.getElementById(
@@ -1630,11 +1865,13 @@ function focusComment(id){
 }
 
 
-/* =========================
-   SHARE POST
-========================= */
+/* =====================================================
+   SHARE
+===================================================== */
 
-async function sharePost(id){
+async function sharePost(
+  id
+){
 
   const url =
     window.location.origin +
@@ -1657,7 +1894,8 @@ async function sharePost(id){
         text:
           "Carpenter Community पर यह Post देखें।",
 
-        url:url
+        url:
+          url
 
       });
 
@@ -1673,7 +1911,6 @@ async function sharePost(id){
 
   }
 
-
   else{
 
     try{
@@ -1682,13 +1919,11 @@ async function sharePost(id){
         url
       );
 
-
       alert(
         "✅ Post link copy हो गया।"
       );
 
     }
-
 
     catch(error){
 
@@ -1704,57 +1939,118 @@ async function sharePost(id){
 }
 
 
-/* =========================
-   SAFE HTML
-========================= */
+/* =====================================================
+   DATE FORMAT
+===================================================== */
 
-function escapeHTML(value){
+function formatDate(
+  date
+){
 
-  return String(value)
+  if(!date){
 
-    .replace(
-      /&/g,
-      "&amp;"
-    )
+    return "";
 
-    .replace(
-      /</g,
-      "&lt;"
-    )
+  }
 
-    .replace(
-      />/g,
-      "&gt;"
-    )
 
-    .replace(
-      /"/g,
-      "&quot;"
-    )
+  try{
 
-    .replace(
-      /'/g,
-      "&#039;"
+    return new Date(
+      date
+    ).toLocaleString(
+      "hi-IN",
+      {
+        dateStyle:
+          "medium",
+        timeStyle:
+          "short"
+      }
     );
+
+  }
+
+  catch(error){
+
+    return "";
+
+  }
 
 }
 
 
-/* =========================
+/* =====================================================
+   SAFE HTML
+===================================================== */
+
+function escapeHTML(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
-  function(){
+  async function(){
 
-    loadPosts();
+    currentUser =
+      await getCurrentUser();
+
+    await loadPosts();
 
   }
 );
 
-</script>
 
+/* =====================================================
+   AUTO REFRESH
+   हर 30 सेकंड में नए Posts check
+===================================================== */
+
+setInterval(
+  function(){
+
+    loadPosts();
+
+  },
+  30000
+);
+
+</script>
 
 </body>
 
