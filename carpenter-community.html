@@ -1,1 +1,1624 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Carpenter Community | Anil Carpenter</title>
+
+<meta name="description"
+content="Anil Carpenter Community में Carpenter भाई अपना काम पोस्ट करें, फोटो शेयर करें, Like, Comment और Share करें।">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f3f4f6;
+  color:#202124;
+}
+
+.container{
+  width:94%;
+  max-width:700px;
+  margin:auto;
+}
+
+/* HEADER */
+
+.header{
+  background:#111827;
+  color:#fff;
+  padding:14px 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:19px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#f59e0b;
+}
+
+.header-links{
+  display:flex;
+  gap:7px;
+}
+
+.directory-btn{
+  color:#fff;
+  text-decoration:none;
+  border:1px solid #4b5563;
+  padding:7px 11px;
+  border-radius:8px;
+  font-size:12px;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#111827,#374151);
+  color:#fff;
+  padding:35px 15px;
+  text-align:center;
+}
+
+.hero-icon{
+  font-size:42px;
+}
+
+.hero h1{
+  font-size:28px;
+  margin:7px 0;
+}
+
+.hero p{
+  color:#d1d5db;
+  font-size:14px;
+}
+
+/* COMMUNITY */
+
+.community{
+  padding:25px 0 50px;
+}
+
+/* CREATE POST */
+
+.create-post{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.07);
+  margin-bottom:22px;
+}
+
+.create-title{
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.post-input{
+  width:100%;
+  min-height:90px;
+  resize:none;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  padding:13px;
+  font-size:15px;
+  outline:none;
+  font-family:inherit;
+}
+
+.post-input:focus{
+  border-color:#f59e0b;
+}
+
+.post-actions{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+  gap:10px;
+}
+
+.photo-btn{
+  background:#f3f4f6;
+  border:0;
+  padding:10px 13px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.post-btn{
+  background:#f59e0b;
+  color:#111827;
+  border:0;
+  padding:11px 20px;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.post-btn:disabled{
+  opacity:.6;
+}
+
+#photoPreview{
+  display:none;
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-top:12px;
+}
+
+/* FEED */
+
+.feed-title{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:13px;
+}
+
+.post-card{
+  background:#fff;
+  border-radius:16px;
+  padding:17px;
+  margin-bottom:15px;
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+}
+
+.post-user{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.avatar{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:#fde68a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+}
+
+.user-name{
+  font-weight:800;
+}
+
+.post-time{
+  font-size:12px;
+  color:#9ca3af;
+  margin-top:2px;
+}
+
+.post-text{
+  margin-top:14px;
+  line-height:1.7;
+  font-size:15px;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.post-image{
+  width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-top:13px;
+}
+
+.post-buttons{
+  display:flex;
+  gap:8px;
+  border-top:1px solid #e5e7eb;
+  margin-top:15px;
+  padding-top:12px;
+}
+
+.post-buttons button{
+  flex:1;
+  border:0;
+  background:#f3f4f6;
+  padding:9px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* COMMENTS */
+
+.comments{
+  margin-top:12px;
+}
+
+.comment{
+  background:#f8fafc;
+  padding:9px 11px;
+  border-radius:9px;
+  margin-top:7px;
+  font-size:13px;
+}
+
+.comment-name{
+  font-weight:800;
+}
+
+.comment-box{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+
+.comment-input{
+  flex:1;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  padding:9px;
+  outline:none;
+}
+
+.comment-send{
+  border:0;
+  background:#111827;
+  color:#fff;
+  border-radius:8px;
+  padding:0 13px;
+  cursor:pointer;
+}
+
+/* EMPTY */
+
+.empty,
+.loading{
+  text-align:center;
+  padding:40px 20px;
+  color:#6b7280;
+  background:#fff;
+  border-radius:15px;
+}
+
+/* GUIDES */
+
+.community-guides{
+  padding:28px 0;
+}
+
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
+}
+
+.guide-card{
+  display:block;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+  color:inherit;
+  text-decoration:none;
+}
+
+.guide-icon{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+@media(max-width:600px){
+
+  .logo{
+    font-size:17px;
+  }
+
+  .header-inner{
+    flex-wrap:wrap;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container header-inner">
+
+<a href="index.html" class="logo">
+🪚 <span>Anil</span> Carpenter
+</a>
+
+<div class="header-links">
+
+<a href="join-carpenter.html" class="directory-btn">
+➕ Sign Up
+</a>
+
+<a href="login.html" class="directory-btn">
+🔐 Sign In
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-icon">
+👷‍♂️
+</div>
+
+<h1>
+Carpenter Community
+</h1>
+
+<p>
+Carpenter भाइयों का अपना Online Community Network
+</p>
+
+</section>
+
+
+<main class="community">
+
+<div class="container">
+
+<!-- CREATE POST -->
+
+<div class="create-post">
+
+<div class="create-title">
+✍️ आज क्या शेयर करना चाहते हैं?
+</div>
+
+<textarea
+id="postText"
+class="post-input"
+placeholder="अपना काम, अनुभव, सवाल या जानकारी लिखें..."
+></textarea>
+
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+style="display:none;"
+>
+
+<img
+id="photoPreview"
+alt="Selected photo"
+>
+
+<div class="post-actions">
+
+<button
+type="button"
+class="photo-btn"
+id="photoButton"
+>
+📷 फोटो
+</button>
+
+<button
+type="button"
+class="post-btn"
+id="postButton"
+>
+🚀 Post करें
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FEED -->
+
+<div class="feed-title">
+🔥 Carpenter Community Posts
+</div>
+
+<div id="feed">
+
+<div class="loading">
+
+<div style="font-size:40px;">
+⏳
+</div>
+
+<p style="margin-top:8px;">
+Posts लोड हो रहे हैं...
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- GUIDES -->
+
+<section class="community-guides">
+
+<div class="container">
+
+<div style="text-align:center;margin-bottom:20px;">
+
+<h2>
+🪚 Carpenter Knowledge & Community
+</h2>
+
+<p style="margin-top:8px;">
+Carpenter भाइयों के लिए जरूरी guides और community pages
+</p>
+
+</div>
+
+<div class="guide-grid">
+
+<a href="join-carpenter.html" class="guide-card">
+<div class="guide-icon">👷</div>
+<strong>Carpenter Join</strong>
+</a>
+
+<a href="carpenter-tools.html" class="guide-card">
+<div class="guide-icon">🛠️</div>
+<strong>Carpenter Tools</strong>
+</a>
+
+<a href="experienced-carpenter.html" class="guide-card">
+<div class="guide-icon">⭐</div>
+<strong>Experienced Carpenter</strong>
+</a>
+
+<a href="furniture-making.html" class="guide-card">
+<div class="guide-icon">🪑</div>
+<strong>Furniture Making</strong>
+</a>
+
+<a href="carpenter-joints.html" class="guide-card">
+<div class="guide-icon">🔨</div>
+<strong>Carpenter Joints</strong>
+</a>
+
+<a href="measurement-marking.html" class="guide-card">
+<div class="guide-icon">📐</div>
+<strong>Measurement & Marking</strong>
+</a>
+
+<a href="new-carpenter.html" class="guide-card">
+<div class="guide-icon">🌱</div>
+<strong>New Carpenter</strong>
+</a>
+
+<a href="learn-carpentry.html" class="guide-card">
+<div class="guide-icon">📚</div>
+<strong>Learn Carpentry</strong>
+</a>
+
+<a href="wood-board-guide.html" class="guide-card">
+<div class="guide-icon">🪵</div>
+<strong>Wood & Board Guide</strong>
+</a>
+
+<a href="carpenter-work-guide.html" class="guide-card">
+<div class="guide-icon">📋</div>
+<strong>Carpenter Work Guide</strong>
+</a>
+
+<a href="carpenter-directory.html" class="guide-card">
+<div class="guide-icon">👥</div>
+<strong>Carpenter Directory</strong>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer style="
+background:#0b1120;
+color:#9ca3af;
+text-align:center;
+padding:22px 15px;
+font-size:13px;
+">
+
+© 2026 Anil Carpenter • Carpenter Community
+
+</footer>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+query,
+orderBy,
+updateDoc,
+doc,
+increment,
+serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+import {
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyCKTMSuuxEVj0ZTT9CAJW5NgJ9ynH6Qsto",
+
+authDomain:
+"anil-carpenter-community.firebaseapp.com",
+
+projectId:
+"anil-carpenter-community",
+
+storageBucket:
+"anil-carpenter-community.firebasestorage.app",
+
+messagingSenderId:
+"835868472367",
+
+appId:
+"1:835868472367:web:a320614a701cd3bbf102da",
+
+measurementId:
+"G-BDDMVGQP4T"
+
+};
+
+
+const app =
+initializeApp(firebaseConfig);
+
+
+const db =
+getFirestore(app);
+
+
+const storage =
+getStorage(app);
+
+
+const postsRef =
+collection(
+db,
+"community_posts"
+);
+
+
+/* =========================
+   USER ID
+========================= */
+
+let userId =
+localStorage.getItem(
+"carpenterUserId"
+);
+
+
+if(!userId){
+
+userId =
+crypto.randomUUID();
+
+localStorage.setItem(
+"carpenterUserId",
+userId
+);
+
+}
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const postText =
+document.getElementById(
+"postText"
+);
+
+const photoInput =
+document.getElementById(
+"photoInput"
+);
+
+const photoPreview =
+document.getElementById(
+"photoPreview"
+);
+
+const postButton =
+document.getElementById(
+"postButton"
+);
+
+const photoButton =
+document.getElementById(
+"photoButton"
+);
+
+const feed =
+document.getElementById(
+"feed"
+);
+
+
+/* =========================
+   PHOTO
+========================= */
+
+photoButton.addEventListener(
+"click",
+function(){
+
+photoInput.click();
+
+}
+);
+
+
+photoInput.addEventListener(
+"change",
+function(){
+
+const file =
+photoInput.files[0];
+
+if(!file){
+
+photoPreview.style.display =
+"none";
+
+return;
+
+}
+
+
+if(
+!file.type.startsWith(
+"image/"
+)
+){
+
+alert(
+"कृपया केवल Image चुनें।"
+);
+
+photoInput.value = "";
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
+
+photoPreview.src =
+e.target.result;
+
+photoPreview.style.display =
+"block";
+
+};
+
+
+reader.readAsDataURL(
+file
+);
+
+}
+);
+
+
+/* =========================
+   CREATE POST
+========================= */
+
+postButton.addEventListener(
+"click",
+createPost
+);
+
+
+async function createPost(){
+
+const text =
+postText.value.trim();
+
+const file =
+photoInput.files[0];
+
+
+if(
+!text &&
+!file
+){
+
+alert(
+"कृपया Post में कुछ लिखें या Photo चुनें"
+);
+
+return;
+
+}
+
+
+postButton.disabled =
+true;
+
+postButton.textContent =
+"⏳ पोस्ट हो रही है...";
+
+
+try{
+
+let imageUrl =
+null;
+
+
+/* PHOTO UPLOAD */
+
+if(file){
+
+const cleanName =
+file.name.replace(
+/[^a-zA-Z0-9._-]/g,
+"_"
+);
+
+
+const fileRef =
+ref(
+storage,
+"community-posts/" +
+userId +
+"/" +
+Date.now() +
+"-" +
+cleanName
+);
+
+
+await uploadBytes(
+fileRef,
+file
+);
+
+
+imageUrl =
+await getDownloadURL(
+fileRef
+);
+
+}
+
+
+/* SAVE POST */
+
+await addDoc(
+postsRef,
+{
+
+user_id:
+userId,
+
+post_text:
+text || null,
+
+image_url:
+imageUrl,
+
+likes_count:
+0,
+
+created_at:
+serverTimestamp()
+
+}
+);
+
+
+/* CLEAR */
+
+postText.value =
+"";
+
+photoInput.value =
+"";
+
+photoPreview.src =
+"";
+
+photoPreview.style.display =
+"none";
+
+
+alert(
+"✅ Post सफलतापूर्वक शेयर हो गई!"
+);
+
+
+await loadPosts();
+
+
+}
+
+catch(error){
+
+console.error(
+error
+);
+
+alert(
+"Post save नहीं हुई: " +
+error.message
+);
+
+}
+
+
+finally{
+
+postButton.disabled =
+false;
+
+postButton.textContent =
+"🚀 Post करें";
+
+}
+
+}
+
+
+/* =========================
+   LOAD POSTS
+========================= */
+
+async function loadPosts(){
+
+feed.innerHTML = `
+
+<div class="loading">
+
+<div style="font-size:40px;">
+⏳
+</div>
+
+<p style="margin-top:8px;">
+Posts लोड हो रहे हैं...
+</p>
+
+</div>
+
+`;
+
+
+try{
+
+const q =
+query(
+postsRef,
+orderBy(
+"created_at",
+"desc"
+)
+);
+
+
+const snapshot =
+await getDocs(q);
+
+
+if(snapshot.empty){
+
+feed.innerHTML = `
+
+<div class="empty">
+
+<div style="font-size:40px;">
+👷
+</div>
+
+<p style="margin-top:8px;">
+अभी कोई Post नहीं है।
+</p>
+
+<p style="font-size:13px;margin-top:5px;">
+सबसे पहले आप Post करें!
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+feed.innerHTML =
+"";
+
+
+snapshot.forEach(
+function(postDoc){
+
+const post =
+postDoc.data();
+
+const id =
+postDoc.id;
+
+
+const card =
+document.createElement(
+"div"
+);
+
+
+card.className =
+"post-card";
+
+card.id =
+"post-" +
+id;
+
+
+const safeText =
+post.post_text
+?
+escapeHTML(
+post.post_text
+)
+:
+"";
+
+
+let time =
+"";
+
+
+if(
+post.created_at &&
+post.created_at.toDate
+){
+
+time =
+post.created_at
+.toDate()
+.toLocaleString(
+"hi-IN"
+);
+
+}
+
+
+card.innerHTML = `
+
+<div class="post-user">
+
+<div class="avatar">
+👷
+</div>
+
+<div>
+
+<div class="user-name">
+Carpenter
+</div>
+
+<div class="post-time">
+${escapeHTML(time)}
+</div>
+
+</div>
+
+</div>
+
+
+${
+safeText
+?
+`
+<div class="post-text">
+${safeText}
+</div>
+`
+:
+""
+}
+
+
+${
+post.image_url
+?
+`
+<img
+class="post-image"
+src="${escapeHTML(post.image_url)}"
+alt="Carpenter Post"
+loading="lazy"
+>
+`
+:
+""
+}
+
+
+<div class="post-buttons">
+
+<button
+type="button"
+class="like-btn"
+>
+❤️ ${Number(
+post.likes_count || 0
+)}
+</button>
+
+
+<button
+type="button"
+class="comment-focus-btn"
+>
+💬 Comment
+</button>
+
+
+<button
+type="button"
+class="share-btn"
+>
+🔗 Share
+</button>
+
+</div>
+
+
+<div
+id="comments-${id}"
+class="comments"
+>
+</div>
+
+
+<div class="comment-box">
+
+<input
+id="comment-${id}"
+class="comment-input"
+placeholder="Comment लिखें..."
+>
+
+<button
+type="button"
+class="comment-send"
+>
+भेजें
+</button>
+
+</div>
+
+`;
+
+
+feed.appendChild(
+card
+);
+
+
+/* BUTTONS */
+
+card
+.querySelector(
+".like-btn"
+)
+.addEventListener(
+"click",
+function(){
+
+likePost(id);
+
+}
+);
+
+
+card
+.querySelector(
+".comment-focus-btn"
+)
+.addEventListener(
+"click",
+function(){
+
+focusComment(id);
+
+}
+);
+
+
+card
+.querySelector(
+".share-btn"
+)
+.addEventListener(
+"click",
+function(){
+
+sharePost(id);
+
+}
+);
+
+
+card
+.querySelector(
+".comment-send"
+)
+.addEventListener(
+"click",
+function(){
+
+addComment(id);
+
+}
+);
+
+
+loadComments(id);
+
+}
+);
+
+
+}
+
+catch(error){
+
+console.error(
+error
+);
+
+
+feed.innerHTML = `
+
+<div class="empty">
+
+<div style="font-size:40px;">
+⚠️
+</div>
+
+<p style="margin-top:8px;">
+Posts लोड नहीं हो सके
+</p>
+
+<p style="font-size:13px;margin-top:5px;">
+Firestore Rules जाँचें।
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =========================
+   LIKE
+========================= */
+
+async function likePost(id){
+
+try{
+
+await updateDoc(
+doc(
+db,
+"community_posts",
+id
+),
+{
+
+likes_count:
+increment(1)
+
+}
+);
+
+
+await loadPosts();
+
+
+}
+
+catch(error){
+
+console.error(
+error
+);
+
+alert(
+"Like नहीं हो सका: " +
+error.message
+);
+
+}
+
+}
+
+
+/* =========================
+   COMMENT
+========================= */
+
+async function addComment(id){
+
+const input =
+document.getElementById(
+"comment-" +
+id
+);
+
+
+const text =
+input.value.trim();
+
+
+if(!text){
+
+alert(
+"Comment लिखें"
+);
+
+return;
+
+}
+
+
+try{
+
+await addDoc(
+collection(
+db,
+"community_posts",
+id,
+"comments"
+),
+{
+
+user_id:
+userId,
+
+name:
+"Carpenter",
+
+text:
+text,
+
+created_at:
+serverTimestamp()
+
+}
+);
+
+
+input.value =
+"";
+
+
+await loadComments(
+id
+);
+
+
+}
+
+catch(error){
+
+console.error(
+error
+);
+
+alert(
+"Comment नहीं हो सका: " +
+error.message
+);
+
+}
+
+}
+
+
+/* =========================
+   LOAD COMMENTS
+========================= */
+
+async function loadComments(id){
+
+const box =
+document.getElementById(
+"comments-" +
+id
+);
+
+
+if(!box){
+return;
+}
+
+
+try{
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"community_posts",
+id,
+"comments"
+)
+);
+
+
+box.innerHTML =
+"";
+
+
+snapshot.forEach(
+function(commentDoc){
+
+const comment =
+commentDoc.data();
+
+
+const div =
+document.createElement(
+"div"
+);
+
+
+div.className =
+"comment";
+
+
+div.innerHTML = `
+
+<div class="comment-name">
+
+${escapeHTML(
+comment.name ||
+"Carpenter"
+)}
+
+</div>
+
+<div>
+
+${escapeHTML(
+comment.text ||
+""
+)}
+
+</div>
+
+`;
+
+
+box.appendChild(
+div
+);
+
+}
+);
+
+
+}
+
+catch(error){
+
+console.error(
+error
+);
+
+}
+
+}
+
+
+/* =========================
+   FOCUS COMMENT
+========================= */
+
+function focusComment(id){
+
+const input =
+document.getElementById(
+"comment-" +
+id
+);
+
+
+if(input){
+
+input.focus();
+
+}
+
+}
+
+
+/* =========================
+   SHARE
+========================= */
+
+async function sharePost(id){
+
+const url =
+window.location.href
+.split("#")[0] +
+"#post-" +
+id;
+
+
+try{
+
+if(
+navigator.share
+){
+
+await navigator.share({
+
+title:
+"Carpenter Community",
+
+text:
+"Carpenter Community पर यह Post देखें।",
+
+url:
+url
+
+});
+
+}
+
+else{
+
+await navigator.clipboard
+.writeText(url);
+
+alert(
+"✅ Post link copy हो गया।"
+);
+
+}
+
+}
+
+catch(error){
+
+console.log(
+"Share cancelled"
+);
+
+}
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(value){
+
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadPosts();
+
+</script>
+
+</body>
+  </html>
