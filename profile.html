@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Anil Carpenter Profile</title>
-
+  
 <style>
 *{box-sizing:border-box}
 body{
@@ -91,6 +91,94 @@ button{
   padding:20px;
   margin-bottom:12px;
 }
+  .menu-btn{
+  background:transparent;
+  border:0;
+  color:white;
+  font-size:25px;
+  cursor:pointer;
+  padding:5px 8px;
+  }
+  /* =========================
+   SIDE MENU
+========================= */
+
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-330px;
+  width:310px;
+  max-width:88%;
+  height:100vh;
+  background:#ffffff;
+  z-index:9999;
+  overflow-y:auto;
+  box-shadow:-5px 0 20px rgba(0,0,0,.20);
+  transition:right .25s ease;
+}
+
+.side-menu.active{
+  right:0;
+}
+
+.menu-header{
+  position:sticky;
+  top:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 16px;
+  background:#111827;
+  color:#ffffff;
+  font-size:19px;
+  z-index:2;
+}
+
+.menu-header button{
+  background:transparent;
+  color:#ffffff;
+  border:0;
+  font-size:20px;
+  padding:5px 8px;
+  cursor:pointer;
+}
+
+.menu-section{
+  padding:10px 10px 4px;
+  border-bottom:1px solid #eeeeee;
+}
+
+.menu-title{
+  padding:10px 12px 6px;
+  color:#6b7280;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.menu-section > button{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:#ffffff;
+  border:0;
+  border-radius:10px;
+  padding:13px 12px;
+  margin:2px 0;
+  font-size:15px;
+  font-weight:500;
+  color:#111827;
+  cursor:pointer;
+}
+
+.menu-section > button:hover{
+  background:#f3f4f6;
+}
+
+@media(max-width:500px){
+  .side-menu{
+    width:300px;
+  }
+}
 </style>
 </head>
 
@@ -98,7 +186,8 @@ button{
 
 <div class="header">
   <span>🪚 <b>Anil</b> Carpenter</span>
-  <span>☰</span>
+<button class="menu-btn" type="button" onclick="openMenu()">☰</button>
+  
 </div>
 
 <section class="profile">
@@ -169,7 +258,66 @@ function tab(name){
     "<div class='post'><h3>"+name+"</h3><p>"+name+
     " का section यहाँ खुलेगा।</p></div>";
 }
-</script>
+  function closeMenu(){
+  document.getElementById("sideMenu").classList.remove("active");
+}
 
+function openMenu(){
+  document.getElementById("sideMenu").classList.add("active");
+}
+</script>
+<!-- MENU PANEL -->
+<div id="sideMenu" class="side-menu">
+
+  <div class="menu-header">
+    <b>☰ Menu</b>
+    <button type="button" onclick="closeMenu()">✕</button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">👤 Account</div>
+
+    <button onclick="menuAction('profile')">👤 My Profile</button>
+    <button onclick="menuAction('edit')">✏️ Edit Profile</button>
+    <button onclick="menuAction('signin')">🔐 Sign In</button>
+    <button onclick="menuAction('signup')">🆕 Create Account</button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">⚙️ Settings</div>
+
+    <button onclick="menuAction('settings')">⚙️ Settings</button>
+    <button onclick="menuAction('notifications')">🔔 Notifications</button>
+    <button onclick="menuAction('privacy')">🔒 Privacy</button>
+    <button onclick="menuAction('security')">🛡️ Security</button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">♿ Accessibility</div>
+
+    <button onclick="menuAction('text')">🔤 Text Size</button>
+    <button onclick="menuAction('dark')">🌙 Dark Mode</button>
+    <button onclick="menuAction('contrast')">🎨 High Contrast</button>
+    <button onclick="menuAction('motion')">🔊 Reduce Motion</button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">💰 Community</div>
+
+    <button onclick="menuAction('pro')">⭐ Carpenter Pro</button>
+    <button onclick="menuAction('promote')">📢 Promote My Work</button>
+    <button onclick="menuAction('business')">🏪 Business Profile</button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">❓ Help</div>
+
+    <button onclick="menuAction('guidelines')">📖 Community Guidelines</button>
+    <button onclick="menuAction('help')">❓ Help & Support</button>
+    <button onclick="menuAction('report')">🚩 Report a Problem</button>
+    <button onclick="menuAction('about')">ℹ️ About Anil Carpenter</button>
+  </div>
+
+</div>
 </body>
 </html>
