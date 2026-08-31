@@ -1,1 +1,540 @@
+<!DOCTYPE html>
+<html lang="hi">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Terms & Conditions | Anil Carpenter
+</title>
+
+<meta name="description"
+content="Anil Carpenter वेबसाइट और Carpenter Community के Terms & Conditions। वेबसाइट और community का उपयोग करने के नियम।">
+
+<meta name="robots"
+content="index,follow">
+
+<meta name="author"
+content="Anil Carpenter">
+
+<meta name="theme-color"
+content="#111827">
+
+<link rel="canonical"
+href="https://www.anilcarpenter.com/terms-and-conditions.html">
+
+<link rel="icon"
+href="favicon.ico">
+
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:
+  Arial,
+  "Noto Sans Devanagari",
+  sans-serif;
+  background:#f3f4f6;
+  color:#202124;
+  line-height:1.7;
+}
+
+.container{
+  width:92%;
+  max-width:900px;
+  margin:auto;
+}
+
+
+/* HEADER */
+
+.header{
+  background:#111827;
+  color:#fff;
+  padding:15px 0;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#f59e0b;
+}
+
+.home-btn{
+  color:#fff;
+  text-decoration:none;
+  background:#1f2937;
+  border:1px solid #4b5563;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:700;
+}
+
+
+/* PAGE */
+
+.page{
+  padding:35px 0 50px;
+}
+
+.page-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:28px 22px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.page h1{
+  font-size:28px;
+  color:#111827;
+  margin-bottom:8px;
+}
+
+.updated{
+  color:#6b7280;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.page h2{
+  font-size:20px;
+  color:#111827;
+  margin-top:25px;
+  margin-bottom:8px;
+}
+
+.page p{
+  font-size:15px;
+  margin-bottom:12px;
+  color:#374151;
+}
+
+.page ul{
+  margin:8px 0 15px 22px;
+  color:#374151;
+}
+
+.page li{
+  margin-bottom:7px;
+}
+
+.warning-box{
+  background:#fffbeb;
+  border-left:4px solid #f59e0b;
+  padding:15px;
+  margin:18px 0;
+  border-radius:8px;
+}
+
+.contact-box{
+  background:#f9fafb;
+  border-left:4px solid #f59e0b;
+  padding:15px;
+  margin-top:20px;
+  border-radius:8px;
+}
+
+
+/* FOOTER */
+
+.footer{
+  background:#0b1120;
+  color:#d1d5db;
+  padding:25px 0;
+  text-align:center;
+}
+
+.footer a{
+  color:#d1d5db;
+  text-decoration:none;
+  margin:0 8px;
+  font-size:13px;
+}
+
+.footer a:hover{
+  color:#f59e0b;
+}
+
+.footer-bottom{
+  margin-top:18px;
+  padding-top:15px;
+  border-top:1px solid #374151;
+  font-size:12px;
+  color:#9ca3af;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .logo{
+    font-size:17px;
+  }
+
+  .home-btn{
+    font-size:12px;
+    padding:7px 9px;
+  }
+
+  .page{
+    padding:25px 0 40px;
+  }
+
+  .page-card{
+    padding:22px 16px;
+  }
+
+  .page h1{
+    font-size:24px;
+  }
+
+  .page h2{
+    font-size:18px;
+  }
+
+  .page p,
+  .page li{
+    font-size:14px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container header-inner">
+
+<a
+href="index.html"
+class="logo">
+
+🪚 <span>Anil Carpenter</span>
+
+</a>
+
+<a
+href="index.html"
+class="home-btn">
+
+🏠 Home
+
+</a>
+
+</div>
+
+</header>
+
+
+<!-- CONTENT -->
+
+<main class="page">
+
+<div class="container">
+
+<div class="page-card">
+
+<h1>
+📜 Terms &amp; Conditions
+</h1>
+
+<div class="updated">
+Last Updated: 31 August 2026
+</div>
+
+
+<p>
+Anil Carpenter वेबसाइट और Carpenter Community में आपका स्वागत है। इस वेबसाइट का उपयोग करके आप इन Terms &amp; Conditions को स्वीकार करते हैं।
+</p>
+
+
+<div class="warning-box">
+
+<p>
+<strong>महत्वपूर्ण:</strong> यदि आप इन Terms &amp; Conditions से सहमत नहीं हैं, तो कृपया वेबसाइट या उसके संबंधित features का उपयोग न करें।
+</p>
+
+</div>
+
+
+<h2>
+1. Website का उद्देश्य
+</h2>
+
+<p>
+Anil Carpenter वेबसाइट का उद्देश्य Carpenter services, furniture work, carpentry knowledge, guides और Carpenter Community से संबंधित जानकारी उपलब्ध कराना है।
+</p>
+
+
+<h2>
+2. Website का उपयोग
+</h2>
+
+<p>
+आप वेबसाइट का उपयोग केवल lawful और उचित उद्देश्य के लिए करेंगे।
+</p>
+
+<ul>
+
+<li>Website को नुकसान पहुँचाने का प्रयास नहीं करेंगे।</li>
+
+<li>अनधिकृत access प्राप्त करने का प्रयास नहीं करेंगे।</li>
+
+<li>Spam या malicious content नहीं फैलाएँगे।</li>
+
+<li>किसी अन्य व्यक्ति की पहचान का गलत उपयोग नहीं करेंगे।</li>
+
+<li>Website के normal operation में बाधा नहीं डालेंगे।</li>
+
+</ul>
+
+
+<h2>
+3. Carpenter Community
+</h2>
+
+<p>
+Carpenter Community में users अपने काम, अनुभव, knowledge, photos, posts और comments साझा कर सकते हैं।
+</p>
+
+<p>
+Community में प्रकाशित content की जिम्मेदारी उस content को प्रकाशित करने वाले user की होगी।
+</p>
+
+
+<h2>
+4. User Content
+</h2>
+
+<p>
+आप जो content website पर स्वयं publish करते हैं, उसके लिए आप जिम्मेदार हैं।
+</p>
+
+<p>
+ऐसा content publish न करें जो illegal, misleading, abusive, defamatory, hateful, fraudulent या किसी अन्य व्यक्ति के अधिकारों का उल्लंघन करता हो।
+</p>
+
+
+<h2>
+5. Content Removal
+</h2>
+
+<p>
+यदि कोई post, profile, comment या अन्य content community rules या applicable law का उल्लंघन करता है, तो उसे review, restrict या remove किया जा सकता है।
+</p>
+
+
+<h2>
+6. Carpenter Services
+</h2>
+
+<p>
+Website पर दी गई carpenter services और pricing की जानकारी सामान्य जानकारी के लिए हो सकती है। वास्तविक काम की कीमत material, design, measurement, location, labour और काम की complexity के अनुसार बदल सकती है।
+</p>
+
+<p>
+किसी भी काम को शुरू करने से पहले customer और carpenter के बीच final price, material और work details स्पष्ट करना उचित है।
+</p>
+
+
+<h2>
+7. Information Accuracy
+</h2>
+
+<p>
+हम website पर उपयोगी और सही जानकारी देने का प्रयास करते हैं, लेकिन प्रत्येक information के हमेशा complete, current या error-free होने की guarantee नहीं दी जाती।
+</p>
+
+
+<h2>
+8. Third-Party Websites
+</h2>
+
+<p>
+Website में WhatsApp, Instagram, Google या अन्य third-party websites के links हो सकते हैं। इन third-party services की अपनी terms और policies हो सकती हैं।
+</p>
+
+
+<h2>
+9. Intellectual Property
+</h2>
+
+<p>
+Website का original text, design, branding और अन्य सामग्री, जहाँ लागू हो, Anil Carpenter या संबंधित rights holders की संपत्ति हो सकती है।
+</p>
+
+<p>
+बिना अनुमति किसी original content को commercial purpose के लिए copy या reproduce न करें।
+</p>
+
+
+<h2>
+10. Prohibited Activities
+</h2>
+
+<p>
+Website का उपयोग निम्न कार्यों के लिए नहीं किया जाना चाहिए:
+</p>
+
+<ul>
+
+<li>Fraud या scam</li>
+
+<li>Spam</li>
+
+<li>Fake profiles</li>
+
+<li>Illegal activities</li>
+
+<li>Malware या harmful code</li>
+
+<li>किसी व्यक्ति को परेशान या नुकसान पहुँचाना</li>
+
+<li>बिना अनुमति personal information प्रकाशित करना</li>
+
+</ul>
+
+
+<h2>
+11. Account Suspension
+</h2>
+
+<p>
+Community rules या Terms का गंभीर उल्लंघन होने पर किसी account या content को temporarily या permanently restrict किया जा सकता है।
+</p>
+
+
+<h2>
+12. Website Availability
+</h2>
+
+<p>
+हम website को उपलब्ध रखने का प्रयास करते हैं, लेकिन maintenance, technical problems, hosting issues या अन्य परिस्थितियों के कारण website कुछ समय के लिए unavailable हो सकती है।
+</p>
+
+
+<h2>
+13. Disclaimer
+</h2>
+
+<p>
+Website पर उपलब्ध carpentry guides और information सामान्य educational और informational purposes के लिए हैं। वास्तविक काम करते समय उचित tools, safety practices और professional judgement का उपयोग करें।
+</p>
+
+
+<h2>
+14. Terms में बदलाव
+</h2>
+
+<p>
+हम आवश्यकता के अनुसार इन Terms &amp; Conditions को update कर सकते हैं। Updated version इसी page पर प्रकाशित किया जाएगा और Last Updated date बदली जा सकती है।
+</p>
+
+
+<h2>
+15. Contact
+</h2>
+
+<div class="contact-box">
+
+<p>
+<strong>Anil Carpenter</strong>
+</p>
+
+<p>
+📍 Pachpokhari Bazar, Sant Kabir Nagar, Uttar Pradesh
+</p>
+
+<p>
+📞 +91 83411 88318
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
+
+<a href="terms-and-conditions.html">
+Terms &amp; Conditions
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Anil Carpenter.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
