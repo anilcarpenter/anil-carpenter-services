@@ -142,10 +142,38 @@ header { background: #ffffff; border-bottom: 1px solid var(--line); position: st
 /* Mobile Menu Toggle */
 .menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
 
-@media (max-width: 900px) {
-  .menu-toggle { display: block; }
-  .main-menu { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: #fff; padding: 20px; border-bottom: 2px solid var(--line); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-  .main-menu.active { display: flex; }
-  .dropdown-content { position: static; box-shadow: none; border: none; background: #f8fafc; margin-top: 5px; }
+/* MOBILE MENU TOGGLE - FINAL FIX */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--ink);
 }
 
+@media (max-width: 900px) {
+  .menu-toggle { 
+    display: block !important; 
+  }
+  
+  /* .links और .main-menu दोनों को सपोर्ट करने के लिए */
+  .links, .main-menu { 
+    display: none; 
+    flex-direction: column; 
+    position: absolute; 
+    top: 60px; 
+    left: 0; 
+    right: 0; 
+    background: #ffffff; 
+    padding: 20px; 
+    border-bottom: 2px solid var(--line); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    z-index: 9999; 
+    gap: 12px;
+  }
+
+  .links.active, .main-menu.active { 
+    display: flex !important; 
+  }
+}
