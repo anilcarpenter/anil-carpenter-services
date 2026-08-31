@@ -123,3 +123,29 @@ form input:focus, form select:focus, form textarea:focus { border-color: var(--p
 .profile-header .avatar { width: 48px; height: 48px; border-radius: 50%; background: #eef4ff; display: grid; place-items: center; font-size: 24px; }
 .profile-header h4 { font-size: 18px; color: var(--ink); }
 .profile-header small { color: var(--muted); }
+/* DROPDOWN & MENU STYLES */
+header { background: #ffffff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1000; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
+.main-menu { display: flex; align-items: center; gap: 15px; }
+.nav-link { text-decoration: none; color: #334155; font-size: 14px; font-weight: 600; transition: 0.2s; }
+.nav-link:hover { color: var(--p); }
+.highlight-link { background: #eff6ff; color: var(--p); padding: 6px 12px; border-radius: 6px; border: 1px solid #bfdbfe; }
+
+/* Dropdown */
+.dropdown { position: relative; display: inline-block; }
+.dropbtn { background: none; border: none; font-size: 14px; font-weight: 700; color: var(--p); cursor: pointer; padding: 6px 10px; }
+.dropdown-content { display: none; position: absolute; right: 0; background-color: #ffffff; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border-radius: 8px; border: 1px solid var(--line); z-index: 1001; }
+.dropdown-content a { color: #334155; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
+.dropdown-content a:hover { background-color: #f1f5f9; color: var(--p); }
+.dropdown:hover .dropdown-content { display: block; }
+
+/* Mobile Menu Toggle */
+.menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
+
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
+  .main-menu { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: #fff; padding: 20px; border-bottom: 2px solid var(--line); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+  .main-menu.active { display: flex; }
+  .dropdown-content { position: static; box-shadow: none; border: none; background: #f8fafc; margin-top: 5px; }
+}
+
