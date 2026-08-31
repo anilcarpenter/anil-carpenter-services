@@ -98,3 +98,94 @@ document.addEventListener("input", function(e) {
   }
 });
 
+/* WORKER PARTNER SYSTEM (Local Storage Based) */
+
+// Register Partner
+window.handlePartnerRegister = function(e) {
+  e.preventDefault();
+  const name = document.getElementById("pName")?.value.trim();
+  const phone = document.getElementById("pPhone")?.value.trim();
+  const skill = document.getElementById("pSkills")?.value;
+  const exp = document.getElementById("pExp")?.value;
+  const msg = document.getElementById("partnerMessage");
+
+  if(!name || !phone || !skill || !exp) return;
+
+  const partnerData = {
+    name: name,
+    phone: phone,
+    skill: skill,
+    exp: exp,
+    status: "Available (काम के लिए उपलब्ध)"
+  };
+
+  localStorage.setItem("worker_" + phone, JSON.stringify(partnerData));
+  
+  if(msg) msg.textContent = "✅ आपका रजिस्ट्रेशन हो गया है! अब लॉगिन करें।";
+  document.getElementById("partnerRegisterForm").reset();
+};
+
+// Login Partner
+window.handlePartnerLogin = function(e) {
+  e.preventDefault();
+  const phone = document.getElementById("loginPhone")?.value.trim();
+  const msg = document.getElementById("partnerMessage");
+
+  const data = localStorage.getItem("worker_" + phone);
+  if(!data) {
+    if(msg) msg.textContent = "❌ इस नंबर से कोई प्रोफाइल नहीं मिली। कृपया पहले साइन-अप करें।";
+    return;
+  }
+
+  const partner = JSON.parse(data);
+  localStorage.setItem("current_worker", phone);
+  renderPartnerProfile(partner);
+  if(msg) msg.textContent = "";
+};
+
+// Render Profile to Dashboard
+function renderPartnerProfile(partner) {
+  document.getElementById("partnerLoginBox").style.display = "none";
+  document.getElementById("partnerProfileBox").style.display = "block";
+
+  document.getElementById("profileDisplayName").textContent = partner.name;
+  document.getElementById("profileDisplayPhone").textContent = "+91 " + partner.phone;
+  document.getElementById("editSkill").value = partner.skill;
+  document.getElementById("editExp").value = partner.exp;
+  document.getElementById("editStatus").value = partner.status || "Available (काम के लिए उपलब्ध)";
+}
+
+// Update Profile
+window.handleProfileUpdate = function(e) {
+  e.preventDefault();
+  const phone = localStorage.getItem("current_worker");
+  const msg = document.getElementById("partnerMessage");
+
+  if(!phone) return;
+
+  const data = JSON.parse(localStorage.getItem("worker_" + phone));
+  data.skill = document.getElementById("editSkill").value.trim();
+  data.exp = document.getElementById("editExp").value;
+  data.status = document.getElementById("editStatus").value;
+
+  localStorage.setItem("worker_" + phone, JSON.stringify(data));
+  if(msg) msg.textContent = "✅ आपकी प्रोफाइल अपडेट हो गई है!";
+};
+
+// Logout Partner
+window.handlePartnerLogout = function() {
+  localStorage.removeItem("current_worker");
+  document.getElementById("partnerLoginBox").style.display = "block";
+  document.getElementById("partnerProfileBox").style.display = "none";
+  const msg = document.getElementById("partnerMessage");
+  if(msg) msg.textContent = "आप लॉगआउट हो चुके हैं।";
+};
+
+// Auto check login on page load
+document.addEventListener("DOMContentLoaded", function() {
+  const activePhone = localStorage.getItem("current_worker");
+  if(activePhone) {
+    const data = localStorage.getItem("worker_" + activePhone);
+    if(data) renderPartnerProfile(JSON.parse(data));
+  }
+});
