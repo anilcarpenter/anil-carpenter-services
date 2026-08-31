@@ -1,9 +1,9 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anil Carpenter Profile</title>
+  <title>Anil Carpenter Profile & Social Hub</title>
   <style>
     * {
       box-sizing: border-box;
@@ -17,7 +17,7 @@
       color: #333;
     }
 
-    /* Header Navbar */
+    /* Navbar */
     .navbar {
       background-color: #0d1b2a;
       color: #ffffff;
@@ -41,25 +41,31 @@
     .navbar .nav-right {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+    }
+
+    .btn-create {
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .btn-profile-nav {
       background-color: #1b263b;
       color: #fff;
       border: 1px solid #415a77;
-      padding: 6px 12px;
+      padding: 6px 10px;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
     }
 
-    .menu-icon {
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    /* Main Container */
+    /* Profile Container */
     .profile-container {
       max-width: 600px;
       margin: 0 auto;
@@ -69,228 +75,146 @@
       position: relative;
     }
 
-    /* Profile Header Info */
     .profile-header {
       text-align: center;
       padding: 20px 16px;
     }
 
+    /* Avatar with Upload Badge */
+    .avatar-wrapper {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 12px;
+    }
+
     .avatar-outer {
       width: 110px;
       height: 110px;
-      border: 4px solid #f39c12;
+      border: 3.5px solid #f39c12;
       border-radius: 50%;
-      margin: 0 auto 12px;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fff;
+      background: #e2e8f0;
     }
 
-    .avatar-inner {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      background-color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .avatar-outer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-inner-icon {
       font-size: 2.5rem;
       color: #94a3b8;
     }
 
-    .profile-name {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #1e293b;
-    }
-
-    .username {
-      color: #64748b;
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-    }
-
-    .bio-text {
-      font-size: 0.9rem;
-      color: #475569;
-      line-height: 1.4;
-    }
-
-    .location-tag {
-      color: #e74c3c;
-      font-size: 0.88rem;
-      margin-top: 4px;
-    }
-
-    /* Stats Counter */
-    .stats-row {
+    .dp-change-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: #0f172a;
+      color: #fff;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
       display: flex;
-      justify-content: space-around;
-      margin: 20px 0;
-      padding: 0 10px;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      border: 2px solid #fff;
+      cursor: pointer;
     }
 
-    .stat-box {
-      text-align: center;
-    }
+    .profile-name { font-size: 1.4rem; font-weight: bold; color: #1e293b; }
+    .username { color: #64748b; font-size: 0.95rem; margin-bottom: 8px; }
+    .bio-text { font-size: 0.9rem; color: #475569; line-height: 1.4; }
+    .location-tag { color: #e74c3c; font-size: 0.88rem; margin-top: 4px; }
 
-    .stat-number {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #0f172a;
-    }
+    /* Stats */
+    .stats-row { display: flex; justify-content: space-around; margin: 20px 0; padding: 0 10px; }
+    .stat-box { text-align: center; }
+    .stat-number { font-size: 1.2rem; font-weight: bold; color: #0f172a; }
+    .stat-label { font-size: 0.8rem; color: #64748b; }
 
-    .stat-label {
-      font-size: 0.8rem;
-      color: #64748b;
-    }
-
-    /* Action Buttons */
-    .actions-row {
-      display: flex;
-      gap: 8px;
-      padding: 0 16px;
-      margin-bottom: 20px;
-    }
-
+    /* Buttons */
+    .actions-row { display: flex; gap: 8px; padding: 0 16px; margin-bottom: 20px; }
     .btn-action {
-      flex: 1;
-      padding: 10px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      transition: background 0.2s;
+      flex: 1; padding: 10px 0; border: none; border-radius: 8px;
+      font-size: 0.9rem; font-weight: bold; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
     }
+    .btn-follow { background-color: #f39c12; color: #ffffff; }
+    .btn-follow.following { background-color: #27ae60; }
+    .btn-message { background-color: #e2e8f0; color: #1e293b; }
+    .btn-edit { background-color: #0f172a; color: #ffffff; }
 
-    .btn-follow {
-      background-color: #f39c12;
-      color: #ffffff;
-    }
-
-    .btn-follow.following {
-      background-color: #27ae60;
-    }
-
-    .btn-message {
-      background-color: #e2e8f0;
-      color: #1e293b;
-    }
-
-    .btn-edit {
-      background-color: #0f172a;
-      color: #ffffff;
-    }
-
-    /* Tab Navigation */
-    .tabs-bar {
-      display: flex;
-      border-top: 1px solid #e2e8f0;
-      border-bottom: 1px solid #e2e8f0;
-      background: #fafafa;
-    }
-
+    /* Tabs Bar */
+    .tabs-bar { display: flex; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; background: #fafafa; }
     .tab-item {
-      flex: 1;
-      text-align: center;
-      padding: 12px 0;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #64748b;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s ease;
+      flex: 1; text-align: center; padding: 12px 0; font-size: 0.85rem;
+      font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent;
     }
+    .tab-item.active { color: #0f172a; border-bottom-color: #f39c12; background: #ffffff; }
 
-    .tab-item.active {
-      color: #0f172a;
-      border-bottom-color: #f39c12;
-      background: #ffffff;
-    }
+    /* Content Area */
+    .tab-content { padding: 16px; }
+    .content-panel { display: none; }
+    .content-panel.active { display: block; }
 
-    /* Tab Content Display */
-    .tab-content {
-      padding: 16px;
-    }
+    /* Post Layouts */
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .post-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 12px; }
+    .post-card img, .post-card video { width: 100%; max-height: 350px; object-fit: cover; display: block; }
+    .post-info { padding: 10px; font-size: 0.88rem; }
+    
+    .thread-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .thread-user { font-weight: bold; font-size: 0.9rem; margin-bottom: 4px; }
+    
+    .story-card { background: #fff; border: 2px solid #f39c12; border-radius: 12px; padding: 8px; text-align: center; margin-bottom: 10px; }
 
-    .content-panel {
-      display: none;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-
-    .content-panel.active {
-      display: block;
-    }
-
-    .panel-title {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Edit Profile Modal (Pop-up) */
+    /* Modals */
     .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 200;
-      justify-content: center;
-      align-items: center;
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); z-index: 200; justify-content: center; align-items: center;
     }
-
     .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
+      background: #fff; padding: 20px; border-radius: 12px; width: 90%; max-width: 420px;
     }
-
     .modal-content h3 { margin-bottom: 12px; }
-    .modal-content label { font-size: 0.85rem; color: #64748b; margin-top: 8px; display: block; }
-    .modal-content input, .modal-content textarea {
+    .modal-content label { font-size: 0.85rem; color: #64748b; margin-top: 10px; display: block; }
+    .modal-content input, .modal-content select, .modal-content textarea {
       width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px;
     }
-
-    .modal-btns {
-      display: flex; gap: 10px; margin-top: 15px;
-    }
-
-    .btn-save { background: #27ae60; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; flex: 1; }
-    .btn-cancel { background: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; flex: 1; }
+    .modal-btns { display: flex; gap: 10px; margin-top: 15px; }
+    .btn-save { background: #27ae60; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; flex: 1; font-weight: bold; }
+    .btn-cancel { background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; flex: 1; font-weight: bold; }
   </style>
 </head>
 <body>
 
 <div class="profile-container">
 
-  <!-- Top Navbar -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">🪚 Anil <span>Carpenter</span></div>
     <div class="nav-right">
-      <button class="btn-profile-nav" onclick="alert('आप अपनी प्रोफाइल पर हैं!')">👤 Profile</button>
-      <span class="menu-icon" onclick="alert('Menu ऑप्शंस जल्द ही आएंगे!')">☰</span>
+      <button class="btn-create" onclick="openUploadModal()">➕ Create Post</button>
+      <button class="btn-profile-nav">👤 Profile</button>
     </div>
   </header>
 
-  <!-- Profile Card -->
+  <!-- Profile Header -->
   <section class="profile-header">
-    <div class="avatar-outer">
-      <div class="avatar-inner">👤</div>
+    <div class="avatar-wrapper">
+      <div class="avatar-outer" id="dpContainer">
+        <span class="avatar-inner-icon" id="defaultIcon">👤</span>
+        <img id="dpImage" src="" alt="DP" style="display:none;">
+      </div>
+      <label for="dpInput" class="dp-change-badge" title="Change Profile Photo">📷</label>
+      <input type="file" id="dpInput" accept="image/*" style="display:none;" onchange="updateProfilePicture(event)">
     </div>
     
     <h1 class="profile-name" id="displayName">Anil Carpenter</h1>
@@ -305,11 +229,11 @@
     <!-- Stats -->
     <div class="stats-row">
       <div class="stat-box">
-        <div class="stat-number">40</div>
+        <div class="stat-number" id="postCount">0</div>
         <div class="stat-label">Posts</div>
       </div>
       <div class="stat-box">
-        <div class="stat-number" id="followerCount">5425</div>
+        <div class="stat-number" id="followerCount">5426</div>
         <div class="stat-label">Followers</div>
       </div>
       <div class="stat-box">
@@ -318,7 +242,7 @@
       </div>
     </div>
 
-    <!-- Actions Row -->
+    <!-- Actions -->
     <div class="actions-row">
       <button class="btn-action btn-follow" id="followBtn" onclick="toggleFollow()">➕ Follow</button>
       <button class="btn-action btn-message" onclick="openWhatsApp()">💬 Message</button>
@@ -326,7 +250,7 @@
     </div>
   </section>
 
-  <!-- Tabs Navigation -->
+  <!-- Navigation Tabs -->
   <nav class="tabs-bar">
     <div class="tab-item active" onclick="switchTab('posts', this)">📷 Posts</div>
     <div class="tab-item" onclick="switchTab('reels', this)">🎬 Reels</div>
@@ -334,32 +258,70 @@
     <div class="tab-item" onclick="switchTab('story', this)">⭕ Story</div>
   </nav>
 
-  <!-- Content Panels -->
+  <!-- Display Content Panels -->
   <main class="tab-content">
+    
+    <!-- Posts Tab -->
     <div id="posts" class="content-panel active">
-      <div class="panel-title">📷 Posts</div>
-      <p style="color:#64748b;">यहाँ आपकी फर्नीचर वर्क की सभी फोटो पोस्ट्स दिखाई देंगी।</p>
+      <div id="postsContainer">
+        <p style="color:#64748b; text-align:center; padding: 20px;">अभी कोई फ़ोटो पोस्ट उपलब्ध नहीं है। "+ Create Post" बटन पर क्लिक करके अपलोड करें!</p>
+      </div>
     </div>
 
+    <!-- Reels Tab -->
     <div id="reels" class="content-panel">
-      <div class="panel-title">🎬 Reels</div>
-      <p style="color:#64748b;">यहाँ आपकी कारपेंट्री वर्क की शॉर्ट वीडियोज़ दिखेंगी।</p>
+      <div id="reelsContainer">
+        <p style="color:#64748b; text-align:center; padding: 20px;">अभी कोई रील्स वीडियो नहीं है। </p>
+      </div>
     </div>
 
+    <!-- Threads Tab -->
     <div id="threads" class="content-panel">
-      <div class="panel-title">✏️ Threads</div>
-      <p style="color:#64748b;">यहाँ कम्युनिटी की चर्चाएँ और सवाल-जवाब दिखेंगे।</p>
+      <div id="threadsContainer">
+        <p style="color:#64748b; text-align:center; padding: 20px;">यहाँ कम्युनिटी थ्रेड्स दिखेंगे।</p>
+      </div>
     </div>
 
+    <!-- Story Tab -->
     <div id="story" class="content-panel">
-      <div class="panel-title">⭕ Story</div>
-      <p style="color:#64748b;">डेली वर्क की लाइव स्टोरीज़ यहाँ अपडेट होंगी।</p>
+      <div id="storyContainer">
+        <p style="color:#64748b; text-align:center; padding: 20px;">कोई सक्रिय स्टोरी नहीं है।</p>
+      </div>
     </div>
+
   </main>
 
 </div>
 
-<!-- Edit Profile Pop-up Modal -->
+<!-- Upload / Create Post Modal -->
+<div class="modal" id="uploadModal">
+  <div class="modal-content">
+    <h3>Upload Content</h3>
+    
+    <label>Post Type</label>
+    <select id="postTypeSelect" onchange="toggleMediaInput()">
+      <option value="posts">📷 Photo Post</option>
+      <option value="reels">🎬 Reel Video</option>
+      <option value="threads">✏️ Text Thread</option>
+      <option value="story">⭕ Story</option>
+    </select>
+
+    <div id="mediaField">
+      <label>Choose File (Image/Video)</label>
+      <input type="file" id="mediaInput" accept="image/*,video/*">
+    </div>
+
+    <label>Caption / Text</label>
+    <textarea id="captionInput" rows="3" placeholder="यहाँ कुछ लिखें..."></textarea>
+
+    <div class="modal-btns">
+      <button class="btn-save" onclick="publishPost()">Publish</button>
+      <button class="btn-cancel" onclick="closeUploadModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Profile Modal -->
 <div class="modal" id="editModal">
   <div class="modal-content">
     <h3>Edit Profile</h3>
@@ -381,7 +343,23 @@ Pachpokhari Bazar SK Nagar</textarea>
 </div>
 
 <script>
-  // 1. Tab Switching Function
+  let totalPosts = 0;
+
+  // 1. Profile Picture Update Logic
+  function updateProfilePicture(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('dpImage').src = e.target.result;
+        document.getElementById('dpImage').style.display = 'block';
+        document.getElementById('defaultIcon').style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // 2. Tab Switcher
   function switchTab(tabId, element) {
     document.querySelectorAll('.tab-item').forEach(tab => tab.classList.remove('active'));
     document.querySelectorAll('.content-panel').forEach(panel => panel.classList.remove('active'));
@@ -390,53 +368,114 @@ Pachpokhari Bazar SK Nagar</textarea>
     document.getElementById(tabId).classList.add('active');
   }
 
-  // 2. Follow / Unfollow Logic
-  let isFollowing = false;
-  let count = 5425;
+  // 3. Upload Modal Handlers
+  function openUploadModal() { document.getElementById('uploadModal').style.display = 'flex'; }
+  function closeUploadModal() { document.getElementById('uploadModal').style.display = 'none'; }
+  
+  function toggleMediaInput() {
+    const type = document.getElementById('postTypeSelect').value;
+    const mediaField = document.getElementById('mediaField');
+    if (type === 'threads') {
+      mediaField.style.display = 'none';
+    } else {
+      mediaField.style.display = 'block';
+    }
+  }
+
+  // 4. Publish Dynamic Post / Reel / Thread / Story
+  function publishPost() {
+    const type = document.getElementById('postTypeSelect').value;
+    const caption = document.getElementById('captionInput').value;
+    const fileInput = document.getElementById('mediaInput');
+    const file = fileInput.files[0];
+
+    if (type !== 'threads' && !file) {
+      alert('कृपया फोटो या वीडियो फाइल चुनें!');
+      return;
+    }
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const fileUrl = e.target.result;
+        appendContentToFeed(type, fileUrl, caption, file.type);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      appendContentToFeed(type, null, caption, null);
+    }
+
+    closeUploadModal();
+    // Clear inputs
+    document.getElementById('captionInput').value = '';
+    fileInput.value = '';
+  }
+
+  function appendContentToFeed(type, mediaUrl, caption, mimeType) {
+    let container = document.getElementById(type + 'Container');
+    
+    // Clear initial empty text if first post
+    if (container.querySelector('p')) {
+      container.innerHTML = '';
+    }
+
+    const card = document.createElement('div');
+
+    if (type === 'posts') {
+      card.className = 'post-card';
+      card.innerHTML = `<img src="${mediaUrl}"><div class="post-info"><b>@anilcarpenter</b> ${caption}</div>`;
+    } else if (type === 'reels') {
+      card.className = 'post-card';
+      card.innerHTML = `<video controls src="${mediaUrl}"></video><div class="post-info"><b>🎬 Reel:</b> ${caption}</div>`;
+    } else if (type === 'threads') {
+      card.className = 'thread-card';
+      card.innerHTML = `<div class="thread-user">@anilcarpenter</div><div>${caption}</div>`;
+    } else if (type === 'story') {
+      card.className = 'story-card';
+      card.innerHTML = mimeType && mimeType.startsWith('video') 
+        ? `<video controls src="${mediaUrl}" style="max-width:100%; border-radius:8px;"></video><p>${caption}</p>`
+        : `<img src="${mediaUrl}" style="max-width:100%; border-radius:8px;"><p>${caption}</p>`;
+    }
+
+    container.prepend(card);
+    totalPosts++;
+    document.getElementById('postCount').innerText = totalPosts;
+
+    // Switch to uploaded tab automatically
+    const targetTabBtn = Array.from(document.querySelectorAll('.tab-item'))
+      .find(btn => btn.getAttribute('onclick').includes(type));
+    if (targetTabBtn) switchTab(type, targetTabBtn);
+  }
+
+  // 5. Follow & Edit Profile Logic
+  let isFollowing = true;
+  let count = 5426;
 
   function toggleFollow() {
     const btn = document.getElementById('followBtn');
     const counter = document.getElementById('followerCount');
-
     if (!isFollowing) {
-      isFollowing = true;
-      count++;
-      btn.innerHTML = '✔ Following';
-      btn.classList.add('following');
+      isFollowing = true; count++;
+      btn.innerHTML = '✔ Following'; btn.classList.add('following');
     } else {
-      isFollowing = false;
-      count--;
-      btn.innerHTML = '➕ Follow';
-      btn.classList.remove('following');
+      isFollowing = false; count--;
+      btn.innerHTML = '➕ Follow'; btn.classList.remove('following');
     }
     counter.innerText = count;
   }
 
-  // 3. Open WhatsApp Message
   function openWhatsApp() {
-    window.open('https://wa.me/918341188318?text=Hello%20Anil%20Carpenter,%20I%20visited%20your%20profile!', '_blank');
+    window.open('https://wa.me/918341188318?text=Hello%20Anil%20Carpenter!', '_blank');
   }
 
-  // 4. Edit Profile Modal Functions
-  function openEditModal() {
-    document.getElementById('editModal').style.display = 'flex';
-  }
-
-  function closeEditModal() {
-    document.getElementById('editModal').style.display = 'none';
-  }
+  function openEditModal() { document.getElementById('editModal').style.display = 'flex'; }
+  function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
 
   function saveProfile() {
-    const newName = document.getElementById('inputName').value;
-    const newUsername = document.getElementById('inputUsername').value;
-    const newBio = document.getElementById('inputBio').value;
-
-    document.getElementById('displayName').innerText = newName;
-    document.getElementById('displayUsername').innerText = newUsername;
-    document.getElementById('displayBio').innerHTML = newBio.replace(/\n/g, '<br>');
-
+    document.getElementById('displayName').innerText = document.getElementById('inputName').value;
+    document.getElementById('displayUsername').innerText = document.getElementById('inputUsername').value;
+    document.getElementById('displayBio').innerHTML = document.getElementById('inputBio').value.replace(/\n/g, '<br>');
     closeEditModal();
-    alert('प्रोफ़ाइल अपडेट हो गई है!');
   }
 </script>
 
