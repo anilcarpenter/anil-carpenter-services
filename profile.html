@@ -3164,10 +3164,12 @@ async function loadMessages(){
     "chatMessages"
   );
 
+
   box.innerHTML =
   `<div class="empty">
     ⏳ Loading messages...
   </div>`;
+
 
   try{
 
@@ -3189,4 +3191,917 @@ async function loadMessages(){
       )
     );
 
-    const sn
+
+    const snap =
+    await getDocs(q);
+
+
+    const messages = [];
+
+
+    snap.forEach(
+      item=>{
+
+        messages.push({
+
+          id:
+          item.id,
+
+          ...item.data()
+
+        });
+
+      }
+    );
+
+
+    messages.sort(
+      (a,b)=>{
+
+        const A =
+        a.created_at?.seconds ||
+        0;
+
+        const B =
+        b.created_at?.seconds ||
+        0;
+
+        return A-B;
+
+      }
+    );
+
+
+    if(
+      messages.length ===
+      0
+    ){
+
+      box.innerHTML =
+      `<div class="empty">
+        अभी कोई message नहीं है।
+      </div>`;
+
+      return;
+
+    }
+
+
+    box.innerHTML =
+    messages
+    .map(
+      message=>{
+
+        const mine =
+        message.sender_id ===
+        currentUserId;
+
+
+        return `
+
+          <div
+            class="chat-message
+            ${mine ? "me" : "other"}">
+
+            ${escapeHTML(
+              message.text ||
+              ""
+            )}
+
+          </div>
+
+        `;
+
+      }
+    )
+    .join("");
+
+
+    box.scrollTop =
+    box.scrollHeight;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    box.innerHTML =
+    `<div class="empty">
+      ❌ Messages load नहीं हुए।
+    </div>`;
+
+  }
+
+}
+
+
+/* =====================================================
+SEND MESSAGE
+===================================================== */
+
+window.sendMessage =
+async function(){
+
+  if(
+    !currentChatId
+  ){
+
+    return;
+
+  }
+
+
+  const input =
+  document.getElementById(
+    "messageInput"
+  );
+
+
+  const text =
+  input.value.trim();
+
+
+  if(!text){
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(
+        db,
+        "community_posts"
+      ),
+      {
+
+        type:
+        "message",
+
+        chat_id:
+        currentChatId,
+
+        sender_id:
+        currentUserId,
+
+        receiver_id:
+        currentChatUserId,
+
+        user_id:
+        currentUserId,
+
+        text:
+        text,
+
+        created_at:
+        serverTimestamp()
+
+      }
+    );
+
+
+    input.value =
+    "";
+
+
+    await loadMessages();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      "❌ Message भेजा नहीं गया"
+    );
+
+  }
+
+};
+
+
+/* =====================================================
+FOLLOWERS LIST
+===================================================== */
+
+window.openFollowers =
+async function(){
+
+  const modal =
+  document.getElementById(
+    "usersModal"
+  );
+
+
+  document.getElementById(
+    "usersModalTitle"
+  ).textContent =
+  "Followers";
+
+
+  modal.classList.add(
+    "show"
+  );
+
+
+  const list =
+  document.getElementById(
+    "usersList"
+  );
+
+
+  list.innerHTML =
+  `<div class="empty">
+    ⏳ Loading...
+  </div>`;
+
+
+  try{
+
+    const q =
+    query(
+      collection(
+        db,
+        "followers"
+      ),
+      where(
+        "following_id",
+        "==",
+        profileUserId
+      )
+    );
+
+
+    const snap =
+    await getDocs(q);
+
+
+    const ids = [];
+
+
+    snap.forEach(
+      item=>{
+
+        const data =
+        item.data();
+
+
+        if(
+          data.follower_id
+        ){
+
+          ids.push(
+            data.follower_id
+          );
+
+        }
+
+      }
+    );
+
+
+    await renderUserList(
+      list,
+      ids
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    list.innerHTML =
+    `<div class="empty">
+      ❌ Followers load नहीं हुए।
+    </div>`;
+
+  }
+
+};
+
+
+/* =====================================================
+FOLLOWING LIST
+===================================================== */
+
+window.openFollowing =
+async function(){
+
+  const modal =
+  document.getElementById(
+    "usersModal"
+  );
+
+
+  document.getElementById(
+    "usersModalTitle"
+  ).textContent =
+  "Following";
+
+
+  modal.classList.add(
+    "show"
+  );
+
+
+  const list =
+  document.getElementById(
+    "usersList"
+  );
+
+
+  list.innerHTML =
+  `<div class="empty">
+    ⏳ Loading...
+  </div>`;
+
+
+  try{
+
+    const q =
+    query(
+      collection(
+        db,
+        "following"
+      ),
+      where(
+        "follower_id",
+        "==",
+        profileUserId
+      )
+    );
+
+
+    const snap =
+    await getDocs(q);
+
+
+    const ids = [];
+
+
+    snap.forEach(
+      item=>{
+
+        const data =
+        item.data();
+
+
+        if(
+          data.following_id
+        ){
+
+          ids.push(
+            data.following_id
+          );
+
+        }
+
+      }
+    );
+
+
+    await renderUserList(
+      list,
+      ids
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    list.innerHTML =
+    `<div class="empty">
+      ❌ Following load नहीं हुए।
+    </div>`;
+
+  }
+
+};
+
+
+/* =====================================================
+RENDER USER LIST
+===================================================== */
+
+async function renderUserList(
+  container,
+  ids
+){
+
+  if(
+    ids.length ===
+    0
+  ){
+
+    container.innerHTML =
+    `<div class="empty">
+      अभी कोई user नहीं है।
+    </div>`;
+
+    return;
+
+  }
+
+
+  const users = [];
+
+
+  for(
+    const id of ids
+  ){
+
+    try{
+
+      const snap =
+      await getDoc(
+        doc(
+          db,
+          "users",
+          id
+        )
+      );
+
+
+      if(
+        snap.exists()
+      ){
+
+        users.push({
+
+          id:
+          id,
+
+          ...snap.data()
+
+        });
+
+      }
+
+    }catch(error){
+
+      console.error(error);
+
+    }
+
+  }
+
+
+  if(
+    users.length ===
+    0
+  ){
+
+    container.innerHTML =
+    `<div class="empty">
+      User profile नहीं मिली।
+    </div>`;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+  users
+  .map(
+    user=>`
+
+      <div
+        class="user-item"
+        onclick="openUserProfile('${escapeAttr(
+          user.id
+        )}')">
+
+        <img
+          src="${escapeAttr(
+            user.photo_url ||
+            defaultPhoto
+          )}"
+          alt="User">
+
+        <div>
+
+          <div class="user-item-name">
+            ${escapeHTML(
+              user.full_name ||
+              "Carpenter"
+            )}
+          </div>
+
+          <div class="user-item-username">
+            @${escapeHTML(
+              String(
+                user.username ||
+                "carpenter"
+              ).replace(
+                /^@/,
+                ""
+              )
+            )}
+          </div>
+
+        </div>
+
+      </div>
+
+    `
+  )
+  .join("");
+
+}
+
+
+/* =====================================================
+OPEN USER PROFILE
+===================================================== */
+
+window.openUserProfile =
+function(id){
+
+  window.location.href =
+  "profile.html?user=" +
+  encodeURIComponent(id);
+
+};
+
+
+/* =====================================================
+MODAL
+===================================================== */
+
+window.closeModal =
+function(id){
+
+  document.getElementById(
+    id
+  ).classList.remove(
+    "show"
+  );
+
+};
+
+
+/* =====================================================
+SIDE MENU
+===================================================== */
+
+window.openMenu =
+function(){
+
+  document.getElementById(
+    "sideMenu"
+  ).classList.add(
+    "active"
+  );
+
+};
+
+
+window.closeMenu =
+function(){
+
+  document.getElementById(
+    "sideMenu"
+  ).classList.remove(
+    "active"
+  );
+
+};
+
+
+/* =====================================================
+HOME
+===================================================== */
+
+window.goHome =
+function(){
+
+  window.location.href =
+  "index.html";
+
+};
+
+
+/* =====================================================
+HELPER
+===================================================== */
+
+function normalizeType(
+  type
+){
+
+  if(!type){
+
+    return "post";
+
+  }
+
+
+  const value =
+  String(
+    type
+  ).toLowerCase();
+
+
+  if(
+    value === "post" ||
+    value === "posts"
+  ){
+
+    return "post";
+
+  }
+
+
+  if(
+    value === "reel" ||
+    value === "reels"
+  ){
+
+    return "reel";
+
+  }
+
+
+  if(
+    value === "thread" ||
+    value === "threads"
+  ){
+
+    return "thread";
+
+  }
+
+
+  if(
+    value === "story" ||
+    value === "stories"
+  ){
+
+    return "story";
+
+  }
+
+
+  if(
+    value === "message" ||
+    value === "messages"
+  ){
+
+    return "message";
+
+  }
+
+
+  return "post";
+
+}
+
+
+function typeName(
+  type
+){
+
+  const names = {
+
+    post:
+    "Post",
+
+    reel:
+    "Reel",
+
+    thread:
+    "Thread",
+
+    story:
+    "Story"
+
+  };
+
+
+  return (
+    names[type] ||
+    "Post"
+  );
+
+}
+
+
+function typeIcon(
+  type
+){
+
+  const icons = {
+
+    post:
+    "📷",
+
+    reel:
+    "🎬",
+
+    thread:
+    "✍️",
+
+    story:
+    "⭕"
+
+  };
+
+
+  return (
+    icons[type] ||
+    "📷"
+  );
+
+}
+
+
+function capitalize(
+  value
+){
+
+  return String(
+    value
+  ).charAt(0)
+  .toUpperCase() +
+  String(
+    value
+  ).slice(1);
+
+}
+
+
+function formatDate(
+  timestamp
+){
+
+  if(!timestamp){
+
+    return "अभी";
+
+  }
+
+
+  try{
+
+    const date =
+    timestamp.toDate
+    ? timestamp.toDate()
+    : new Date(timestamp);
+
+
+    return date.toLocaleDateString(
+      "hi-IN",
+      {
+        day:
+        "numeric",
+
+        month:
+        "short",
+
+        year:
+        "numeric"
+      }
+    );
+
+  }catch(error){
+
+    return "अभी";
+
+  }
+
+}
+
+
+/* =====================================================
+ESCAPE
+===================================================== */
+
+function escapeHTML(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+function escapeAttr(
+  value
+){
+
+  return escapeHTML(
+    value
+  );
+
+}
+
+
+/* =====================================================
+TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(
+  message
+){
+
+  const toast =
+  document.getElementById(
+    "toast"
+  );
+
+
+  toast.textContent =
+  message;
+
+
+  toast.style.display =
+  "block";
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+  setTimeout(
+    ()=>{
+
+      toast.style.display =
+      "none";
+
+    },
+    2500
+  );
+
+}
+
+
+window.showComingSoon =
+function(name){
+
+  showToast(
+    "🔧 " +
+    name +
+    " जल्द उपलब्ध होगा।"
+  );
+
+};
+
+
+/* =====================================================
+CLOSE MODAL WHEN OUTSIDE CLICK
+===================================================== */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target.classList.contains(
+        "modal"
+      )
+    ){
+
+      event.target.classList.remove(
+        "show"
+      );
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
