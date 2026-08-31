@@ -1,1737 +1,1595 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1">
 
 <title>Anil Carpenter Community | Profile</title>
 
-<meta name="description"
-content="Anil Carpenter Community Profile - Carpenter अपना profile, post, reel, thread और story share करें।">
+<meta
+name="description"
+content="Anil Carpenter Community Profile - Post, Reel, Story, Thread, Follow और Message करें।">
 
 <style>
 
 *{
-  box-sizing:border-box;
+box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  background:#f4f5f7;
-  color:#111827;
-  font-family:Arial,Helvetica,sans-serif;
+margin:0;
+background:#f4f5f7;
+color:#111827;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 button,
 input,
 textarea{
-  font-family:inherit;
+font-family:inherit;
 }
 
 button{
-  cursor:pointer;
+cursor:pointer;
 }
 
 button:disabled{
-  opacity:.6;
-  cursor:not-allowed;
+opacity:.6;
+cursor:not-allowed;
 }
 
-/* =========================
-HEADER
-========================= */
+/* HEADER */
 
 .header{
-  height:60px;
-  background:#111827;
-  color:#fff;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:0 14px;
-
-  position:sticky;
-  top:0;
-  z-index:2000;
+height:60px;
+background:#111827;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 14px;
+position:sticky;
+top:0;
+z-index:2000;
 }
 
 .logo{
-  font-size:18px;
-  font-weight:800;
+font-size:18px;
+font-weight:800;
 }
 
 .logo span{
-  color:#f59e0b;
+color:#f59e0b;
 }
 
 .header-actions{
-  display:flex;
-  align-items:center;
-  gap:7px;
+display:flex;
+align-items:center;
+gap:7px;
 }
 
 .header-btn{
-  border:1px solid #4b5563;
-  background:transparent;
-  color:#fff;
-
-  border-radius:10px;
-  padding:8px 11px;
-
-  font-size:14px;
-  font-weight:bold;
+border:1px solid #4b5563;
+background:transparent;
+color:#fff;
+border-radius:10px;
+padding:8px 11px;
+font-size:14px;
+font-weight:bold;
 }
 
 .menu-btn{
-  border:0;
-  background:transparent;
-  color:#fff;
-
-  font-size:25px;
-  padding:5px 8px;
+border:0;
+background:transparent;
+color:#fff;
+font-size:25px;
+padding:5px 8px;
 }
 
-/* =========================
-PROFILE
-========================= */
+/* PROFILE */
 
 .profile{
-  background:#fff;
-  text-align:center;
-
-  padding:28px 15px 22px;
-
-  border-bottom:1px solid #e5e7eb;
+background:#fff;
+text-align:center;
+padding:28px 15px 22px;
+border-bottom:1px solid #e5e7eb;
 }
 
 .photo-area{
-  width:115px;
-  height:115px;
-  margin:auto;
-  position:relative;
+width:115px;
+height:115px;
+margin:auto;
+position:relative;
 }
 
 .profile-photo{
-  width:115px;
-  height:115px;
-
-  object-fit:cover;
-
-  border-radius:50%;
-  border:4px solid #f59e0b;
-
-  background:#fde68a;
+width:115px;
+height:115px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid #f59e0b;
+background:#fde68a;
 }
 
 .photo-edit{
-  position:absolute;
-  right:0;
-  bottom:0;
-
-  width:36px;
-  height:36px;
-
-  border-radius:50%;
-  border:3px solid #fff;
-
-  background:#111827;
-  color:#fff;
-
-  font-size:16px;
+position:absolute;
+right:0;
+bottom:0;
+width:36px;
+height:36px;
+border-radius:50%;
+border:3px solid #fff;
+background:#111827;
+color:#fff;
+font-size:16px;
 }
 
 .name{
-  margin-top:13px;
-
-  font-size:25px;
-  font-weight:800;
+margin-top:13px;
+font-size:25px;
+font-weight:800;
 }
 
 .username{
-  margin-top:5px;
-
-  color:#6b7280;
-  font-size:15px;
+margin-top:5px;
+color:#6b7280;
+font-size:15px;
 }
 
 .bio{
-  max-width:500px;
-
-  margin:13px auto 5px;
-
-  color:#374151;
-
-  line-height:1.55;
-
-  white-space:pre-wrap;
+max-width:500px;
+margin:13px auto 5px;
+color:#374151;
+line-height:1.55;
+white-space:pre-wrap;
 }
 
 .location{
-  margin-top:8px;
-
-  color:#6b7280;
-
-  font-size:14px;
+margin-top:8px;
+color:#6b7280;
+font-size:14px;
 }
 
 .stats{
-  display:flex;
-  justify-content:center;
-
-  gap:45px;
-
-  margin:23px 0;
+display:flex;
+justify-content:center;
+gap:45px;
+margin:23px 0;
 }
 
 .stat{
-  min-width:65px;
-  cursor:pointer;
+min-width:65px;
+cursor:pointer;
 }
 
 .stat-number{
-  display:block;
-
-  font-size:21px;
-  font-weight:800;
+display:block;
+font-size:21px;
+font-weight:800;
 }
 
 .stat-label{
-  display:block;
-
-  margin-top:4px;
-
-  color:#6b7280;
-  font-size:13px;
+display:block;
+margin-top:4px;
+color:#6b7280;
+font-size:13px;
 }
 
 .profile-buttons{
-  display:flex;
-
-  justify-content:center;
-  align-items:center;
-
-  gap:8px;
-
-  flex-wrap:wrap;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+flex-wrap:wrap;
 }
 
 .profile-btn{
-  border:0;
-
-  border-radius:10px;
-
-  padding:11px 18px;
-
-  font-size:14px;
-  font-weight:800;
+border:0;
+border-radius:10px;
+padding:11px 18px;
+font-size:14px;
+font-weight:800;
 }
 
 .follow-btn{
-  background:#f59e0b;
-  color:#111827;
+background:#f59e0b;
+color:#111827;
 }
 
 .following-btn{
-  background:#111827;
-  color:#fff;
+background:#111827;
+color:#fff;
 }
 
 .message-btn{
-  background:#e5e7eb;
-  color:#111827;
+background:#e5e7eb;
+color:#111827;
 }
 
 .edit-btn{
-  background:#111827;
-  color:#fff;
+background:#111827;
+color:#fff;
 }
 
-/* =========================
-TABS
-========================= */
+/* TABS */
 
 .tabs{
-  display:flex;
-
-  position:sticky;
-  top:60px;
-
-  z-index:1000;
-
-  background:#fff;
-
-  border-bottom:1px solid #ddd;
+display:flex;
+position:sticky;
+top:60px;
+z-index:1000;
+background:#fff;
+border-bottom:1px solid #ddd;
 }
 
 .tab{
-  flex:1;
-
-  border:0;
-
-  background:#fff;
-
-  padding:14px 5px;
-
-  color:#6b7280;
-
-  font-size:14px;
-  font-weight:800;
+flex:1;
+border:0;
+background:#fff;
+padding:14px 5px;
+color:#6b7280;
+font-size:14px;
+font-weight:800;
 }
 
 .tab.active{
-  color:#111827;
-
-  border-bottom:3px solid #f59e0b;
+color:#111827;
+border-bottom:3px solid #f59e0b;
 }
 
-/* =========================
-MAIN CONTENT
-========================= */
+/* CONTENT */
 
 .content{
-  width:100%;
-  max-width:700px;
-
-  margin:auto;
-
-  padding:15px;
+width:100%;
+max-width:700px;
+margin:auto;
+padding:15px;
 }
 
-/* =========================
-CREATE BOX
-========================= */
+/* CREATE */
 
 .create-box{
-  background:#fff;
-
-  border-radius:16px;
-
-  padding:15px;
-
-  margin-bottom:15px;
-
-  box-shadow:0 2px 9px rgba(0,0,0,.05);
+background:#fff;
+border-radius:16px;
+padding:15px;
+margin-bottom:15px;
+box-shadow:0 2px 9px rgba(0,0,0,.05);
 }
 
 .create-title{
-  font-size:17px;
-  font-weight:800;
-
-  margin-bottom:12px;
+font-size:17px;
+font-weight:800;
+margin-bottom:12px;
 }
 
 .create-types{
-  display:flex;
-
-  gap:7px;
-
-  overflow-x:auto;
-
-  padding-bottom:4px;
-
-  margin-bottom:11px;
+display:flex;
+gap:7px;
+overflow-x:auto;
+padding-bottom:4px;
+margin-bottom:11px;
 }
 
 .create-type{
-  flex:0 0 auto;
-
-  border:1px solid #ddd;
-
-  background:#fff;
-
-  border-radius:22px;
-
-  padding:8px 13px;
-
-  font-size:13px;
-  font-weight:bold;
+flex:0 0 auto;
+border:1px solid #ddd;
+background:#fff;
+border-radius:22px;
+padding:8px 13px;
+font-size:13px;
+font-weight:bold;
 }
 
 .create-type.active{
-  background:#111827;
-  color:#fff;
-
-  border-color:#111827;
+background:#111827;
+color:#fff;
+border-color:#111827;
 }
 
 textarea,
 input[type="text"],
 input[type="url"]{
-  width:100%;
-
-  border:1px solid #d1d5db;
-
-  border-radius:10px;
-
-  padding:11px 12px;
-
-  outline:none;
-
-  background:#fff;
-
-  color:#111827;
-
-  font-size:14px;
+width:100%;
+border:1px solid #d1d5db;
+border-radius:10px;
+padding:11px 12px;
+outline:none;
+background:#fff;
+color:#111827;
+font-size:14px;
 }
 
 textarea{
-  min-height:100px;
-
-  resize:vertical;
+min-height:100px;
+resize:vertical;
 }
 
 textarea:focus,
 input:focus{
-  border-color:#f59e0b;
+border-color:#f59e0b;
 }
 
-.media-input{
-  margin-top:9px;
+.file-buttons{
+display:flex;
+gap:8px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+.file-btn{
+flex:1;
+min-width:140px;
+border:0;
+border-radius:10px;
+padding:11px;
+background:#f3f4f6;
+color:#111827;
+font-weight:800;
+}
+
+.file-btn.music{
+background:#111827;
+color:#fff;
+}
+
+.file-name{
+margin-top:8px;
+font-size:12px;
+color:#6b7280;
+word-break:break-word;
+}
+
+.preview{
+margin-top:10px;
+}
+
+.preview img,
+.preview video{
+width:100%;
+max-height:420px;
+object-fit:cover;
+border-radius:12px;
+background:#000;
 }
 
 .publish-btn{
-  width:100%;
-
-  border:0;
-
-  border-radius:10px;
-
-  padding:12px;
-
-  margin-top:9px;
-
-  background:#f59e0b;
-
-  color:#111827;
-
-  font-size:14px;
-  font-weight:800;
+width:100%;
+border:0;
+border-radius:10px;
+padding:12px;
+margin-top:10px;
+background:#f59e0b;
+color:#111827;
+font-size:14px;
+font-weight:800;
 }
 
-/* =========================
-POST CARD
-========================= */
+/* POST */
 
 .post-card{
-  background:#fff;
-
-  border-radius:16px;
-
-  padding:15px;
-
-  margin-bottom:12px;
-
-  box-shadow:0 2px 9px rgba(0,0,0,.05);
+background:#fff;
+border-radius:16px;
+padding:15px;
+margin-bottom:12px;
+box-shadow:0 2px 9px rgba(0,0,0,.05);
 }
 
 .post-head{
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  gap:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
 }
 
 .post-user{
-  display:flex;
-  align-items:center;
-
-  gap:9px;
+display:flex;
+align-items:center;
+gap:9px;
 }
 
 .post-avatar{
-  width:40px;
-  height:40px;
-
-  border-radius:50%;
-
-  object-fit:cover;
-
-  background:#fde68a;
+width:40px;
+height:40px;
+border-radius:50%;
+object-fit:cover;
+background:#fde68a;
 }
 
 .post-user-name{
-  font-weight:800;
+font-weight:800;
 }
 
 .post-time{
-  color:#9ca3af;
-  font-size:11px;
+color:#9ca3af;
+font-size:11px;
 }
 
 .post-type{
-  display:inline-block;
-
-  margin-top:10px;
-
-  padding:5px 9px;
-
-  border-radius:20px;
-
-  background:#f3f4f6;
-
-  color:#374151;
-
-  font-size:11px;
-  font-weight:bold;
+display:inline-block;
+margin-top:10px;
+padding:5px 9px;
+border-radius:20px;
+background:#f3f4f6;
+color:#374151;
+font-size:11px;
+font-weight:bold;
 }
 
 .post-text{
-  margin-top:11px;
-
-  line-height:1.55;
-
-  white-space:pre-wrap;
-
-  word-break:break-word;
+margin-top:11px;
+line-height:1.55;
+white-space:pre-wrap;
+word-break:break-word;
 }
 
 .post-media{
-  width:100%;
-
-  max-height:520px;
-
-  object-fit:cover;
-
-  border-radius:12px;
-
-  margin-top:11px;
+width:100%;
+max-height:520px;
+object-fit:cover;
+border-radius:12px;
+margin-top:11px;
 }
 
 .post-video{
-  width:100%;
-
-  max-height:520px;
-
-  border-radius:12px;
-
-  margin-top:11px;
-
-  background:#000;
+width:100%;
+max-height:520px;
+border-radius:12px;
+margin-top:11px;
+background:#000;
 }
 
-/* =========================
-EMPTY
-========================= */
+.music-box{
+margin-top:10px;
+padding:10px;
+background:#f3f4f6;
+border-radius:12px;
+}
+
+.music-title{
+font-size:13px;
+font-weight:800;
+margin-bottom:7px;
+}
+
+.music-box audio{
+width:100%;
+}
+
+/* EMPTY */
 
 .empty{
-  background:#fff;
-
-  border-radius:16px;
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  color:#6b7280;
+background:#fff;
+border-radius:16px;
+padding:35px 20px;
+text-align:center;
+color:#6b7280;
 }
 
 .empty h3{
-  color:#111827;
+color:#111827;
 }
 
-/* =========================
-MODAL
-========================= */
+/* MODAL */
 
 .modal{
-  display:none;
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:8000;
-
-  background:rgba(0,0,0,.55);
-
-  padding:15px;
-
-  align-items:center;
-  justify-content:center;
+display:none;
+position:fixed;
+inset:0;
+z-index:8000;
+background:rgba(0,0,0,.55);
+padding:15px;
+align-items:center;
+justify-content:center;
 }
 
 .modal.show{
-  display:flex;
+display:flex;
 }
 
 .modal-box{
-  width:100%;
-
-  max-width:520px;
-
-  max-height:90vh;
-
-  overflow-y:auto;
-
-  background:#fff;
-
-  border-radius:18px;
-
-  padding:18px;
+width:100%;
+max-width:520px;
+max-height:90vh;
+overflow-y:auto;
+background:#fff;
+border-radius:18px;
+padding:18px;
 }
 
 .modal-header{
-  display:flex;
-
-  justify-content:space-between;
-  align-items:center;
-
-  margin-bottom:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
 }
 
 .modal-header h3{
-  margin:0;
+margin:0;
 }
 
 .close-btn{
-  width:35px;
-  height:35px;
-
-  border:0;
-
-  border-radius:50%;
-
-  background:#f3f4f6;
-
-  font-size:18px;
+width:35px;
+height:35px;
+border:0;
+border-radius:50%;
+background:#f3f4f6;
+font-size:18px;
 }
 
 .form-group{
-  margin-bottom:11px;
+margin-bottom:11px;
 }
 
 .form-group label{
-  display:block;
-
-  margin-bottom:6px;
-
-  font-size:13px;
-  font-weight:bold;
+display:block;
+margin-bottom:6px;
+font-size:13px;
+font-weight:bold;
 }
 
 .save-btn{
-  width:100%;
-
-  border:0;
-
-  border-radius:10px;
-
-  padding:12px;
-
-  background:#111827;
-
-  color:#fff;
-
-  font-weight:800;
+width:100%;
+border:0;
+border-radius:10px;
+padding:12px;
+background:#111827;
+color:#fff;
+font-weight:800;
 }
 
-/* =========================
-CHAT
-========================= */
+/* CHAT */
 
 .chat-box{
-  display:flex;
-  flex-direction:column;
-
-  gap:9px;
+display:flex;
+flex-direction:column;
+gap:9px;
 }
 
 .chat-messages{
-  height:360px;
-
-  overflow-y:auto;
-
-  background:#f3f4f6;
-
-  border-radius:12px;
-
-  padding:10px;
+height:360px;
+overflow-y:auto;
+background:#f3f4f6;
+border-radius:12px;
+padding:10px;
 }
 
 .chat-message{
-  max-width:80%;
-
-  padding:9px 12px;
-
-  margin:5px 0;
-
-  border-radius:14px;
-
-  line-height:1.4;
-
-  font-size:14px;
-
-  word-break:break-word;
+max-width:80%;
+padding:9px 12px;
+margin:5px 0;
+border-radius:14px;
+line-height:1.4;
+font-size:14px;
+word-break:break-word;
 }
 
 .chat-message.me{
-  margin-left:auto;
-
-  background:#111827;
-
-  color:#fff;
+margin-left:auto;
+background:#111827;
+color:#fff;
 }
 
 .chat-message.other{
-  background:#fff;
-
-  color:#111827;
+background:#fff;
+color:#111827;
 }
 
 .chat-input-row{
-  display:flex;
-
-  gap:7px;
+display:flex;
+gap:7px;
 }
 
 .chat-input-row input{
-  flex:1;
+flex:1;
 }
 
 .chat-send{
-  border:0;
-
-  border-radius:10px;
-
-  padding:0 16px;
-
-  background:#f59e0b;
-
-  color:#111827;
-
-  font-weight:800;
+border:0;
+border-radius:10px;
+padding:0 16px;
+background:#f59e0b;
+color:#111827;
+font-weight:800;
 }
 
-/* =========================
-USER LIST
-========================= */
+/* USER LIST */
 
 .user-list{
-  display:flex;
-  flex-direction:column;
-
-  gap:8px;
+display:flex;
+flex-direction:column;
+gap:8px;
 }
 
 .user-item{
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  padding:10px;
-
-  border-radius:12px;
-
-  background:#f9fafb;
-
-  cursor:pointer;
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+border-radius:12px;
+background:#f9fafb;
+cursor:pointer;
 }
 
 .user-item:hover{
-  background:#f3f4f6;
+background:#f3f4f6;
 }
 
 .user-item img{
-  width:45px;
-  height:45px;
-
-  border-radius:50%;
-
-  object-fit:cover;
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
 }
 
 .user-item-name{
-  font-weight:800;
+font-weight:800;
 }
 
 .user-item-username{
-  color:#6b7280;
-
-  font-size:12px;
-
-  margin-top:2px;
+color:#6b7280;
+font-size:12px;
+margin-top:2px;
 }
 
-/* =========================
-SIDE MENU
-========================= */
+/* MENU */
 
 .side-menu{
-  position:fixed;
-
-  top:0;
-  right:-330px;
-
-  width:310px;
-  max-width:88%;
-
-  height:100vh;
-
-  background:#fff;
-
-  z-index:9000;
-
-  overflow-y:auto;
-
-  box-shadow:-5px 0 20px rgba(0,0,0,.2);
-
-  transition:right .25s ease;
+position:fixed;
+top:0;
+right:-330px;
+width:310px;
+max-width:88%;
+height:100vh;
+background:#fff;
+z-index:9000;
+overflow-y:auto;
+box-shadow:-5px 0 20px rgba(0,0,0,.2);
+transition:right .25s ease;
 }
 
 .side-menu.active{
-  right:0;
+right:0;
 }
 
 .menu-header{
-  position:sticky;
-
-  top:0;
-
-  z-index:2;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  padding:17px;
-
-  background:#111827;
-
-  color:#fff;
-
-  font-size:18px;
+position:sticky;
+top:0;
+z-index:2;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:17px;
+background:#111827;
+color:#fff;
+font-size:18px;
 }
 
 .menu-header button{
-  border:0;
-
-  background:transparent;
-
-  color:#fff;
-
-  font-size:20px;
+border:0;
+background:transparent;
+color:#fff;
+font-size:20px;
 }
 
 .menu-section{
-  padding:10px;
-
-  border-bottom:1px solid #eee;
+padding:10px;
+border-bottom:1px solid #eee;
 }
 
 .menu-title{
-  padding:8px;
-
-  color:#6b7280;
-
-  font-size:12px;
-  font-weight:800;
+padding:8px;
+color:#6b7280;
+font-size:12px;
+font-weight:800;
 }
 
 .menu-section button{
-  display:block;
-
-  width:100%;
-
-  border:0;
-
-  border-radius:9px;
-
-  background:#fff;
-
-  color:#111827;
-
-  text-align:left;
-
-  padding:12px;
-
-  font-size:14px;
+display:block;
+width:100%;
+border:0;
+border-radius:9px;
+background:#fff;
+color:#111827;
+text-align:left;
+padding:12px;
+font-size:14px;
 }
 
 .menu-section button:hover{
-  background:#f3f4f6;
+background:#f3f4f6;
 }
 
-/* =========================
-TOAST
-========================= */
+/* TOAST */
 
 .toast{
-  display:none;
-
-  position:fixed;
-
-  left:50%;
-  bottom:25px;
-
-  transform:translateX(-50%);
-
-  z-index:10000;
-
-  background:#111827;
-
-  color:#fff;
-
-  padding:11px 16px;
-
-  border-radius:10px;
-
-  font-size:13px;
-
-  box-shadow:0 5px 20px rgba(0,0,0,.25);
+display:none;
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translateX(-50%);
+z-index:10000;
+background:#111827;
+color:#fff;
+padding:11px 16px;
+border-radius:10px;
+font-size:13px;
+box-shadow:0 5px 20px rgba(0,0,0,.25);
+max-width:90%;
+text-align:center;
 }
 
-/* =========================
-RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:500px){
 
-  .logo{
-    font-size:16px;
-  }
+.logo{
+font-size:16px;
+}
 
-  .header-btn{
-    padding:7px 9px;
-  }
+.header-btn{
+padding:7px 9px;
+}
 
-  .stats{
-    gap:25px;
-  }
+.stats{
+gap:25px;
+}
 
-  .profile-btn{
-    flex:1;
-    min-width:105px;
-  }
+.profile-btn{
+flex:1;
+min-width:105px;
+}
 
-  .content{
-    padding:10px;
-  }
+.content{
+padding:10px;
+}
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- =====================================================
-HEADER
-===================================================== -->
 
 <header class="header">
 
-  <div class="logo">
-    🪚 <span>Anil</span> Carpenter
-  </div>
+<div class="logo">
+🪚 <span>Anil</span> Carpenter
+</div>
 
-  <div class="header-actions">
+<div class="header-actions">
 
-    <button
-      class="header-btn"
-      type="button"
-      onclick="goHome()">
-      🏠
-    </button>
+<button
+class="header-btn"
+type="button"
+onclick="goHome()">
+🏠
+</button>
 
-    <button
-      class="menu-btn"
-      type="button"
-      onclick="openMenu()">
-      ☰
-    </button>
+<button
+class="menu-btn"
+type="button"
+onclick="openMenu()">
+☰
+</button>
 
-  </div>
+</div>
 
 </header>
 
 
-<!-- =====================================================
-PROFILE
-===================================================== -->
-
 <section class="profile">
 
-  <div class="photo-area">
+<div class="photo-area">
 
-    <img
-      id="profilePhoto"
-      class="profile-photo"
-      alt="Profile Photo">
+<img
+id="profilePhoto"
+class="profile-photo"
+alt="Profile Photo">
 
-    <button
-      id="photoEditButton"
-      class="photo-edit"
-      type="button"
-      onclick="chooseProfilePhoto()">
-      📷
-    </button>
+<button
+id="photoEditButton"
+class="photo-edit"
+type="button"
+onclick="chooseProfilePhoto()">
+📷
+</button>
 
-    <input
-      id="photoInput"
-      type="file"
-      accept="image/*"
-      hidden>
+<input
+id="photoInput"
+type="file"
+accept="image/*"
+hidden>
 
-  </div>
-
-
-  <div
-    id="profileName"
-    class="name">
-    Loading...
-  </div>
+</div>
 
 
-  <div
-    id="profileUsername"
-    class="username">
-    @carpenter
-  </div>
+<div
+id="profileName"
+class="name">
+Loading...
+</div>
 
 
-  <div
-    id="profileBio"
-    class="bio">
-    Carpenter Community
-  </div>
+<div
+id="profileUsername"
+class="username">
+@carpenter
+</div>
 
 
-  <div
-    id="profileLocation"
-    class="location">
-    📍 India
-  </div>
+<div
+id="profileBio"
+class="bio">
+Carpenter Community
+</div>
 
 
-  <div class="stats">
-
-    <div
-      class="stat"
-      onclick="openFollowers()">
-
-      <span
-        id="followersCount"
-        class="stat-number">
-        0
-      </span>
-
-      <span class="stat-label">
-        Followers
-      </span>
-
-    </div>
+<div
+id="profileLocation"
+class="location">
+📍 India
+</div>
 
 
-    <div
-      class="stat"
-      onclick="openFollowing()">
+<div class="stats">
 
-      <span
-        id="followingCount"
-        class="stat-number">
-        0
-      </span>
+<div
+class="stat"
+onclick="openFollowers()">
 
-      <span class="stat-label">
-        Following
-      </span>
+<span
+id="followersCount"
+class="stat-number">
+0
+</span>
 
-    </div>
+<span class="stat-label">
+Followers
+</span>
 
-
-    <div
-      class="stat"
-      onclick="showTab('post')">
-
-      <span
-        id="postsCount"
-        class="stat-number">
-        0
-      </span>
-
-      <span class="stat-label">
-        Posts
-      </span>
-
-    </div>
-
-  </div>
+</div>
 
 
-  <div class="profile-buttons">
+<div
+class="stat"
+onclick="openFollowing()">
 
-    <button
-      id="followBtn"
-      class="profile-btn follow-btn"
-      type="button"
-      onclick="toggleFollow()">
-      ➕ Follow
-    </button>
+<span
+id="followingCount"
+class="stat-number">
+0
+</span>
 
+<span class="stat-label">
+Following
+</span>
 
-    <button
-      id="messageBtn"
-      class="profile-btn message-btn"
-      type="button"
-      onclick="openMessage()">
-      💬 Message
-    </button>
+</div>
 
 
-    <button
-      id="editBtn"
-      class="profile-btn edit-btn"
-      type="button"
-      onclick="openEditProfile()">
-      ✏️ Edit Profile
-    </button>
+<div
+class="stat"
+onclick="showTab('post')">
 
-  </div>
+<span
+id="postsCount"
+class="stat-number">
+0
+</span>
+
+<span class="stat-label">
+Posts
+</span>
+
+</div>
+
+</div>
+
+
+<div class="profile-buttons">
+
+<button
+id="followBtn"
+class="profile-btn follow-btn"
+type="button"
+onclick="toggleFollow()">
+➕ Follow
+</button>
+
+
+<button
+id="messageBtn"
+class="profile-btn message-btn"
+type="button"
+onclick="openMessage()">
+💬 Message
+</button>
+
+
+<button
+id="editBtn"
+class="profile-btn edit-btn"
+type="button"
+onclick="openEditProfile()">
+✏️ Edit Profile
+</button>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-TABS
-===================================================== -->
-
 <nav class="tabs">
 
-  <button
-    id="tabPost"
-    class="tab active"
-    type="button"
-    onclick="showTab('post',this)">
-    📷 Posts
-  </button>
+<button
+id="tabPost"
+class="tab active"
+type="button"
+onclick="showTab('post',this)">
+📷 Posts
+</button>
 
 
-  <button
-    id="tabReel"
-    class="tab"
-    type="button"
-    onclick="showTab('reel',this)">
-    🎬 Reels
-  </button>
+<button
+id="tabReel"
+class="tab"
+type="button"
+onclick="showTab('reel',this)">
+🎬 Reels
+</button>
 
 
-  <button
-    id="tabThread"
-    class="tab"
-    type="button"
-    onclick="showTab('thread',this)">
-    ✍️ Threads
-  </button>
+<button
+id="tabThread"
+class="tab"
+type="button"
+onclick="showTab('thread',this)">
+✍️ Threads
+</button>
 
 
-  <button
-    id="tabStory"
-    class="tab"
-    type="button"
-    onclick="showTab('story',this)">
-    ⭕ Story
-  </button>
+<button
+id="tabStory"
+class="tab"
+type="button"
+onclick="showTab('story',this)">
+⭕ Story
+</button>
 
 </nav>
 
 
-<!-- =====================================================
-CONTENT
-===================================================== -->
-
 <main class="content">
 
 
-  <!-- CREATE -->
+<section
+id="createBox"
+class="create-box">
 
-  <section
-    id="createBox"
-    class="create-box">
-
-    <div class="create-title">
-      ✨ अपना काम शेयर करें
-    </div>
+<div class="create-title">
+✨ अपना काम शेयर करें
+</div>
 
 
-    <div class="create-types">
+<div class="create-types">
 
-      <button
-        class="create-type active"
-        type="button"
-        onclick="selectCreateType('post',this)">
-        📷 Post
-      </button>
-
-
-      <button
-        class="create-type"
-        type="button"
-        onclick="selectCreateType('reel',this)">
-        🎬 Reel
-      </button>
+<button
+class="create-type active"
+type="button"
+onclick="selectCreateType('post',this)">
+📷 Post
+</button>
 
 
-      <button
-        class="create-type"
-        type="button"
-        onclick="selectCreateType('thread',this)">
-        ✍️ Thread
-      </button>
+<button
+class="create-type"
+type="button"
+onclick="selectCreateType('reel',this)">
+🎬 Reel
+</button>
 
 
-      <button
-        class="create-type"
-        type="button"
-        onclick="selectCreateType('story',this)">
-        ⭕ Story
-      </button>
-
-    </div>
+<button
+class="create-type"
+type="button"
+onclick="selectCreateType('thread',this)">
+✍️ Thread
+</button>
 
 
-    <textarea
-      id="createText"
-      maxlength="5000"
-      placeholder="अपना काम, अनुभव या विचार लिखें..."></textarea>
+<button
+class="create-type"
+type="button"
+onclick="selectCreateType('story',this)">
+⭕ Story
+</button>
+
+</div>
 
 
-    <div
-      id="mediaUrlBox"
-      class="media-input"
-      style="display:none;">
-
-      <input
-        id="mediaUrl"
-        type="url"
-        placeholder="Reel / Video URL डालें">
-
-    </div>
+<textarea
+id="createText"
+maxlength="5000"
+placeholder="अपना काम, अनुभव या विचार लिखें..."></textarea>
 
 
-    <button
-      id="publishButton"
-      class="publish-btn"
-      type="button"
-      onclick="publishContent()">
-      🚀 Publish
-    </button>
+<div class="file-buttons">
 
-  </section>
+<button
+class="file-btn"
+type="button"
+onclick="chooseMedia()">
+
+📱 Gallery से Photo/Video
+
+</button>
 
 
-  <!-- POSTS -->
+<button
+class="file-btn music"
+type="button"
+onclick="chooseMusic()">
 
-  <section id="contentArea">
+🎵 Music चुनें
 
-    <div class="empty">
-      ⏳ Content loading...
-    </div>
+</button>
 
-  </section>
+</div>
+
+
+<input
+id="mediaFile"
+type="file"
+accept="image/*,video/*"
+hidden>
+
+
+<input
+id="musicFile"
+type="file"
+accept="audio/*"
+hidden>
+
+
+<div
+id="selectedMediaName"
+class="file-name">
+
+कोई Photo या Video नहीं चुना गया
+
+</div>
+
+
+<div
+id="selectedMusicName"
+class="file-name">
+
+कोई Music नहीं चुना गया
+
+</div>
+
+
+<div
+id="mediaPreview"
+class="preview">
+</div>
+
+
+<button
+id="publishButton"
+class="publish-btn"
+type="button"
+onclick="publishContent()">
+
+🚀 Publish
+
+</button>
+
+</section>
+
+
+<section id="contentArea">
+
+<div class="empty">
+⏳ Content loading...
+</div>
+
+</section>
 
 </main>
 
 
-<!-- =====================================================
-EDIT PROFILE MODAL
-===================================================== -->
+<!-- EDIT PROFILE -->
 
 <div
-  id="editModal"
-  class="modal">
+id="editModal"
+class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <div class="modal-header">
+<div class="modal-header">
 
-      <h3>
-        ✏️ Edit Profile
-      </h3>
+<h3>
+✏️ Edit Profile
+</h3>
 
-      <button
-        class="close-btn"
-        type="button"
-        onclick="closeModal('editModal')">
-        ✕
-      </button>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        नाम
-      </label>
-
-      <input
-        id="editName"
-        type="text"
-        maxlength="60"
-        placeholder="आपका नाम">
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Username
-      </label>
-
-      <input
-        id="editUsername"
-        type="text"
-        maxlength="30"
-        placeholder="username">
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Bio
-      </label>
-
-      <textarea
-        id="editBio"
-        maxlength="250"
-        placeholder="अपने बारे में लिखें..."></textarea>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Location
-      </label>
-
-      <input
-        id="editLocation"
-        type="text"
-        maxlength="100"
-        placeholder="जैसे Khalilabad, Sant Kabir Nagar">
-
-    </div>
-
-
-    <button
-      id="saveProfileButton"
-      class="save-btn"
-      type="button"
-      onclick="saveProfile()">
-      💾 Save Profile
-    </button>
-
-  </div>
+<button
+class="close-btn"
+type="button"
+onclick="closeModal('editModal')">
+✕
+</button>
 
 </div>
 
 
-<!-- =====================================================
-FOLLOWERS / FOLLOWING MODAL
-===================================================== -->
+<div class="form-group">
 
-<div
-  id="usersModal"
-  class="modal">
+<label>
+नाम
+</label>
 
-  <div class="modal-box">
-
-    <div class="modal-header">
-
-      <h3 id="usersModalTitle">
-        Followers
-      </h3>
-
-      <button
-        class="close-btn"
-        type="button"
-        onclick="closeModal('usersModal')">
-        ✕
-      </button>
-
-    </div>
-
-
-    <div
-      id="usersList"
-      class="user-list">
-
-      <div class="empty">
-        Loading...
-      </div>
-
-    </div>
-
-  </div>
+<input
+id="editName"
+type="text"
+maxlength="60"
+placeholder="आपका नाम">
 
 </div>
 
 
-<!-- =====================================================
-MESSAGE MODAL
-===================================================== -->
+<div class="form-group">
 
-<div
-  id="messageModal"
-  class="modal">
+<label>
+Username
+</label>
 
-  <div class="modal-box">
-
-    <div class="modal-header">
-
-      <h3 id="messageTitle">
-        💬 Message
-      </h3>
-
-      <button
-        class="close-btn"
-        type="button"
-        onclick="closeModal('messageModal')">
-        ✕
-      </button>
-
-    </div>
-
-
-    <div class="chat-box">
-
-      <div
-        id="chatMessages"
-        class="chat-messages">
-
-        <div class="empty">
-          अभी कोई message नहीं है।
-        </div>
-
-      </div>
-
-
-      <div class="chat-input-row">
-
-        <input
-          id="messageInput"
-          type="text"
-          maxlength="2000"
-          placeholder="Message लिखें..."
-          onkeydown="if(event.key==='Enter')sendMessage()">
-
-
-        <button
-          class="chat-send"
-          type="button"
-          onclick="sendMessage()">
-          ➤
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
+<input
+id="editUsername"
+type="text"
+maxlength="30"
+placeholder="username">
 
 </div>
 
 
-<!-- =====================================================
-SIDE MENU
-===================================================== -->
+<div class="form-group">
+
+<label>
+Bio
+</label>
+
+<textarea
+id="editBio"
+maxlength="250"
+placeholder="अपने बारे में लिखें..."></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Location
+</label>
+
+<input
+id="editLocation"
+type="text"
+maxlength="100"
+placeholder="जैसे Khalilabad, Sant Kabir Nagar">
+
+</div>
+
+
+<button
+id="saveProfileButton"
+class="save-btn"
+type="button"
+onclick="saveProfile()">
+
+💾 Save Profile
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- USERS -->
+
+<div
+id="usersModal"
+class="modal">
+
+<div class="modal-box">
+
+<div class="modal-header">
+
+<h3 id="usersModalTitle">
+Followers
+</h3>
+
+<button
+class="close-btn"
+type="button"
+onclick="closeModal('usersModal')">
+✕
+</button>
+
+</div>
+
+
+<div
+id="usersList"
+class="user-list">
+
+<div class="empty">
+Loading...
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div
+id="messageModal"
+class="modal">
+
+<div class="modal-box">
+
+<div class="modal-header">
+
+<h3 id="messageTitle">
+💬 Message
+</h3>
+
+<button
+class="close-btn"
+type="button"
+onclick="closeModal('messageModal')">
+✕
+</button>
+
+</div>
+
+
+<div class="chat-box">
+
+<div
+id="chatMessages"
+class="chat-messages">
+
+<div class="empty">
+अभी कोई message नहीं है।
+</div>
+
+</div>
+
+
+<div class="chat-input-row">
+
+<input
+id="messageInput"
+type="text"
+maxlength="2000"
+placeholder="Message लिखें..."
+onkeydown="if(event.key==='Enter')sendMessage()">
+
+
+<button
+class="chat-send"
+type="button"
+onclick="sendMessage()">
+➤
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SIDE MENU -->
 
 <aside
-  id="sideMenu"
-  class="side-menu">
+id="sideMenu"
+class="side-menu">
 
-  <div class="menu-header">
+<div class="menu-header">
 
-    <b>
-      ☰ Menu
-    </b>
+<b>
+☰ Menu
+</b>
 
-    <button
-      type="button"
-      onclick="closeMenu()">
-      ✕
-    </button>
+<button
+type="button"
+onclick="closeMenu()">
+✕
+</button>
 
-  </div>
-
-
-  <div class="menu-section">
-
-    <div class="menu-title">
-      👤 ACCOUNT
-    </div>
-
-    <button onclick="goHome()">
-      🏠 Home
-    </button>
-
-    <button onclick="openEditProfile()">
-      ✏️ Edit Profile
-    </button>
-
-    <button onclick="chooseProfilePhoto()">
-      📷 Change Profile Photo
-    </button>
-
-  </div>
+</div>
 
 
-  <div class="menu-section">
+<div class="menu-section">
 
-    <div class="menu-title">
-      📱 COMMUNITY
-    </div>
+<div class="menu-title">
+👤 ACCOUNT
+</div>
 
-    <button onclick="showTab('post')">
-      📷 My Posts
-    </button>
+<button onclick="goHome()">
+🏠 Home
+</button>
 
-    <button onclick="showTab('reel')">
-      🎬 My Reels
-    </button>
+<button onclick="openEditProfile()">
+✏️ Edit Profile
+</button>
 
-    <button onclick="showTab('thread')">
-      ✍️ My Threads
-    </button>
+<button onclick="chooseProfilePhoto()">
+📷 Change Profile Photo
+</button>
 
-    <button onclick="showTab('story')">
-      ⭕ My Stories
-    </button>
-
-  </div>
+</div>
 
 
-  <div class="menu-section">
+<div class="menu-section">
 
-    <div class="menu-title">
-      ⚙️ SETTINGS
-    </div>
+<div class="menu-title">
+📱 COMMUNITY
+</div>
 
-    <button onclick="showComingSoon('Settings')">
-      ⚙️ Settings
-    </button>
+<button onclick="showTab('post')">
+📷 My Posts
+</button>
 
-    <button onclick="showComingSoon('Notifications')">
-      🔔 Notifications
-    </button>
+<button onclick="showTab('reel')">
+🎬 My Reels
+</button>
 
-    <button onclick="showComingSoon('Privacy')">
-      🔒 Privacy
-    </button>
+<button onclick="showTab('thread')">
+✍️ My Threads
+</button>
 
-  </div>
+<button onclick="showTab('story')">
+⭕ My Stories
+</button>
 
-
-  <div class="menu-section">
-
-    <div class="menu-title">
-      💰 CARPENTER COMMUNITY
-    </div>
-
-    <button onclick="showComingSoon('Carpenter Pro')">
-      ⭐ Carpenter Pro
-    </button>
-
-    <button onclick="showComingSoon('Promote My Work')">
-      📢 Promote My Work
-    </button>
-
-    <button onclick="showComingSoon('Business Profile')">
-      🏪 Business Profile
-    </button>
-
-  </div>
+</div>
 
 
-  <div class="menu-section">
+<div class="menu-section">
 
-    <div class="menu-title">
-      ❓ HELP
-    </div>
+<div class="menu-title">
+⚙️ SETTINGS
+</div>
 
-    <button onclick="showComingSoon('Help & Support')">
-      ❓ Help & Support
-    </button>
+<button onclick="showComingSoon('Settings')">
+⚙️ Settings
+</button>
 
-    <button onclick="showComingSoon('Community Guidelines')">
-      📖 Community Guidelines
-    </button>
+<button onclick="showComingSoon('Notifications')">
+🔔 Notifications
+</button>
 
-    <button onclick="showComingSoon('Report a Problem')">
-      🚩 Report a Problem
-    </button>
+<button onclick="showComingSoon('Privacy')">
+🔒 Privacy
+</button>
 
-  </div>
+</div>
+
+
+<div class="menu-section">
+
+<div class="menu-title">
+💰 CARPENTER COMMUNITY
+</div>
+
+<button onclick="showComingSoon('Carpenter Pro')">
+⭐ Carpenter Pro
+</button>
+
+<button onclick="showComingSoon('Promote My Work')">
+📢 Promote My Work
+</button>
+
+<button onclick="showComingSoon('Business Profile')">
+🏪 Business Profile
+</button>
+
+</div>
+
+
+<div class="menu-section">
+
+<div class="menu-title">
+❓ HELP
+</div>
+
+<button onclick="showComingSoon('Help & Support')">
+❓ Help & Support
+</button>
+
+<button onclick="showComingSoon('Community Guidelines')">
+📖 Community Guidelines
+</button>
+
+<button onclick="showComingSoon('Report a Problem')">
+🚩 Report a Problem
+</button>
+
+</div>
 
 </aside>
 
 
-<!-- TOAST -->
-
 <div
-  id="toast"
-  class="toast">
+id="toast"
+class="toast">
 </div>
 
 
-<!-- =====================================================
-FIREBASE
-===================================================== -->
-
 <script type="module">
 
+
+/* =====================================================
+FIREBASE
+===================================================== */
+
 import {
-  initializeApp
+initializeApp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
 import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-  deleteDoc,
-  collection,
-  getDocs,
-  query,
-  where,
-  addDoc,
-  serverTimestamp
+getFirestore,
+doc,
+getDoc,
+setDoc,
+deleteDoc,
+collection,
+getDocs,
+query,
+where,
+addDoc,
+serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =====================================================
-FIREBASE CONFIG
-===================================================== */
+import {
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
-const firebaseConfig = {
 
-  apiKey:
-  "AIzaSyCKTMSuuxEVj0ZTT9CAJW5NgJ9ynH6Qsto",
+const firebaseConfig={
 
-  authDomain:
-  "anil-carpenter-community.firebaseapp.com",
+apiKey:
+"AIzaSyCKTMSuuxEVj0ZTT9CAJW5NgJ9ynH6Qsto",
 
-  projectId:
-  "anil-carpenter-community",
+authDomain:
+"anil-carpenter-community.firebaseapp.com",
 
-  storageBucket:
-  "anil-carpenter-community.firebasestorage.app",
+projectId:
+"anil-carpenter-community",
 
-  messagingSenderId:
-  "835868472367",
+storageBucket:
+"anil-carpenter-community.firebasestorage.app",
 
-  appId:
-  "1:835868472367:web:a320614a701cd3bbf102da",
+messagingSenderId:
+"835868472367",
 
-  measurementId:
-  "G-BDDMVGQP4T"
+appId:
+"1:835868472367:web:a320614a701cd3bbf102da",
+
+measurementId:
+"G-BDDMVGQP4T"
 
 };
 
 
-const app =
-initializeApp(firebaseConfig);
+const app=
+initializeApp(
+firebaseConfig
+);
 
-
-const db =
+const db=
 getFirestore(app);
+
+const storage=
+getStorage(app);
 
 
 /* =====================================================
-USER ID
-
-यह existing community के local ID system
-के साथ काम करता है।
+USER
 ===================================================== */
 
-let currentUserId =
+let currentUserId=
 localStorage.getItem(
-  "carpenterUserId"
+"carpenterUserId"
 );
 
 
 if(!currentUserId){
 
-  currentUserId =
-  crypto.randomUUID();
+currentUserId=
+crypto.randomUUID();
 
-  localStorage.setItem(
-    "carpenterUserId",
-    currentUserId
-  );
+localStorage.setItem(
+"carpenterUserId",
+currentUserId
+);
 
 }
 
 
-/* =====================================================
-PROFILE USER ID
-
-profile.html
-=
-अपनी profile
-
-profile.html?user=USER_ID
-=
-दूसरे user की profile
-===================================================== */
-
-const params =
+const params=
 new URLSearchParams(
-  window.location.search
+window.location.search
 );
 
 
-const profileUserId =
+const profileUserId=
 params.get("user") ||
 currentUserId;
 
 
-const isOwnProfile =
-profileUserId === currentUserId;
+const isOwnProfile=
+profileUserId===
+currentUserId;
 
 
 /* =====================================================
 STATE
 ===================================================== */
 
-let profileData = {};
+let profileData={};
 
-let activeTab = "post";
+let activeTab="post";
 
-let createType = "post";
+let createType="post";
 
-let currentChatId = "";
+let currentChatId="";
 
-let currentChatUserId = "";
+let currentChatUserId="";
+
+let selectedMediaFile=null;
+
+let selectedMusicFile=null;
 
 
 /* =====================================================
 DEFAULT PHOTO
 ===================================================== */
 
-const defaultPhoto =
-"data:image/svg+xml;charset=UTF-8," +
+const defaultPhoto=
+"data:image/svg+xml;charset=UTF-8,"+
 encodeURIComponent(`
 
 <svg
@@ -1759,61 +1617,81 @@ font-size="120">
 
 
 /* =====================================================
-INITIAL LOAD
+LOAD
 ===================================================== */
 
 document.addEventListener(
-  "DOMContentLoaded",
-  async()=>{
+"DOMContentLoaded",
+async()=>{
 
-    document.getElementById(
-      "profilePhoto"
-    ).src = defaultPhoto;
-
-
-    if(!isOwnProfile){
-
-      document.getElementById(
-        "createBox"
-      ).style.display = "none";
+document.getElementById(
+"profilePhoto"
+).src=
+defaultPhoto;
 
 
-      document.getElementById(
-        "editBtn"
-      ).style.display = "none";
+document.getElementById(
+"photoInput"
+).addEventListener(
+"change",
+handlePhotoChange
+);
 
 
-      document.getElementById(
-        "photoEditButton"
-      ).style.display = "none";
-
-    }
-
-
-    document.getElementById(
-      "photoInput"
-    ).addEventListener(
-      "change",
-      handlePhotoChange
-    );
+document.getElementById(
+"mediaFile"
+).addEventListener(
+"change",
+handleMediaChange
+);
 
 
-    await ensureProfile();
+document.getElementById(
+"musicFile"
+).addEventListener(
+"change",
+handleMusicChange
+);
 
-    await loadProfile();
 
-    await loadStats();
+if(!isOwnProfile){
 
-    await updateFollowButton();
+document.getElementById(
+"createBox"
+).style.display=
+"none";
 
-    await loadContent("post");
+document.getElementById(
+"editBtn"
+).style.display=
+"none";
 
-  }
+document.getElementById(
+"photoEditButton"
+).style.display=
+"none";
+
+}
+
+
+await ensureProfile();
+
+await loadProfile();
+
+await loadStats();
+
+await updateFollowButton();
+
+await loadContent(
+"post"
+);
+
+}
 );
 
 
 /* =====================================================
-CREATE USER PROFILE IF NOT EXISTS
+ENSURE PROFILE
 ===================================================== */
 
 async function ensureProfile(){
@@ -1825,24 +1703,16 @@ async function ensureProfile(){
     profileUserId
   );
 
-
   const snap =
   await getDoc(ref);
 
-
   if(snap.exists()){
-
     return;
-
   }
-
 
   if(!isOwnProfile){
-
     return;
-
   }
-
 
   const savedName =
   localStorage.getItem(
@@ -1850,18 +1720,15 @@ async function ensureProfile(){
   ) ||
   "Carpenter";
 
-
   const savedUsername =
   localStorage.getItem(
     "carpenterUsername"
   ) ||
   "carpenter";
 
-
   await setDoc(
     ref,
     {
-
       full_name:
       savedName,
 
@@ -1882,7 +1749,6 @@ async function ensureProfile(){
 
       updated_at:
       serverTimestamp()
-
     }
   );
 
@@ -1904,10 +1770,8 @@ async function loadProfile(){
       profileUserId
     );
 
-
     const snap =
     await getDoc(ref);
-
 
     if(!snap.exists()){
 
@@ -1937,9 +1801,7 @@ async function loadProfile(){
 
     }
 
-
     renderProfile();
-
 
   }catch(error){
 
@@ -1965,27 +1827,22 @@ function renderProfile(){
   profileData.name ||
   "Carpenter";
 
-
   const username =
   profileData.username ||
   "carpenter";
-
 
   const bio =
   profileData.bio ||
   "Carpenter Community Member";
 
-
   const location =
   profileData.location ||
   "India";
-
 
   document.getElementById(
     "profileName"
   ).textContent =
   name;
-
 
   document.getElementById(
     "profileUsername"
@@ -1994,18 +1851,15 @@ function renderProfile(){
   ? username
   : "@" + username;
 
-
   document.getElementById(
     "profileBio"
   ).textContent =
   bio;
 
-
   document.getElementById(
     "profileLocation"
   ).textContent =
   "📍 " + location;
-
 
   document.getElementById(
     "profilePhoto"
@@ -2033,13 +1887,11 @@ function(){
 
   }
 
-
   document.getElementById(
     "editName"
   ).value =
   profileData.full_name ||
   "";
-
 
   document.getElementById(
     "editUsername"
@@ -2049,20 +1901,17 @@ function(){
     ""
   ).replace(/^@/,"");
 
-
   document.getElementById(
     "editBio"
   ).value =
   profileData.bio ||
   "";
 
-
   document.getElementById(
     "editLocation"
   ).value =
   profileData.location ||
   "";
-
 
   document.getElementById(
     "editModal"
@@ -2075,17 +1924,13 @@ window.saveProfile =
 async function(){
 
   if(!isOwnProfile){
-
     return;
-
   }
-
 
   const name =
   document.getElementById(
     "editName"
   ).value.trim();
-
 
   const username =
   document.getElementById(
@@ -2093,18 +1938,15 @@ async function(){
   ).value.trim()
   .replace(/^@/,"");
 
-
   const bio =
   document.getElementById(
     "editBio"
   ).value.trim();
 
-
   const location =
   document.getElementById(
     "editLocation"
   ).value.trim();
-
 
   if(!name){
 
@@ -2113,19 +1955,14 @@ async function(){
     );
 
     return;
-
   }
-
 
   const button =
   document.getElementById(
     "saveProfileButton"
   );
 
-
-  button.disabled =
-  true;
-
+  button.disabled = true;
 
   try{
 
@@ -2136,7 +1973,6 @@ async function(){
         currentUserId
       ),
       {
-
         full_name:
         name,
 
@@ -2159,18 +1995,15 @@ async function(){
       }
     );
 
-
     localStorage.setItem(
       "carpenterUserName",
       name
     );
 
-
     localStorage.setItem(
       "carpenterUsername",
       username
     );
-
 
     profileData.full_name =
     name;
@@ -2184,18 +2017,15 @@ async function(){
     profileData.location =
     location;
 
-
     renderProfile();
 
     closeModal(
       "editModal"
     );
 
-
     showToast(
       "✅ Profile update हो गई"
     );
-
 
   }catch(error){
 
@@ -2207,19 +2037,13 @@ async function(){
 
   }
 
-
-  button.disabled =
-  false;
+  button.disabled = false;
 
 };
 
 
 /* =====================================================
 PROFILE PHOTO
-
-Storage की जरूरत नहीं।
-Image को resize + compress करके Firestore
-में save किया जाता है।
 ===================================================== */
 
 window.chooseProfilePhoto =
@@ -2232,9 +2056,7 @@ function(){
     );
 
     return;
-
   }
-
 
   document.getElementById(
     "photoInput"
@@ -2248,18 +2070,12 @@ async function handlePhotoChange(event){
   const file =
   event.target.files[0];
 
-
   if(!file){
-
     return;
-
   }
 
-
   if(
-    !file.type.startsWith(
-      "image/"
-    )
+    !file.type.startsWith("image/")
   ){
 
     showToast(
@@ -2267,16 +2083,13 @@ async function handlePhotoChange(event){
     );
 
     return;
-
   }
-
 
   try{
 
     showToast(
-      "⏳ Photo compress हो रही है..."
+      "⏳ Photo तैयार हो रही है..."
     );
-
 
     const image =
     await compressImage(
@@ -2285,7 +2098,6 @@ async function handlePhotoChange(event){
       .60
     );
 
-
     await setDoc(
       doc(
         db,
@@ -2293,7 +2105,6 @@ async function handlePhotoChange(event){
         currentUserId
       ),
       {
-
         photo_url:
         image,
 
@@ -2306,21 +2117,17 @@ async function handlePhotoChange(event){
       }
     );
 
-
     profileData.photo_url =
     image;
-
 
     document.getElementById(
       "profilePhoto"
     ).src =
     image;
 
-
     showToast(
       "✅ Profile photo update हो गई"
     );
-
 
   }catch(error){
 
@@ -2332,14 +2139,13 @@ async function handlePhotoChange(event){
 
   }
 
-
   event.target.value = "";
 
 }
 
 
 /* =====================================================
-IMAGE COMPRESSOR
+IMAGE COMPRESS
 ===================================================== */
 
 function compressImage(
@@ -2354,13 +2160,11 @@ function compressImage(
       const reader =
       new FileReader();
 
-
       reader.onload =
       function(){
 
         const img =
         new Image();
-
 
         img.onload =
         function(){
@@ -2371,16 +2175,9 @@ function compressImage(
           let height =
           img.height;
 
+          if(width > height){
 
-          if(
-            width >
-            height
-          ){
-
-            if(
-              width >
-              maxSize
-            ){
+            if(width > maxSize){
 
               height =
               Math.round(
@@ -2396,10 +2193,7 @@ function compressImage(
 
           }else{
 
-            if(
-              height >
-              maxSize
-            ){
+            if(height > maxSize){
 
               width =
               Math.round(
@@ -2415,12 +2209,10 @@ function compressImage(
 
           }
 
-
           const canvas =
           document.createElement(
             "canvas"
           );
-
 
           canvas.width =
           width;
@@ -2428,12 +2220,10 @@ function compressImage(
           canvas.height =
           height;
 
-
           const ctx =
           canvas.getContext(
             "2d"
           );
-
 
           ctx.drawImage(
             img,
@@ -2442,7 +2232,6 @@ function compressImage(
             width,
             height
           );
-
 
           resolve(
             canvas.toDataURL(
@@ -2453,20 +2242,16 @@ function compressImage(
 
         };
 
-
         img.onerror =
         reject;
-
 
         img.src =
         reader.result;
 
       };
 
-
       reader.onerror =
       reject;
-
 
       reader.readAsDataURL(
         file
@@ -2479,17 +2264,10 @@ function compressImage(
 
 
 /* =====================================================
-FOLLOW SYSTEM
-
-Existing:
-followers
-following
-
-Document ID:
-followerUID_followingUID
+FOLLOW ID
 ===================================================== */
 
-async function getFollowId(){
+function getFollowId(){
 
   return (
     currentUserId +
@@ -2500,6 +2278,10 @@ async function getFollowId(){
 }
 
 
+/* =====================================================
+CHECK FOLLOWING
+===================================================== */
+
 async function checkFollowing(){
 
   if(
@@ -2509,13 +2291,10 @@ async function checkFollowing(){
   ){
 
     return false;
-
   }
 
-
   const id =
-  await getFollowId();
-
+  getFollowId();
 
   const snap =
   await getDoc(
@@ -2526,11 +2305,14 @@ async function checkFollowing(){
     )
   );
 
-
   return snap.exists();
 
 }
 
+
+/* =====================================================
+FOLLOW / UNFOLLOW
+===================================================== */
 
 window.toggleFollow =
 async function(){
@@ -2545,25 +2327,19 @@ async function(){
     );
 
     return;
-
   }
-
 
   const button =
   document.getElementById(
     "followBtn"
   );
 
-
-  button.disabled =
-  true;
-
+  button.disabled = true;
 
   try{
 
     const id =
-    await getFollowId();
-
+    getFollowId();
 
     const followerRef =
     doc(
@@ -2572,7 +2348,6 @@ async function(){
       id
     );
 
-
     const followingRef =
     doc(
       db,
@@ -2580,12 +2355,10 @@ async function(){
       id
     );
 
-
     const existing =
     await getDoc(
       followerRef
     );
-
 
     if(existing.exists()){
 
@@ -2593,11 +2366,9 @@ async function(){
         followerRef
       );
 
-
       await deleteDoc(
         followingRef
       );
-
 
       showToast(
         "Unfollow कर दिया"
@@ -2608,7 +2379,6 @@ async function(){
       await setDoc(
         followerRef,
         {
-
           follower_id:
           currentUserId,
 
@@ -2617,15 +2387,12 @@ async function(){
 
           created_at:
           serverTimestamp()
-
         }
       );
-
 
       await setDoc(
         followingRef,
         {
-
           follower_id:
           currentUserId,
 
@@ -2634,10 +2401,8 @@ async function(){
 
           created_at:
           serverTimestamp()
-
         }
       );
-
 
       showToast(
         "✅ Follow कर दिया"
@@ -2645,11 +2410,9 @@ async function(){
 
     }
 
-
     await updateFollowButton();
 
     await loadStats();
-
 
   }catch(error){
 
@@ -2661,9 +2424,7 @@ async function(){
 
   }
 
-
-  button.disabled =
-  false;
+  button.disabled = false;
 
 };
 
@@ -2674,9 +2435,7 @@ FOLLOW BUTTON
 
 async function updateFollowButton(){
 
-  if(
-    isOwnProfile
-  ){
+  if(isOwnProfile){
 
     document.getElementById(
       "followBtn"
@@ -2689,23 +2448,18 @@ async function updateFollowButton(){
     "none";
 
     return;
-
   }
-
 
   const following =
   await checkFollowing();
-
 
   const button =
   document.getElementById(
     "followBtn"
   );
 
-
   button.style.display =
   "inline-block";
-
 
   if(following){
 
@@ -2759,7 +2513,6 @@ async function loadStats(){
       )
     );
 
-
     const followingQuery =
     query(
       collection(
@@ -2772,7 +2525,6 @@ async function loadStats(){
         profileUserId
       )
     );
-
 
     const postsQuery =
     query(
@@ -2787,14 +2539,12 @@ async function loadStats(){
       )
     );
 
-
     const [
       followersSnap,
       followingSnap,
       postsSnap
     ] =
     await Promise.all([
-
       getDocs(
         followersQuery
       ),
@@ -2806,20 +2556,15 @@ async function loadStats(){
       getDocs(
         postsQuery
       )
-
     ]);
 
-
-    let postCount =
-    0;
-
+    let postCount = 0;
 
     postsSnap.forEach(
       item=>{
 
         const data =
         item.data();
-
 
         if(
           normalizeType(
@@ -2835,24 +2580,20 @@ async function loadStats(){
       }
     );
 
-
     document.getElementById(
       "followersCount"
     ).textContent =
     followersSnap.size;
-
 
     document.getElementById(
       "followingCount"
     ).textContent =
     followingSnap.size;
 
-
     document.getElementById(
       "postsCount"
     ).textContent =
     postCount;
-
 
   }catch(error){
 
@@ -2876,7 +2617,6 @@ function(type,button){
   createType =
   type;
 
-
   document.querySelectorAll(
     ".create-type"
   ).forEach(
@@ -2887,21 +2627,17 @@ function(type,button){
     }
   );
 
-
   button.classList.add(
     "active"
   );
-
 
   const mediaBox =
   document.getElementById(
     "mediaUrlBox"
   );
 
-
   if(
-    type ===
-    "reel"
+    type === "reel"
   ){
 
     mediaBox.style.display =
@@ -2918,30 +2654,25 @@ function(type,button){
 
 
 /* =====================================================
-PUBLISH POST / REEL / THREAD / STORY
+PUBLISH
 ===================================================== */
 
 window.publishContent =
 async function(){
 
   if(!isOwnProfile){
-
     return;
-
   }
-
 
   const text =
   document.getElementById(
     "createText"
   ).value.trim();
 
-
   const mediaUrl =
   document.getElementById(
     "mediaUrl"
   ).value.trim();
-
 
   if(
     !text &&
@@ -2953,13 +2684,10 @@ async function(){
     );
 
     return;
-
   }
 
-
   if(
-    createType ===
-    "reel" &&
+    createType === "reel" &&
     !mediaUrl
   ){
 
@@ -2968,19 +2696,14 @@ async function(){
     );
 
     return;
-
   }
-
 
   const button =
   document.getElementById(
     "publishButton"
   );
 
-
-  button.disabled =
-  true;
-
+  button.disabled = true;
 
   try{
 
@@ -2990,7 +2713,6 @@ async function(){
         "community_posts"
       ),
       {
-
         user_id:
         currentUserId,
 
@@ -3008,22 +2730,16 @@ async function(){
 
         created_by:
         currentUserId
-
       }
     );
 
-
     document.getElementById(
       "createText"
-    ).value =
-    "";
-
+    ).value = "";
 
     document.getElementById(
       "mediaUrl"
-    ).value =
-    "";
-
+    ).value = "";
 
     showToast(
       "✅ " +
@@ -3033,13 +2749,11 @@ async function(){
       " publish हो गया"
     );
 
-
     await loadStats();
 
     await loadContent(
       createType
     );
-
 
   }catch(error){
 
@@ -3051,9 +2765,7 @@ async function(){
 
   }
 
-
-  button.disabled =
-  false;
+  button.disabled = false;
 
 };
 
@@ -3071,7 +2783,6 @@ async function(
   activeTab =
   type;
 
-
   document.querySelectorAll(
     ".tab"
   ).forEach(
@@ -3081,7 +2792,6 @@ async function(
       );
     }
   );
-
 
   if(button){
 
@@ -3107,7 +2817,6 @@ async function(
 
     };
 
-
     document.getElementById(
       map[type]
     ).classList.add(
@@ -3115,7 +2824,6 @@ async function(
     );
 
   }
-
 
   await loadContent(
     type
@@ -3135,12 +2843,10 @@ async function loadContent(type){
     "contentArea"
   );
 
-
   area.innerHTML =
   `<div class="empty">
     ⏳ Loading...
   </div>`;
-
 
   try{
 
@@ -3157,13 +2863,10 @@ async function loadContent(type){
       )
     );
 
-
     const snap =
     await getDocs(q);
 
-
     const posts = [];
-
 
     snap.forEach(
       item=>{
@@ -3171,16 +2874,13 @@ async function loadContent(type){
         const data =
         item.data();
 
-
         const itemType =
         normalizeType(
           data.type
         );
 
-
         if(
-          itemType ===
-          type
+          itemType === type
         ){
 
           posts.push({
@@ -3196,7 +2896,6 @@ async function loadContent(type){
 
       }
     );
-
 
     posts.sort(
       (a,b)=>{
@@ -3214,10 +2913,8 @@ async function loadContent(type){
       }
     );
 
-
     if(
-      posts.length ===
-      0
+      posts.length === 0
     ){
 
       area.innerHTML = `
@@ -3243,14 +2940,12 @@ async function loadContent(type){
 
     }
 
-
     area.innerHTML =
     posts
     .map(
       renderPost
     )
     .join("");
-
 
   }catch(error){
 
@@ -3278,7 +2973,7 @@ async function loadContent(type){
 
 
 /* =====================================================
-RENDER CONTENT
+RENDER POST
 ===================================================== */
 
 function renderPost(post){
@@ -3288,25 +2983,16 @@ function renderPost(post){
     post.type
   );
 
-
   const text =
   post.text ||
   post.post_text ||
   "";
 
+  let media = "";
 
-  let media =
-  "";
+  if(post.media_url){
 
-
-  if(
-    post.media_url
-  ){
-
-    if(
-      type ===
-      "reel"
-    ){
+    if(type === "reel"){
 
       media = `
 
@@ -3339,7 +3025,6 @@ function renderPost(post){
 
   }
 
-
   return `
 
     <article class="post-card">
@@ -3359,16 +3044,20 @@ function renderPost(post){
           <div>
 
             <div class="post-user-name">
+
               ${escapeHTML(
                 profileData.full_name ||
                 "Carpenter"
               )}
+
             </div>
 
             <div class="post-time">
+
               ${formatDate(
                 post.created_at
               )}
+
             </div>
 
           </div>
@@ -3377,14 +3066,12 @@ function renderPost(post){
 
       </div>
 
-
       <div class="post-type">
 
         ${typeIcon(type)}
         ${typeName(type)}
 
       </div>
-
 
       ${
         text
@@ -3396,7 +3083,6 @@ function renderPost(post){
         ""
       }
 
-
       ${media}
 
     </article>
@@ -3407,41 +3093,29 @@ function renderPost(post){
 
 
 /* =====================================================
-MESSAGE SYSTEM
-
-Message भी community_posts में रहेगा:
-
-type = message
-
-इसलिए existing Rule से काम करेगा।
+MESSAGE
 ===================================================== */
 
 window.openMessage =
 async function(){
 
-  if(
-    isOwnProfile
-  ){
+  if(isOwnProfile){
 
     showToast(
       "अपनी profile को message नहीं कर सकते।"
     );
 
     return;
-
   }
-
 
   currentChatUserId =
   profileUserId;
-
 
   currentChatId =
   makeChatId(
     currentUserId,
     profileUserId
   );
-
 
   document.getElementById(
     "messageTitle"
@@ -3452,13 +3126,11 @@ async function(){
     "Message"
   );
 
-
   document.getElementById(
     "messageModal"
   ).classList.add(
     "show"
   );
-
 
   await loadMessages();
 
@@ -3469,10 +3141,7 @@ async function(){
 CHAT ID
 ===================================================== */
 
-function makeChatId(
-  a,
-  b
-){
+function makeChatId(a,b){
 
   return [
     a,
@@ -3495,12 +3164,10 @@ async function loadMessages(){
     "chatMessages"
   );
 
-
   box.innerHTML =
   `<div class="empty">
     ⏳ Loading messages...
   </div>`;
-
 
   try{
 
@@ -3522,917 +3189,4 @@ async function loadMessages(){
       )
     );
 
-
-    const snap =
-    await getDocs(q);
-
-
-    const messages = [];
-
-
-    snap.forEach(
-      item=>{
-
-        messages.push({
-
-          id:
-          item.id,
-
-          ...item.data()
-
-        });
-
-      }
-    );
-
-
-    messages.sort(
-      (a,b)=>{
-
-        const A =
-        a.created_at?.seconds ||
-        0;
-
-        const B =
-        b.created_at?.seconds ||
-        0;
-
-        return A-B;
-
-      }
-    );
-
-
-    if(
-      messages.length ===
-      0
-    ){
-
-      box.innerHTML =
-      `<div class="empty">
-        अभी कोई message नहीं है।
-      </div>`;
-
-      return;
-
-    }
-
-
-    box.innerHTML =
-    messages
-    .map(
-      message=>{
-
-        const mine =
-        message.sender_id ===
-        currentUserId;
-
-
-        return `
-
-          <div
-            class="chat-message
-            ${mine ? "me" : "other"}">
-
-            ${escapeHTML(
-              message.text ||
-              ""
-            )}
-
-          </div>
-
-        `;
-
-      }
-    )
-    .join("");
-
-
-    box.scrollTop =
-    box.scrollHeight;
-
-
-  }catch(error){
-
-    console.error(error);
-
-    box.innerHTML =
-    `<div class="empty">
-      ❌ Messages load नहीं हुए।
-    </div>`;
-
-  }
-
-}
-
-
-/* =====================================================
-SEND MESSAGE
-===================================================== */
-
-window.sendMessage =
-async function(){
-
-  if(
-    !currentChatId
-  ){
-
-    return;
-
-  }
-
-
-  const input =
-  document.getElementById(
-    "messageInput"
-  );
-
-
-  const text =
-  input.value.trim();
-
-
-  if(!text){
-
-    return;
-
-  }
-
-
-  try{
-
-    await addDoc(
-      collection(
-        db,
-        "community_posts"
-      ),
-      {
-
-        type:
-        "message",
-
-        chat_id:
-        currentChatId,
-
-        sender_id:
-        currentUserId,
-
-        receiver_id:
-        currentChatUserId,
-
-        user_id:
-        currentUserId,
-
-        text:
-        text,
-
-        created_at:
-        serverTimestamp()
-
-      }
-    );
-
-
-    input.value =
-    "";
-
-
-    await loadMessages();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      "❌ Message भेजा नहीं गया"
-    );
-
-  }
-
-};
-
-
-/* =====================================================
-FOLLOWERS LIST
-===================================================== */
-
-window.openFollowers =
-async function(){
-
-  const modal =
-  document.getElementById(
-    "usersModal"
-  );
-
-
-  document.getElementById(
-    "usersModalTitle"
-  ).textContent =
-  "Followers";
-
-
-  modal.classList.add(
-    "show"
-  );
-
-
-  const list =
-  document.getElementById(
-    "usersList"
-  );
-
-
-  list.innerHTML =
-  `<div class="empty">
-    ⏳ Loading...
-  </div>`;
-
-
-  try{
-
-    const q =
-    query(
-      collection(
-        db,
-        "followers"
-      ),
-      where(
-        "following_id",
-        "==",
-        profileUserId
-      )
-    );
-
-
-    const snap =
-    await getDocs(q);
-
-
-    const ids = [];
-
-
-    snap.forEach(
-      item=>{
-
-        const data =
-        item.data();
-
-
-        if(
-          data.follower_id
-        ){
-
-          ids.push(
-            data.follower_id
-          );
-
-        }
-
-      }
-    );
-
-
-    await renderUserList(
-      list,
-      ids
-    );
-
-
-  }catch(error){
-
-    console.error(error);
-
-    list.innerHTML =
-    `<div class="empty">
-      ❌ Followers load नहीं हुए।
-    </div>`;
-
-  }
-
-};
-
-
-/* =====================================================
-FOLLOWING LIST
-===================================================== */
-
-window.openFollowing =
-async function(){
-
-  const modal =
-  document.getElementById(
-    "usersModal"
-  );
-
-
-  document.getElementById(
-    "usersModalTitle"
-  ).textContent =
-  "Following";
-
-
-  modal.classList.add(
-    "show"
-  );
-
-
-  const list =
-  document.getElementById(
-    "usersList"
-  );
-
-
-  list.innerHTML =
-  `<div class="empty">
-    ⏳ Loading...
-  </div>`;
-
-
-  try{
-
-    const q =
-    query(
-      collection(
-        db,
-        "following"
-      ),
-      where(
-        "follower_id",
-        "==",
-        profileUserId
-      )
-    );
-
-
-    const snap =
-    await getDocs(q);
-
-
-    const ids = [];
-
-
-    snap.forEach(
-      item=>{
-
-        const data =
-        item.data();
-
-
-        if(
-          data.following_id
-        ){
-
-          ids.push(
-            data.following_id
-          );
-
-        }
-
-      }
-    );
-
-
-    await renderUserList(
-      list,
-      ids
-    );
-
-
-  }catch(error){
-
-    console.error(error);
-
-    list.innerHTML =
-    `<div class="empty">
-      ❌ Following load नहीं हुए।
-    </div>`;
-
-  }
-
-};
-
-
-/* =====================================================
-RENDER USER LIST
-===================================================== */
-
-async function renderUserList(
-  container,
-  ids
-){
-
-  if(
-    ids.length ===
-    0
-  ){
-
-    container.innerHTML =
-    `<div class="empty">
-      अभी कोई user नहीं है।
-    </div>`;
-
-    return;
-
-  }
-
-
-  const users = [];
-
-
-  for(
-    const id of ids
-  ){
-
-    try{
-
-      const snap =
-      await getDoc(
-        doc(
-          db,
-          "users",
-          id
-        )
-      );
-
-
-      if(
-        snap.exists()
-      ){
-
-        users.push({
-
-          id:
-          id,
-
-          ...snap.data()
-
-        });
-
-      }
-
-    }catch(error){
-
-      console.error(error);
-
-    }
-
-  }
-
-
-  if(
-    users.length ===
-    0
-  ){
-
-    container.innerHTML =
-    `<div class="empty">
-      User profile नहीं मिली।
-    </div>`;
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-  users
-  .map(
-    user=>`
-
-      <div
-        class="user-item"
-        onclick="openUserProfile('${escapeAttr(
-          user.id
-        )}')">
-
-        <img
-          src="${escapeAttr(
-            user.photo_url ||
-            defaultPhoto
-          )}"
-          alt="User">
-
-        <div>
-
-          <div class="user-item-name">
-            ${escapeHTML(
-              user.full_name ||
-              "Carpenter"
-            )}
-          </div>
-
-          <div class="user-item-username">
-            @${escapeHTML(
-              String(
-                user.username ||
-                "carpenter"
-              ).replace(
-                /^@/,
-                ""
-              )
-            )}
-          </div>
-
-        </div>
-
-      </div>
-
-    `
-  )
-  .join("");
-
-}
-
-
-/* =====================================================
-OPEN USER PROFILE
-===================================================== */
-
-window.openUserProfile =
-function(id){
-
-  window.location.href =
-  "profile.html?user=" +
-  encodeURIComponent(id);
-
-};
-
-
-/* =====================================================
-MODAL
-===================================================== */
-
-window.closeModal =
-function(id){
-
-  document.getElementById(
-    id
-  ).classList.remove(
-    "show"
-  );
-
-};
-
-
-/* =====================================================
-SIDE MENU
-===================================================== */
-
-window.openMenu =
-function(){
-
-  document.getElementById(
-    "sideMenu"
-  ).classList.add(
-    "active"
-  );
-
-};
-
-
-window.closeMenu =
-function(){
-
-  document.getElementById(
-    "sideMenu"
-  ).classList.remove(
-    "active"
-  );
-
-};
-
-
-/* =====================================================
-HOME
-===================================================== */
-
-window.goHome =
-function(){
-
-  window.location.href =
-  "index.html";
-
-};
-
-
-/* =====================================================
-HELPER
-===================================================== */
-
-function normalizeType(
-  type
-){
-
-  if(!type){
-
-    return "post";
-
-  }
-
-
-  const value =
-  String(
-    type
-  ).toLowerCase();
-
-
-  if(
-    value === "post" ||
-    value === "posts"
-  ){
-
-    return "post";
-
-  }
-
-
-  if(
-    value === "reel" ||
-    value === "reels"
-  ){
-
-    return "reel";
-
-  }
-
-
-  if(
-    value === "thread" ||
-    value === "threads"
-  ){
-
-    return "thread";
-
-  }
-
-
-  if(
-    value === "story" ||
-    value === "stories"
-  ){
-
-    return "story";
-
-  }
-
-
-  if(
-    value === "message" ||
-    value === "messages"
-  ){
-
-    return "message";
-
-  }
-
-
-  return "post";
-
-}
-
-
-function typeName(
-  type
-){
-
-  const names = {
-
-    post:
-    "Post",
-
-    reel:
-    "Reel",
-
-    thread:
-    "Thread",
-
-    story:
-    "Story"
-
-  };
-
-
-  return (
-    names[type] ||
-    "Post"
-  );
-
-}
-
-
-function typeIcon(
-  type
-){
-
-  const icons = {
-
-    post:
-    "📷",
-
-    reel:
-    "🎬",
-
-    thread:
-    "✍️",
-
-    story:
-    "⭕"
-
-  };
-
-
-  return (
-    icons[type] ||
-    "📷"
-  );
-
-}
-
-
-function capitalize(
-  value
-){
-
-  return String(
-    value
-  ).charAt(0)
-  .toUpperCase() +
-  String(
-    value
-  ).slice(1);
-
-}
-
-
-function formatDate(
-  timestamp
-){
-
-  if(!timestamp){
-
-    return "अभी";
-
-  }
-
-
-  try{
-
-    const date =
-    timestamp.toDate
-    ? timestamp.toDate()
-    : new Date(timestamp);
-
-
-    return date.toLocaleDateString(
-      "hi-IN",
-      {
-        day:
-        "numeric",
-
-        month:
-        "short",
-
-        year:
-        "numeric"
-      }
-    );
-
-  }catch(error){
-
-    return "अभी";
-
-  }
-
-}
-
-
-/* =====================================================
-ESCAPE
-===================================================== */
-
-function escapeHTML(
-  value
-){
-
-  return String(
-    value ?? ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-
-}
-
-
-function escapeAttr(
-  value
-){
-
-  return escapeHTML(
-    value
-  );
-
-}
-
-
-/* =====================================================
-TOAST
-===================================================== */
-
-let toastTimer;
-
-
-function showToast(
-  message
-){
-
-  const toast =
-  document.getElementById(
-    "toast"
-  );
-
-
-  toast.textContent =
-  message;
-
-
-  toast.style.display =
-  "block";
-
-
-  clearTimeout(
-    toastTimer
-  );
-
-
-  toastTimer =
-  setTimeout(
-    ()=>{
-
-      toast.style.display =
-      "none";
-
-    },
-    2500
-  );
-
-}
-
-
-window.showComingSoon =
-function(name){
-
-  showToast(
-    "🔧 " +
-    name +
-    " जल्द उपलब्ध होगा।"
-  );
-
-};
-
-
-/* =====================================================
-CLOSE MODAL WHEN OUTSIDE CLICK
-===================================================== */
-
-document.addEventListener(
-  "click",
-  function(event){
-
-    if(
-      event.target.classList.contains(
-        "modal"
-      )
-    ){
-
-      event.target.classList.remove(
-        "show"
-      );
-
-    }
-
-  }
-);
-
-</script>
-
-</body>
-</html>
+    const sn
