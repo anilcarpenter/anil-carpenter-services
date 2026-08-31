@@ -1,1 +1,3209 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anil Carpenter Community — Profile</title>
 
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#f4f5f7;--card:#fff;--text:#111827;--muted:#6b7280;
+  --line:#e5e7eb;--brand:#f59e0b;--dark:#111827;--danger:#dc2626;
+}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+
+.header{
+  height:58px;background:var(--dark);color:#fff;display:flex;align-items:center;
+  justify-content:space-between;padding:0 16px;font-size:18px;font-weight:bold;
+  position:sticky;top:0;z-index:1000
+}
+.header b{color:var(--brand)}
+.header-actions{display:flex;gap:8px;align-items:center}
+.header-btn{
+  text-decoration:none;color:#fff;border:1px solid #4b5563;border-radius:10px;
+  padding:8px 12px;background:transparent
+}
+.menu-btn{background:transparent;border:0;color:#fff;font-size:25px;padding:5px 8px}
+
+.profile{background:var(--card);text-align:center;padding:25px 15px 18px}
+.photo{
+  width:105px;height:105px;border-radius:50%;object-fit:cover;
+  border:4px solid var(--brand);background:#eee
+}
+.photo-wrap{position:relative;display:inline-block}
+.photo-edit{
+  position:absolute;right:0;bottom:2px;width:35px;height:35px;border-radius:50%;
+  border:3px solid #fff;background:var(--dark);color:#fff
+}
+.name{font-size:25px;font-weight:800;margin-top:12px}
+.username{color:var(--muted);margin-top:4px}
+.bio{margin:15px auto 5px;max-width:500px;color:#374151;line-height:1.5}
+.location{color:var(--muted);margin:8px}
+
+.stats{display:flex;justify-content:center;gap:45px;margin:22px 0}
+.stat{border:0;background:transparent;padding:4px 10px}
+.stat b{display:block;font-size:21px}
+.stat span{color:var(--muted);font-size:13px}
+
+.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+button.main-btn{
+  border:0;border-radius:10px;padding:11px 20px;font-size:15px;font-weight:bold
+}
+.follow{background:var(--brand)}
+.message{background:#e5e7eb}
+.edit{background:var(--dark);color:#fff}
+.follow.following{background:#d1d5db}
+.follow:disabled{opacity:.55;cursor:not-allowed}
+
+.tabs{
+  display:flex;background:#fff;border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;position:sticky;top:58px;z-index:500
+}
+.tabs button{
+  flex:1;background:#fff;border:0;border-radius:0;
+  padding:15px 5px;font-weight:bold
+}
+.tabs button.active{
+  color:#d97706;border-bottom:3px solid var(--brand)
+}
+
+.content{padding:20px;max-width:850px;margin:auto}
+.post{
+  background:#fff;border-radius:15px;padding:18px;
+  margin-bottom:12px;border:1px solid var(--line)
+}
+.post-head{display:flex;align-items:center;gap:10px}
+.mini-photo{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.post-type{font-size:12px;color:var(--muted)}
+.post-media{
+  width:100%;max-height:600px;object-fit:cover;
+  border-radius:12px;margin-top:12px
+}
+.post-text{white-space:pre-wrap;line-height:1.5}
+.empty{text-align:center;color:var(--muted);padding:35px}
+
+.side-menu{
+  position:fixed;top:0;right:-330px;width:310px;max-width:88%;
+  height:100vh;background:#fff;z-index:9999;overflow-y:auto;
+  box-shadow:-5px 0 20px rgba(0,0,0,.2);transition:right .25s ease
+}
+.side-menu.active{right:0}
+.menu-header{
+  position:sticky;top:0;display:flex;align-items:center;
+  justify-content:space-between;padding:18px 16px;
+  background:#111827;color:#fff;font-size:19px;z-index:2
+}
+.menu-header button{
+  background:transparent;color:#fff;border:0;font-size:20px
+}
+.menu-section{padding:10px;border-bottom:1px solid #eee}
+.menu-title{
+  padding:10px 12px 6px;color:#6b7280;font-size:13px;font-weight:bold
+}
+.menu-section>button{
+  display:block;width:100%;text-align:left;background:#fff;
+  border:0;border-radius:10px;padding:13px 12px;margin:2px 0;
+  font-size:15px;color:#111827
+}
+.menu-section>button:hover{background:#f3f4f6}
+
+.modal-backdrop{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:10000;padding:20px;overflow:auto
+}
+.modal-backdrop.show{
+  display:flex;align-items:center;justify-content:center
+}
+.modal{
+  background:#fff;width:min(560px,100%);border-radius:18px;
+  padding:20px;box-shadow:0 20px 60px #0005
+}
+.modal h2{margin-top:0}
+.close{
+  float:right;border:0;background:#eee;border-radius:50%;
+  width:35px;height:35px
+}
+.form-group{margin:12px 0}
+.form-group label{
+  display:block;font-weight:bold;margin-bottom:6px
+}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:11px;border:1px solid #d1d5db;
+  border-radius:10px;background:#fff
+}
+.form-group textarea{min-height:100px;resize:vertical}
+.modal-actions{
+  display:flex;gap:10px;justify-content:flex-end;margin-top:16px
+}
+.primary{
+  background:var(--brand);border:0;border-radius:10px;
+  padding:11px 18px;font-weight:bold
+}
+.secondary{
+  background:#e5e7eb;border:0;border-radius:10px;
+  padding:11px 18px;font-weight:bold
+}
+.danger{color:var(--danger)}
+.auth-tabs{display:flex;gap:6px;margin-bottom:15px}
+.auth-tabs button{
+  flex:1;border:0;padding:10px;border-radius:9px;background:#eee
+}
+.auth-tabs button.active{background:var(--brand)}
+.status{font-size:13px;color:var(--muted);margin-top:7px}
+.chat-list{
+  max-height:250px;overflow:auto;border:1px solid var(--line);
+  border-radius:10px
+}
+.chat-item{
+  padding:11px;border-bottom:1px solid var(--line);cursor:pointer
+}
+.chat-item:last-child{border-bottom:0}
+.chat-item:hover{background:#f9fafb}
+
+#toast{
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%);background:#111827;color:#fff;
+  padding:12px 18px;border-radius:10px;z-index:20000;
+  display:none;max-width:90%
+}
+.small{font-size:12px;color:var(--muted)}
+
+@media(max-width:500px){
+  .side-menu{width:300px}
+  .stats{gap:14px}
+  .header-btn{padding:7px 9px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <span>🪚 <b>Anil</b> Carpenter</span>
+
+  <div class="header-actions">
+    <button
+      class="header-btn"
+      onclick="openAuth()"
+      id="authButton"
+    >
+      🔐 Sign In
+    </button>
+
+    <button
+      class="menu-btn"
+      onclick="openMenu()"
+    >
+      ☰
+    </button>
+  </div>
+</header>
+
+<section class="profile">
+
+  <div class="photo-wrap">
+
+    <img
+      id="profilePhoto"
+      class="photo"
+      src="https://picsum.photos/200"
+      alt="Profile photo"
+    >
+
+    <button
+      class="photo-edit"
+      onclick="openEditProfile()"
+      title="Profile photo बदलें"
+    >
+      📷
+    </button>
+
+  </div>
+
+  <div class="name" id="profileName">
+    Anil Carpenter
+  </div>
+
+  <div class="username" id="profileUsername">
+    @anilcarpenter
+  </div>
+
+  <div class="bio" id="profileBio">
+    Furniture Work.<br>
+    Pachpokhari Bazar SK Nagar
+  </div>
+
+  <div class="location" id="profileLocation">
+    📍 Khalilabad, Sant Kabir Nagar
+  </div>
+
+  <div class="stats">
+
+    <button
+      class="stat"
+      onclick="showMyContent('Posts')"
+    >
+      <b id="postCount">0</b>
+      <span>Posts</span>
+    </button>
+
+    <button
+      class="stat"
+      onclick="showFollowers()"
+    >
+      <b id="followerCount">0</b>
+      <span>Followers</span>
+    </button>
+
+    <button
+      class="stat"
+      onclick="showFollowing()"
+    >
+      <b id="followingCount">0</b>
+      <span>Following</span>
+    </button>
+
+  </div>
+
+  <div class="buttons">
+
+    <button
+      class="main-btn follow"
+      id="followButton"
+      onclick="toggleFollow()"
+    >
+      ➕ Follow
+    </button>
+
+    <button
+      class="main-btn message"
+      id="messageButton"
+      onclick="openMessage()"
+    >
+      💬 Message
+    </button>
+
+    <button
+      class="main-btn edit"
+      id="editButton"
+      onclick="openEditProfile()"
+    >
+      ✏️ Edit Profile
+    </button>
+
+    <button
+      class="main-btn"
+      style="background:#fef3c7"
+      onclick="openCreatePost()"
+    >
+      ➕ Create
+    </button>
+
+  </div>
+
+</section>
+  <!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu">
+
+  <div class="menu-header">
+    <b>☰ Menu</b>
+    <button onclick="closeMenu()">✕</button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">👤 Account</div>
+
+    <button onclick="closeMenu();openEditProfile()">
+      ✏️ Edit Profile
+    </button>
+
+    <button onclick="closeMenu();openAuth()">
+      🔐 Sign In / Sign Out
+    </button>
+
+    <button onclick="closeMenu();openCreatePost()">
+      ➕ Create Post / Reel / Thread / Story
+    </button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">⚙️ Settings</div>
+
+    <button onclick="menuAction('settings')">
+      ⚙️ Settings
+    </button>
+
+    <button onclick="menuAction('notifications')">
+      🔔 Notifications
+    </button>
+
+    <button onclick="menuAction('privacy')">
+      🔒 Privacy
+    </button>
+
+    <button onclick="menuAction('security')">
+      🛡️ Security
+    </button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">💰 Community</div>
+
+    <button onclick="menuAction('pro')">
+      ⭐ Carpenter Pro
+    </button>
+
+    <button onclick="menuAction('promote')">
+      📢 Promote My Work
+    </button>
+
+    <button onclick="menuAction('business')">
+      🏪 Business Profile
+    </button>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title">❓ Help</div>
+
+    <button onclick="menuAction('guidelines')">
+      📖 Community Guidelines
+    </button>
+
+    <button onclick="menuAction('help')">
+      ❓ Help & Support
+    </button>
+
+    <button onclick="menuAction('report')">
+      🚩 Report a Problem
+    </button>
+
+    <button onclick="menuAction('about')">
+      ℹ️ About Anil Carpenter
+    </button>
+  </div>
+
+</div>
+
+
+<!-- AUTH MODAL -->
+<div class="modal-backdrop" id="authModal">
+
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeModal('authModal')"
+    >
+      ✕
+    </button>
+
+    <h2>🔐 Carpenter Community</h2>
+
+    <div class="auth-tabs">
+
+      <button
+        id="loginTab"
+        class="active"
+        onclick="setAuthMode('login')"
+      >
+        Sign In
+      </button>
+
+      <button
+        id="signupTab"
+        onclick="setAuthMode('signup')"
+      >
+        Create Account
+      </button>
+
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+
+      <input
+        id="authEmail"
+        type="email"
+        placeholder="your@email.com"
+      >
+    </div>
+
+    <div class="form-group">
+
+      <label>Password</label>
+
+      <input
+        id="authPassword"
+        type="password"
+        placeholder="कम से कम 6 characters"
+      >
+
+    </div>
+
+    <div
+      id="signupNameBox"
+      class="form-group"
+      style="display:none"
+    >
+
+      <label>Name</label>
+
+      <input
+        id="authName"
+        placeholder="आपका नाम"
+      >
+
+    </div>
+
+    <button
+      class="primary"
+      style="width:100%"
+      onclick="submitAuth()"
+      id="authSubmit"
+    >
+      Sign In
+    </button>
+
+    <p class="status">
+      हर user अपना account बनाकर अपनी profile,
+      posts, reels, threads और stories manage कर सकता है।
+    </p>
+
+    <button
+      class="secondary"
+      id="signoutBtn"
+      style="width:100%;display:none"
+      onclick="signOutUser()"
+    >
+      Sign Out
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- EDIT PROFILE MODAL -->
+<div class="modal-backdrop" id="editModal">
+
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeModal('editModal')"
+    >
+      ✕
+    </button>
+
+    <h2>✏️ Edit Profile</h2>
+
+    <div class="form-group">
+
+      <label>Profile Photo</label>
+
+      <input
+        id="profileImageInput"
+        type="file"
+        accept="image/*"
+      >
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Name</label>
+
+      <input id="editName">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Username</label>
+
+      <input
+        id="editUsername"
+        placeholder="@username"
+      >
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Bio</label>
+
+      <textarea id="editBio"></textarea>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Location</label>
+
+      <input id="editLocation">
+
+    </div>
+
+    <div class="modal-actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal('editModal')"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="primary"
+        onclick="saveProfile()"
+      >
+        Save Profile
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- CREATE CONTENT MODAL -->
+<div class="modal-backdrop" id="createModal">
+
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeModal('createModal')"
+    >
+      ✕
+    </button>
+
+    <h2>➕ Create</h2>
+
+    <div class="form-group">
+
+      <label>Content Type</label>
+
+      <select id="contentType">
+
+        <option value="post">
+          📷 Post
+        </option>
+
+        <option value="reel">
+          🎬 Reel
+        </option>
+
+        <option value="thread">
+          ✏️ Thread
+        </option>
+
+        <option value="story">
+          ⭕ Story
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Text / Caption</label>
+
+      <textarea
+        id="contentText"
+        placeholder="अपना काम, विचार या caption लिखें..."
+      ></textarea>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Photo / Video</label>
+
+      <input
+        id="contentFile"
+        type="file"
+        accept="image/*,video/*"
+      >
+
+    </div>
+
+    <div class="modal-actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal('createModal')"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="primary"
+        onclick="publishContent()"
+      >
+        Publish
+      </button>
+
+    </div>
+
+    <p class="small">
+      Story 24 घंटे बाद अपने-आप expire होगी।
+      Reel में video file चुन सकते हैं।
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- MESSAGE MODAL -->
+<div class="modal-backdrop" id="messageModal">
+
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeModal('messageModal')"
+    >
+      ✕
+    </button>
+
+    <h2>💬 Message</h2>
+
+    <div
+      id="messageTarget"
+      class="small"
+    ></div>
+
+    <div
+      id="chatMessages"
+      style="max-height:300px;overflow:auto;margin:12px 0"
+    ></div>
+
+    <textarea
+      id="messageText"
+      placeholder="Message लिखें..."
+      style="width:100%;min-height:80px;padding:11px;border:1px solid #d1d5db;border-radius:10px"
+    ></textarea>
+
+    <div class="modal-actions">
+
+      <button
+        class="primary"
+        onclick="sendMessage()"
+      >
+        Send ➤
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile as updateAuthProfile
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  addDoc,
+  deleteDoc,
+  collection,
+  query,
+  where,
+  orderBy,
+  onSnapshot,
+  getDocs,
+  serverTimestamp,
+  limit
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyCKTMSuuxEVj0ZTT9CAJW5NgJ9ynH6Qsto",
+
+  authDomain:
+    "anil-carpenter-community.firebaseapp.com",
+
+  projectId:
+    "anil-carpenter-community",
+
+  storageBucket:
+    "anil-carpenter-community.firebasestorage.app",
+
+  messagingSenderId:
+    "835868472367",
+
+  appId:
+    "1:835868472367:web:a320614a701cd3bbf102da"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
+
+const db =
+  getFirestore(app);
+
+const storage =
+  getStorage(app);
+
+
+let currentUser = null;
+let profileUserId = null;
+let profileData = null;
+let authMode = "login";
+let activeTab = "Posts";
+let selectedMessageUser = null;
+
+let unsubscribeProfile = null;
+let unsubscribePosts = null;
+let unsubscribeChat = null;
+
+
+window.openMenu = () =>
+  document
+    .getElementById("sideMenu")
+    .classList.add("active");
+
+
+window.closeMenu = () =>
+  document
+    .getElementById("sideMenu")
+    .classList.remove("active");
+
+
+window.closeModal = (id) =>
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
+
+window.openModal = (id) =>
+  document
+    .getElementById(id)
+    .classList.add("show");
+
+
+function toast(msg){
+
+  const el =
+    document.getElementById("toast");
+
+  el.textContent =
+    msg;
+
+  el.style.display =
+    "block";
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+  window.toastTimer =
+    setTimeout(
+      () =>
+        el.style.display =
+          "none",
+      2500
+    );
+
+}
+
+
+function escapeHTML(v=""){
+
+  return String(v)
+    .replace(
+      /[&<>"']/g,
+      m =>
+        ({
+          "&":"&amp;",
+          "<":"&lt;",
+          ">":"&gt;",
+          '"':"&quot;",
+          "'":"&#039;"
+        }[m])
+    );
+
+}
+
+
+function fileType(file){
+
+  if(!file)
+    return null;
+
+  if(
+    file.type.startsWith("video/")
+  )
+    return "video";
+
+  if(
+    file.type.startsWith("image/")
+  )
+    return "image";
+
+  return null;
+
+}
+
+
+onAuthStateChanged(
+  auth,
+  async user => {
+
+    currentUser =
+      user;
+
+    document
+      .getElementById("authButton")
+      .textContent =
+        user
+        ? "👤 Account"
+        : "🔐 Sign In";
+
+    if(user){
+
+      await ensureUserDoc(user);
+
+      profileUserId =
+        user.uid;
+
+      listenToProfile(
+        user.uid
+      );
+
+    }else{
+
+      profileUserId =
+        null;
+
+      profileData =
+        null;
+
+      renderSignedOut();
+
+    }
+
+  }
+);
+
+
+async function ensureUserDoc(user){
+
+  const refUser =
+    doc(
+      db,
+      "users",
+      user.uid
+    );
+
+  const snap =
+    await getDoc(
+      refUser
+    );
+
+  if(!snap.exists()){
+
+    const username =
+      (
+        user.email ||
+        "carpenter"
+      )
+      .split("@")[0]
+      .replace(
+        /[^a-zA-Z0-9_]/g,
+        ""
+      )
+      .slice(0,25)
+      ||
+      "carpenter";
+
+    await setDoc(
+      refUser,
+      {
+
+        full_name:
+          user.displayName ||
+          "Carpenter",
+
+        username:
+          "@" + username,
+
+        bio:
+          "Carpenter Community member",
+
+        location:
+          "",
+
+        photo_url:
+          user.photoURL ||
+          "",
+
+        email:
+          user.email ||
+          "",
+
+        created_at:
+          serverTimestamp(),
+
+        updated_at:
+          serverTimestamp()
+
+      }
+    );
+
+  }
+
+}
+  function listenToProfile(uid){
+
+  if(unsubscribeProfile)
+    unsubscribeProfile();
+
+  if(unsubscribePosts)
+    unsubscribePosts();
+
+
+  unsubscribeProfile =
+    onSnapshot(
+      doc(
+        db,
+        "users",
+        uid
+      ),
+      snap => {
+
+        profileData =
+          snap.exists()
+          ? snap.data()
+          : {};
+
+        renderProfile();
+
+      }
+    );
+
+
+  const q =
+    query(
+      collection(
+        db,
+        "community_posts"
+      ),
+      where(
+        "user_id",
+        "==",
+        uid
+      ),
+      orderBy(
+        "created_at",
+        "desc"
+      )
+    );
+
+
+  unsubscribePosts =
+    onSnapshot(
+      q,
+      snap => {
+
+        window.allPosts =
+          snap.docs.map(
+            d => ({
+              id:d.id,
+              ...d.data()
+            })
+          );
+
+        renderContent();
+
+        updateCounts();
+
+      },
+      err => {
+
+        const q2 =
+          query(
+            collection(
+              db,
+              "community_posts"
+            ),
+            where(
+              "user_id",
+              "==",
+              uid
+            )
+          );
+
+        onSnapshot(
+          q2,
+          s => {
+
+            window.allPosts =
+              s.docs.map(
+                d => ({
+                  id:d.id,
+                  ...d.data()
+                })
+              );
+
+            renderContent();
+
+            updateCounts();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+function renderSignedOut(){
+
+  document
+    .getElementById(
+      "profileName"
+    )
+    .textContent =
+      "Anil Carpenter";
+
+
+  document
+    .getElementById(
+      "profileUsername"
+    )
+    .textContent =
+      "@anilcarpenter";
+
+
+  document
+    .getElementById(
+      "profileBio"
+    )
+    .innerHTML =
+      "Carpenter Community";
+
+
+  document
+    .getElementById(
+      "profileLocation"
+    )
+    .textContent =
+      "📍";
+
+
+  document
+    .getElementById(
+      "content"
+    )
+    .innerHTML = `
+
+      <div class="empty">
+
+        <h3>
+          👋 Welcome to Carpenter Community
+        </h3>
+
+        <p>
+          Profile देखने और
+          Follow / Message / Post features
+          इस्तेमाल करने के लिए Sign In करें।
+        </p>
+
+        <button
+          class="primary"
+          onclick="openAuth()"
+        >
+          🔐 Sign In / Create Account
+        </button>
+
+      </div>
+
+    `;
+
+
+  document
+    .getElementById(
+      "followButton"
+    )
+    .disabled =
+      true;
+
+
+  document
+    .getElementById(
+      "messageButton"
+    )
+    .disabled =
+      true;
+
+
+  document
+    .getElementById(
+      "editButton"
+    )
+    .disabled =
+      true;
+
+}
+
+
+function renderProfile(){
+
+  if(!profileData)
+    return;
+
+
+  document
+    .getElementById(
+      "profileName"
+    )
+    .textContent =
+      profileData.full_name ||
+      "Carpenter";
+
+
+  document
+    .getElementById(
+      "profileUsername"
+    )
+    .textContent =
+      profileData.username ||
+      "@carpenter";
+
+
+  document
+    .getElementById(
+      "profileBio"
+    )
+    .innerHTML =
+      escapeHTML(
+        profileData.bio ||
+        ""
+      )
+      .replace(
+        /\n/g,
+        "<br>"
+      );
+
+
+  document
+    .getElementById(
+      "profileLocation"
+    )
+    .textContent =
+      profileData.location
+      ? "📍 " +
+        profileData.location
+      : "";
+
+
+  document
+    .getElementById(
+      "profilePhoto"
+    )
+    .src =
+      profileData.photo_url ||
+      "https://picsum.photos/200";
+
+
+  const own =
+    currentUser &&
+    profileUserId ===
+    currentUser.uid;
+
+
+  document
+    .getElementById(
+      "editButton"
+    )
+    .style.display =
+      own
+      ? "inline-block"
+      : "none";
+
+
+  document
+    .getElementById(
+      "followButton"
+    )
+    .style.display =
+      own
+      ? "none"
+      : "inline-block";
+
+
+  document
+    .getElementById(
+      "messageButton"
+    )
+    .disabled =
+      !currentUser ||
+      own;
+
+
+  if(!own)
+    refreshFollowState();
+
+}
+
+
+async function updateCounts(){
+
+  const posts =
+    (window.allPosts || [])
+    .filter(
+      p =>
+        p.type !== "story" ||
+        !p.expires_at ||
+        p.expires_at
+          .toMillis?.() >
+          Date.now()
+    );
+
+
+  document
+    .getElementById(
+      "postCount"
+    )
+    .textContent =
+      posts.filter(
+        p =>
+          p.type === "post" ||
+          p.type === "reel"
+      ).length;
+
+
+  if(!profileUserId)
+    return;
+
+
+  try{
+
+    const f =
+      await getDocs(
+        query(
+          collection(
+            db,
+            "follows"
+          ),
+          where(
+            "following_id",
+            "==",
+            profileUserId
+          )
+        )
+      );
+
+
+    const g =
+      await getDocs(
+        query(
+          collection(
+            db,
+            "follows"
+          ),
+          where(
+            "follower_id",
+            "==",
+            profileUserId
+          )
+        )
+      );
+
+
+    document
+      .getElementById(
+        "followerCount"
+      )
+      .textContent =
+        f.size;
+
+
+    document
+      .getElementById(
+        "followingCount"
+      )
+      .textContent =
+        g.size;
+
+  }
+  catch(e){}
+
+}
+
+
+window.showMyContent =
+  tab => {
+
+    activeTab =
+      tab;
+
+    document
+      .querySelectorAll(
+        ".tabs button"
+      )
+      .forEach(
+        b =>
+          b.classList.toggle(
+            "active",
+            b.dataset.tab ===
+            tab
+          )
+      );
+
+    renderContent();
+
+  };
+
+
+function renderContent(){
+
+  const list =
+    (window.allPosts || [])
+    .filter(
+      p => {
+
+        if(
+          p.type === "story" &&
+          p.expires_at?.toMillis &&
+          p.expires_at
+            .toMillis() <
+            Date.now()
+        )
+          return false;
+
+
+        return (
+          p.type ===
+          activeTab
+            .toLowerCase()
+            .replace(
+              "posts",
+              "post"
+            )
+            .replace(
+              "reels",
+              "reel"
+            )
+            .replace(
+              "threads",
+              "thread"
+            )
+            .replace(
+              "story",
+              "story"
+            )
+        );
+
+      }
+    );
+
+
+  const c =
+    document.getElementById(
+      "content"
+    );
+
+
+  if(!list.length){
+
+    c.innerHTML = `
+
+      <div class="empty">
+
+        <h3>
+          ${
+            activeTab === "Posts"
+              ? "📷"
+              : activeTab === "Reels"
+              ? "🎬"
+              : activeTab === "Threads"
+              ? "✏️"
+              : "⭕"
+          }
+
+          ${activeTab}
+
+        </h3>
+
+        <p>
+          अभी कोई
+          ${activeTab.toLowerCase()}
+          नहीं है।
+        </p>
+
+        ${
+          currentUser &&
+          profileUserId ===
+          currentUser.uid
+          ?
+          `
+          <button
+            class="primary"
+            onclick="openCreatePost()"
+          >
+            ➕ Create ${activeTab}
+          </button>
+          `
+          :
+          ""
+        }
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  c.innerHTML =
+    list
+      .map(
+        renderPost
+      )
+      .join("");
+
+}
+
+
+function renderPost(p){
+
+  const media =
+    p.media_url
+    ?
+      (
+        p.media_type === "video"
+        ?
+        `
+        <video
+          class="post-media"
+          controls
+          src="${escapeHTML(
+            p.media_url
+          )}"
+        ></video>
+        `
+        :
+        `
+        <img
+          class="post-media"
+          src="${escapeHTML(
+            p.media_url
+          )}"
+          alt="post"
+        >
+        `
+      )
+    :
+      "";
+
+
+  const label =
+    {
+      post:"📷 Post",
+      reel:"🎬 Reel",
+      thread:"✏️ Thread",
+      story:"⭕ Story"
+    }[p.type]
+    ||
+    "Post";
+
+
+  return `
+
+    <article class="post">
+
+      <div class="post-head">
+
+        <img
+          class="mini-photo"
+          src="${escapeHTML(
+            profileData?.photo_url ||
+            "https://picsum.photos/80"
+          )}"
+          alt=""
+        >
+
+        <div>
+
+          <b>
+            ${escapeHTML(
+              profileData?.full_name ||
+              "Carpenter"
+            )}
+          </b>
+
+          <div class="post-type">
+            ${label}
+          </div>
+
+        </div>
+
+      </div>
+
+      ${
+        p.text
+        ?
+        `
+        <p class="post-text">
+          ${escapeHTML(p.text)}
+        </p>
+        `
+        :
+        ""
+      }
+
+      ${media}
+
+      <div
+        class="small"
+        style="margin-top:10px"
+      >
+        ${formatDate(
+          p.created_at
+        )}
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+function formatDate(ts){
+
+  try{
+
+    const d =
+      ts?.toDate
+      ? ts.toDate()
+      : new Date(ts);
+
+    return d.toLocaleString(
+      "hi-IN"
+    );
+
+  }
+  catch(e){
+
+    return "";
+
+  }
+
+  }
+  /* ---------- FOLLOW ---------- */
+
+window.toggleFollow =
+async () => {
+
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  if(
+    profileUserId ===
+    currentUser.uid
+  )
+    return;
+
+
+  const followId =
+    currentUser.uid +
+    "_" +
+    profileUserId;
+
+
+  const r =
+    doc(
+      db,
+      "follows",
+      followId
+    );
+
+
+  const s =
+    await getDoc(r);
+
+
+  if(s.exists()){
+
+    await deleteDoc(r);
+
+    toast(
+      "Follow हट गया"
+    );
+
+  }
+  else{
+
+    await setDoc(
+      r,
+      {
+
+        follower_id:
+          currentUser.uid,
+
+        following_id:
+          profileUserId,
+
+        created_at:
+          serverTimestamp()
+
+      }
+    );
+
+    toast(
+      "Follow किया गया ✅"
+    );
+
+  }
+
+
+  refreshFollowState();
+
+  updateCounts();
+
+};
+
+
+async function refreshFollowState(){
+
+  if(
+    !currentUser ||
+    !profileUserId ||
+    currentUser.uid ===
+    profileUserId
+  )
+    return;
+
+
+  const s =
+    await getDoc(
+      doc(
+        db,
+        "follows",
+        currentUser.uid +
+        "_" +
+        profileUserId
+      )
+    );
+
+
+  const b =
+    document.getElementById(
+      "followButton"
+    );
+
+
+  b.classList.toggle(
+    "following",
+    s.exists()
+  );
+
+
+  b.textContent =
+    s.exists()
+    ? "✓ Following"
+    : "➕ Follow";
+
+}
+
+
+/* ---------- PROFILE EDIT ---------- */
+
+window.openEditProfile =
+() => {
+
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  if(
+    profileUserId !==
+    currentUser.uid
+  ){
+
+    toast(
+      "सिर्फ अपनी profile edit कर सकते हैं"
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById(
+      "editName"
+    )
+    .value =
+      profileData?.full_name ||
+      "";
+
+
+  document
+    .getElementById(
+      "editUsername"
+    )
+    .value =
+      profileData?.username ||
+      "";
+
+
+  document
+    .getElementById(
+      "editBio"
+    )
+    .value =
+      profileData?.bio ||
+      "";
+
+
+  document
+    .getElementById(
+      "editLocation"
+    )
+    .value =
+      profileData?.location ||
+      "";
+
+
+  document
+    .getElementById(
+      "profileImageInput"
+    )
+    .value =
+      "";
+
+
+  openModal(
+    "editModal"
+  );
+
+};
+
+
+/* ---------- SAVE PROFILE ---------- */
+
+window.saveProfile =
+async () => {
+
+  if(
+    !currentUser ||
+    profileUserId !==
+    currentUser.uid
+  )
+    return;
+
+
+  const saveButton =
+    document.querySelector(
+      "#editModal .modal-actions .primary"
+    );
+
+
+  if(saveButton){
+
+    saveButton.disabled =
+      true;
+
+    saveButton.textContent =
+      "⏳ Saving...";
+
+  }
+
+
+  try{
+
+    const userRef =
+      doc(
+        db,
+        "users",
+        currentUser.uid
+      );
+
+
+    const oldSnap =
+      await getDoc(
+        userRef
+      );
+
+
+    /*
+      सबसे जरूरी हिस्सा:
+      नया photo नहीं चुना तो
+      पुराना photo_url ही रखा जाएगा।
+    */
+
+    let photoUrl =
+      oldSnap.exists()
+      ? (
+          oldSnap.data().photo_url ||
+          ""
+        )
+      : (
+          currentUser.photoURL ||
+          ""
+        );
+
+
+    const file =
+      document
+        .getElementById(
+          "profileImageInput"
+        )
+        .files[0];
+
+
+    if(file){
+
+      if(
+        !file.type.startsWith(
+          "image/"
+        )
+      ){
+
+        throw new Error(
+          "कृपया केवल Image चुनें"
+        );
+
+      }
+
+
+      if(
+        file.size >
+        10 * 1024 * 1024
+      ){
+
+        throw new Error(
+          "Photo 10MB से छोटी रखें"
+        );
+
+      }
+
+
+      const safeName =
+        file.name.replace(
+          /[^a-zA-Z0-9._-]/g,
+          "_"
+        );
+
+
+      const storageRef =
+        ref(
+          storage,
+          `profile_photos/${currentUser.uid}/${Date.now()}_${safeName}`
+        );
+
+
+      await uploadBytes(
+        storageRef,
+        file,
+        {
+          contentType:
+            file.type
+        }
+      );
+
+
+      photoUrl =
+        await getDownloadURL(
+          storageRef
+        );
+
+    }
+
+
+    const name =
+      document
+        .getElementById(
+          "editName"
+        )
+        .value
+        .trim()
+      ||
+      "Carpenter";
+
+
+    const rawUsername =
+      document
+        .getElementById(
+          "editUsername"
+        )
+        .value
+        .trim()
+        .toLowerCase()
+        .replace(
+          /[^a-z0-9_@]/g,
+          ""
+        );
+
+
+    const username =
+      rawUsername
+      ?
+        (
+          rawUsername.startsWith("@")
+          ?
+          rawUsername
+          :
+          "@" +
+          rawUsername
+        )
+      :
+        "@carpenter";
+
+
+    const bio =
+      document
+        .getElementById(
+          "editBio"
+        )
+        .value
+        .trim();
+
+
+    const location =
+      document
+        .getElementById(
+          "editLocation"
+        )
+        .value
+        .trim();
+
+
+    await setDoc(
+      userRef,
+      {
+
+        user_id:
+          currentUser.uid,
+
+        full_name:
+          name,
+
+        username:
+          username,
+
+        bio:
+          bio,
+
+        location:
+          location,
+
+        /*
+          Photo हमेशा Firestore में
+          URL के रूप में save होगी।
+        */
+
+        photo_url:
+          photoUrl,
+
+        email:
+          currentUser.email ||
+          "",
+
+        updated_at:
+          serverTimestamp()
+
+      },
+      {
+        merge:true
+      }
+    );
+
+
+    try{
+
+      await updateAuthProfile(
+        currentUser,
+        {
+          displayName:
+            name,
+
+          photoURL:
+            photoUrl ||
+            null
+        }
+      );
+
+    }
+    catch(authError){
+
+      console.warn(
+        "Auth profile update skipped:",
+        authError
+      );
+
+    }
+
+
+    document
+      .getElementById(
+        "profileImageInput"
+      )
+      .value =
+        "";
+
+
+    closeModal(
+      "editModal"
+    );
+
+
+    toast(
+      "Profile update हो गई ✅ Refresh करने पर भी photo रहेगी"
+    );
+
+
+  }
+  catch(e){
+
+    console.error(
+      "PROFILE UPDATE ERROR:",
+      e
+    );
+
+
+    toast(
+      "Profile update नहीं हो सकी: " +
+      (
+        e.message ||
+        "Unknown error"
+      )
+    );
+
+  }
+  finally{
+
+    if(saveButton){
+
+      saveButton.disabled =
+        false;
+
+      saveButton.textContent =
+        "Save Profile";
+
+    }
+
+  }
+
+};
+
+
+/* ---------- PROFILE PHOTO PREVIEW ---------- */
+
+document
+  .getElementById(
+    "profileImageInput"
+  )
+  .addEventListener(
+    "change",
+    e => {
+
+      const file =
+        e.target.files[0];
+
+
+      if(!file)
+        return;
+
+
+      if(
+        !file.type.startsWith(
+          "image/"
+        )
+      ){
+
+        toast(
+          "कृपया केवल Image चुनें"
+        );
+
+        e.target.value =
+          "";
+
+        return;
+
+      }
+
+
+      if(
+        file.size >
+        10 * 1024 * 1024
+      ){
+
+        toast(
+          "Photo 10MB से छोटी रखें"
+        );
+
+        e.target.value =
+          "";
+
+        return;
+
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        () => {
+
+          document
+            .getElementById(
+              "profilePhoto"
+            )
+            .src =
+              reader.result;
+
+        };
+
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
+
+
+/* ---------- CREATE POST / REEL / THREAD / STORY ---------- */
+
+window.openCreatePost =
+() => {
+
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  document
+    .getElementById(
+      "contentType"
+    )
+    .value =
+      activeTab
+        .toLowerCase() ===
+        "posts"
+      ?
+        "post"
+      :
+      activeTab
+        .toLowerCase() ===
+        "reels"
+      ?
+        "reel"
+      :
+      activeTab
+        .toLowerCase() ===
+        "threads"
+      ?
+        "thread"
+      :
+        "story";
+
+
+  document
+    .getElementById(
+      "contentText"
+    )
+    .value =
+      "";
+
+
+  document
+    .getElementById(
+      "contentFile"
+    )
+    .value =
+      "";
+
+
+  openModal(
+    "createModal"
+  );
+
+};
+
+
+window.publishContent =
+async () => {
+
+  if(!currentUser)
+    return openAuth();
+
+
+  try{
+
+    const type =
+      document
+        .getElementById(
+          "contentType"
+        )
+        .value;
+
+
+    const text =
+      document
+        .getElementById(
+          "contentText"
+        )
+        .value
+        .trim();
+
+
+    const file =
+      document
+        .getElementById(
+          "contentFile"
+        )
+        .files[0];
+
+
+    let mediaUrl =
+      "";
+
+    let mediaType =
+      "";
+
+
+    if(file){
+
+      if(
+        file.size >
+        50 * 1024 * 1024
+      ){
+
+        toast(
+          "Media 50MB से छोटी रखें"
+        );
+
+        return;
+
+      }
+
+
+      const ft =
+        fileType(file);
+
+
+      if(!ft){
+
+        toast(
+          "सिर्फ image/video file चुनें"
+        );
+
+        return;
+
+      }
+
+
+      const r =
+        ref(
+          storage,
+          `community_media/${currentUser.uid}/${Date.now()}_${file.name}`
+        );
+
+
+      await uploadBytes(
+        r,
+        file
+      );
+
+
+      mediaUrl =
+        await getDownloadURL(
+          r
+        );
+
+
+      mediaType =
+        ft;
+
+    }
+
+
+    if(
+      !text &&
+      !mediaUrl
+    ){
+
+      toast(
+        "Text या photo/video डालें"
+      );
+
+      return;
+
+    }
+
+
+    const data = {
+
+      user_id:
+        currentUser.uid,
+
+      type,
+
+      text,
+
+      media_url:
+        mediaUrl,
+
+      media_type:
+        mediaType,
+
+      created_at:
+        serverTimestamp()
+
+    };
+
+
+    if(
+      type ===
+      "story"
+    ){
+
+      data.expires_at =
+        new Date(
+          Date.now() +
+          24 * 60 * 60 * 1000
+        );
+
+    }
+
+
+    await addDoc(
+      collection(
+        db,
+        "community_posts"
+      ),
+      data
+    );
+
+
+    closeModal(
+      "createModal"
+    );
+
+
+    activeTab =
+      {
+        post:
+          "Posts",
+
+        reel:
+          "Reels",
+
+        thread:
+          "Threads",
+
+        story:
+          "Story"
+
+      }[type];
+
+
+    document
+      .querySelectorAll(
+        ".tabs button"
+      )
+      .forEach(
+        b =>
+          b.classList.toggle(
+            "active",
+            b.dataset.tab ===
+            activeTab
+          )
+      );
+
+
+    toast(
+      "Published successfully ✅"
+    );
+
+  }
+  catch(e){
+
+    console.error(e);
+
+    toast(
+      "Publish error: " +
+      e.message
+    );
+
+  }
+
+};
+
+  /* ---------- MESSAGING ---------- */
+
+window.openMessage =
+async () => {
+
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  if(
+    profileUserId ===
+    currentUser.uid
+  ){
+
+    toast(
+      "खुद को message नहीं भेज सकते"
+    );
+
+    return;
+
+  }
+
+
+  selectedMessageUser =
+    profileUserId;
+
+
+  document
+    .getElementById(
+      "messageTarget"
+    )
+    .textContent =
+      "Chat with " +
+      (
+        profileData?.full_name ||
+        profileData?.username ||
+        "User"
+      );
+
+
+  openModal(
+    "messageModal"
+  );
+
+
+  listenChat();
+
+};
+
+
+function chatId(
+  a,
+  b
+){
+
+  return [
+    a,
+    b
+  ]
+  .sort()
+  .join("_");
+
+}
+
+
+function listenChat(){
+
+  if(unsubscribeChat)
+    unsubscribeChat();
+
+
+  const cid =
+    chatId(
+      currentUser.uid,
+      selectedMessageUser
+    );
+
+
+  const q =
+    query(
+      collection(
+        db,
+        "messages"
+      ),
+      where(
+        "chat_id",
+        "==",
+        cid
+      ),
+      orderBy(
+        "created_at",
+        "asc"
+      ),
+      limit(100)
+    );
+
+
+  unsubscribeChat =
+    onSnapshot(
+      q,
+      snap => {
+
+        const box =
+          document.getElementById(
+            "chatMessages"
+          );
+
+
+        box.innerHTML =
+          snap.docs
+            .map(
+              d => {
+
+                const m =
+                  d.data();
+
+
+                const mine =
+                  m.sender_id ===
+                  currentUser.uid;
+
+
+                return `
+
+                  <div
+                    style="
+                      text-align:${
+                        mine
+                        ? "right"
+                        : "left"
+                      };
+                      margin:7px 0
+                    "
+                  >
+
+                    <span
+                      style="
+                        display:inline-block;
+                        max-width:80%;
+                        padding:9px 12px;
+                        border-radius:12px;
+                        background:${
+                          mine
+                          ? "#fef3c7"
+                          : "#f3f4f6"
+                        }
+                      "
+                    >
+
+                      ${escapeHTML(
+                        m.text ||
+                        ""
+                      )}
+
+                    </span>
+
+                  </div>
+
+                `;
+
+              }
+            )
+            .join("");
+
+
+        box.scrollTop =
+          box.scrollHeight;
+
+      },
+
+      e =>
+        console.error(e)
+
+    );
+
+}
+
+
+window.sendMessage =
+async () => {
+
+  if(
+    !currentUser ||
+    !selectedMessageUser
+  )
+    return;
+
+
+  const input =
+    document.getElementById(
+      "messageText"
+    );
+
+
+  const text =
+    input.value.trim();
+
+
+  if(!text)
+    return;
+
+
+  await addDoc(
+    collection(
+      db,
+      "messages"
+    ),
+    {
+
+      chat_id:
+        chatId(
+          currentUser.uid,
+          selectedMessageUser
+        ),
+
+      sender_id:
+        currentUser.uid,
+
+      receiver_id:
+        selectedMessageUser,
+
+      text,
+
+      created_at:
+        serverTimestamp()
+
+    }
+  );
+
+
+  input.value =
+    "";
+
+};
+
+
+/* ---------- FOLLOWERS ---------- */
+
+window.showFollowers =
+async () => {
+
+  if(!profileUserId)
+    return;
+
+
+  try{
+
+    const snap =
+      await getDocs(
+        query(
+          collection(
+            db,
+            "follows"
+          ),
+          where(
+            "following_id",
+            "==",
+            profileUserId
+          )
+        )
+      );
+
+
+    const ids =
+      snap.docs.map(
+        d =>
+          d.data()
+            .follower_id
+      );
+
+
+    openUserList(
+      "Followers",
+      ids
+    );
+
+  }
+  catch(e){
+
+    toast(
+      "Followers load नहीं हुए"
+    );
+
+  }
+
+};
+
+
+window.showFollowing =
+async () => {
+
+  if(!profileUserId)
+    return;
+
+
+  try{
+
+    const snap =
+      await getDocs(
+        query(
+          collection(
+            db,
+            "follows"
+          ),
+          where(
+            "follower_id",
+            "==",
+            profileUserId
+          )
+        )
+      );
+
+
+    const ids =
+      snap.docs.map(
+        d =>
+          d.data()
+            .following_id
+      );
+
+
+    openUserList(
+      "Following",
+      ids
+    );
+
+  }
+  catch(e){
+
+    toast(
+      "Following load नहीं हुए"
+    );
+
+  }
+
+};
+
+
+async function openUserList(
+  title,
+  ids
+){
+
+  if(!ids.length){
+
+    toast(
+      title +
+      " अभी खाली है"
+    );
+
+    return;
+
+  }
+
+
+  const names = [];
+
+
+  for(
+    const id
+    of ids.slice(
+      0,
+      30
+    )
+  ){
+
+    const s =
+      await getDoc(
+        doc(
+          db,
+          "users",
+          id
+        )
+      );
+
+
+    if(
+      s.exists()
+    ){
+
+      names.push(
+        s.data()
+          .full_name ||
+        s.data()
+          .username ||
+        id
+      );
+
+    }
+
+  }
+
+
+  alert(
+    title +
+    "\n\n" +
+    names.join(
+      "\n"
+    )
+  );
+
+}
+
+
+/* ---------- AUTH ---------- */
+
+window.openAuth =
+() => {
+
+  document
+    .getElementById(
+      "signoutBtn"
+    )
+    .style.display =
+      currentUser
+      ? "block"
+      : "none";
+
+
+  document
+    .getElementById(
+      "authSubmit"
+    )
+    .style.display =
+      currentUser
+      ? "none"
+      : "block";
+
+
+  if(currentUser){
+
+    document
+      .getElementById(
+        "authEmail"
+      )
+      .value =
+        currentUser.email ||
+        "";
+
+  }
+
+
+  openModal(
+    "authModal"
+  );
+
+};
+
+
+window.setAuthMode =
+mode => {
+
+  authMode =
+    mode;
+
+
+  document
+    .getElementById(
+      "loginTab"
+    )
+    .classList.toggle(
+      "active",
+      mode ===
+      "login"
+    );
+
+
+  document
+    .getElementById(
+      "signupTab"
+    )
+    .classList.toggle(
+      "active",
+      mode ===
+      "signup"
+    );
+
+
+  document
+    .getElementById(
+      "signupNameBox"
+    )
+    .style.display =
+      mode ===
+      "signup"
+      ?
+      "block"
+      :
+      "none";
+
+
+  document
+    .getElementById(
+      "authSubmit"
+    )
+    .textContent =
+      mode ===
+      "login"
+      ?
+      "Sign In"
+      :
+      "Create Account";
+
+};
+
+
+window.submitAuth =
+async () => {
+
+  const email =
+    document
+      .getElementById(
+        "authEmail"
+      )
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById(
+        "authPassword"
+      )
+      .value;
+
+
+  try{
+
+    if(
+      authMode ===
+      "login"
+    ){
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    }
+    else{
+
+      const name =
+        document
+          .getElementById(
+            "authName"
+          )
+          .value
+          .trim()
+        ||
+        "Carpenter";
+
+
+      const cred =
+        await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      await updateAuthProfile(
+        cred.user,
+        {
+          displayName:
+            name
+        }
+      );
+
+
+      await ensureUserDoc(
+        cred.user
+      );
+
+
+      await updateDoc(
+        doc(
+          db,
+          "users",
+          cred.user.uid
+        ),
+        {
+
+          full_name:
+            name,
+
+          updated_at:
+            serverTimestamp()
+
+        }
+      );
+
+    }
+
+
+    closeModal(
+      "authModal"
+    );
+
+
+    toast(
+      "Account ready ✅"
+    );
+
+  }
+  catch(e){
+
+    toast(
+      e.message
+    );
+
+  }
+
+};
+
+
+window.signOutUser =
+async () => {
+
+  await signOut(
+    auth
+  );
+
+  closeModal(
+    "authModal"
+  );
+
+  toast(
+    "Signed out"
+  );
+
+};
+
+
+/* ---------- MENU ---------- */
+
+window.menuAction =
+action => {
+
+  closeMenu();
+
+
+  const map = {
+
+    settings:
+      "Settings page यहाँ connect करें।",
+
+    notifications:
+      "Notifications page यहाँ connect करें।",
+
+    privacy:
+      "Privacy settings यहाँ connect करें।",
+
+    security:
+      "Security settings यहाँ connect करें।",
+
+    pro:
+      "Carpenter Pro section यहाँ connect करें।",
+
+    promote:
+      "Promote My Work section यहाँ connect करें।",
+
+    business:
+      "Business Profile section यहाँ connect करें।",
+
+    guidelines:
+      "Community Guidelines यहाँ connect करें।",
+
+    help:
+      "Help & Support यहाँ connect करें।",
+
+    report:
+      "Report a Problem यहाँ connect करें।",
+
+    about:
+      "Anil Carpenter Community"
+
+  };
+
+
+  toast(
+    map[action] ||
+    "Option"
+  );
+
+};
+
+</script>
+
+</body>
+</html>
