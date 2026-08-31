@@ -112,3 +112,14 @@ form input:focus, form select:focus, form textarea:focus { border-color: var(--p
   .mobile-bottom-bar { display: flex; }
   body { padding-bottom: 60px; }
    }
+/* WORKER PARTNER SECTION */
+.partner-section { padding: 60px 0; background: #fff; }
+.partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 20px; }
+.partner-card { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
+.partner-card.highlight { border: 2px solid var(--p); background: #fff; box-shadow: var(--shadow); }
+.partner-card h3 { font-size: 20px; margin-bottom: 12px; }
+
+.profile-header { display: flex; align-items: center; gap: 14px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+.profile-header .avatar { width: 48px; height: 48px; border-radius: 50%; background: #eef4ff; display: grid; place-items: center; font-size: 24px; }
+.profile-header h4 { font-size: 18px; color: var(--ink); }
+.profile-header small { color: var(--muted); }
