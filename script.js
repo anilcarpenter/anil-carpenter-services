@@ -189,3 +189,117 @@ document.addEventListener("DOMContentLoaded", function() {
     if(data) renderPartnerProfile(JSON.parse(data));
   }
 });
+/* SEPARATE PARTNER PORTAL LOGIC */
+
+window.handlePortalRegister = function(e) {
+  e.preventDefault();
+  const name = document.getElementById("regName")?.value.trim();
+  const phone = document.getElementById("regPhone")?.value.trim();
+  const pin = document.getElementById("regPin")?.value.trim();
+  const category = document.getElementById("regCategory")?.value;
+  const exp = document.getElementById("regExp")?.value;
+  const msg = document.getElementById("portalMsg");
+
+  if(!name || !phone || !pin || !category || !exp) return;
+
+  if(pin.length !== 4) {
+    if(msg) msg.textContent = "❌ PIN सिर्फ 4 अंकों का होना चाहिए।";
+    return;
+  }
+
+  const partnerData = {
+    name: name,
+    phone: phone,
+    pin: pin,
+    category: category,
+    exp: exp,
+    status: "Available (काम के लिए उपलब्ध)"
+  };
+
+  localStorage.setItem("worker_" + phone, JSON.stringify(partnerData));
+  localStorage.setItem("current_worker", phone);
+  
+  alert("✅ आपका पार्टनर अकाउंट बन गया है!");
+  loadPortalDashboard(partnerData);
+};
+
+window.handlePortalLogin = function(e) {
+  e.preventDefault();
+  const phone = document.getElementById("portPhone")?.value.trim();
+  const pin = document.getElementById("portPin")?.value.trim();
+  const msg = document.getElementById("portalMsg");
+
+  const data = localStorage.getItem("worker_" + phone);
+  if(!data) {
+    if(msg) msg.textContent = "❌ यह नंबर रजिस्टर्ड नहीं है। दाहिने तरफ फॉर्म भरकर रजिस्ट्रेशन करें।";
+    return;
+  }
+
+  const partner = JSON.parse(data);
+  if(partner.pin && partner.pin !== pin) {
+    if(msg) msg.textContent = "❌ गलत PIN!";
+    return;
+  }
+
+  localStorage.setItem("current_worker", phone);
+  loadPortalDashboard(partner);
+};
+
+function loadPortalDashboard(partner) {
+  document.getElementById("authSection").style.display = "none";
+  document.getElementById("dashboardSection").style.display = "block";
+
+  document.getElementById("dispName").textContent = partner.name;
+  document.getElementById("dispCategory").textContent = partner.category || "Skilled Worker";
+  document.getElementById("dispAvatar").textContent = partner.name.charAt(0).toUpperCase();
+
+  const statusEl = document.getElementById("dispStatus");
+  statusEl.textContent = partner.status || "Available (काम के लिए उपलब्ध)";
+  if(partner.status && partner.status.includes("Busy")) {
+    statusEl.className = "status-badge status-busy";
+  } else {
+    statusEl.className = "status-badge status-available";
+  }
+
+  document.getElementById("editPhone").value = partner.phone;
+  document.getElementById("editExp").value = partner.exp;
+  document.getElementById("editCategory").value = partner.category;
+  document.getElementById("editStatus").value = partner.status || "Available (काम के लिए उपलब्ध)";
+}
+
+window.handleProfileSave = function(e) {
+  e.preventDefault();
+  const phone = localStorage.getItem("current_worker");
+  const msg = document.getElementById("saveMsg");
+  if(!phone) return;
+
+  const data = JSON.parse(localStorage.getItem("worker_" + phone));
+  data.exp = document.getElementById("editExp").value;
+  data.category = document.getElementById("editCategory").value;
+  data.status = document.getElementById("editStatus").value;
+
+  const newPin = document.getElementById("editPin").value.trim();
+  if(newPin && newPin.length === 4) {
+    data.pin = newPin;
+  }
+
+  localStorage.setItem("worker_" + phone, JSON.stringify(data));
+  if(msg) msg.textContent = "✅ आपकी प्रोफाइल सफलतापूर्वक अपडेट हो गई!";
+  
+  loadPortalDashboard(data);
+};
+
+window.handlePortalLogout = function() {
+  localStorage.removeItem("current_worker");
+  document.getElementById("authSection").style.display = "block";
+  document.getElementById("dashboardSection").style.display = "none";
+};
+
+// Check login status on page load
+document.addEventListener("DOMContentLoaded", function() {
+  const activePhone = localStorage.getItem("current_worker");
+  if(activePhone && document.getElementById("dashboardSection")) {
+    const data = localStorage.getItem("worker_" + activePhone);
+    if(data) loadPortalDashboard(JSON.parse(data));
+  }
+});
