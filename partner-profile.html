@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skilled Worker Partner Portal | Anil Carpenter Network</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .partner-portal-container { max-width: 900px; margin: 40px auto; padding: 20px; }
+    .card-box { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
+    .profile-banner { display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 20px; }
+    .profile-avatar { width: 70px; height: 70px; border-radius: 50%; background: #eef4ff; color: var(--p); display: grid; place-items: center; font-size: 36px; font-weight: bold; }
+    .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
+    .status-available { background: #e6f4ea; color: #137333; }
+    .status-busy { background: #fce8e6; color: #c5221f; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } .profile-banner { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="logo">🪚</div>
+        <span>Anil Carpenter Network</span>
+      </a>
+      <a href="index.html" class="btn light">← वापस मुख्य वेबसाइट</a>
+    </div>
+  </header>
+
+  <div class="partner-portal-container">
+    
+    <!-- LOGIN / REGISTER BOX -->
+    <div id="authSection" class="card-box">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h2>🧰 Manpower & Skilled Worker Portal</h2>
+        <p>अपना मोबाइल नंबर और PIN दर्ज करके अपना पार्टनर डैशबोर्ड खोलें</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Login -->
+        <div style="border-right: 1px solid var(--line); padding-right: 16px;">
+          <h3>वर्कर लॉगिन</h3>
+          <form onsubmit="handlePortalLogin(event)" style="margin-top: 15px;">
+            <label>रजिस्टर्ड मोबाइल नंबर</label>
+            <input type="tel" id="portPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
+            <label>4-अंकों का PIN</label>
+            <input type="password" id="portPin" placeholder="****" maxlength="4" required>
+            <button type="submit" class="btn primary full-w" style="margin-top: 15px;">लॉगिन करें</button>
+            <button type="button" onclick="handleForgotPassword()" class="btn-link" style="background:none; border:none; color:var(--p); margin-top:10px; font-size:13px; cursor:pointer;">🔑 PIN भूल गए?</button>
+          </form>
+        </div>
+
+        <!-- Register -->
+        <div style="padding-left: 16px;">
+          <h3>नया पार्टनर रजिस्ट्रेशन</h3>
+          <form onsubmit="handlePortalRegister(event)" style="margin-top: 15px;">
+            <label>पूरा नाम</label>
+            <input type="text" id="regName" placeholder="उदा. राम कुमार" required>
+            <label>मोबाइल नंबर</label>
+            <input type="tel" id="regPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
+            <label>4-अंकों का PIN सेट करें</label>
+            <input type="password" id="regPin" placeholder="उदा. 1234" maxlength="4" required>
+            <label>कैटेगरी (मुख्य हुनर)</label>
+            <select id="regCategory" required>
+              <option value="">कैटेगरी चुनें</option>
+              <option value="फर्नीचर कारपेंटर (Furniture Carpenter)">फर्नीचर कारपेंटर (Furniture Carpenter)</option>
+              <option value="मॉड्यूलर किचन व वार्डरोब स्पेशलिस्ट">मॉड्यूलर किचन व वार्डरोब स्पेशलिस्ट</option>
+              <option value="डोर, लॉक व फिटिंग मास्टर">डोर, लॉक व फिटिंग मास्टर</option>
+              <option value="जनरल हैंड-टूल वर्कर (Helper/Skilled)">जनरल हैंड-टूल वर्कर (Helper/Skilled)</option>
+            </select>
+            <label>अनुभव (Experience)</label>
+            <input type="number" id="regExp" placeholder="उदा. 4 साल" required>
+            <button type="submit" class="btn light full-w" style="margin-top: 15px;">पार्टनर अकाउंट बनाएं</button>
+          </form>
+        </div>
+      </div>
+      <div id="portalMsg" class="booking-status" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- WORKER DASHBOARD (PROFILE PAGE) -->
+    <div id="dashboardSection" class="card-box" style="display: none;">
+      <div class="profile-banner">
+        <div class="profile-avatar" id="dispAvatar">🪵</div>
+        <div style="flex: 1;">
+          <h2 id="dispName">राम कुमार</h2>
+          <p style="color: var(--muted);" id="dispCategory">फर्नीचर कारपेंटर</p>
+          <div style="margin-top: 6px;">
+            <span id="dispStatus" class="status-badge status-available">Available (काम के लिए उपलब्ध)</span>
+          </div>
+        </div>
+        <div>
+          <button onclick="handlePortalLogout()" class="btn light">लॉगआउट</button>
+        </div>
+      </div>
+
+      <h3>आपकी पार्टनर प्रोफाइल डिटेल्स</h3>
+      <form onsubmit="handleProfileSave(event)" style="margin-top: 15px;">
+        <div class="grid-2">
+          <div>
+            <label>मोबाइल नंबर (Login ID)</label>
+            <input type="text" id="editPhone" readonly style="background: #f3f4f6;">
+          </div>
+          <div>
+            <label>कुल अनुभव (Experience Years)</label>
+            <input type="number" id="editExp" required>
+          </div>
+        </div>
+
+        <label>आपकी वर्क कैटेगरी (Category)</label>
+        <select id="editCategory" required>
+          <option value="फर्नीचर कारपेंटर (Furniture Carpenter)">फर्नीचर कारपентर (Furniture Carpenter)</option>
+          <option value="मॉड्यूलर किचन व वार्डरोब स्पेशलिस्ट">मॉड्यूलर किचन व वार्डरोब स्पेशलिस्ट</option>
+          <option value="डोर, लॉक व फिटिंग मास्टर">डोर, लॉक व फिटिंग मास्टर</option>
+          <option value="जनरल हैंड-टूल वर्कर (Helper/Skilled)">जनरल हैंड-टूल वर्कर (Helper/Skilled)</option>
+        </select>
+
+        <label>काम की उपलब्धता (Status Update)</label>
+        <select id="editStatus">
+          <option value="Available (काम के लिए उपलब्ध)">Available (काम के लिए उपलब्ध)</option>
+          <option value="Busy (अभी साइट पर व्यस्त)">Busy (अभी साइट पर व्यस्त)</option>
+        </select>
+
+        <label>नया PIN दर्ज करें (बदलने के लिए)</label>
+        <input type="password" id="editPin" placeholder="4 अंकों का नया PIN (ऑप्शनल)" maxlength="4">
+
+        <button type="submit" class="btn primary full-w" style="margin-top: 20px;">प्रोफाइल सेव व अपडेट करें</button>
+      </form>
+      <div id="saveMsg" class="booking-status" style="margin-top: 10px;"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
