@@ -1,353 +1,444 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anil Carpenter Profile</title>
-  
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f5f7;
-  color:#111827;
-}
-.header{
-  height:58px;
-  background:#111827;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  font-size:18px;
-  font-weight:bold;
-}
-.header b{color:#f59e0b}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil Carpenter Profile</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-.profile{
-  background:white;
-  text-align:center;
-  padding:25px 15px 18px;
-}
-.photo{
-  width:105px;
-  height:105px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #f59e0b;
-}
-.name{font-size:25px;font-weight:800;margin-top:12px}
-.username{color:#6b7280;margin-top:4px}
-.bio{margin:15px auto 5px;max-width:400px;color:#374151}
-.location{color:#6b7280;margin:8px}
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+    }
 
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:45px;
-  margin:22px 0;
-}
-.stats b{display:block;font-size:21px}
-.stats span{color:#6b7280;font-size:13px}
+    /* Header Navbar */
+    .navbar {
+      background-color: #0d1b2a;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-button{
-  border:0;
-  border-radius:10px;
-  padding:11px 20px;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-}
-.follow{background:#f59e0b}
-.message{background:#e5e7eb}
-.edit{background:#111827;color:white}
+    .navbar .logo {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-.tabs{
-  display:flex;
-  background:white;
-  border-top:1px solid #ddd;
-  border-bottom:1px solid #ddd;
-}
-.tabs button{
-  flex:1;
-  background:white;
-  border-radius:0;
-  padding:15px 5px;
-}
+    .navbar .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-.content{
-  padding:20px;
-}
-.post{
-  background:white;
-  border-radius:15px;
-  padding:20px;
-  margin-bottom:12px;
-}
-  .menu-btn{
-  background:transparent;
-  border:0;
-  color:white;
-  font-size:25px;
-  cursor:pointer;
-  padding:5px 8px;
-  }
-  /* =========================
-   SIDE MENU
-========================= */
+    .btn-profile-nav {
+      background-color: #1b263b;
+      color: #fff;
+      border: 1px solid #415a77;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
 
-.side-menu{
-  position:fixed;
-  top:0;
-  right:-330px;
-  width:310px;
-  max-width:88%;
-  height:100vh;
-  background:#ffffff;
-  z-index:9999;
-  overflow-y:auto;
-  box-shadow:-5px 0 20px rgba(0,0,0,.20);
-  transition:right .25s ease;
-}
+    .menu-icon {
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
 
-.side-menu.active{
-  right:0;
-}
+    /* Main Container */
+    .profile-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      padding-bottom: 20px;
+      position: relative;
+    }
 
-.menu-header{
-  position:sticky;
-  top:0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:18px 16px;
-  background:#111827;
-  color:#ffffff;
-  font-size:19px;
-  z-index:2;
-}
+    /* Profile Header Info */
+    .profile-header {
+      text-align: center;
+      padding: 20px 16px;
+    }
 
-.menu-header button{
-  background:transparent;
-  color:#ffffff;
-  border:0;
-  font-size:20px;
-  padding:5px 8px;
-  cursor:pointer;
-}
+    .avatar-outer {
+      width: 110px;
+      height: 110px;
+      border: 4px solid #f39c12;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
 
-.menu-section{
-  padding:10px 10px 4px;
-  border-bottom:1px solid #eeeeee;
-}
+    .avatar-inner {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background-color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #94a3b8;
+    }
 
-.menu-title{
-  padding:10px 12px 6px;
-  color:#6b7280;
-  font-size:13px;
-  font-weight:bold;
-}
+    .profile-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1e293b;
+    }
 
-.menu-section > button{
-  display:block;
-  width:100%;
-  text-align:left;
-  background:#ffffff;
-  border:0;
-  border-radius:10px;
-  padding:13px 12px;
-  margin:2px 0;
-  font-size:15px;
-  font-weight:500;
-  color:#111827;
-  cursor:pointer;
-}
+    .username {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
 
-.menu-section > button:hover{
-  background:#f3f4f6;
-}
+    .bio-text {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.4;
+    }
 
-@media(max-width:500px){
-  .side-menu{
-    width:300px;
-  }
-}
-</style>
+    .location-tag {
+      color: #e74c3c;
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    /* Stats Counter */
+    .stats-row {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+      padding: 0 10px;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* Action Buttons */
+    .actions-row {
+      display: flex;
+      gap: 8px;
+      padding: 0 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: background 0.2s;
+    }
+
+    .btn-follow {
+      background-color: #f39c12;
+      color: #ffffff;
+    }
+
+    .btn-follow.following {
+      background-color: #27ae60;
+    }
+
+    .btn-message {
+      background-color: #e2e8f0;
+      color: #1e293b;
+    }
+
+    .btn-edit {
+      background-color: #0f172a;
+      color: #ffffff;
+    }
+
+    /* Tab Navigation */
+    .tabs-bar {
+      display: flex;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      background: #fafafa;
+    }
+
+    .tab-item {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #64748b;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .tab-item.active {
+      color: #0f172a;
+      border-bottom-color: #f39c12;
+      background: #ffffff;
+    }
+
+    /* Tab Content Display */
+    .tab-content {
+      padding: 16px;
+    }
+
+    .content-panel {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .content-panel.active {
+      display: block;
+    }
+
+    .panel-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Edit Profile Modal (Pop-up) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .modal-content h3 { margin-bottom: 12px; }
+    .modal-content label { font-size: 0.85rem; color: #64748b; margin-top: 8px; display: block; }
+    .modal-content input, .modal-content textarea {
+      width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px;
+    }
+
+    .modal-btns {
+      display: flex; gap: 10px; margin-top: 15px;
+    }
+
+    .btn-save { background: #27ae60; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; flex: 1; }
+    .btn-cancel { background: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; flex: 1; }
+  </style>
 </head>
-
 <body>
 
-<div class="header">
-  <span>🪚 <b>Anil</b> Carpenter</span>
+<div class="profile-container">
 
-  <div style="display:flex;gap:8px;align-items:center;">
-    <a href="profile.html"
-       style="text-decoration:none;color:white;border:1px solid #4b5563;border-radius:10px;padding:9px 14px;font-weight:bold;">
-       👤 Profile
-    </a>
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="logo">🪚 Anil <span>Carpenter</span></div>
+    <div class="nav-right">
+      <button class="btn-profile-nav" onclick="alert('आप अपनी प्रोफाइल पर हैं!')">👤 Profile</button>
+      <span class="menu-icon" onclick="alert('Menu ऑप्शंस जल्द ही आएंगे!')">☰</span>
+    </div>
+  </header>
 
-    <button class="menu-btn" type="button" onclick="openMenu()">☰</button>
-  </div>
+  <!-- Profile Card -->
+  <section class="profile-header">
+    <div class="avatar-outer">
+      <div class="avatar-inner">👤</div>
+    </div>
+    
+    <h1 class="profile-name" id="displayName">Anil Carpenter</h1>
+    <div class="username" id="displayUsername">@anilcarpenter</div>
+    
+    <div class="bio-text" id="displayBio">
+      Furniture Work.<br>
+      Pachpokhari Bazar SK Nagar
+    </div>
+    <div class="location-tag">📍 Khalilabad, Sant Kabir Nagar</div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-number">40</div>
+        <div class="stat-label">Posts</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="followerCount">5425</div>
+        <div class="stat-label">Followers</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">52</div>
+        <div class="stat-label">Following</div>
+      </div>
+    </div>
+
+    <!-- Actions Row -->
+    <div class="actions-row">
+      <button class="btn-action btn-follow" id="followBtn" onclick="toggleFollow()">➕ Follow</button>
+      <button class="btn-action btn-message" onclick="openWhatsApp()">💬 Message</button>
+      <button class="btn-action btn-edit" onclick="openEditModal()">✏️ Edit Profile</button>
+    </div>
+  </section>
+
+  <!-- Tabs Navigation -->
+  <nav class="tabs-bar">
+    <div class="tab-item active" onclick="switchTab('posts', this)">📷 Posts</div>
+    <div class="tab-item" onclick="switchTab('reels', this)">🎬 Reels</div>
+    <div class="tab-item" onclick="switchTab('threads', this)">✏️ Threads</div>
+    <div class="tab-item" onclick="switchTab('story', this)">⭕ Story</div>
+  </nav>
+
+  <!-- Content Panels -->
+  <main class="tab-content">
+    <div id="posts" class="content-panel active">
+      <div class="panel-title">📷 Posts</div>
+      <p style="color:#64748b;">यहाँ आपकी फर्नीचर वर्क की सभी फोटो पोस्ट्स दिखाई देंगी।</p>
+    </div>
+
+    <div id="reels" class="content-panel">
+      <div class="panel-title">🎬 Reels</div>
+      <p style="color:#64748b;">यहाँ आपकी कारपेंट्री वर्क की शॉर्ट वीडियोज़ दिखेंगी।</p>
+    </div>
+
+    <div id="threads" class="content-panel">
+      <div class="panel-title">✏️ Threads</div>
+      <p style="color:#64748b;">यहाँ कम्युनिटी की चर्चाएँ और सवाल-जवाब दिखेंगे।</p>
+    </div>
+
+    <div id="story" class="content-panel">
+      <div class="panel-title">⭕ Story</div>
+      <p style="color:#64748b;">डेली वर्क की लाइव स्टोरीज़ यहाँ अपडेट होंगी।</p>
+    </div>
+  </main>
+
 </div>
 
-<section class="profile">
+<!-- Edit Profile Pop-up Modal -->
+<div class="modal" id="editModal">
+  <div class="modal-content">
+    <h3>Edit Profile</h3>
+    <label>Name</label>
+    <input type="text" id="inputName" value="Anil Carpenter">
+    
+    <label>Username</label>
+    <input type="text" id="inputUsername" value="@anilcarpenter">
+    
+    <label>Bio</label>
+    <textarea id="inputBio" rows="3">Furniture Work.
+Pachpokhari Bazar SK Nagar</textarea>
 
-  <img class="photo"
-       src="https://picsum.photos/200">
-
-  <div class="name">Anil Carpenter</div>
-  <div class="username"
-     id="profileUsername"
-     onclick="createAccount()">
-  @anilcarpenter
-</div>
-
-  <div class="bio">
-    Furniture Work.<br>
-    Pachpokhari Bazar SK Nagar
-  </div>
-
-  <div class="location">📍 Khalilabad, Sant Kabir Nagar</div>
-
-  <div class="stats">
-    <div><b>40</b><span>Posts</span></div>
-    <div><b>5425</b><span>Followers</span></div>
-    <div><b>52</b><span>Following</span></div>
-  </div>
-
-  <div class="buttons">
-    <button class="follow" onclick="follow()">➕ Follow</button>
-    <button class="message" onclick="message()">💬 Message</button>
-    <button class="edit" onclick="edit()">✏️ Edit Profile</button>
-  </div>
-
-</section>
-
-<div class="tabs">
-  <button onclick="tab('Posts')">📷 Posts</button>
-  <button onclick="tab('Reels')">🎬 Reels</button>
-  <button onclick="tab('Threads')">✏️ Threads</button>
-  <button onclick="tab('Story')">⭕ Story</button>
-</div>
-
-<div class="content" id="content">
-  <div class="post">
-    📷 <b>Posts</b>
-    <p>यहाँ user की posts दिखाई देंगी।</p>
+    <div class="modal-btns">
+      <button class="btn-save" onclick="saveProfile()">Save</button>
+      <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+    </div>
   </div>
 </div>
 
 <script>
-  function createAccount(){
-  alert("✨ Create Account\n\nअपना नया Carpenter Community Account बनाइए।");
-  }
-function follow(){
-  alert("Follow system यहाँ खुलेगा");
-}
-
-function message(){
-  alert("Message box यहाँ खुलेगा");
-}
-
-function edit(){
-  alert("Edit Profile यहाँ खुलेगा");
-}
-
-function tab(name){
-  document.getElementById("content").innerHTML =
-    "<div class='post'><h3>"+name+"</h3><p>"+name+
-    " का section यहाँ खुलेगा।</p></div>";
-}
-  function closeMenu(){
-  document.getElementById("sideMenu").classList.remove("active");
-}
-
-function openMenu(){
-  document.getElementById("sideMenu").classList.add("active");
-}
-  function menuAction(action){
-
-  if(action === "profile"){
-    window.location.href = "profile.html";
+  // 1. Tab Switching Function
+  function switchTab(tabId, element) {
+    document.querySelectorAll('.tab-item').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.content-panel').forEach(panel => panel.classList.remove('active'));
+    
+    element.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
   }
 
-  else if(action === "edit"){
-    edit();
+  // 2. Follow / Unfollow Logic
+  let isFollowing = false;
+  let count = 5425;
+
+  function toggleFollow() {
+    const btn = document.getElementById('followBtn');
+    const counter = document.getElementById('followerCount');
+
+    if (!isFollowing) {
+      isFollowing = true;
+      count++;
+      btn.innerHTML = '✔ Following';
+      btn.classList.add('following');
+    } else {
+      isFollowing = false;
+      count--;
+      btn.innerHTML = '➕ Follow';
+      btn.classList.remove('following');
+    }
+    counter.innerText = count;
   }
 
-  else if(action === "signin"){
-    window.location.href = "login.html";
+  // 3. Open WhatsApp Message
+  function openWhatsApp() {
+    window.open('https://wa.me/918341188318?text=Hello%20Anil%20Carpenter,%20I%20visited%20your%20profile!', '_blank');
   }
 
-  else if(action === "signup"){
-    window.location.href = "join-carpenter.html";
+  // 4. Edit Profile Modal Functions
+  function openEditModal() {
+    document.getElementById('editModal').style.display = 'flex';
   }
 
-  else{
-    alert(action + " का option जल्द उपलब्ध होगा।");
+  function closeEditModal() {
+    document.getElementById('editModal').style.display = 'none';
   }
 
+  function saveProfile() {
+    const newName = document.getElementById('inputName').value;
+    const newUsername = document.getElementById('inputUsername').value;
+    const newBio = document.getElementById('inputBio').value;
+
+    document.getElementById('displayName').innerText = newName;
+    document.getElementById('displayUsername').innerText = newUsername;
+    document.getElementById('displayBio').innerHTML = newBio.replace(/\n/g, '<br>');
+
+    closeEditModal();
+    alert('प्रोफ़ाइल अपडेट हो गई है!');
   }
 </script>
-<!-- MENU PANEL -->
-<div id="sideMenu" class="side-menu">
 
-  <div class="menu-header">
-    <b>☰ Menu</b>
-    <button type="button" onclick="closeMenu()">✕</button>
-  </div>
-
-  <div class="menu-section">
-    <div class="menu-title">👤 Account</div>
-
-    <button onclick="menuAction('profile')">👤 My Profile</button>
-    <button onclick="menuAction('edit')">✏️ Edit Profile</button>
-    <button onclick="menuAction('signin')">🔐 Sign In</button>
-    <button onclick="menuAction('signup')">🆕 Create Account</button>
-  </div>
-
-  <div class="menu-section">
-    <div class="menu-title">⚙️ Settings</div>
-
-    <button onclick="menuAction('settings')">⚙️ Settings</button>
-    <button onclick="menuAction('notifications')">🔔 Notifications</button>
-    <button onclick="menuAction('privacy')">🔒 Privacy</button>
-    <button onclick="menuAction('security')">🛡️ Security</button>
-  </div>
-
-  <div class="menu-section">
-    <div class="menu-title">♿ Accessibility</div>
-
-    <button onclick="menuAction('text')">🔤 Text Size</button>
-    <button onclick="menuAction('dark')">🌙 Dark Mode</button>
-    <button onclick="menuAction('contrast')">🎨 High Contrast</button>
-    <button onclick="menuAction('motion')">🔊 Reduce Motion</button>
-  </div>
-
-  <div class="menu-section">
-    <div class="menu-title">💰 Community</div>
-
-    <button onclick="menuAction('pro')">⭐ Carpenter Pro</button>
-    <button onclick="menuAction('promote')">📢 Promote My Work</button>
-    <button onclick="menuAction('business')">🏪 Business Profile</button>
-  </div>
-
-  <div class="menu-section">
-    <div class="menu-title">❓ Help</div>
-
-    <button onclick="menuAction('guidelines')">📖 Community Guidelines</button>
-    <button onclick="menuAction('help')">❓ Help & Support</button>
-    <button onclick="menuAction('report')">🚩 Report a Problem</button>
-    <button onclick="menuAction('about')">ℹ️ About Anil Carpenter</button>
-  </div>
-
-</div>
 </body>
 </html>
