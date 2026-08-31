@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="hi">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil Carpenter | Professional Carpentry & Furniture Services</title>
+  <meta name="description" content="Anil Carpenter - Professional, transparent, and door-to-door carpenter services in Sant Kabir Nagar & surrounding areas. Custom furniture, repair, modular kitchen, and wardrobes.">
+  <meta name="theme-color" content="#0b5cff">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="logo">🪚</div>
+        <span>Anil Carpenter</span>
+      </a>
+      <nav class="links">
+        <a href="#categories">Services</a>
+        <a href="#rates">Rate Card</a>
+        <a href="#about">About Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="actions">
+        <a href="tel:+918341188318" class="btn light">📞 +91 8341188318</a>
+        <button class="btn primary" onclick="openBooking('General Enquiry')">🔨 Book Service</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="tag">
+          <span class="dot"></span>
+          <span>Urban-Quality Skilled Service</span>
+        </div>
+        <h1>आपके घर के लिए भरोसेमंद <span>Professional Carpenter</span></h1>
+        <p>डोर-टू-डोर कारपेंटर सेवा: डोर लॉक रिपेयर, कस्टम फर्नीचर निर्माण, अलमारी एवं मॉड्युलर किचन वर्क पारदर्शी दरों पर।</p>
+        
+        <div class="hero-buttons">
+          <button class="btn primary" onclick="openBooking('Doorstep Service')">🔨 Book Service Now</button>
+          <a href="tel:+918341188318" class="btn light">📞 Call Now</a>
+        </div>
+
+        <div class="hero-trust">
+          <div><strong>✓ On-Site Work</strong> घर पर ही संपूर्ण काम</div>
+          <div><strong>✓ Direct Pricing</strong> कोई छिपा हुआ खर्च नहीं</div>
+          <div><strong>✓ Skilled Workmanship</strong> 100% संतुष्टि</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-photo">
+            <div class="tool">🛠️</div>
+            <div class="verified"> Verified Carpenter Service</div>
+          </div>
+          <div class="rating">
+            <span class="stars">★★★★★ (4.9/5)</span>
+            <small>100+ सफ़ल प्रोजेक्ट्स</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UC STYLE CATEGORY GRID -->
+  <section class="uc-categories" id="categories">
+    <div class="container">
+      <div class="head">
+        <h2>आपको किस प्रकार की सर्विस चाहिए?</h2>
+        <p>अपनी जरूरत के अनुसार सर्विस चुनें और तुरंत कोटेशन पाएँ</p>
+      </div>
+      <div class="uc-grid">
+        <div class="uc-cat-card" onclick="openBooking('Wooden Door Repair & Fitting')">
+          <div class="uc-icon">🚪</div>
+          <span>दरवाजा और लॉक</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('Bed & Furniture Repair')">
+          <div class="uc-icon">🛏️</div>
+          <span>बेड व मरम्मत</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('Wardrobe & Storage')">
+          <div class="uc-icon">🗄️</div>
+          <span>अलमारी (Wardrobe)</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('Modular Kitchen Work')">
+          <div class="uc-icon">🍳</div>
+          <span>मॉड्यूलर किचन</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('TV Unit & Drawer Fitment')">
+          <div class="uc-icon">📺</div>
+          <span>TV यूनिट व ड्रॉवर</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('General Furniture Making')">
+          <div class="uc-icon">🪵</div>
+          <span>कस्टम फर्नीचर</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENT RATE CARD (UC STYLE) -->
+  <section class="price-section gray" id="rates">
+    <div class="container">
+      <div class="head">
+        <h2>पारदर्शी दरें (Transparent Rate Card)</h2>
+        <p>बिना किसी छुपाव के स्पष्ट और पारदर्शी प्राइजिंग</p>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>डोर लॉक व हिंग (Hinge) रिपेयर</h3>
+          <div class="price">₹199 <span>से शुरू</span></div>
+          <ul>
+            <li>✓ दरवाजे की घिसाई / कटिंग</li>
+            <li>✓ नया लॉक या हैंडल फिटिंग</li>
+            <li>✓ हिंग और ड्रॉवर चैनल रिपेयर</li>
+          </ul>
+          <button class="btn light full-w" onclick="openBooking('Door Repair Service')">Book Lock/Door Repair</button>
+        </div>
+
+        <div class="price-card highlight">
+          <span class="badge">Most Popular</span>
+          <h3>फर्नीचर असेंबली व रिपेयर</h3>
+          <div class="price">₹399 <span>से शुरू</span></div>
+          <ul>
+            <li>✓ हाइड्रोलिक बेड रिपेयर व फिटिंग</li>
+            <li>✓ स्लाइडिंग डोर अलमारी चैनल रिपेयर</li>
+            <li>✓ टेबल, चेयर व स्टोरेज मॉडिफिकेशन</li>
+          </ul>
+          <button class="btn primary full-w" onclick="openBooking('Furniture Assembly/Repair')">Book Furniture Repair</button>
+        </div>
+
+        <div class="price-card">
+          <h3>कस्टम इंटीरियर व वुड वर्क</h3>
+          <div class="price">साइट विजिट पर फ्री कोटेशन</div>
+          <ul>
+            <li>✓ 2D लेआउट व मटेरियल चयन सलाह</li>
+            <li>✓ प्लाईवुड, सनमाइका व ACP शीट वर्क</li>
+            <li>✓ मॉड्यूलर किचन व टीवी यूनिट मेकिंग</li>
+          </ul>
+          <button class="btn light full-w" onclick="openBooking('Custom Interior Visit')">Book Site Visit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SHORT -->
+  <section class="about-short" id="about">
+    <div class="container about-grid">
+      <div class="about-content">
+        <span class="eyebrow">ABOUT ANIL CARPENTER</span>
+        <h2>सिर्फ फर्नीचर नहीं, <span>भरोसा भी बनाते हैं</span></h2>
+        <p>Anil Carpenter एक प्रोफेशनल कारपेंट्री सर्विस है, जहाँ आपको घर, दुकान और ऑफिस के फर्नीचर निर्माण, मरम्मत और कस्टम वुडन वर्क की ऑन-साइट ऑन-डिमांड सर्विस मिलती है।</p>
+        <div class="about-points">
+          <div>✓ समय पर काम की डिलीवरी</div>
+          <div>✓ पारदर्शी बातचीत एवं सलाह</div>
+          <div>✓ 100% ऑन-साइट काम</div>
+          <div>✓ उच्च गुणवत्ता वाली फिनिशिंग</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="head">
+        <h2>ग्राहक क्या कहते हैं?</h2>
+        <p>हमारे संतुष्ट ग्राहकों के अनुभव</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“हाइड्रोलिक बेड और अलमारी की मरम्मत का काम समय पर और बहुत ही सफाई से किया गया। रेट्स भी काफी सही थे।”</p>
+          <strong>- राहुल कुमार</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“कस्टम टीवी यूनिट बनवाई थी। फिनिशिंग और सनमाइका पेस्टिंग की क्वालिटी बेहतरीन है।”</p>
+          <strong>- सुनील वर्मा</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“दरवाजे और लॉक चेंज करने की सर्विस के लिए कॉल किया था। कारपेंटर ने आकर तुरंत काम निपटा दिया।”</p>
+          <strong>- अमित सिंह</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section gray" id="faq">
+    <div class="container">
+      <div class="head">
+        <h2>अक्सर पूछे जाने वाले सवाल (FAQ)</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>क्या ऑन-साइट (घर पर आकर) काम किया जाता है? <span>+</span></summary>
+          <p>जी हाँ, हम ऑन-साइट सर्विस प्रदान करते हैं। आपके घर या दुकान पर आकर ही पूरा काम किया जाता है।</p>
+        </details>
+        <details>
+          <summary>सर्विस बुक करने की क्या प्रक्रिया है? <span>+</span></summary>
+          <p>आप "Book Service" बटन पर क्लिक करके फॉर्म भर सकते हैं या सीधे WhatsApp / Phone द्वारा संपर्क कर सकते हैं।</p>
+        </details>
+        <details>
+          <summary>क्या नया फर्नीचर बनवाने से पहले अनुमानित बजट (Quotation) मिलेगा? <span>+</span></summary>
+          <p>जी बिल्कुल। काम की नाप-जोख और मटेरियल सिलेक्शन के बाद आपको पूरा बजट समझाया जाता है।</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <h2>🪚 Anil Carpenter</h2>
+        <p>Professional & On-Site Carpentry Services</p>
+        <p>📍 Sant Kabir Nagar, Uttar Pradesh, India</p>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+918341188318" class="btn light">📞 +91 8341188318</a>
+        <a href="mailto:anilcarpenterup@gmail.com">✉️ anilcarpenterup@gmail.com</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear"></span> Anil Carpenter. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-overlay" onclick="closeBooking()"></div>
+    <div class="modal-box">
+      <button type="button" class="modal-close" onclick="closeBooking()">×</button>
+      <div class="modal-header">
+        <h2>🔨 Book Carpenter Service</h2>
+        <p>अपनी जानकारी दर्ज करें, हम आपसे व्हाट्सएप पर तुरंत जुड़ेंगे</p>
+      </div>
+
+      <form id="quickBookingForm" onsubmit="submitQuickBooking(event)">
+        <label for="quickName">आपका नाम</label>
+        <input type="text" id="quickName" placeholder="पूरा नाम दर्ज करें" required>
+
+        <label for="quickPhone">मोबाइल नंबर</label>
+        <input type="tel" id="quickPhone" placeholder="10 अंकों का मोबाइल नंबर" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" required>
+
+        <label for="quickService">चयनित सर्विस</label>
+        <select id="quickService" required>
+          <option value="">सर्विस चुनें</option>
+          <option value="Wooden Door Repair & Fitting">Door & Lock Fitting</option>
+          <option value="Bed & Furniture Repair">Bed & Furniture Repair</option>
+          <option value="Wardrobe & Storage">Wardrobe & Storage</option>
+          <option value="Modular Kitchen Work">Modular Kitchen Work</option>
+          <option value="TV Unit & Drawer Fitment">TV Unit & Drawer Fitment</option>
+          <option value="General Furniture Making">Custom Furniture Making</option>
+        </select>
+
+        <label for="quickAddress">आपका पता (Location)</label>
+        <textarea id="quickAddress" rows="2" placeholder="अपना पूरा पता या गाँव/शहर दर्ज करें" required></textarea>
+
+        <label for="quickMessage">काम की अतिरिक्त जानकारी (वैकल्पिक)</label>
+        <textarea id="quickMessage" rows="2" placeholder="जैसे: अलमारी का दरवाजा ठीक करना है..."></textarea>
+
+        <button type="submit" class="btn primary full-w">📲 WhatsApp पर रिक्वेस्ट भेजें</button>
+        <div id="quickBookingStatus" class="booking-status"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MOBILE APP-LIKE BOTTOM FIXED BAR -->
+  <div class="mobile-bottom-bar">
+    <a href="tel:+918341188318" class="m-btn call">📞 Call Now</a>
+    <button type="button" class="m-btn book" onclick="openBooking('Mobile Quick Booking')">🔨 Book Service</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
