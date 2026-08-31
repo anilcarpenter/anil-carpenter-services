@@ -12,27 +12,43 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <div class="logo">🪚</div>
-        <span>Anil Carpenter</span>
-      </a>
-      <nav class="links">
-        <a href="#partner">Join as Partner</a>
-        <a href="#categories">Services</a>
-        <a href="#rates">Rate Card</a>
-        <a href="#about">About Us</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="actions">
-        <a href="tel:+918341188318" class="btn light">📞 +91 8341188318</a>
-        <button class="btn primary" onclick="openBooking('General Enquiry')">🔨 Book Service</button>
+<!-- HEADER / NAVIGATION MENU -->
+<header>
+  <div class="container nav">
+    <!-- Logo -->
+    <a href="index.html" class="brand">
+      <div class="logo">🪚</div>
+      <span>Anil Carpenter</span>
+    </a>
+
+    <!-- Desktop & Mobile Navigation Menu -->
+    <nav class="main-menu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      
+      <!-- Partner Dropdown / Direct Link -->
+      <a href="partner-profile.html" class="nav-link highlight-link">🧰 Partner Sign Up / Login</a>
+
+      <!-- Affiliate Menu Dropdown -->
+      <div class="dropdown">
+        <button class="dropbtn">💰 Affiliate Store ▾</button>
+        <div class="dropdown-content">
+          <a href="#affiliate-tools">🛠️ Carpentry Tools</a>
+          <a href="#affiliate-material">🪵 Wood Material Selling</a>
+          <a href="#affiliate-earn">💵 Earn Commission (Share & Earn)</a>
+        </div>
       </div>
-    </div>
-  </header>
+
+      <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+      <a href="terms-and-conditions.html" class="nav-link">Terms & Conditions</a>
+    </nav>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+  </div>
+</header>
+
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
@@ -281,6 +297,55 @@
       </div>
     </div>
   </section>
+  
+  <!-- AFFILIATE & STORE SECTION -->
+<section class="affiliate-section" id="affiliate-store" style="padding: 50px 0; background: #f8fafc;">
+  <div class="container">
+    <div class="head" style="text-align: center; margin-bottom: 30px;">
+      <h2>🛠️ अनिल कारपेंटर स्टोर व एफ़िलिएट प्रोग्राम</h2>
+      <p>बेस्ट कारपेंट्री टूल्स, वुडन मटेरियल खरीदें और लिंक शेयर करके कमीशन कमाएं</p>
+    </div>
+
+    <div class="partner-grid">
+      <!-- 1. Carpentry Tools -->
+      <div class="partner-card" id="affiliate-tools">
+        <h3>🛠️ Carpentry Tools (टूल्स खरीदें)</h3>
+        <p style="font-size: 14px; color: var(--muted);">प्रोफ़ेशनल कटिंग मशीन, ड्रिल मशीन, और हैंड टूल्स कम दाम में खरीदें।</p>
+        <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px; line-height: 1.8;">
+          <li>Heavy Duty Wood Router</li>
+          <li>Cordless Circular Saw</li>
+          <li>Professional Chisel Set & Clamp</li>
+        </ul>
+        <a href="https://amazon.in" target="_blank" class="btn primary full-w">बेस्ट टूल्स देखें व खरीदें ↗</a>
+      </div>
+
+      <!-- 2. Material Selling -->
+      <div class="partner-card" id="affiliate-material">
+        <h3>🪵 Material Selling (प्लाइवुड व सनमाइका)</h3>
+        <p style="font-size: 14px; color: var(--muted);">टॉप क्वालिटी प्लाइवुड, माइका, फेविकोल और हार्डवेयर एक्सेसरीज ऑनलाइन ऑर्डर करें।</p>
+        <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px; line-height: 1.8;">
+          <li>Waterproof Plywood (BWP Grade)</li>
+          <li>0.8mm & 1mm Decorative Sunmica</li>
+          <li>Soft Close Hydraulic Hinges</li>
+        </ul>
+        <a href="#booking" class="btn light full-w">मटेरियल रेट कार्ड / पूछताछ करें</a>
+      </div>
+
+      <!-- 3. Earn Commission -->
+      <div class="partner-card highlight" id="affiliate-earn">
+        <h3>💵 Earn Commission (शेयर करें व कमाएं)</h3>
+        <p style="font-size: 14px; color: var(--muted);">क्या आप कारपेंटर या डिस्ट्रीब्यूटर हैं? हमारे टूल्स और सर्विस ग्राहकों को रेफर करके 5% से 10% तक कमीशन कमाएं।</p>
+        <div style="background: #fff; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 13px;">
+          <strong>कैसा काम करता है?</strong><br>
+          1. अपना एफ़िलिएट लिंक लें<br>
+          2. ग्राहकों/दोस्तों को व्हाट्सएप पर भेजें<br>
+          3. हर सफल सेल या बुकिंग पर कमीशन सीधा खाते में!
+        </div>
+        <a href="https://wa.me/918341188318?text=नमस्ते%20अनिल%20भाई,%20मुझे%20Affiliate%20Earn%20Commission%20प्रोग्राम%20से%20जुड़ना%20है।" target="_blank" class="btn primary full-w">कमीशन प्रोग्राम से जुड़ें (WhatsApp)</a>
+      </div>
+    </div>
+  </div>
+</section>
   
   <!-- FAQ -->
   <section class="faq-section gray" id="faq">
