@@ -303,11 +303,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if(data) loadPortalDashboard(JSON.parse(data));
   }
 });
-/* Mobile Menu Toggle */
+/* MOBILE MENU TOGGLE - FINAL FIX */
 function toggleMenu() {
-  const menu = document.querySelector('.main-menu');
-  if(menu) {
+  var menu = document.querySelector('.links') || document.querySelector('.main-menu');
+  if (menu) {
     menu.classList.toggle('active');
   }
 }
-
