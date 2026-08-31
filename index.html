@@ -20,6 +20,7 @@
         <span>Anil Carpenter</span>
       </a>
       <nav class="links">
+        <a href="#partner">Join as Partner</a>
         <a href="#categories">Services</a>
         <a href="#rates">Rate Card</a>
         <a href="#about">About Us</a>
@@ -196,7 +197,91 @@
       </div>
     </div>
   </section>
+  <!-- WORKER PARTNER SECTION -->
+  <section class="partner-section" id="partner">
+    <div class="container">
+      <div class="head">
+        <h2>🧰 कारपेंटर व स्किल्ड वर्कर पार्टनर बनें</h2>
+        <p>हमारे साथ जुड़ें, अपनी प्रोफाइल बनाएँ और अपने आस-पास काम के अवसर पाएँ</p>
+      </div>
 
+      <div class="partner-grid">
+        <!-- PARTNER REGISTER FORM -->
+        <div class="partner-card">
+          <h3>वर्कर रजिस्ट्रेशन (Partner Sign Up)</h3>
+          <form id="partnerRegisterForm" onsubmit="handlePartnerRegister(event)">
+            <label for="pName">पूरा नाम</label>
+            <input type="text" id="pName" placeholder="उदा. राम कुमार" required>
+
+            <label for="pPhone">मोबाइल नंबर (Login ID)</label>
+            <input type="tel" id="pPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
+
+            <label for="pSkills">आपकी स्किल (Skill/Hunar)</label>
+            <select id="pSkills" required>
+              <option value="">मुख्य काम चुनें</option>
+              <option value="Furniture Repair & Fitting">फर्नीचर रिपेयर व फिटिंग</option>
+              <option value="Modular Kitchen & Wardrobe">मॉड्यूलर किचन व अलमारी</option>
+              <option value="Door, Lock & Channel Work">दरवाजा, लॉक व चैनल वर्क</option>
+              <option value="General Hand-tool Skilled Worker">जनरल हैंड-टूल वर्कर</option>
+            </select>
+
+            <label for="pExp">अनुभव (Experience in Years)</label>
+            <input type="number" id="pExp" min="0" placeholder="उदा. 5 साल" required>
+
+            <button type="submit" class="btn primary full-w" style="margin-top: 15px;">पार्टनर प्रोफाइल बनाएँ</button>
+          </form>
+        </div>
+
+        <!-- PARTNER LOGIN / PROFILE DASHBOARD -->
+        <div class="partner-card highlight">
+          <h3>वर्कर लॉगिन व प्रोफाइल</h3>
+          
+          <!-- Login View -->
+          <div id="partnerLoginBox">
+            <p style="font-size: 14px; color: var(--muted); margin-bottom: 15px;">यदि आप पहले से रजिस्टर्ड हैं, तो अपना नंबर दर्ज करके प्रोफाइल खोलें:</p>
+            <form onsubmit="handlePartnerLogin(event)">
+              <label for="loginPhone">रजिस्टर्ड मोबाइल नंबर</label>
+              <input type="tel" id="loginPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
+              <button type="submit" class="btn light full-w" style="margin-top: 15px;">प्रोफाइल लॉगिन करें</button>
+            </form>
+          </div>
+
+          <!-- Profile View (Initially Hidden) -->
+          <div id="partnerProfileBox" style="display: none;">
+            <div class="profile-header">
+              <div class="avatar">🪵</div>
+              <div>
+                <h4 id="profileDisplayName">वर्कर का नाम</h4>
+                <small id="profileDisplayPhone">+91 XXXXXXXXXX</small>
+              </div>
+            </div>
+
+            <form id="profileUpdateForm" onsubmit="handleProfileUpdate(event)" style="margin-top: 15px;">
+              <label for="editSkill">आपकी मुख्य स्किल</label>
+              <input type="text" id="editSkill" required>
+
+              <label for="editExp">अनुभव (साल)</label>
+              <input type="number" id="editExp" required>
+
+              <label for="editStatus">काम के लिए उपलब्धता (Status)</label>
+              <select id="editStatus">
+                <option value="Available (काम के लिए उपलब्ध)">Available (काम के लिए उपलब्ध)</option>
+                <option value="Busy (अभी काम में व्यस्त)">Busy (अभी काम में व्यस्त)</option>
+              </select>
+
+              <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button type="submit" class="btn primary" style="flex: 1;">प्रोफाइल अपडेट करें</button>
+                <button type="button" class="btn light" onclick="handlePartnerLogout()">लॉगआउट</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="partnerMessage" class="booking-status"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
   <!-- FAQ -->
   <section class="faq-section gray" id="faq">
     <div class="container">
