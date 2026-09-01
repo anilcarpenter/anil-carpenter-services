@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ब्लॉग व गाइड | Anil Carpenter Services</title>
+  <meta name="description" content="फर्नीचर डिज़ाइन, मॉड्यूलर किचन, रख-रखाव और कारपेंट्री से जुड़ी सभी काम की जानकारियाँ।">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* कॉम्पैक्ट और आकर्षक ब्लॉग स्टाइल */
+    .blog-hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 35px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--p, #2563eb);
+    }
+    .blog-hero h1 { font-size: 26px; margin-bottom: 6px; font-weight: 800; }
+    .blog-hero p { font-size: 14px; color: #94a3b8; margin: 0 auto; }
+    
+    .blog-container { max-width: 1000px; margin: 25px auto; padding: 0 15px; }
+    
+    /* कॉम्पैक्ट फीचर कार्ड */
+    .featured-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      margin-bottom: 30px;
+    }
+    .featured-img {
+      background: #e2e8f0 url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=500&q=80') center/cover no-repeat;
+      min-height: 160px;
+    }
+    .featured-content { padding: 18px 20px; display: flex; flex-direction: column; justify-content: center; }
+    
+    .section-title { font-size: 20px; font-weight: 800; margin-bottom: 18px; color: #0f172a; }
+    
+    /* ग्रिड कार्ड्स */
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    
+    .blog-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card-img { height: 140px; background-size: cover; background-position: center; }
+    .card-body { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+    
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: #2563eb;
+      width: fit-content;
+      margin-bottom: 8px;
+    }
+    .blog-title { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 6px; line-height: 1.3; }
+    .blog-desc { font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.5; flex: 1; }
+    .meta-info { font-size: 11px; color: #94a3b8; border-top: 1px solid #f1f5f9; padding-top: 8px; }
+
+    /* मोबाइल व्यू के लिए रिस्पॉन्सिव */
+    @media (max-width: 600px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-img { height: 160px; }
+      .blog-hero h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER WITH WORKING NAVIGATION & MENU BUTTON -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="logo">🪚</div>
+        <span>Anil Carpenter</span>
+      </a>
+
+      <!-- नेविगेशन लिंक्स -->
+      <nav class="links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html" style="color: var(--p, #2563eb); font-weight:700;">Blog</a>
+        <a href="partner-profile.html">🧰 Partner Sign Up</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </nav>
+
+      <!-- मोबाइल में मेनू खोलने/बंद करने वाला बटन -->
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="blog-hero">
+    <h1>कारपेंटर व फर्नीचर गाइड</h1>
+    <p>फर्नीचर डिज़ाइन, मरम्मत और रख-रखाव से जुड़ी सभी जानकारियाँ</p>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="blog-container">
+
+    <!-- FEATURED ARTICLE -->
+    <div class="featured-card">
+      <div class="featured-img"></div>
+      <div class="featured-content">
+        <span class="badge">खास लेख (Featured)</span>
+        <h2 style="font-size: 18px; margin-bottom: 8px; color: #0f172a;">लकड़ी के फर्नीचर को वर्षों तक नया और मजबूत कैसे रखें?</h2>
+        <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin: 0;">
+          दीमक से सुरक्षा, सही सफाई, सनमाइका की चमक बनाए रखने और नमी से बचाने के असरदार तरीके।
+        </p>
+      </div>
+    </div>
+
+    <!-- LATEST ARTICLES GRID -->
+    <h2 class="section-title">📌 उपयोगी ब्लॉग पोस्ट्स</h2>
+
+    <div class="blog-grid">
+
+      <!-- Blog Card 1 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge" style="background: #dcfce7; color: #15803d;">📍 Special Guide</span>
+          <h3 class="blog-title">घर के लिए मॉड्यूलर किचन व सही फर्नीचर चुनने की गाइड</h3>
+          <p class="blog-desc">सही रेट पर कारपेंटर चुनने और मटीरियल सेलेक्शन की आसान टिप्स।</p>
+          <div class="meta-info">⏱️ 5 min read</div>
+        </div>
+      </article>
+
+      <!-- Blog Card 2 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge">Modular Kitchen</span>
+          <h3 class="blog-title">मॉड्यूलर किचन बनवाने की पूरी जानकारी</h3>
+          <p class="blog-desc">सही प्लाइवुड का चुनाव और कम बजट में बेस्ट किचन लेआउट गाइड।</p>
+          <div class="meta-info">⏱️ 4 min read</div>
+        </div>
+      </article>
+
+      <!-- Blog Card 3 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge">Wood Comparison</span>
+          <h3 class="blog-title">फर्नीचर के लिए सबसे अच्छी लकड़ी कौन सी है?</h3>
+          <p class="blog-desc">मजबूती और फिनिशिंग के आधार पर जानें किस जगह कौन-सी लकड़ी लगाएं।</p>
+          <div class="meta-info">⏱️ 5 min read</div>
+        </div>
+      </article>
+
+      <!-- Blog Card 4 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge">Repair Guide</span>
+          <h3 class="blog-title">टूटी हुई कुर्सी या फर्नीचर की मरम्मत कैसे करें?</h3>
+          <p class="blog-desc">घर पर आसान तरीकों से कब्जे और ढीले जोड़ों की रिपेयरिंग गाइड।</p>
+          <div class="meta-info">⏱️ 3 min read</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background: #0f172a; color: #94a3b8; text-align: center; padding: 25px 20px; margin-top: 50px;">
+    <p>© 2026 Anil Carpenter. All Rights Reserved.</p>
+  </footer>
+
+  <!-- MOBILE MENU TOGGLE SCRIPT -->
+  <script>
+    function toggleMenu() {
+      var nav = document.getElementById("navLinks");
+      if (nav.style.display === "flex") {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+      }
+    }
+  </script>
+</body>
+</html>
+
