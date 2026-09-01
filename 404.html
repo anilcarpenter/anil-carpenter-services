@@ -1,324 +1,213 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ब्लॉग | Anil Carpenter</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            line-height: 1.5;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>कारपेंटर व फर्नीचर सर्विस वडोदरा | Anil Carpenter Vadodara</title>
+  <meta name="description" content="वडोदरा (Vadodara) में बेस्ट कारपेंटर व फर्नीचर काम: मॉड्यूलर किचन, अलमारी, दरवाजा, बेड रिपेयर व इंटीरियर वुडवर्क। अलकापुरी, गोत्री, मकरपुरा व समा एरिया हेतु संपर्क करें।">
+  <meta name="keywords" content="Carpenter in Vadodara, Best Furniture Maker Vadodara, Modular Kitchen Vadodara, Carpenter Alkapuri, Carpenter Gotri Vadodara, Anil Carpenter Vadodara">
 
-        /* Navigation Header */
-        header {
-            background: #ffffff;
-            padding: 14px 0;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .links a {
-            margin-left: 18px;
-            text-decoration: none;
-            color: #475569;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .links a:hover {
-            color: #2563eb;
-        }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Anil Carpenter Network - Vadodara",
+    "image": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Vadodara"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Sant Kabir Nagar"
+      }
+    ],
+    "description": "Professional carpentry, furniture making, modular kitchen, and woodwork services in Vadodara and nearby areas.",
+    "priceRange": "₹₹"
+  }
+  </script>
 
-        /* Blog Hero Section */
-        .blog-hero {
-            text-align: center;
-            padding: 32px 16px;
-            background: #0f172a;
-            color: #ffffff;
-            border-radius: 0 0 16px 16px;
-        }
-        .blog-hero h1 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        .blog-hero p {
-            color: #94a3b8;
-            font-size: 13px;
-        }
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .blog-hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 4px solid var(--p, #2563eb);
+    }
+    .blog-hero h1 { font-size: 36px; margin-bottom: 12px; font-weight: 800; }
+    .blog-hero p { font-size: 16px; color: #94a3b8; max-width: 650px; margin: 0 auto 24px; }
+    
+    .blog-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    
+    .featured-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 50px;
+    }
+    .featured-img {
+      background: #e2e8f0 url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+      min-height: 280px;
+    }
+    .featured-content { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+    
+    .section-title { font-size: 24px; font-weight: 800; margin-bottom: 24px; color: #0f172a; display: flex; align-items: center; gap: 10px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+    
+    .blog-card {
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card-img { height: 180px; background-size: cover; background-position: center; }
+    .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      background: #eff6ff;
+      color: #2563eb;
+      width: fit-content;
+      margin-bottom: 12px;
+    }
+    .blog-title { font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 10px; line-height: 1.4; }
+    .blog-desc { font-size: 14px; color: #64748b; margin-bottom: 16px; line-height: 1.6; flex: 1; }
+    .meta-info { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #f1f5f9; padding-top: 12px; }
 
-        .main-content {
-            padding: 32px 0;
-        }
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #0f172a;
-        }
-
-        /* Compact Featured Hero Card */
-        .featured-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 32px;
-            display: flex;
-            flex-direction: column;
-        }
-        .featured-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        .featured-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        @media (min-width: 768px) {
-            .featured-card {
-                flex-direction: row;
-                min-height: 240px;
-            }
-            .featured-img {
-                width: 45%;
-                height: auto;
-            }
-            .featured-content {
-                width: 55%;
-                padding: 24px;
-            }
-        }
-
-        /* Badges & Meta */
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background: #e0f2fe;
-            color: #0369a1;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .blog-title {
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.35;
-            margin-bottom: 8px;
-        }
-        .blog-title a {
-            color: #0f172a;
-            text-decoration: none;
-        }
-        .blog-title a:hover {
-            color: #2563eb;
-        }
-        .blog-desc {
-            color: #64748b;
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-        .meta-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #94a3b8;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 12px;
-            margin-top: auto;
-        }
-        .read-btn {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-        }
-        .read-btn:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Grid Layout */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .blog-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .blog-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        .card-img {
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-        }
-        .card-body {
-            padding: 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .card-body .blog-title {
-            font-size: 16px;
-        }
-    </style>
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-img { height: 200px; }
+      .blog-hero h1 { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav">
-            <a href="index.html" class="logo">Anil Carpenter</a>
-            <nav class="links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="blog.html">Blog</a>
-            </nav>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="logo">🪚</div>
+        <span>Anil Carpenter</span>
+      </a>
+
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html" style="color: var(--p, #2563eb); font-weight:700;">Blog</a>
+        <a href="partner-profile.html">🧰 Partner Sign Up</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </nav>
+
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="blog-hero">
+    <h1>🪵 कारपेंट्री व फर्नीचर गाइड (वडोदरा व यूपी)</h1>
+    <p>मॉड्यूलर किचन, अलमारी, वडोदरा सिटी में बेस्ट कारपेंटर सेवाएं और लकड़ी के रखरखाव से जुड़ी उपयोगी गाइड</p>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="blog-container">
+
+    <!-- FEATURED ARTICLE -->
+    <div class="featured-card">
+      <div class="featured-img"></div>
+      <div class="featured-content">
+        <span class="badge">खास लेख (Featured)</span>
+        <h2 style="font-size: 22px; margin-bottom: 12px; color: #0f172a;">लकड़ी के फर्नीचर को वर्षों तक नया और मजबूत कैसे रखें?</h2>
+        <p style="font-size: 14px; color: #64748b; line-height: 1.6;">
+          दीमक से सुरक्षा, सही सफाई, सनमाइका की चमक बनाए रखने और नमी (Moisture) से बचाने के आसान व असरदार तरीके जानिए...
+        </p>
+      </div>
+    </div>
+
+    <!-- LATEST ARTICLES GRID -->
+    <h2 class="section-title">📌 नवीनतम ब्लॉग पोस्ट (Latest Articles)</h2>
+
+    <div class="blog-grid">
+
+      <!-- Blog Card 1: VADODARA LOCAL SEO SPECIAL -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge" style="background: #dcfce7; color: #15803d;">📍 Vadodara Special</span>
+          <h3 class="blog-title">वडोदरा में मॉड्यूलर किचन व फर्नीचर काम कराने की बेस्ट गाइड</h3>
+          <p class="blog-desc">अलकापुरी, गोत्री, समा और मकरपुरा में सही रेट पर प्रोफेशनल कारपेंटर चुनने और मटीरियल सेलेक्शन की टिप्स।</p>
+          <div class="meta-info">
+            <span>⏱️ 5 min read</span>
+          </div>
         </div>
-    </header>
+      </article>
 
-    <main>
-        <section class="blog-hero">
-            <h1>कारपेंटर व फर्नीचर गाइड</h1>
-            <p>फर्नीचर डिज़ाईन, मरम्मत और रख-रखाव से जुड़ी सभी जानकारियाँ</p>
-        </section>
-
-        <div class="container main-content">
-            
-            <!-- Featured Blog Card (Compact Layout) -->
-            <article class="featured-card">
-                <div class="featured-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop');"></div>
-                <div class="featured-content">
-                    <div>
-                        <span class="badge">खास लेख (Featured)</span>
-                        <h2 class="blog-title">
-                            <a href="#">लकड़ी के फर्नीचर को वर्षों तक नया और मजबूत कैसे रखें?</a>
-                        </h2>
-                        <p class="blog-desc">दीमक से सुरक्षा, सही सफाई, सनमाइका की चमक बनाए रखने और नमी से बचाने के आसान तरीके जानिए...</p>
-                    </div>
-                    <div class="meta-info">
-                        <span>5 min read</span>
-                        <a href="#" class="read-btn">पूरा लेख पढ़ें →</a>
-                    </div>
-                </div>
-            </article>
-
-            <h2 class="section-title">नवीनतम ब्लॉग पोस्ट (Latest Articles)</h2>
-
-            <!-- Responsive Blog Cards Grid -->
-            <div class="blog-grid">
-                
-                <!-- Blog Card 1 -->
-                <article class="blog-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-body">
-                        <div>
-                            <span class="badge" style="background: #e0f2fe; color: #0369a1;">वडोदरा स्पेशल</span>
-                            <h3 class="blog-title"><a href="#">वड़ोदरा में मॉड्यूलर किचन व फर्नीचर काम कराने की बेस्ट गाइड</a></h3>
-                            <p class="blog-desc">अलमारी, टीवी, सोफा और सनमाइका में सही रेट पर कारपेंटर चुनने की टिप्स...</p>
-                        </div>
-                        <div class="meta-info">
-                            <span>5 min read</span>
-                            <a href="#" class="read-btn">पूरा लेख पढ़ें →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Blog Card 2 -->
-                <article class="blog-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-body">
-                        <div>
-                            <span class="badge" style="background: #fef3c7; color: #b45309;">मॉड्यूलर किचन</span>
-                            <h3 class="blog-title"><a href="#">मॉड्यूलर किचन बनवाने की पूरी जानकारी</a></h3>
-                            <p class="blog-desc">सही प्लाइवुड का चुनाव, सॉफ्ट-क्लोज बास्केट और कम बजट में किचन लेआउट...</p>
-                        </div>
-                        <div class="meta-info">
-                            <span>4 min read</span>
-                            <a href="#" class="read-btn">पूरा लेख पढ़ें →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Blog Card 3 -->
-                <article class="blog-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-body">
-                        <div>
-                            <span class="badge" style="background: #f1f5f9; color: #475569;">वुड कंपेरिजन</span>
-                            <h3 class="blog-title"><a href="#">फर्नीचर के लिए सबसे अच्छी लकड़ी कौन सी है?</a></h3>
-                            <p class="blog-desc">मजबूती, कीमत और फिनिशिंग के आधार पर सही लकड़ी का चयन कैसे करें...</p>
-                        </div>
-                        <div class="meta-info">
-                            <span>5 min read</span>
-                            <a href="#" class="read-btn">पूरा लेख पढ़ें →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Blog Card 4 -->
-                <article class="blog-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-body">
-                        <div>
-                            <span class="badge" style="background: #e0e7ff; color: #4338ca;">रिपेयर गाइड</span>
-                            <h3 class="blog-title"><a href="#">टूटी हुई कुर्सी या फर्नीचर की मरम्मत कैसे करें?</a></h3>
-                            <p class="blog-desc">घर पर आसान तरीकों से लकड़ी के फर्नीचर और ढीले जोड़ों की रिपेयरिंग...</p>
-                        </div>
-                        <div class="meta-info">
-                            <span>3 min read</span>
-                            <a href="#" class="read-btn">पूरा लेख पढ़ें →</a>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
+      <!-- Blog Card 2 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge">Modular Kitchen</span>
+          <h3 class="blog-title">मॉड्यूलर किचन बनवाने की पूरी जानकारी</h3>
+          <p class="blog-desc">सही प्लाइवुड का चुनाव, सॉफ्ट-क्लोज बास्केट और कम बजट में बेस्ट किचन लेआउट गाइड।</p>
+          <div class="meta-info">
+            <span>⏱️ 4 min read</span>
+          </div>
         </div>
-    </main>
+      </article>
 
+      <!-- Blog Card 3 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge">Wood Comparison</span>
+          <h3 class="blog-title">फर्नीचर के लिए सबसे अच्छी लकड़ी कौन सी है?</h3>
+          <p class="blog-desc">मजबूती, कीमत और फिनिशिंग के आधार पर जानें किस जगह कौन-सी लकड़ी लगानी चाहिए।</p>
+          <div class="meta-info">
+            <span>⏱️ 5 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 4 -->
+      <article class="blog-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="card-body">
+          <span class="badge">Repair Guide</span>
+          <h3 class="blog-title">टूटी हुई कुर्सी या फर्नीचर की मरम्मत कैसे करें?</h3>
+          <p class="blog-desc">घर पर आसान तरीकों से लकड़ी के फर्नीचर, कब्जे और ढीले जोड़ों की रिपेयरिंग गाइड।</p>
+          <div class="meta-info">
+            <span>⏱️ 3 min read</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; margin-top: 60px;">
+    <p>© 2026 Anil Carpenter. Vadodara & Uttar Pradesh Services. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
 
 
