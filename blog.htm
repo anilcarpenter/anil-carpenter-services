@@ -4,8 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ब्लॉग व गाइड | Anil Carpenter Services</title>
-  <meta name="description" content="फर्नीचर डिज़ाइन, मॉड्यूलर किचन, रख-रखाव और कारपेंट्री से जुड़ी सभी काम की जानकारियाँ।">
+  <title>कारपेंटर व फर्नीचर टिप्स ब्लॉग | Anil Carpenter Services</title>
+  <meta name="description" content="फर्नीचर देखभाल, दीमक से बचाव, मॉड्यूलर किचन और लकड़ी की पहचान के लिए बेस्ट कारपेंटरी ब्लॉग व गाइड।">
+  <meta name="keywords" content="Anil Carpenter Blog, Furniture Maintenance Tips Hindi, Modular Kitchen Fitting Guide, Carpenter Service Near Me">
+
+  <!-- Schema.org SEO Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Anil Carpenter Blog",
+    "description": "फर्नीचर डिज़ाइन, मरम्मत और रख-रखाव से जुड़ी पूरी गाइड",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Anil Carpenter"
+    }
+  }
+  </script>
 
   <link rel="stylesheet" href="style.css">
   <style>
@@ -22,6 +37,10 @@
     
     .blog-container { max-width: 1000px; margin: 25px auto; padding: 0 15px; }
     
+    /* Clickable Card Styling */
+    .clickable-card { cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+    .clickable-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
     /* कॉम्पैक्ट फीचर कार्ड */
     .featured-card {
       background: #ffffff;
@@ -70,13 +89,46 @@
     }
     .blog-title { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 6px; line-height: 1.3; }
     .blog-desc { font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.5; flex: 1; }
-    .meta-info { font-size: 11px; color: #94a3b8; border-top: 1px solid #f1f5f9; padding-top: 8px; }
+    .meta-info { font-size: 11px; color: #2563eb; font-weight: 700; border-top: 1px solid #f1f5f9; padding-top: 8px; }
+
+    /* FULL BLOG MODAL (POPUPS) */
+    .blog-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 20px 10px;
+    }
+    .modal-content {
+      background: #ffffff;
+      max-width: 700px;
+      margin: 30px auto;
+      border-radius: 16px;
+      padding: 25px;
+      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #64748b;
+      cursor: pointer;
+    }
+    .modal-body h2 { font-size: 22px; color: #0f172a; margin-bottom: 12px; font-weight: 800; line-height: 1.3; }
+    .modal-body h3 { font-size: 16px; color: #2563eb; margin: 18px 0 8px 0; font-weight: 700; }
+    .modal-body p { font-size: 14px; color: #334155; line-height: 1.7; margin-bottom: 12px; }
+    .modal-body ul { margin-bottom: 15px; padding-left: 20px; font-size: 14px; color: #334155; line-height: 1.7; }
 
     /* मोबाइल व्यू के लिए रिस्पॉन्सिव */
     @media (max-width: 600px) {
       .featured-card { grid-template-columns: 1fr; }
       .featured-img { height: 160px; }
       .blog-hero h1 { font-size: 22px; }
+      .modal-content { padding: 18px; margin: 10px auto; }
     }
   </style>
 </head>
@@ -114,7 +166,7 @@
   <div class="blog-container">
 
     <!-- FEATURED ARTICLE -->
-    <div class="featured-card">
+    <div class="featured-card clickable-card" onclick="openBlog('post1')">
       <div class="featured-img"></div>
       <div class="featured-content">
         <span class="badge">खास लेख (Featured)</span>
@@ -122,6 +174,7 @@
         <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin: 0;">
           दीमक से सुरक्षा, सही सफाई, सनमाइका की चमक बनाए रखने और नमी से बचाने के असरदार तरीके।
         </p>
+        <span style="font-size:12px; color:#2563eb; font-weight:700; margin-top:8px; display:inline-block;">पूरा पढ़ें ➔</span>
       </div>
     </div>
 
@@ -131,49 +184,59 @@
     <div class="blog-grid">
 
       <!-- Blog Card 1 -->
-      <article class="blog-card">
+      <article class="blog-card clickable-card" onclick="openBlog('post2')">
         <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=500&q=80');"></div>
         <div class="card-body">
           <span class="badge" style="background: #dcfce7; color: #15803d;">📍 Special Guide</span>
           <h3 class="blog-title">घर के लिए मॉड्यूलर किचन व सही फर्नीचर चुनने की गाइड</h3>
           <p class="blog-desc">सही रेट पर कारपेंटर चुनने और मटीरियल सेलेक्शन की आसान टिप्स।</p>
-          <div class="meta-info">⏱️ 5 min read</div>
+          <div class="meta-info">पूरा पढ़ें ➔</div>
         </div>
       </article>
 
       <!-- Blog Card 2 -->
-      <article class="blog-card">
+      <article class="blog-card clickable-card" onclick="openBlog('post3')">
         <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=500&q=80');"></div>
         <div class="card-body">
           <span class="badge">Modular Kitchen</span>
           <h3 class="blog-title">मॉड्यूलर किचन बनवाने की पूरी जानकारी</h3>
           <p class="blog-desc">सही प्लाइवुड का चुनाव और कम बजट में बेस्ट किचन लेआउट गाइड।</p>
-          <div class="meta-info">⏱️ 4 min read</div>
+          <div class="meta-info">पूरा पढ़ें ➔</div>
         </div>
       </article>
 
       <!-- Blog Card 3 -->
-      <article class="blog-card">
+      <article class="blog-card clickable-card" onclick="openBlog('post4')">
         <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=500&q=80');"></div>
         <div class="card-body">
           <span class="badge">Wood Comparison</span>
           <h3 class="blog-title">फर्नीचर के लिए सबसे अच्छी लकड़ी कौन सी है?</h3>
           <p class="blog-desc">मजबूती और फिनिशिंग के आधार पर जानें किस जगह कौन-सी लकड़ी लगाएं।</p>
-          <div class="meta-info">⏱️ 5 min read</div>
+          <div class="meta-info">पूरा पढ़ें ➔</div>
         </div>
       </article>
 
       <!-- Blog Card 4 -->
-      <article class="blog-card">
+      <article class="blog-card clickable-card" onclick="openBlog('post5')">
         <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80');"></div>
         <div class="card-body">
           <span class="badge">Repair Guide</span>
           <h3 class="blog-title">टूटी हुई कुर्सी या फर्नीचर की मरम्मत कैसे करें?</h3>
           <p class="blog-desc">घर पर आसान तरीकों से कब्जे और ढीले जोड़ों की रिपेयरिंग गाइड।</p>
-          <div class="meta-info">⏱️ 3 min read</div>
+          <div class="meta-info">पूरा पढ़ें ➔</div>
         </div>
       </article>
 
+    </div>
+  </div>
+
+  <!-- FULL BLOG DISPLAY MODAL (SEO OPTIMIZED CONTENT) -->
+  <div id="blogModal" class="blog-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeBlog()">&times;</span>
+      <div id="modalBody" class="modal-body">
+        <!-- Dynamic Blog Content Loads Here -->
+      </div>
     </div>
   </div>
 
@@ -182,8 +245,102 @@
     <p>© 2026 Anil Carpenter. All Rights Reserved.</p>
   </footer>
 
-  <!-- MOBILE MENU TOGGLE SCRIPT -->
+  <!-- SCRIPT FOR MENU & DYNAMIC BLOG POPUPS -->
   <script>
+    const blogData = {
+      post1: {
+        title: "लकड़ी के फर्नीचर को वर्षों तक नया और मजबूत कैसे रखें?",
+        category: "Featured Guide",
+        content: `
+          <p>लकड़ी का फर्नीचर आपके घर की सुंदरता और शान को बढ़ाता है। लेकिन सही रख-रखाव न होने पर नमी, दीमक और धूप इसे नुकसान पहुँचा सकते हैं। अनिल कारपेंटर सर्विसेज द्वारा बताए गए इन आसान टिप्स से आप अपने फर्नीचर की लाइफ कई साल बढ़ा सकते हैं:</p>
+          <h3>1. दीमक (Termite) से बचाव के उपाय</h3>
+          <p>फर्नीचर बनवाते समय कम से कम IS:303 या BWR/BWP ग्रेड प्लाइवुड का इस्तेमाल करें। साल में एक बार एंटी-टर्माइट स्प्रे (Termite Spray) या नीम के तेल का लेप ज़रूर लगाएं।</p>
+          <h3>2. नमी और सिलन से बचाएं</h3>
+          <p>फर्नीचर को कभी भी सीधे गीली दीवार से सटाकर न रखें। दीवार और अलमारी/बेड के बीच कम से कम 2 से 3 इंच की दूरी बनाए रखें ताकि हवा का पास होना आसान हो।</p>
+          <h3>3. सनमाइका और लेमिनेट की सही सफाई</h3>
+          <p>सनमाइका की सफाई के लिए कठोर केमिकल का इस्तेमाल न करें। हल्के गीले सूती कपड़े और माइल्ड सोप (Soap Water) से पोंछकर तुरंत सूखे कपड़े से साफ करें।</p>
+          <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20फर्नीचर%20रिपेयर/मेंटेनेंस%20सर्विस%20चाहिए।" target="_blank" style="display:inline-block; background:#2563eb; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700; margin-top:15px;">📞 कारपेंटर सर्विस बुक करें</a>
+        `
+      },
+      post2: {
+        title: "घर के लिए मॉड्यूलर किचन व सही फर्नीचर चुनने की गाइड",
+        category: "Special Guide",
+        content: `
+          <p>घर में नया फर्नीचर या किचन बनवाते समय सही मटीरियल और प्रोफेशनल कारपेंटर का चुनाव सबसे महत्वपूर्ण होता है।</p>
+          <h3>सही मटीरियल कैसे चुनें?</h3>
+          <ul>
+            <li><b>किचन और बाथ स्पेस:</b> हमेशा BWP (Boiling Water Proof) मैरिन प्लाइवुड का इस्तेमाल करें।</li>
+            <li><b>बेडरूम और वार्डरोब:</b> Commercial MR Grade Plywood का उपयोग बजट फ्रेंडली और मजबूत होता है।</li>
+          </ul>
+          <h3>ऑन-साइट कारपेंटर वर्क के फायदे</h3>
+          <p>रेडीमेड फर्नीचर के मुकाबले ऑन-साइट (साइट पर जाकर) फर्नीचर बनवाने से आपको सटीक नाप, मजबूत कब्जा (Hinges) और मनपसंद डिज़ाइन मिलता है।</p>
+          <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20मॉड्यूलर%20किचन/फर्नीचर%20कोटेशन%20चाहिए।" target="_blank" style="display:inline-block; background:#2563eb; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700; margin-top:15px;">💬 फ्री कोटेशन प्राप्त करें</a>
+        `
+      },
+      post3: {
+        title: "मॉड्यूलर किचन बनवाने की पूरी जानकारी व बजट गाइड",
+        category: "Modular Kitchen",
+        content: `
+          <p>मॉड्यूलर किचन आजकल हर आधुनिक घर की जरूरत बन चुका है। कम जगह में ज्यादा सामान व्यवस्थित रखने के लिए यह सबसे बेहतरीन विकल्प है।</p>
+          <h3>किचन बास्केट और फिटिंग चयन:</h3>
+          <p>स्टेनलेस स्टील (SS 304 Grade) बास्केट और सॉफ्ट-क्लोज ड्रॉवर चैनल्स (Tandem Box) का ही चुनाव करें ताकि जंग न लगे और आवाज़ न हो।</p>
+          <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20मॉड्यूलर%20किचन%20डिजाइन%20करवाना%20है।" target="_blank" style="display:inline-block; background:#2563eb; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700; margin-top:15px;">📲 व्हाट्सएप पर बात करें</a>
+        `
+      },
+      post4: {
+        title: "फर्नीचर के लिए सबसे अच्छी लकड़ी और प्लाइवुड कौन सा है?",
+        category: "Wood Comparison",
+        content: `
+          <p>फर्नीचर की मजबूती इस बात पर निर्भर करती है कि आपने आधार (Base) के लिए किस तरह की लकड़ी या प्लाइवुड का उपयोग किया है।</p>
+          <h3>लकड़ी के प्रकार:</h3>
+          <ul>
+            <li><b>सागवान (Teak Wood):</b> दरवाजों और बाहरी फ्रेम के लिए सर्वोपरि, टिकाऊ व सुंदर।</li>
+            <li><b>शीशम (Rosewood):</b> भारी नक्काशी और बेड/डाइनिंग टेबल के लिए सबसे मजबूत।</li>
+            <li><b>प्लाईवुड (Plywood):</b> वार्डरोब, अलमारी और कैबिनेट के लिए सबसे किफ़ायती और मजबूत।</li>
+          </ul>
+        `
+      },
+      post5: {
+        title: "टूटी हुई कुर्सी या फर्नीचर की मरम्मत कैसे करें?",
+        category: "Repair Guide",
+        content: `
+          <p>घर में छोटे-मोटे फर्नीचर खराब होने पर तुरंत नया खरीदने की जगह रिपेयर कराना किफ़ायती होता है।</p>
+          <h3>सामान रिपेयर टिप्स:</h3>
+          <ul>
+            <li><b>ढीले कब्जे:</b> कब्जे के पेच ढीले होने पर उसमें लकड़ी की छोटी गिट्टी व फेविकोल भरकर पेच टाइट करें।</li>
+            <li><b>दराज का अटकना:</b> ड्रॉवर के साइड चैनल पर मोम या सिलिकॉन स्प्रे लगाएं।</li>
+          </ul>
+          <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20फर्नीचर%20रिपेयर%20बुक%20करना%20है।" target="_blank" style="display:inline-block; background:#2563eb; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700; margin-top:15px;">🔧 रिपेयर बुकिंग करें</a>
+        `
+      }
+    };
+
+    function openBlog(postId) {
+      const post = blogData[postId];
+      if (post) {
+        document.getElementById('modalBody').innerHTML = `
+          <span class="badge" style="margin-bottom:12px;">${post.category}</span>
+          <h2>${post.title}</h2>
+          <hr style="border:0; border-top:1px solid #e2e8f0; margin-bottom:15px;">
+          ${post.content}
+        `;
+        document.getElementById('blogModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeBlog() {
+      document.getElementById('blogModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('blogModal');
+      if (event.target === modal) {
+        closeBlog();
+      }
+    };
+
     function toggleMenu() {
       var nav = document.getElementById("navLinks");
       if (nav.style.display === "flex") {
@@ -196,4 +353,3 @@
   </script>
 </body>
 </html>
-
