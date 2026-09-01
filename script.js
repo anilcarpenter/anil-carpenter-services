@@ -1,312 +1,252 @@
-"use strict";
+// LocalStorage Key Name
+var LOCAL_STORAGE_KEY = 'anil_partners_data';
+var CURRENT_USER_KEY = 'anil_current_partner';
 
-/* Set Current Year */
-document.addEventListener("DOMContentLoaded", function() {
-  const yearElement = document.getElementById("currentYear");
-  if(yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-});
-
-/* Open Booking Modal with Selected Service */
-window.openBooking = function(serviceName) {
-  const modal = document.getElementById("bookingModal");
-  const serviceSelect = document.getElementById("quickService");
-  
-  if (!modal) return;
-
-  if (serviceSelect && serviceName) {
-    let found = false;
-    for (let i = 0; i < serviceSelect.options.length; i++) {
-      if (serviceSelect.options[i].value === serviceName) {
-        serviceSelect.selectedIndex = i;
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
-      serviceSelect.selectedIndex = 0;
-    }
-  }
-
-  modal.classList.add("active");
-  modal.setAttribute("aria-hidden", "false");
-};
-
-/* Close Booking Modal */
-window.closeBooking = function() {
-  const modal = document.getElementById("bookingModal");
-  if (!modal) return;
-
-  modal.classList.remove("active");
-  modal.setAttribute("aria-hidden", "true");
-};
-
-/* Close on Escape key */
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    closeBooking();
-  }
-});
-
-/* WhatsApp Direct Booking Handler */
-window.submitQuickBooking = function(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("quickName")?.value.trim();
-  const phone = document.getElementById("quickPhone")?.value.trim();
-  const service = document.getElementById("quickService")?.value;
-  const address = document.getElementById("quickAddress")?.value.trim();
-  const extraMessage = document.getElementById("quickMessage")?.value.trim();
-  const status = document.getElementById("quickBookingStatus");
-
-  if (!name || !phone || !service || !address) {
-    if (status) status.textContent = "कृपया सभी जरूरी जानकारी भरें।";
-    return;
-  }
-
-  if (!/^[0-9]{10}$/.test(phone)) {
-    if (status) status.textContent = "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
-    return;
-  }
-
-  const whatsappText = 
-    "नमस्ते Anil Carpenter,\n\n" +
-    "मुझे कारपेंटर सर्विस बुक करनी है।\n\n" +
-    "👤 नाम: " + name + "\n" +
-    "📞 मोबाइल: " + phone + "\n" +
-    "🛠️ सर्विस: " + service + "\n" +
-    "📍 पता: " + address + 
-    (extraMessage ? "\n📝 काम का विवरण: " + extraMessage : "");
-
-  const whatsappURL = "https://wa.me/918341188318?text=" + encodeURIComponent(whatsappText);
-
-  if (status) status.textContent = "WhatsApp खोला जा रहा है...";
-
-  window.open(whatsappURL, "_blank");
-
-  setTimeout(function() {
-    closeBooking();
-    if (status) status.textContent = "";
-  }, 1000);
-};
-
-/* Only allow numbers in Phone input */
-document.addEventListener("input", function(e) {
-  if (e.target.matches('input[type="tel"]')) {
-    e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(0, 10);
-  }
-});
-
-/* WORKER PARTNER SYSTEM (Local Storage Based) */
-
-// Register Partner
-window.handlePartnerRegister = function(e) {
-  e.preventDefault();
-  const name = document.getElementById("pName")?.value.trim();
-  const phone = document.getElementById("pPhone")?.value.trim();
-  const skill = document.getElementById("pSkills")?.value;
-  const exp = document.getElementById("pExp")?.value;
-  const msg = document.getElementById("partnerMessage");
-
-  if(!name || !phone || !skill || !exp) return;
-
-  const partnerData = {
-    name: name,
-    phone: phone,
-    skill: skill,
-    exp: exp,
+// डिफॉल्ट डेटा - अगर कोई पार्टनर न हो तो आपका प्रोफाइल हमेशा दिखे
+var DEFAULT_PARTNERS = [
+  {
+    name: "अनिल प्रजापति (Anil Carpenter)",
+    phone: "8341188318",
+    pin: "1234",
+    location: "वडोदरा (Vadodara / Baroda)",
+    category: "जनरल हैंड-टूल वर्कर (Helper/Skilled)",
+    exp: "8",
     status: "Available (काम के लिए उपलब्ध)"
-  };
-
-  localStorage.setItem("worker_" + phone, JSON.stringify(partnerData));
-  
-  if(msg) msg.textContent = "✅ आपका रजिस्ट्रेशन हो गया है! अब लॉगिन करें।";
-  document.getElementById("partnerRegisterForm").reset();
-};
-
-// Login Partner
-window.handlePartnerLogin = function(e) {
-  e.preventDefault();
-  const phone = document.getElementById("loginPhone")?.value.trim();
-  const msg = document.getElementById("partnerMessage");
-
-  const data = localStorage.getItem("worker_" + phone);
-  if(!data) {
-    if(msg) msg.textContent = "❌ इस नंबर से कोई प्रोफाइल नहीं मिली। कृपया पहले साइन-अप करें।";
-    return;
   }
+];
 
-  const partner = JSON.parse(data);
-  localStorage.setItem("current_worker", phone);
-  renderPartnerProfile(partner);
-  if(msg) msg.textContent = "";
-};
+// Page Load Event
+document.addEventListener("DOMContentLoaded", function() {
+  initData();
+  checkLoginState();
+  renderPublicDirectory();
+});
 
-// Render Profile to Dashboard
-function renderPartnerProfile(partner) {
-  document.getElementById("partnerLoginBox").style.display = "none";
-  document.getElementById("partnerProfileBox").style.display = "block";
-
-  document.getElementById("profileDisplayName").textContent = partner.name;
-  document.getElementById("profileDisplayPhone").textContent = "+91 " + partner.phone;
-  document.getElementById("editSkill").value = partner.skill;
-  document.getElementById("editExp").value = partner.exp;
-  document.getElementById("editStatus").value = partner.status || "Available (काम के लिए उपलब्ध)";
+// स्टोरेज में अगर कुछ न हो तो डिफ़ॉल्ट प्रोफाइल सेट करें
+function initData() {
+  var existingData = localStorage.getItem(LOCAL_STORAGE_KEY);
+  if (!existingData) {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_PARTNERS));
+  }
 }
 
-// Update Profile
-window.handleProfileUpdate = function(e) {
-  e.preventDefault();
-  const phone = localStorage.getItem("current_worker");
-  const msg = document.getElementById("partnerMessage");
+// Check Login State
+function checkLoginState() {
+  var currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
+  var authSection = document.getElementById("authSection");
+  var dashboardSection = document.getElementById("dashboardSection");
 
-  if(!phone) return;
-
-  const data = JSON.parse(localStorage.getItem("worker_" + phone));
-  data.skill = document.getElementById("editSkill").value.trim();
-  data.exp = document.getElementById("editExp").value;
-  data.status = document.getElementById("editStatus").value;
-
-  localStorage.setItem("worker_" + phone, JSON.stringify(data));
-  if(msg) msg.textContent = "✅ आपकी प्रोफाइल अपडेट हो गई है!";
-};
-
-// Logout Partner
-window.handlePartnerLogout = function() {
-  localStorage.removeItem("current_worker");
-  document.getElementById("partnerLoginBox").style.display = "block";
-  document.getElementById("partnerProfileBox").style.display = "none";
-  const msg = document.getElementById("partnerMessage");
-  if(msg) msg.textContent = "आप लॉगआउट हो चुके हैं।";
-};
-
-// Auto check login on page load
-document.addEventListener("DOMContentLoaded", function() {
-  const activePhone = localStorage.getItem("current_worker");
-  if(activePhone) {
-    const data = localStorage.getItem("worker_" + activePhone);
-    if(data) renderPartnerProfile(JSON.parse(data));
+  if (currentUser) {
+    if (authSection) authSection.style.display = "none";
+    if (dashboardSection) dashboardSection.style.display = "block";
+    loadPartnerProfileData(currentUser);
+  } else {
+    if (authSection) authSection.style.display = "block";
+    if (dashboardSection) dashboardSection.style.display = "none";
   }
-});
-/* SEPARATE PARTNER PORTAL LOGIC */
+}
 
-window.handlePortalRegister = function(e) {
+// प्रोफाइल डेटा लोड करें और कॉल/व्हाट्सऐप लिंक सेट करें
+function loadPartnerProfileData(partner) {
+  var rawPhone = (partner.phone || '').replace(/\D/g, '');
+
+  if (document.getElementById('dispName')) document.getElementById('dispName').innerText = partner.name || 'Anil Carpenter';
+  if (document.getElementById('dispCategory')) document.getElementById('dispCategory').innerText = partner.category || 'फर्नीचर कारपेंटर';
+  if (document.getElementById('dispExp')) document.getElementById('dispExp').innerText = partner.exp || '0';
+  if (document.getElementById('dispPhoneDisplay')) document.getElementById('dispPhoneDisplay').innerText = rawPhone;
+  if (document.getElementById('dispStatus')) document.getElementById('dispStatus').innerText = partner.status || 'Available (काम के लिए उपलब्ध)';
+  if (document.getElementById('dispAvatar')) document.getElementById('dispAvatar').innerText = (partner.name || 'A').charAt(0).toUpperCase();
+  
+  var locationText = partner.location || 'वडोदरा (Vadodara / Baroda)';
+  if (document.getElementById('dispLocTag')) document.getElementById('dispLocTag').innerText = '📍 ' + locationText;
+
+  // 🔴 CALL & WHATSAPP FUNCTIONALITY FIX
+  var callBtn = document.getElementById('pubCallBtn');
+  var waBtn = document.getElementById('pubWaBtn');
+
+  if (callBtn) {
+    callBtn.href = "tel:" + rawPhone;
+  }
+
+  if (waBtn) {
+    var waMsg = encodeURIComponent("नमस्ते " + partner.name + " जी, मुझे आपकी अनिल कारपेंटर नेटवर्क प्रोफाइल से आपका नंबर मिला है। मुझे काम के सिलसिले में बात करनी है।");
+    waBtn.href = "https://api.whatsapp.com/send?phone=91" + rawPhone + "&text=" + waMsg;
+  }
+
+  // Edit form initial values
+  if (document.getElementById('editPhone')) document.getElementById('editPhone').value = rawPhone;
+  if (document.getElementById('editExp')) document.getElementById('editExp').value = partner.exp || '';
+  if (document.getElementById('editCategory')) document.getElementById('editCategory').value = partner.category || '';
+  if (document.getElementById('editStatus')) document.getElementById('editStatus').value = partner.status || 'Available (काम के लिए उपलब्ध)';
+  if (document.getElementById('editLocation')) document.getElementById('editLocation').value = locationText;
+}
+
+// Handle Login
+function handlePortalLogin(e) {
   e.preventDefault();
-  const name = document.getElementById("regName")?.value.trim();
-  const phone = document.getElementById("regPhone")?.value.trim();
-  const pin = document.getElementById("regPin")?.value.trim();
-  const category = document.getElementById("regCategory")?.value;
-  const exp = document.getElementById("regExp")?.value;
-  const msg = document.getElementById("portalMsg");
+  var phone = document.getElementById("portPhone").value.trim().replace(/\D/g, '');
+  var pin = document.getElementById("portPin").value.trim();
+  var msg = document.getElementById("portalMsg");
 
-  if(!name || !phone || !pin || !category || !exp) return;
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+  var user = partners.find(function(p) { return p.phone.replace(/\D/g, '') === phone && p.pin === pin; });
 
-  if(pin.length !== 4) {
-    if(msg) msg.textContent = "❌ PIN सिर्फ 4 अंकों का होना चाहिए।";
+  if (user) {
+    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+    if (msg) msg.innerHTML = "<span style='color:green; font-weight:bold;'>लॉगिन सफल! लोडिंग...</span>";
+    setTimeout(function() {
+      if (msg) msg.innerHTML = "";
+      checkLoginState();
+      renderPublicDirectory();
+    }, 500);
+  } else {
+    if (msg) msg.innerHTML = "<span style='color:red; font-weight:bold;'>गलत मोबाइल नंबर या PIN!</span>";
+  }
+}
+
+// Handle Register
+function handlePortalRegister(e) {
+  e.preventDefault();
+  var name = document.getElementById("regName").value.trim();
+  var phone = document.getElementById("regPhone").value.trim().replace(/\D/g, '');
+  var pin = document.getElementById("regPin").value.trim();
+  var location = document.getElementById("regLocation").value;
+  var category = document.getElementById("regCategory").value;
+  var exp = document.getElementById("regExp").value.trim();
+  var msg = document.getElementById("portalMsg");
+
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+  var exists = partners.some(function(p) { return p.phone.replace(/\D/g, '') === phone; });
+
+  if (exists) {
+    if (msg) msg.innerHTML = "<span style='color:red; font-weight:bold;'>यह मोबाइल नंबर पहले से रजिस्टर्ड है! कृपया लॉगिन करें।</span>";
     return;
   }
 
-  const partnerData = {
+  var newPartner = {
     name: name,
     phone: phone,
     pin: pin,
+    location: location,
     category: category,
     exp: exp,
-    status: "Available (काम के लिए उपलब्ध)"
+    status: 'Available (काम के लिए उपलब्ध)'
   };
 
-  localStorage.setItem("worker_" + phone, JSON.stringify(partnerData));
-  localStorage.setItem("current_worker", phone);
-  
-  alert("✅ आपका पार्टनर अकाउंट बन गया है!");
-  loadPortalDashboard(partnerData);
-};
+  partners.push(newPartner);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(partners));
+  localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(newPartner));
 
-window.handlePortalLogin = function(e) {
+  if (msg) msg.innerHTML = "<span style='color:green; font-weight:bold;'>रजिस्ट्रेशन सफल! आपकी प्रोफाइल अब पब्लिक है...</span>";
+  setTimeout(function() {
+    if (msg) msg.innerHTML = "";
+    checkLoginState();
+    renderPublicDirectory();
+  }, 800);
+}
+
+// Save Profile Updates
+function handleProfileSave(e) {
   e.preventDefault();
-  const phone = document.getElementById("portPhone")?.value.trim();
-  const pin = document.getElementById("portPin")?.value.trim();
-  const msg = document.getElementById("portalMsg");
+  var currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
+  if (!currentUser) return;
 
-  const data = localStorage.getItem("worker_" + phone);
-  if(!data) {
-    if(msg) msg.textContent = "❌ यह नंबर रजिस्टर्ड नहीं है। दाहिने तरफ फॉर्म भरकर रजिस्ट्रेशन करें।";
-    return;
+  var exp = document.getElementById("editExp").value.trim();
+  var location = document.getElementById("editLocation").value;
+  var category = document.getElementById("editCategory").value;
+  var status = document.getElementById("editStatus").value;
+  var newPin = document.getElementById("editPin").value.trim();
+
+  currentUser.exp = exp;
+  currentUser.location = location;
+  currentUser.category = category;
+  currentUser.status = status;
+  if (newPin && newPin.length === 4) {
+    currentUser.pin = newPin;
   }
 
-  const partner = JSON.parse(data);
-  if(partner.pin && partner.pin !== pin) {
-    if(msg) msg.textContent = "❌ गलत PIN!";
-    return;
-  }
-
-  localStorage.setItem("current_worker", phone);
-  loadPortalDashboard(partner);
-};
-
-function loadPortalDashboard(partner) {
-  document.getElementById("authSection").style.display = "none";
-  document.getElementById("dashboardSection").style.display = "block";
-
-  document.getElementById("dispName").textContent = partner.name;
-  document.getElementById("dispCategory").textContent = partner.category || "Skilled Worker";
-  document.getElementById("dispAvatar").textContent = partner.name.charAt(0).toUpperCase();
-
-  const statusEl = document.getElementById("dispStatus");
-  statusEl.textContent = partner.status || "Available (काम के लिए उपलब्ध)";
-  if(partner.status && partner.status.includes("Busy")) {
-    statusEl.className = "status-badge status-busy";
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+  var idx = partners.findIndex(function(p) { return p.phone.replace(/\D/g, '') === currentUser.phone.replace(/\D/g, ''); });
+  if (idx !== -1) {
+    partners[idx] = currentUser;
   } else {
-    statusEl.className = "status-badge status-available";
+    partners.push(currentUser);
   }
-
-  document.getElementById("editPhone").value = partner.phone;
-  document.getElementById("editExp").value = partner.exp;
-  document.getElementById("editCategory").value = partner.category;
-  document.getElementById("editStatus").value = partner.status || "Available (काम के लिए उपलब्ध)";
-}
-
-window.handleProfileSave = function(e) {
-  e.preventDefault();
-  const phone = localStorage.getItem("current_worker");
-  const msg = document.getElementById("saveMsg");
-  if(!phone) return;
-
-  const data = JSON.parse(localStorage.getItem("worker_" + phone));
-  data.exp = document.getElementById("editExp").value;
-  data.category = document.getElementById("editCategory").value;
-  data.status = document.getElementById("editStatus").value;
-
-  const newPin = document.getElementById("editPin").value.trim();
-  if(newPin && newPin.length === 4) {
-    data.pin = newPin;
-  }
-
-  localStorage.setItem("worker_" + phone, JSON.stringify(data));
-  if(msg) msg.textContent = "✅ आपकी प्रोफाइल सफलतापूर्वक अपडेट हो गई!";
   
-  loadPortalDashboard(data);
-};
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(partners));
+  localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
 
-window.handlePortalLogout = function() {
-  localStorage.removeItem("current_worker");
-  document.getElementById("authSection").style.display = "block";
-  document.getElementById("dashboardSection").style.display = "none";
-};
+  var saveMsg = document.getElementById("saveMsg");
+  if (saveMsg) saveMsg.innerHTML = "<span style='color:green; font-weight:bold;'>✅ प्रोफाइल अपडेट हो गई और लाइव है!</span>";
 
-// Check login status on page load
-document.addEventListener("DOMContentLoaded", function() {
-  const activePhone = localStorage.getItem("current_worker");
-  if(activePhone && document.getElementById("dashboardSection")) {
-    const data = localStorage.getItem("worker_" + activePhone);
-    if(data) loadPortalDashboard(JSON.parse(data));
-  }
-});
-/* MOBILE MENU TOGGLE - FINAL FIX */
-function toggleMenu() {
-  var menu = document.querySelector('.links') || document.querySelector('.main-menu');
-  if (menu) {
-    menu.classList.toggle('active');
+  loadPartnerProfileData(currentUser);
+  renderPublicDirectory();
+
+  setTimeout(function() {
+    if (saveMsg) saveMsg.innerHTML = "";
+  }, 2500);
+}
+
+// Handle Logout
+function handlePortalLogout() {
+  localStorage.removeItem(CURRENT_USER_KEY);
+  checkLoginState();
+  renderPublicDirectory();
+}
+
+// Forgot PIN
+function handleForgotPassword() {
+  var phone = prompt("अपना 10 अंकों का रजिस्टर्ड मोबाइल नंबर दर्ज करें:");
+  if (!phone) return;
+  phone = phone.replace(/\D/g, '');
+
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+  var user = partners.find(function(p) { return p.phone.replace(/\D/g, '') === phone; });
+
+  if (user) {
+    alert("आपका PIN है: " + user.pin);
+  } else {
+    alert("यह नंबर रजिस्टर्ड नहीं है।");
   }
 }
+
+// Render All Public Registered Workers with working Call & WhatsApp buttons
+function renderPublicDirectory() {
+  var listContainer = document.getElementById('publicWorkerList');
+  if (!listContainer) return;
+
+  var selectedLoc = document.getElementById('filterLocation') ? document.getElementById('filterLocation').value : 'ALL';
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+
+  listContainer.innerHTML = '';
+
+  var filtered = partners.filter(function(w) {
+    return selectedLoc === 'ALL' || (w.location && w.location.indexOf(selectedLoc) !== -1);
+  });
+
+  if (filtered.length === 0) {
+    listContainer.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color:#94a3b8; padding:20px;">इस लोकेशन में अभी कोई वर्कर पार्टनर उपलब्ध नहीं है।</p>';
+    return;
+  }
+
+  filtered.forEach(function(w) {
+    var rawPhone = (w.phone || '').replace(/\D/g, '');
+    var waMsg = encodeURIComponent("नमस्ते " + w.name + " जी, मुझे अनिल कारपेंटर नेटवर्क प्रोफाइल से आपका नंबर मिला है। मुझे काम के सिलसिले में बात करनी है।");
+    var waLink = "https://api.whatsapp.com/send?phone=91" + rawPhone + "&text=" + waMsg;
+    var callLink = "tel:" + rawPhone;
+
+    var card = document.createElement('div');
+    card.className = 'worker-public-card';
+    card.innerHTML = 
+      '<h3 style="margin:0 0 4px 0; color:#0f172a;">' + w.name + '</h3>' +
+      '<span class="location-tag" style="margin:4px 0 8px 0; display:inline-block;">📍 ' + (w.location || 'वडोदरा / बड़ौदा') + '</span>' +
+      '<p style="font-size:13px; color:#475569; margin:4px 0;"><strong>' + w.category + '</strong></p>' +
+      '<p style="font-size:12px; color:#64748b; margin:0 0 12px 0;">अनुभव: ' + w.exp + ' वर्ष | स्टेटस: ' + (w.status || 'Available') + '</p>' +
+      '<div class="btn-action-group">' +
+        '<a href="' + callLink + '" class="btn-call">📞 कॉल करें</a>' +
+        '<a href="' + waLink + '" target="_blank" class="btn-wa">💬 WhatsApp</a>' +
+      '</div>';
+    listContainer.appendChild(card);
+  });
+}
+
