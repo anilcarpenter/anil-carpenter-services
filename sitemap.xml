@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- 1. HOME PAGE -->
+  
+  <!-- Home Page -->
   <url>
-    <loc>https://anilcarpenter.com/</loc>
+    <loc>https://anilcarpenter.com/index.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- 2. ABOUT US PAGE -->
+  <!-- About Us Page -->
   <url>
     <loc>https://anilcarpenter.com/about.html</loc>
     <lastmod>2026-09-01</lastmod>
@@ -17,23 +17,23 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- 3. MAIN BLOG PAGE -->
+  <!-- Blog Page -->
   <url>
     <loc>https://anilcarpenter.com/blog.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- 4. PARTNER PROFILE / SIGN UP -->
-  <url>
-    <loc>https://anilcarpenter.com/partner-profile.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- 5. PRIVACY POLICY -->
+  <!-- Partner Profile Page -->
+  <url>
+    <loc>https://anilcarpenter.com/partner-profile.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy Policy Page -->
   <url>
     <loc>https://anilcarpenter.com/privacy-policy.html</loc>
     <lastmod>2026-09-01</lastmod>
@@ -41,48 +41,14 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- ==========================================
-       BLOG ARTICLES (SEO & LOCAL GUIDES)
-       ========================================== -->
-
-  <!-- Article 1: Furniture Care Guide -->
+  <!-- Terms and Conditions Page -->
   <url>
-    <loc>https://anilcarpenter.com/articles/furniture-care-tips.html</loc>
+    <loc>https://anilcarpenter.com/terms-and-conditions.html</loc>
     <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Article 2: Modular Kitchen Guide (Vadodara & General) -->
-  <url>
-    <loc>https://anilcarpenter.com/articles/modular-kitchen-guide.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Article 3: Best Wood Comparison -->
-  <url>
-    <loc>https://anilcarpenter.com/articles/best-wood-for-furniture.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Article 4: Furniture Repair Guide -->
-  <url>
-    <loc>https://anilcarpenter.com/articles/tooti-hui-kursi-ki-marammat.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Article 5: Local SEO Guide (Basti & Khalilabad) -->
-  <url>
-    <loc>https://anilcarpenter.com/articles/carpenter-basti-khalilabad-furniture-guide.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
+
+
