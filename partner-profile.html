@@ -6,21 +6,6 @@
   <title>Skilled Worker Partner Portal | Anil Carpenter Network</title>
   <link rel="stylesheet" href="style.css">
   
-  <!-- LOCAL BUSINESS SEO SCHEMA (गूगल इंडेक्सिंग व रैंकिंग के लिए) -->
-  <script type="application/ld+json" id="workerSeoSchema">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Anil Carpenter Network Workers",
-    "description": "On-Site Skilled Carpenters and Woodworkers Directory in Vadodara and Uttar Pradesh",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Vadodara / Sant Kabir Nagar",
-      "addressCountry": "IN"
-    }
-  }
-  </script>
-
   <style>
     .partner-portal-container { max-width: 950px; margin: 40px auto; padding: 20px; }
     .card-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 24px; }
@@ -31,7 +16,6 @@
     .status-busy { background: #fce8e6; color: #c5221f; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     
-    /* PUBLIC LIVE CARD PREVIEW */
     .public-card-preview {
       background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
       border: 2px dashed #2563eb;
@@ -42,8 +26,12 @@
     .public-badge { background: #2563eb; color: #fff; padding: 3px 10px; font-size: 11px; font-weight: 800; border-radius: 12px; display: inline-block; margin-bottom: 10px; }
     .location-tag { background: #e2e8f0; color: #1e293b; padding: 3px 10px; font-size: 12px; border-radius: 6px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
     
-    .worker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 15px; }
-    .worker-public-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .worker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 15px; }
+    .worker-public-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 18px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .btn-action-group { display: flex; gap: 10px; margin-top: 12px; }
+    .btn-action-group a { flex: 1; text-align: center; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 14px; }
+    .btn-call { background: #2563eb; color: white; }
+    .btn-wa { background: #25D366; color: white; }
 
     @media (max-width: 600px) { 
       .grid-2 { grid-template-columns: 1fr; } 
@@ -53,7 +41,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="container nav">
       <a href="index.html" class="brand">
@@ -66,11 +53,11 @@
 
   <div class="partner-portal-container">
     
-    <!-- LOGIN / REGISTER BOX -->
+    <!-- LOGIN & REGISTRATION SECTION -->
     <div id="authSection" class="card-box">
       <div style="text-align: center; margin-bottom: 24px;">
         <h2>🧰 Manpower & Skilled Worker Portal</h2>
-        <p>अपना मोबाइल नंबर और PIN दर्ज करके लॉगिन करें या नया पार्टनर अकाउंट बनाएं</p>
+        <p>अपना प्रोफाइल बनाएं ताकि ग्राहक आपको सीधे कॉल या व्हाट्सएप कर सकें</p>
       </div>
 
       <div class="grid-2">
@@ -87,18 +74,18 @@
           </form>
         </div>
 
-        <!-- REGISTRATION FORM WITH VADODARA & SKN -->
+        <!-- REGISTRATION FORM -->
         <div style="padding-left: 16px;">
           <h3>नया पार्टनर रजिस्ट्रेशन</h3>
           <form onsubmit="handlePortalRegister(event)" style="margin-top: 15px;">
             <label>पूरा नाम</label>
-            <input type="text" id="regName" placeholder="उदा. राम कुमार" required>
-            <label>मोबाइल नंबर</label>
+            <input type="text" id="regName" placeholder="उदा. अनिल प्रजापति" required>
+            <label>मोबाइल नंबर (व्हाट्सएप/कॉल)</label>
             <input type="tel" id="regPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
             <label>4-अंकों का PIN सेट करें</label>
             <input type="password" id="regPin" placeholder="उदा. 1234" maxlength="4" required>
             
-            <label>आपकी कार्य लोकेशन (Service Area / City)</label>
+            <label>कार्य लोकेशन (Service City)</label>
             <select id="regLocation" required>
               <option value="">लोकेशन चुनें</option>
               <option value="वडोदरा (Vadodara / Baroda)">वडोदरा / बड़ौदा (Vadodara / Baroda)</option>
@@ -119,21 +106,21 @@
             </select>
             
             <label>अनुभव (Experience Years)</label>
-            <input type="number" id="regExp" placeholder="उदा. 4 साल" required>
+            <input type="number" id="regExp" placeholder="उदा. 8 साल" required>
             
-            <button type="submit" class="btn light full-w" style="margin-top: 15px;">पार्टनर अकाउंट बनाएं</button>
+            <button type="submit" class="btn light full-w" style="margin-top: 15px;">प्रोफाइल बनाएं व शेयर करें</button>
           </form>
         </div>
       </div>
       <div id="portalMsg" class="booking-status" style="margin-top: 15px;"></div>
     </div>
 
-    <!-- WORKER DASHBOARD (PROFILE PAGE) -->
+    <!-- WORKER DASHBOARD (PROFILE EDIT & LIVE CARD) -->
     <div id="dashboardSection" class="card-box" style="display: none;">
       
-      <!-- PUBLIC LIVE VIEW CARD PREVIEW -->
+      <!-- LIVE CARD PREVIEW -->
       <div class="public-card-preview">
-        <span class="public-badge">👁️ पब्लिक लाइव व्यू (गूगल व ग्राहकों को आपकी प्रोफाइल ऐसी दिखेगी)</span>
+        <span class="public-badge">👁️ आपकी लाइव पब्लिक प्रोफाइल (ग्राहकों को ऐसी दिख रही है)</span>
         <div class="profile-banner" style="border:none; margin:0; padding:0;">
           <div class="profile-avatar" id="dispAvatar">A</div>
           <div style="flex: 1;">
@@ -142,20 +129,22 @@
               <span class="location-tag" id="dispLocTag">📍 वडोदरा / बड़ौदा</span>
             </div>
             <p style="color: #475569; margin:4px 0;" id="dispCategory">जनरल हैंड-टूल वर्कर</p>
-            <p style="font-size: 13px; color: #64748b; margin:0;">अनुभव: <strong id="dispExp">8</strong> वर्ष</p>
+            <p style="font-size: 13px; color: #64748b; margin:0;">अनुभव: <strong id="dispExp">8</strong> वर्ष | फोन: <strong id="dispPhoneDisplay">-</strong></p>
             <div style="margin-top: 8px;">
               <span id="dispStatus" class="status-badge status-available">Available (काम के लिए उपलब्ध)</span>
             </div>
           </div>
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <a id="pubCallBtn" href="tel:" class="btn primary" style="font-size:13px; text-decoration:none; text-align:center;">📞 कॉल करें</a>
-            <a id="pubWaBtn" href="https://wa.me/" target="_blank" class="btn light" style="font-size:13px; text-decoration:none; text-align:center; background:#25D366; color:#fff; border:none;">💬 WhatsApp</a>
-          </div>
+        </div>
+        
+        <!-- CALL AND WHATSAPP BUTTONS -->
+        <div class="btn-action-group">
+          <a id="pubCallBtn" href="#" class="btn-call">📞 सीधे कॉल करें</a>
+          <a id="pubWaBtn" href="#" target="_blank" class="btn-wa">💬 WhatsApp मैसेज करें</a>
         </div>
       </div>
 
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 20px;">
-        <h3 style="margin: 0;">⚙️ आपकी प्रोफाइल सेटिंग्स</h3>
+        <h3 style="margin: 0;">⚙️ अपनी प्रोफाइल अपडेट करें</h3>
         <button onclick="handlePortalLogout()" class="btn light" style="color: red;">लॉगआउट</button>
       </div>
 
@@ -203,18 +192,17 @@
       <div id="saveMsg" class="booking-status" style="margin-top: 10px;"></div>
     </div>
 
-    <!-- PUBLIC WORKERS DIRECTORY FOR CUSTOMERS -->
+    <!-- PUBLIC DIRECTORY SECTION FOR ALL CUSTOMERS -->
     <div class="card-box" id="publicDirectorySection">
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom: 16px;">
         <div>
-          <h3 style="margin-bottom: 4px;">👷 हमारे सत्यापित वर्कर पार्टनर्स</h3>
-          <p style="font-size: 13px; color: #64748b; margin:0;">अपने शहर या जिले के हिसाब से कारपेंटर खोजें</p>
+          <h3 style="margin-bottom: 4px;">👷 सभी पंजीकृत कारपेंटर पार्टनर्स (Public Directory)</h3>
+          <p style="font-size: 13px; color: #64748b; margin:0;">ग्राहक सीधे किसी भी कारीगर से संपर्क कर सकते हैं</p>
         </div>
         
-        <!-- LOCATION FILTER DROPDOWN -->
         <div>
-          <select id="filterLocation" onchange="filterWorkersByLocation()" style="padding:8px 12px; border-radius:8px; border:1px solid #cbd5e1; font-weight:600;">
-            <option value="ALL">📍 सभी लोकेशन (All Locations)</option>
+          <select id="filterLocation" onchange="renderPublicDirectory()" style="padding:8px 12px; border-radius:8px; border:1px solid #cbd5e1; font-weight:600;">
+            <option value="ALL">📍 सभी शहर / लोकेशन</option>
             <option value="वडोदरा (Vadodara / Baroda)">वडोदरा / बड़ौदा</option>
             <option value="संत कबीर नगर (Sant Kabir Nagar)">संत कबीर नगर</option>
             <option value="बस्ती (Basti)">बस्ती</option>
@@ -225,7 +213,7 @@
       </div>
       
       <div id="publicWorkerList" class="worker-grid">
-        <!-- JS द्वारा ऑटोमैटिक भरेगा -->
+        <!-- सभी रजिस्टर्ड पार्टनर्स के कार्ड यहाँ दिखेंगे -->
       </div>
     </div>
 
@@ -234,7 +222,7 @@
   <script src="script.js"></script>
 </body>
 </html>
->
+
 
 
 
