@@ -6,15 +6,32 @@
   <title>Skilled Worker Partner Portal | Anil Carpenter Network</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .partner-portal-container { max-width: 900px; margin: 40px auto; padding: 20px; }
-    .card-box { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
-    .profile-banner { display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 20px; }
-    .profile-avatar { width: 70px; height: 70px; border-radius: 50%; background: #eef4ff; color: var(--p); display: grid; place-items: center; font-size: 36px; font-weight: bold; }
-    .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
+    .partner-portal-container { max-width: 950px; margin: 40px auto; padding: 20px; }
+    .card-box { background: #fff; border: 1px solid var(--line, #e2e8f0); border-radius: 16px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 24px; }
+    .profile-banner { display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--line, #e2e8f0); padding-bottom: 20px; margin-bottom: 20px; }
+    .profile-avatar { width: 75px; height: 75px; border-radius: 50%; background: #eef4ff; color: #2563eb; display: grid; place-items: center; font-size: 36px; font-weight: bold; border: 2px solid #bfdbfe; }
+    .status-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 800; }
     .status-available { background: #e6f4ea; color: #137333; }
     .status-busy { background: #fce8e6; color: #c5221f; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } .profile-banner { flex-direction: column; text-align: center; } }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    
+    /* PUBLIC VISIBLE CARD STYLES */
+    .public-card-preview {
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+      border: 2px dashed #2563eb;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    .public-badge { background: #2563eb; color: #fff; padding: 3px 10px; font-size: 11px; font-weight: 800; border-radius: 12px; display: inline-block; margin-bottom: 10px; }
+    
+    .worker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 15px; }
+    .worker-public-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+
+    @media (max-width: 600px) { 
+      .grid-2 { grid-template-columns: 1fr; } 
+      .profile-banner { flex-direction: column; text-align: center; } 
+    }
   </style>
 </head>
 <body>
@@ -36,12 +53,12 @@
     <div id="authSection" class="card-box">
       <div style="text-align: center; margin-bottom: 24px;">
         <h2>🧰 Manpower & Skilled Worker Portal</h2>
-        <p>अपना मोबाइल नंबर और PIN दर्ज करके अपना पार्टनर डैशबोर्ड खोलें</p>
+        <p>अपना मोबाइल नंबर और PIN दर्ज करके अपना पार्टनर डैशबोर्ड खोलें या नया अकाउंट बनाएं</p>
       </div>
 
       <div class="grid-2">
         <!-- Login -->
-        <div style="border-right: 1px solid var(--line); padding-right: 16px;">
+        <div style="border-right: 1px solid var(--line, #e2e8f0); padding-right: 16px;">
           <h3>वर्कर लॉगिन</h3>
           <form onsubmit="handlePortalLogin(event)" style="margin-top: 15px;">
             <label>रजिस्टर्ड मोबाइल नंबर</label>
@@ -49,7 +66,7 @@
             <label>4-अंकों का PIN</label>
             <input type="password" id="portPin" placeholder="****" maxlength="4" required>
             <button type="submit" class="btn primary full-w" style="margin-top: 15px;">लॉगिन करें</button>
-            <button type="button" onclick="handleForgotPassword()" class="btn-link" style="background:none; border:none; color:var(--p); margin-top:10px; font-size:13px; cursor:pointer;">🔑 PIN भूल गए?</button>
+            <button type="button" onclick="handleForgotPassword()" class="btn-link" style="background:none; border:none; color:var(--p, #2563eb); margin-top:10px; font-size:13px; cursor:pointer;">🔑 PIN भूल गए?</button>
           </form>
         </div>
 
@@ -82,22 +99,33 @@
 
     <!-- WORKER DASHBOARD (PROFILE PAGE) -->
     <div id="dashboardSection" class="card-box" style="display: none;">
-      <div class="profile-banner">
-        <div class="profile-avatar" id="dispAvatar">🪵</div>
-        <div style="flex: 1;">
-          <h2 id="dispName">राम कुमार</h2>
-          <p style="color: var(--muted);" id="dispCategory">फर्नीचर कारपेंटर</p>
-          <div style="margin-top: 6px;">
-            <span id="dispStatus" class="status-badge status-available">Available (काम के लिए उपलब्ध)</span>
+      
+      <!-- PUBLIC VISIBLE CARD PREVIEW (कस्टमर को ऐसा दिखेगा) -->
+      <div class="public-card-preview">
+        <span class="public-badge">👁️ पब्लिक लाइव व्यू (कस्टमर्स को आपकी प्रोफाइल ऐसी दिखेगी)</span>
+        <div class="profile-banner" style="border:none; margin:0; padding:0;">
+          <div class="profile-avatar" id="dispAvatar">A</div>
+          <div style="flex: 1;">
+            <h2 id="dispName" style="margin:0; color:#0f172a;">Anil Carpenter</h2>
+            <p style="color: #475569; margin:4px 0;" id="dispCategory">जनरल हैंड-टूल वर्कर</p>
+            <p style="font-size: 13px; color: #64748b; margin:0;">अनुभव: <strong id="dispExp">8</strong> वर्ष</p>
+            <div style="margin-top: 8px;">
+              <span id="dispStatus" class="status-badge status-available">Available (काम के लिए उपलब्ध)</span>
+            </div>
           </div>
-        </div>
-        <div>
-          <button onclick="handlePortalLogout()" class="btn light">लॉगआउट</button>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <a id="pubCallBtn" href="tel:" class="btn primary" style="font-size:13px; text-decoration:none; text-align:center;">📞 कॉल करें</a>
+            <a id="pubWaBtn" href="https://wa.me/" target="_blank" class="btn light" style="font-size:13px; text-decoration:none; text-align:center; background:#25D366; color:#fff; border:none;">💬 WhatsApp</a>
+          </div>
         </div>
       </div>
 
-      <h3>आपकी पार्टनर प्रोफाइल डिटेल्स</h3>
-      <form onsubmit="handleProfileSave(event)" style="margin-top: 15px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 20px;">
+        <h3 style="margin: 0;">⚙️ आपकी पार्टनर प्रोफाइल सेटिंग्स</h3>
+        <button onclick="handlePortalLogout()" class="btn light" style="color: red;">लॉगआउट</button>
+      </div>
+
+      <form onsubmit="handleProfileSave(event)">
         <div class="grid-2">
           <div>
             <label>मोबाइल नंबर (Login ID)</label>
@@ -111,7 +139,7 @@
 
         <label>आपकी वर्क कैटेगरी (Category)</label>
         <select id="editCategory" required>
-          <option value="फर्नीचर कारपेंटर (Furniture Carpenter)">फर्नीचर कारपентर (Furniture Carpenter)</option>
+          <option value="फर्नीचर कारपेंटर (Furniture Carpenter)">फर्नीचर कारपेंटर (Furniture Carpenter)</option>
           <option value="मॉड्यूलर किचन व वार्डरोब स्पेशलिस्ट">मॉड्यूलर किचन व वार्डरोब स्पेशलिस्ट</option>
           <option value="डोर, लॉक व फिटिंग मास्टर">डोर, लॉक व फिटिंग मास्टर</option>
           <option value="जनरल हैंड-टूल वर्कर (Helper/Skilled)">जनरल हैंड-टूल वर्कर (Helper/Skilled)</option>
@@ -131,10 +159,21 @@
       <div id="saveMsg" class="booking-status" style="margin-top: 10px;"></div>
     </div>
 
+    <!-- PUBLIC WORKERS DIRECTORY FOR CUSTOMERS -->
+    <div class="card-box" id="publicDirectorySection">
+      <h3 style="margin-bottom: 6px;">👷 हमारे सत्यापित वर्कर पार्टनर्स (Registered Skilled Workers)</h3>
+      <p style="font-size: 14px; color: #64748b; margin-bottom: 16px;">ग्राहकों के लिए: अपने पास के उपलब्ध कारपेंटर से सीधे संपर्क करें</p>
+      
+      <div id="publicWorkerList" class="worker-grid">
+        <!-- JS द्वारा ऑटोमैटिक भरेगा -->
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
