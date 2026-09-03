@@ -106,12 +106,6 @@ form input:focus, form select:focus, form textarea:focus { border-color: var(--p
 .m-btn.call { background: #eef4ff; color: var(--p); }
 .m-btn.book { background: var(--p); color: #fff; }
 
-@media (max-width: 768px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .links { display: none; }
-  .mobile-bottom-bar { display: flex; }
-  body { padding-bottom: 60px; }
-   }
 /* WORKER PARTNER SECTION */
 .partner-section { padding: 60px 0; background: #fff; }
 .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 20px; }
@@ -123,6 +117,7 @@ form input:focus, form select:focus, form textarea:focus { border-color: var(--p
 .profile-header .avatar { width: 48px; height: 48px; border-radius: 50%; background: #eef4ff; display: grid; place-items: center; font-size: 24px; }
 .profile-header h4 { font-size: 18px; color: var(--ink); }
 .profile-header small { color: var(--muted); }
+
 /* DROPDOWN & MENU STYLES */
 header { background: #ffffff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1000; }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
@@ -139,36 +134,25 @@ header { background: #ffffff; border-bottom: 1px solid var(--line); position: st
 .dropdown-content a:hover { background-color: #f1f5f9; color: var(--p); }
 .dropdown:hover .dropdown-content { display: block; }
 
-/* Mobile Menu Toggle */
-.menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
-
-/* MOBILE MENU TOGGLE - FINAL FIX */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: var(--ink);
-}
+/* MOBILE MENU TOGGLE - FIXED FOR PROPER OVERLAY & CLICK */
+.menu-toggle { display: none; background: none; border: none; font-size: 26px; cursor: pointer; color: var(--ink); }
 
 @media (max-width: 900px) {
   .menu-toggle { 
     display: block !important; 
   }
   
-  /* .links और .main-menu दोनों को सपोर्ट करने के लिए */
   .links, .main-menu { 
     display: none; 
     flex-direction: column; 
     position: absolute; 
-    top: 60px; 
+    top: 72px; /* हेडर की सही ऊँचाई के नीचे */
     left: 0; 
     right: 0; 
     background: #ffffff; 
     padding: 20px; 
     border-bottom: 2px solid var(--line); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
     z-index: 9999; 
     gap: 12px;
   }
@@ -176,10 +160,29 @@ header { background: #ffffff; border-bottom: 1px solid var(--line); position: st
   .links.active, .main-menu.active { 
     display: flex !important; 
   }
+
+  /* मोबाइल में ड्रॉपडाउन का बिहेवियर ठीक करने के लिए */
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding-left: 15px;
+    background: #f8fafc;
+  }
+  .dropdown:hover .dropdown-content {
+    display: none; /* मोबाइल में हवर की जगह क्लिक पर खुलेगा या नॉर्मल दिखेगा */
+  }
 }
+
 /* Lucknow Blog Card Image Style */
 .blog-card .card-img {
   height: 180px;
   background-size: cover;
   background-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .mobile-bottom-bar { display: flex; }
+  body { padding-bottom: 60px; }
 }
