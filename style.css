@@ -177,3 +177,9 @@ header { background: #ffffff; border-bottom: 1px solid var(--line); position: st
     display: flex !important; 
   }
 }
+/* Lucknow Blog Card Image Style */
+.blog-card .card-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
