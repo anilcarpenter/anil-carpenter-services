@@ -120,7 +120,8 @@
     footer { background: var(--bg-dark); color: #94a3b8; text-align: center; padding: 25px 20px; margin-top: 50px; font-size: 14px; }
 
     @media (max-width: 768px) {
-      .links { display: none; width: 100%; position: absolute; top: 60px; left: 0; background: #ffffff; flex-direction: column; padding: 15px; border-bottom: 1px solid #e2e8f0; }
+      .links { display: none; width: 100%; position: absolute; top: 60px; left: 0; background: #ffffff; flex-direction: column; padding: 15px; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+      .links.active { display: flex; }
       .menu-toggle { display: block; }
       h1 { font-size: 22px; }
       .article-card { padding: 20px; }
@@ -204,7 +205,7 @@
 
         <div class="faq-item">
           <div class="faq-q">Q2. मॉड्यूलर किचन में कौन सा मटीरियल बेस्ट होता है?</div>
-          <p>किचन के बेस और फ्रेम के लिए BWP (Boiling Water Proof) मरीन प्लाईवुड और ऊपर फिनिशिंग के लिए हाई-ग्लॉस सनमाइका या एक्रिलिक शीट्स सबसे अच्छी मानी जाती हैं।</p>
+          <p>किचन के बेस और फ्रेम के लिए BWP (Boiling Water Proof) मरीन प्लाईवुड और ऊपर फिनिशिंग के लिए हाई-ग्लॉस सनमाइका या एक्रिलिक शीट्स सबसे अच्छी मानी जाती हैं.</p>
         </div>
       </section>
 
@@ -227,12 +228,9 @@
   <script>
     function toggleMenu() {
       const nav = document.getElementById("navMenu");
-      if (nav.style.display === "flex") {
-        nav.style.display = "none";
-      } else {
-        nav.style.display = "flex";
-      }
+      nav.classList.toggle("active");
     }
   </script>
 </body>
 </html>
+
