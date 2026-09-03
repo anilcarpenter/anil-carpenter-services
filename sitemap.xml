@@ -1,54 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- Home Page -->
+  <!-- Main Pages -->
   <url>
-    <loc>https://anilcarpenter.com/index.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.anilcarpenter.com/</loc>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- About Us Page -->
   <url>
-    <loc>https://anilcarpenter.com/about.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://www.anilcarpenter.com/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Blog Page -->
   <url>
-    <loc>https://anilcarpenter.com/blog.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.anilcarpenter.com/blog.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
-
-  <!-- Partner Profile Page -->
   <url>
-    <loc>https://anilcarpenter.com/partner-profile.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://www.anilcarpenter.com/partner-profile.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Privacy Policy Page -->
   <url>
-    <loc>https://anilcarpenter.com/privacy-policy.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://www.anilcarpenter.com/privacy-policy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/terms-and-conditions.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Terms and Conditions Page -->
+  <!-- Main Guides & City Pages -->
   <url>
-    <loc>https://anilcarpenter.com/terms-and-conditions.html</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.anilcarpenter.com/best-wood-for-furniture.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/furniture-repair-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/kanpur-furniture-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/khalilabad-furniture-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/lucknow-furniture-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-delhi-all-districts.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-gorakhpur-deoria.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-gujarat-all-districts.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-hyderabad-pricing.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-kaisa-hota-hai-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-maharashtra-all-districts.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-nepal-carpenter.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/vadodara-modular-kitchen-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/varanasi-furniture-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/wood-furniture-care.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
+  <!-- Sub-folder Articles -->
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/best-wood-for-furniture.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/carpenter-basti-khalilabad-furniture-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/epf-scheme-2026-new-rules-withdrawal-uan.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/furniture-care-tips.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/modular-kitchen-cost-basti-khalilabad.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/modular-kitchen-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/right-carpenter-guide.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/tooti-hui-kursi-ki-marammat.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.anilcarpenter.com/articles/wooden-interior-design.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
-
-
