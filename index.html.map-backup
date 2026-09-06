@@ -573,22 +573,6 @@
 
   <script src="script.js"></script>
 
-
-<!-- GOOGLE MAP - SERVICE AREA -->
-<section aria-label="Anil Carpenter Google Map" style="margin:20px 0;">
-  <div style="width:100%;height:350px;border-radius:12px;overflow:hidden;">
-    <iframe
-      src="https://www.google.com/maps?q=Khalilabad%2C%20Sant%20Kabir%20Nagar%2C%20Uttar%20Pradesh&output=embed"
-      width="100%"
-      height="350"
-      style="border:0;"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Anil Carpenter - Khalilabad, Sant Kabir Nagar Google Map">
-    </iframe>
-  </div>
-</section>
-
 <a href="https://maps.app.goo.gl/aPusmdVRZRKnAy96A?g_st=ac" target="_blank" rel="noopener" style="display:inline-block;padding:12px 20px;margin:15px 0;border-radius:8px;text-decoration:none;background:#222;color:#fff;font-weight:600;">📍 Google Business Profile देखें</a>
 </body>
   </html>
