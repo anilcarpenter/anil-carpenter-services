@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Title & Meta Tags -->
+  <title>Anil Carpenter | Best Carpenter in Sant Kabir Nagar, Khalilabad & Basti</title>
+  <meta name="description" content="Professional door-to-door carpenter service in Sant Kabir Nagar, Khalilabad & Basti. Door lock repair, custom furniture, wardrobes & modular kitchen work. Call +91 83411 88318.">
+  <meta name="keywords" content="carpenter in Sant Kabir Nagar, carpenter in Khalilabad, carpenter near me, furniture repair Khalilabad, door repair Khalilabad, carpenter Sant Kabir Nagar, furniture carpenter near me, Anil Carpenter, carpenter in Basti">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://www.anilcarpenter.com/">
+  <meta name="author" content="Anil Carpenter">
+  <meta name="theme-color" content="#0b5cff">
+
+  <!-- Open Graph / WhatsApp / Facebook Sharing Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.anilcarpenter.com/">
+  <meta property="og:title" content="Anil Carpenter | Professional Carpentry Service in Sant Kabir Nagar & Khalilabad">
+  <meta property="og:description" content="Door-to-door furniture repair, custom wardrobe, door lock fitting & modular kitchen service in Sant Kabir Nagar, Khalilabad and nearby areas.">
+  <meta property="og:image" content="https://www.anilcarpenter.com/og-image.jpg">
+  <meta property="og:site_name" content="Anil Carpenter">
+  <meta property="og:locale" content="hi_IN">
+
+  <!-- Twitter Card Data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anil Carpenter | Local Carpenter in Khalilabad & Sant Kabir Nagar">
+  <meta name="twitter:description" content="On-site carpenter & furniture repair services at transparent rates in Sant Kabir Nagar, Khalilabad & Basti.">
+  <meta name="twitter:image" content="https://www.anilcarpenter.com/og-image.jpg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Anil Carpenter",
+    "image": "https://www.anilcarpenter.com/og-image.jpg",
+    "@id": "https://www.anilcarpenter.com/#organization",
+    "url": "https://www.anilcarpenter.com/",
+    "telephone": "+918341188318",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Khalilabad",
+      "addressRegion": "Sant Kabir Nagar, Uttar Pradesh",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.7770,
+      "longitude": 83.0721
+    },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Sant Kabir Nagar"
+      },
+      {
+        "@type": "City",
+        "name": "Khalilabad"
+      },
+      {
+        "@type": "City",
+        "name": "Basti"
+      }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Carpentry Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Door & Lock Repair"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Furniture & Bed Repair"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wardrobe & Storage Cabinet Fitting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Modular Kitchen Work"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom Furniture Making"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.anilcarpenter.com/"
+    }]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "क्या आप संत कबीर नगर और खलीलाबाद में ऑन-साइट (घर पर आकर) काम करते हैं?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "जी हाँ, हम ऑन-साइट सर्विस प्रदान करते हैं। आपके घर या दुकान पर आकर ही पूरा कारपेंटरी काम किया जाता है।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "सर्विस बुक करने की क्या प्रक्रिया है?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "आप 'Book Service' बटन पर क्लिक करके फॉर्म भर सकते हैं या सीधे WhatsApp / Phone द्वारा संपर्क कर सकते हैं।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "क्या नया फर्नीचर बनवाने से पहले अनुमानित बजट (Quotation) मिलेगा?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "जी बिल्कुल। काम की नाप-जोख और मटेरियल सिलेक्शन के बाद आपको पूरा बजट समझाया जाता है।"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<!-- HEADER / NAVIGATION MENU -->
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand" title="Anil Carpenter Home Page">
+      <div class="logo">🪚</div>
+      <span>Anil Carpenter</span>
+    </a>
+
+    <nav class="main-menu" aria-label="Main Navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="partner-profile.html" class="nav-link highlight-link">🧰 Partner Sign Up / Login</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">💰 Affiliate Store ▾</button>
+        <div class="dropdown-content">
+          <a href="#affiliate-tools">🛠️ Carpentry Tools</a>
+          <a href="#affiliate-material">🪵 Wood Material Selling</a>
+          <a href="#affiliate-earn">💵 Earn Commission (Share & Earn)</a>
+        </div>
+      </div>
+
+      <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+      <a href="terms-and-conditions.html" class="nav-link">Terms & Conditions</a>
+    </nav>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="tag">
+          <span class="dot"></span>
+          <span>Sant Kabir Nagar • Khalilabad • Basti</span>
+        </div>
+        <h1>आपके घर के लिए भरोसेमंद <span>Carpenter Service in Sant Kabir Nagar</span></h1>
+        <p>डोर-टू-डोर कारपेंटर सेवा: डोर लॉक रिपेयर, कस्टम फर्नीचर निर्माण, अलमारी एवं मॉड्युलर किचन वर्क पारदर्शी दरों पर।</p>
+        
+        <div class="hero-buttons">
+          <button class="btn primary" onclick="openBooking('Doorstep Service')">🔨 Book Service Now</button>
+          <a href="tel:+918341188318" class="btn light">📞 Call Now</a>
+        </div>
+
+        <div class="hero-trust">
+          <div><strong>✓ On-Site Work</strong> घर पर ही संपूर्ण काम</div>
+          <div><strong>✓ Direct Pricing</strong> कोई छिपा हुआ खर्च नहीं</div>
+          <div><strong>✓ Skilled Workmanship</strong> 100% संतुष्टि</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-photo">
+            <div class="tool">🛠️</div>
+            <div class="verified"> Verified Carpenter Service</div>
+          </div>
+          <div class="rating">
+            <span class="stars">संत कबीर नगर एवं खलीलाबाद</span>
+            <small>डोर-टू-डोर ऑन-साइट सर्विस</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UC STYLE CATEGORY GRID -->
+  <section class="uc-categories" id="categories">
+    <div class="container">
+      <div class="head">
+        <h2>आपको किस प्रकार की सर्विस चाहिए?</h2>
+        <p>अपनी जरूरत के अनुसार सर्विस चुनें और तुरंत कोटेशन पाएँ</p>
+      </div>
+      <div class="uc-grid">
+        <div class="uc-cat-card" onclick="openBooking('Wooden Door Repair & Fitting')">
+          <div class="uc-icon">🚪</div>
+          <span>दरवाजा और लॉक</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('Bed & Furniture Repair')">
+          <div class="uc-icon">🛏️</div>
+          <span>बेड व मरम्मत</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('Wardrobe & Storage')">
+          <div class="uc-icon">🗄️</div>
+          <span>अलमारी (Wardrobe)</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('Modular Kitchen Work')">
+          <div class="uc-icon">🍳</div>
+          <span>मॉड्यूलर किचन</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('TV Unit & Drawer Fitment')">
+          <div class="uc-icon">📺</div>
+          <span>TV यूनिट व ड्रॉवर</span>
+        </div>
+        <div class="uc-cat-card" onclick="openBooking('General Furniture Making')">
+          <div class="uc-icon">🪵</div>
+          <span>कस्टम फर्नीचर</span>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- TRANSPARENT RATE CARD -->
+  <section class="rate-card-section container" style="margin: 40px auto;">
+    <h2 style="text-align:center; font-size:24px; font-weight:800; margin-bottom:8px;">पारदर्शी दरें (Transparent Rate Card)</h2>
+    <p style="text-align:center; color:#64748b; margin-bottom:30px;">बिना किसी छुपाए हुए शुल्क और पारदर्शी प्राइसिंग</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:24px; box-shadow:0 4px 12px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h3 style="font-size:18px; font-weight:700;">डोर लॉक व हिंज (Hinge) रिपेयर</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563eb; margin:15px 0;">₹499 <span style="font-size:14px; color:#64748b;">से शुरू</span></div>
+          <ul style="list-style:none; padding:0; margin-bottom:20px; font-size:14px; color:#475569; line-height:2;">
+            <li>✓ दरवाजे की घिसाई / कटिंग</li>
+            <li>✓ नया लॉक या हैंडल फिटिंग</li>
+            <li>✓ हिंज और ड्रॉवर चैनल रिपेयर</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20डोर%20लॉक/हैंडल%20रिपेयर%20बुक%20करना%20है।" target="_blank" rel="noopener" style="display:block; text-align:center; background:#eff6ff; color:#2563eb; padding:12px; border-radius:8px; font-weight:700; text-decoration:none;">Book Lock/Door Repair</a>
+      </div>
+
+      <div style="background:#fff; border:2px solid #2563eb; border-radius:12px; padding:24px; box-shadow:0 8px 20px rgba(37,99,235,0.12); position:relative; display:flex; flex-direction:column; justify-content:space-between;">
+        <span style="position:absolute; top:-12px; right:20px; background:#2563eb; color:#fff; padding:2px 10px; border-radius:12px; font-size:11px; font-weight:700;">Most Popular</span>
+        <div>
+          <h3 style="font-size:18px; font-weight:700;">फर्नीचर अलमारी व रिपेयर</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563eb; margin:15px 0;">₹899 <span style="font-size:14px; color:#64748b;">से शुरू</span></div>
+          <ul style="list-style:none; padding:0; margin-bottom:20px; font-size:14px; color:#475569; line-height:2;">
+            <li>✓ हाइड्रोलिक बेड फिटिंग व रिपेयर</li>
+            <li>✓ स्लाइडिंग डोर/अलमारी चैनल रिपेयर</li>
+            <li>✓ टेबल, शेल्फ या दराज मॉडिफिकेशन</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20फर्नीचर/अलमारी%20रिपेयर%20बुक%20करना%20है।" target="_blank" rel="noopener" style="display:block; text-align:center; background:#2563eb; color:#fff; padding:12px; border-radius:8px; font-weight:700; text-decoration:none;">Book Furniture Repair</a>
+      </div>
+
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:24px; box-shadow:0 4px 12px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h3 style="font-size:18px; font-weight:700;">कस्टम इंटीरियर व वुड वर्क</h3>
+          <div style="font-size:22px; font-weight:800; color:#0f172a; margin:15px 0;">साइट विजिट पर फ्री कोटेशन</div>
+          <ul style="list-style:none; padding:0; margin-bottom:20px; font-size:14px; color:#475569; line-height:2;">
+            <li>✓ 2D लेआउट व मटीरियल चयन सलाह</li>
+            <li>✓ वार्डरोब, सनमाइका व ACP शीट वर्क</li>
+            <li>✓ मॉड्यूलर किचन व टीवी यूनिट मेकिंग</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/918341188318?text=नमस्ते%20Anil%20Carpenter,%20मुझे%20साइट%20विजिट%20और%20फ्री%20कोटेशन%20चाहिए।" target="_blank" rel="noopener" style="display:block; text-align:center; background:#eff6ff; color:#2563eb; padding:12px; border-radius:8px; font-weight:700; text-decoration:none;">Book Site Visit</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SHORT -->
+  <section class="about-short" id="about">
+    <div class="container about-grid">
+      <div class="about-content">
+        <span class="eyebrow">ABOUT ANIL CARPENTER</span>
+        <h2>संत कबीर नगर एवं खलीलाबाद में <span>विश्वसनीय कारपेंटर सेवा</span></h2>
+        <p>Anil Carpenter एक प्रोफेशनल कारपेंट्री सर्विस है, जहाँ आपको संत कबीर नगर, खलीलाबाद और बस्ती में घर, दुकान और ऑफिस के फर्नीचर निर्माण, मरम्मत और कस्टम वुडन वर्क की ऑन-साइट सर्विस मिलती है।</p>
+        <div class="about-points">
+          <div>✓ समय पर काम की डिलीवरी</div>
+          <div>✓ पारदर्शी बातचीत एवं सलाह</div>
+          <div>✓ 100% ऑन-साइट काम</div>
+          <div>✓ उच्च गुणवत्ता वाली फिनिशिंग</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKER PARTNER SECTION -->
+  <section class="partner-section" id="partner">
+    <div class="container">
+      <div class="head">
+        <h2>🧰 कारपेंटर व स्किल्ड वर्कर पार्टनर बनें</h2>
+        <p>हमारे साथ जुड़ें, अपनी प्रोफाइल बनाएँ और अपने आस-पास काम के अवसर पाएँ</p>
+      </div>
+
+      <div class="partner-grid">
+        <div class="partner-card">
+          <h3>वर्कर रजिस्ट्रेशन (Partner Sign Up)</h3>
+          <form id="partnerRegisterForm" onsubmit="handlePartnerRegister(event)">
+            <label for="pName">पूरा नाम</label>
+            <input type="text" id="pName" placeholder="उदा. राम कुमार" required>
+
+            <label for="pPhone">मोबाइल नंबर (Login ID)</label>
+            <input type="tel" id="pPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
+
+            <label for="pSkills">आपकी स्किल (Skill/Hunar)</label>
+            <select id="pSkills" required>
+              <option value="">मुख्य काम चुनें</option>
+              <option value="Furniture Repair & Fitting">फर्नीचर रिपेयर व फिटिंग</option>
+              <option value="Modular Kitchen & Wardrobe">मॉड्यूलर किचन व अलमारी</option>
+              <option value="Door, Lock & Channel Work">दरवाजा, लॉक व चैनल वर्क</option>
+              <option value="General Hand-tool Skilled Worker">जनरल हैंड-टूल वर्कर</option>
+            </select>
+
+            <label for="pExp">अनुभव (Experience in Years)</label>
+            <input type="number" id="pExp" min="0" placeholder="उदा. 5 साल" required>
+
+            <button type="submit" class="btn primary full-w" style="margin-top: 15px;">पार्टनर प्रोफाइल बनाएँ</button>
+          </form>
+        </div>
+
+        <div class="partner-card highlight">
+          <h3>वर्कर लॉगिन व प्रोफाइल</h3>
+          
+          <div id="partnerLoginBox">
+            <p style="font-size: 14px; color: var(--muted); margin-bottom: 15px;">यदि आप पहले से रजिस्टर्ड हैं, तो अपना नंबर दर्ज करके प्रोफाइल खोलें:</p>
+            <form onsubmit="handlePartnerLogin(event)">
+              <label for="loginPhone">रजिस्टर्ड मोबाइल नंबर</label>
+              <input type="tel" id="loginPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
+              <button type="submit" class="btn light full-w" style="margin-top: 15px;">प्रोफाइल लॉगिन करें</button>
+            </form>
+          </div>
+
+          <div id="partnerProfileBox" style="display: none;">
+            <div class="profile-header">
+              <div class="avatar">🪵</div>
+              <div>
+                <h4 id="profileDisplayName">वर्कर का नाम</h4>
+                <small id="profileDisplayPhone">+91 XXXXXXXXXX</small>
+              </div>
+            </div>
+
+            <form id="profileUpdateForm" onsubmit="handleProfileUpdate(event)" style="margin-top: 15px;">
+              <label for="editSkill">आपकी मुख्य स्किल</label>
+              <input type="text" id="editSkill" required>
+
+              <label for="editExp">अनुभव (साल)</label>
+              <input type="number" id="editExp" required>
+
+              <label for="editStatus">काम के लिए उपलब्धता (Status)</label>
+              <select id="editStatus">
+                <option value="Available (काम के लिए उपलब्ध)">Available (काम के लिए उपलब्ध)</option>
+                <option value="Busy (अभी काम में व्यस्त)">Busy (अभी काम में व्यस्त)</option>
+              </select>
+
+              <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button type="submit" class="btn primary" style="flex: 1;">प्रोफाइल अपडेट करें</button>
+                <button type="button" class="btn light" onclick="handlePartnerLogout()">लॉगआउट</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="partnerMessage" class="booking-status"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- AFFILIATE & STORE SECTION -->
+  <section class="affiliate-section" id="affiliate-store" style="padding: 50px 0; background: #f8fafc;">
+    <div class="container">
+      <div class="head" style="text-align: center; margin-bottom: 30px;">
+        <h2>🛠️ अनिल कारपेंटर स्टोर व एफ़िलिएट प्रोग्राम</h2>
+        <p>बेस्ट कारपेंट्री टूल्स, वुडन मटेरियल खरीदें और लिंक शेयर करके कमीशन कमाएं</p>
+      </div>
+
+      <div class="partner-grid">
+        <div class="partner-card" id="affiliate-tools">
+          <h3>🛠️ Carpentry Tools (टूल्स खरीदें)</h3>
+          <p style="font-size: 14px; color: var(--muted);">प्रोफ़ेशनल कटिंग मशीन, ड्रिल मशीन, और हैंड टूल्स कम दाम में खरीदें।</p>
+          <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px; line-height: 1.8;">
+            <li>Heavy Duty Wood Router</li>
+            <li>Cordless Circular Saw</li>
+            <li>Professional Chisel Set & Clamp</li>
+          </ul>
+          <a href="https://amazon.in" target="_blank" rel="noopener" class="btn primary full-w">बेस्ट टूल्स देखें व खरीदें ↗</a>
+        </div>
+
+        <div class="partner-card" id="affiliate-material">
+          <h3>🪵 Material Selling (प्लाइवुड व सनमाइका)</h3>
+          <p style="font-size: 14px; color: var(--muted);">टॉप क्वालिटी प्लाइवुड, माइका, फेविकोल और हार्डवेयर एक्सेसरीज ऑनलाइन ऑर्डर करें।</p>
+          <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px; line-height: 1.8;">
+            <li>Waterproof Plywood (BWP Grade)</li>
+            <li>0.8mm & 1mm Decorative Sunmica</li>
+            <li>Soft Close Hydraulic Hinges</li>
+          </ul>
+          <a href="#categories" class="btn light full-w">मटेरियल रेट कार्ड / पूछताछ करें</a>
+        </div>
+
+        <div class="partner-card highlight" id="affiliate-earn">
+          <h3>💵 Earn Commission (शेयर करें व कमाएं)</h3>
+          <p style="font-size: 14px; color: var(--muted);">क्या आप कारपेंटर या डिस्ट्रीब्यूटर हैं? हमारे टूल्स और सर्विस ग्राहकों को रेफर करके 5% से 10% तक कमीशन कमाएं।</p>
+          <div style="background: #fff; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 13px;">
+            <strong>कैसा काम करता है?</strong><br>
+            1. अपना एफ़िलिएट लिंक लें<br>
+            2. ग्राहकों/दोस्तों को व्हाट्सएप पर भेजें<br>
+            3. हर सफल सेल या बुकिंग पर कमीशन सीधा खाते में!
+          </div>
+          <a href="https://wa.me/918341188318?text=नमस्ते%20अनिल%20भाई,%20मुझे%20Affiliate%20Earn%20Commission%20प्रोग्राम%20से%20जुड़ना%20है।" target="_blank" rel="noopener" class="btn primary full-w">कमीशन प्रोग्राम से जुड़ें (WhatsApp)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="faq-section gray" id="faq">
+    <div class="container">
+      <div class="head">
+        <h2>अक्सर पूछे जाने वाले सवाल (FAQ)</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>क्या ऑन-साइट (घर पर आकर) काम किया जाता है? <span>+</span></summary>
+          <p>जी हाँ, हम ऑन-साइट सर्विस प्रदान करते हैं। आपके घर या दुकान पर आकर ही पूरा काम किया जाता है।</p>
+        </details>
+        <details>
+          <summary>सर्विस बुक करने की क्या प्रक्रिया है? <span>+</span></summary>
+          <p>आप "Book Service" बटन पर क्लिक करके फॉर्म भर सकते हैं या सीधे WhatsApp / Phone द्वारा संपर्क कर सकते हैं।</p>
+        </details>
+        <details>
+          <summary>क्या नया फर्नीचर बनवाने से पहले अनुमानित बजट (Quotation) मिलेगा? <span>+</span></summary>
+          <p>जी बिल्कुल। काम की नाप-जोख और मटेरियल सिलेक्शन के बाद आपको पूरा बजट समझाया जाता है।</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-nav-links container" style="margin-bottom: 20px;">
+      <strong>Quick Links</strong>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px;">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="khalilabad-furniture-guide.html">Khalilabad Guide</a>
+        <a href="partner-profile.html">🧰 Partner Sign Up</a>
+        
+        <a href="#affiliate-tools" style="color: #38bdf8;">🛠️ Carpentry Tools</a>
+        <a href="#affiliate-material" style="color: #38bdf8;">🪵 Wood Material</a>
+        <a href="#affiliate-earn" style="color: #38bdf8; font-weight: 700;">💵 Earn Commission</a>
+
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear"></span> Anil Carpenter. All Rights Reserved. | Sant Kabir Nagar, Uttar Pradesh</p>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-overlay" onclick="closeBooking()"></div>
+    <div class="modal-box">
+      <button type="button" class="modal-close" onclick="closeBooking()">×</button>
+      <div class="modal-header">
+        <h2>🔨 Book Carpenter Service</h2>
+        <p>अपनी जानकारी दर्ज करें, हम आपसे व्हाट्सएप पर तुरंत जुड़ेंगे</p>
+      </div>
+
+      <form id="quickBookingForm" onsubmit="submitQuickBooking(event)">
+        <label for="quickName">आपका नाम</label>
+        <input type="text" id="quickName" placeholder="पूरा नाम दर्ज करें" required>
+
+        <label for="quickPhone">मोबाइल नंबर</label>
+        <input type="tel" id="quickPhone" placeholder="10 अंकों का मोबाइल नंबर" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" required>
+
+        <label for="quickService">चयनित सर्विस</label>
+        <select id="quickService" required>
+          <option value="">सर्विस चुनें</option>
+          <option value="Wooden Door Repair & Fitting">Door & Lock Fitting</option>
+          <option value="Bed & Furniture Repair">Bed & Furniture Repair</option>
+          <option value="Wardrobe & Storage">Wardrobe & Storage</option>
+          <option value="Modular Kitchen Work">Modular Kitchen Work</option>
+          <option value="TV Unit & Drawer Fitment">TV Unit & Drawer Fitment</option>
+          <option value="General Furniture Making">Custom Furniture Making</option>
+        </select>
+
+        <label for="quickAddress">आपका पता (Location)</label>
+        <textarea id="quickAddress" rows="2" placeholder="अपना पूरा पता या गाँव/शहर दर्ज करें" required></textarea>
+
+        <label for="quickMessage">काम की अतिरिक्त जानकारी (वैकल्पिक)</label>
+        <textarea id="quickMessage" rows="2" placeholder="जैसे: अलमारी का दरवाजा ठीक करना है..."></textarea>
+
+        <button type="submit" class="btn primary full-w">📲 WhatsApp पर रिक्वेस्ट भेजें</button>
+        <div id="quickBookingStatus" class="booking-status"></div>
+      </form>
+    </div>
+  </div>
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="4PObxJl6GWHToiNxa-BQO";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+  <!-- MOBILE APP-LIKE BOTTOM FIXED BAR -->
+  <div class="mobile-bottom-bar">
+    <a href="tel:+918341188318" class="m-btn call">📞 Call Now</a>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+  </html>
+
