@@ -186,3 +186,13 @@ header { background: #ffffff; border-bottom: 1px solid var(--line); position: st
   .mobile-bottom-bar { display: flex; }
   body { padding-bottom: 60px; }
 }
+.uc-cat-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
+.uc-cat-card:hover {
+  text-decoration: none;
+}
