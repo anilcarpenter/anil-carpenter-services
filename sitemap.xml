@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main Website -->
+
   <url>
     <loc>https://www.anilcarpenter.com/</loc>
     <priority>1.0</priority>
@@ -15,6 +17,52 @@
     <loc>https://www.anilcarpenter.com/blog.html</loc>
     <priority>0.9</priority>
   </url>
+
+
+  <!-- Local Carpenter Service Pages -->
+
+  <url>
+    <loc>https://www.anilcarpenter.com/best-carpenter-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/carpenter-service-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/carpenter-questions-before-hiring.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/door-lock-repair-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/furniture-repair-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/custom-furniture-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/tv-unit-drawer-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/wardrobe-cabinet-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+
+  <!-- Furniture Guides -->
 
   <url>
     <loc>https://www.anilcarpenter.com/best-wood-for-furniture.html</loc>
@@ -32,6 +80,11 @@
   </url>
 
   <url>
+    <loc>https://www.anilcarpenter.com/furniture-making-mistakes-guide.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.anilcarpenter.com/wood-furniture-care.html</loc>
     <priority>0.7</priority>
   </url>
@@ -42,23 +95,16 @@
   </url>
 
   <url>
-    <loc>https://www.anilcarpenter.com/furniture-making-mistakes-guide.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://www.anilcarpenter.com/wardrobe-cost-guide.html</loc>
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://www.anilcarpenter.com/modular-kitchen-10-things-guide.html</loc>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- Local Furniture Guides -->
 
   <url>
     <loc>https://www.anilcarpenter.com/khalilabad-furniture-guide.html</loc>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
@@ -76,6 +122,14 @@
     <priority>0.7</priority>
   </url>
 
+
+  <!-- Modular Kitchen -->
+
+  <url>
+    <loc>https://www.anilcarpenter.com/Modular-kitchen-sant-kabir-nagar.html</loc>
+    <priority>0.9</priority>
+  </url>
+
   <url>
     <loc>https://www.anilcarpenter.com/modular-kitchen-guide.html</loc>
     <priority>0.8</priority>
@@ -83,17 +137,22 @@
 
   <url>
     <loc>https://www.anilcarpenter.com/modular-kitchen-kaisa-hota-hai-guide.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-10-things-guide.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.anilcarpenter.com/modular-kitchen-gorakhpur-deoria.html</loc>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.anilcarpenter.com/modular-kitchen-delhi-all-districts.html</loc>
     <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.anilcarpenter.com/modular-kitchen-gorakhpur-deoria.html</loc>
-    <priority>0.7</priority>
   </url>
 
   <url>
@@ -120,6 +179,17 @@
     <loc>https://www.anilcarpenter.com/vadodara-modular-kitchen-guide.html</loc>
     <priority>0.6</priority>
   </url>
+
+
+  <!-- Partner -->
+
+  <url>
+    <loc>https://www.anilcarpenter.com/partner-profile.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+
+  <!-- Legal Pages -->
 
   <url>
     <loc>https://www.anilcarpenter.com/privacy-policy.html</loc>
