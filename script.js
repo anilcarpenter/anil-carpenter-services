@@ -32,6 +32,87 @@ document.addEventListener("DOMContentLoaded", function() {
   injectModalHTML();
 });
 
+/* Quick Booking */
+function openBooking(service) {
+  var modal = document.getElementById("bookingModal");
+  var serviceInput = document.getElementById("quickService");
+
+  if (serviceInput && service) {
+    var found = Array.prototype.some.call(serviceInput.options, function(option) {
+      if (option.value === service) {
+        serviceInput.value = service;
+        return true;
+      }
+      return false;
+    });
+
+    if (!found) {
+      serviceInput.value = "";
+    }
+  }
+
+  if (modal) {
+    modal.setAttribute("aria-hidden", "false");
+    modal.classList.add("active");
+    document.body.classList.add("modal-open");
+  }
+}
+
+function closeBooking() {
+  var modal = document.getElementById("bookingModal");
+
+  if (modal) {
+    modal.setAttribute("aria-hidden", "true");
+    modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
+  }
+}
+
+function submitQuickBooking(e) {
+  if (e) e.preventDefault();
+
+  var nameEl = document.getElementById("quickName");
+  var phoneEl = document.getElementById("quickPhone");
+  var serviceEl = document.getElementById("quickService");
+  var addressEl = document.getElementById("quickAddress");
+  var messageEl = document.getElementById("quickMessage");
+  var statusEl = document.getElementById("quickBookingStatus");
+
+  if (!nameEl || !phoneEl || !serviceEl || !addressEl) return;
+
+  var name = nameEl.value.trim();
+  var phone = phoneEl.value.trim().replace(/\D/g, '');
+  var service = serviceEl.value;
+  var address = addressEl.value.trim();
+  var message = messageEl ? messageEl.value.trim() : "";
+
+  if (!/^[0-9]{10}$/.test(phone)) {
+    if (statusEl) {
+      statusEl.innerHTML = "<span style='color:red;font-weight:bold;'>कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।</span>";
+    }
+    return;
+  }
+
+  var waText =
+    "नमस्ते Anil Carpenter जी,%0A%0A" +
+    "मुझे Carpenter Service चाहिए।%0A" +
+    "सर्विस: " + encodeURIComponent(service) + "%0A" +
+    "नाम: " + encodeURIComponent(name) + "%0A" +
+    "मोबाइल: " + encodeURIComponent(phone) + "%0A" +
+    "पता: " + encodeURIComponent(address) + "%0A" +
+    (message ? "काम की जानकारी: " + encodeURIComponent(message) : "");
+
+  if (statusEl) {
+    statusEl.innerHTML = "<span style='color:green;font-weight:bold;'>WhatsApp खोला जा रहा है...</span>";
+  }
+
+  window.open(
+    "https://wa.me/918341188318?text=" + waText,
+    "_blank",
+    "noopener"
+  );
+}
+
 // स्टोरेज इनिशियलाइज़ेशन
 function initData() {
   var existingData = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -181,6 +262,185 @@ function handleProfileSave(e) {
 }
 
 // Handle Logout
+
+/* Homepage compatibility handlers */
+function handlePartnerLogin(e) {
+  e.preventDefault();
+
+  var phoneEl = document.getElementById("loginPhone");
+  var msg = document.getElementById("partnerMessage");
+  if (!phoneEl) return;
+
+  var phone = phoneEl.value.trim().replace(/\D/g, '');
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+
+  var user = partners.find(function(p) {
+    return p.phone && p.phone.replace(/\D/g, '') === phone;
+  });
+
+  if (!user) {
+    if (msg) {
+      msg.innerHTML = "<span style='color:red;font-weight:bold;'>यह मोबाइल नंबर रजिस्टर्ड नहीं है।</span>";
+    }
+    return;
+  }
+
+  localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+
+  var loginBox = document.getElementById("partnerLoginBox");
+  var profileBox = document.getElementById("partnerProfileBox");
+
+  if (loginBox) loginBox.style.display = "none";
+  if (profileBox) profileBox.style.display = "block";
+
+  var name = document.getElementById("profileDisplayName");
+  var displayPhone = document.getElementById("profileDisplayPhone");
+  var skill = document.getElementById("editSkill");
+  var exp = document.getElementById("editExp");
+  var status = document.getElementById("editStatus");
+
+  if (name) name.textContent = user.name || "वर्कर";
+  if (displayPhone) displayPhone.textContent = "+91 " + (user.phone || phone);
+  if (skill) skill.value = user.category || "";
+  if (exp) exp.value = user.exp || "";
+  if (status) status.value = user.status || "Available (काम के लिए उपलब्ध)";
+
+  if (msg) {
+    msg.innerHTML = "<span style='color:green;font-weight:bold;'>लॉगिन सफल! प्रोफाइल खुल गई।</span>";
+  }
+}
+
+function handlePartnerRegister(e) {
+  e.preventDefault();
+
+  var nameEl = document.getElementById("pName");
+  var phoneEl = document.getElementById("pPhone");
+  var skillEl = document.getElementById("pSkills");
+  var expEl = document.getElementById("pExp");
+  var msg = document.getElementById("partnerMessage");
+
+  if (!nameEl || !phoneEl || !skillEl || !expEl) return;
+
+  var name = nameEl.value.trim();
+  var phone = phoneEl.value.trim().replace(/\D/g, '');
+  var category = skillEl.value;
+  var exp = expEl.value.trim();
+
+  if (!/^[0-9]{10}$/.test(phone)) {
+    if (msg) {
+      msg.innerHTML = "<span style='color:red;font-weight:bold;'>कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।</span>";
+    }
+    return;
+  }
+
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+
+  var exists = partners.some(function(p) {
+    return p.phone && p.phone.replace(/\D/g, '') === phone;
+  });
+
+  if (exists) {
+    if (msg) {
+      msg.innerHTML = "<span style='color:red;font-weight:bold;'>यह नंबर पहले से रजिस्टर्ड है।</span>";
+    }
+    return;
+  }
+
+  var newPartner = {
+    name: name,
+    phone: phone,
+    pin: "1234",
+    location: "संत कबीर नगर, उत्तर प्रदेश",
+    category: category,
+    exp: exp,
+    status: "Available (काम के लिए उपलब्ध)"
+  };
+
+  partners.push(newPartner);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(partners));
+  localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(newPartner));
+
+  var loginBox = document.getElementById("partnerLoginBox");
+  var profileBox = document.getElementById("partnerProfileBox");
+
+  if (loginBox) loginBox.style.display = "none";
+  if (profileBox) profileBox.style.display = "block";
+
+  var displayName = document.getElementById("profileDisplayName");
+  var displayPhone = document.getElementById("profileDisplayPhone");
+  var skill = document.getElementById("editSkill");
+  var expInput = document.getElementById("editExp");
+  var status = document.getElementById("editStatus");
+
+  if (displayName) displayName.textContent = name;
+  if (displayPhone) displayPhone.textContent = "+91 " + phone;
+  if (skill) skill.value = category;
+  if (expInput) expInput.value = exp;
+  if (status) status.value = newPartner.status;
+
+  if (msg) {
+    msg.innerHTML = "<span style='color:green;font-weight:bold;'>✅ पार्टनर रजिस्ट्रेशन सफल! प्रोफाइल तैयार है।</span>";
+  }
+}
+
+function handleProfileUpdate(e) {
+  e.preventDefault();
+
+  var currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY) || "null");
+  var msg = document.getElementById("partnerMessage");
+
+  if (!currentUser) {
+    if (msg) {
+      msg.innerHTML = "<span style='color:red;font-weight:bold;'>पहले लॉगिन करें।</span>";
+    }
+    return;
+  }
+
+  var skill = document.getElementById("editSkill");
+  var exp = document.getElementById("editExp");
+  var status = document.getElementById("editStatus");
+
+  if (skill) currentUser.category = skill.value.trim();
+  if (exp) currentUser.exp = exp.value.trim();
+  if (status) currentUser.status = status.value;
+
+  var partners = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
+
+  var idx = partners.findIndex(function(p) {
+    return p.phone && currentUser.phone &&
+      p.phone.replace(/\D/g, '') === currentUser.phone.replace(/\D/g, '');
+  });
+
+  if (idx !== -1) {
+    partners[idx] = currentUser;
+  } else {
+    partners.push(currentUser);
+  }
+
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(partners));
+  localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+
+  var name = document.getElementById("profileDisplayName");
+  if (name) name.textContent = currentUser.name || "वर्कर";
+
+  if (msg) {
+    msg.innerHTML = "<span style='color:green;font-weight:bold;'>✅ प्रोफाइल अपडेट हो गई!</span>";
+  }
+}
+
+function handlePartnerLogout() {
+  localStorage.removeItem(CURRENT_USER_KEY);
+
+  var loginBox = document.getElementById("partnerLoginBox");
+  var profileBox = document.getElementById("partnerProfileBox");
+  var msg = document.getElementById("partnerMessage");
+
+  if (loginBox) loginBox.style.display = "block";
+  if (profileBox) profileBox.style.display = "none";
+  if (msg) msg.innerHTML = "";
+}
+
+
 function handlePortalLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
   checkLoginState();
@@ -284,7 +544,7 @@ function openWorkerModal(index) {
       <p style="margin:6px 0;"><strong>संपर्क नंबर:</strong> ${rawPhone}</p>
     </div>
     <div style="display:flex; gap:10px;">
-      <a href="tel:${rawPhone}" class="btn-call" style="flex:1; text-align:center; text-decoration:none; padding:12px; border-radius:8px; font-weight:bold; background:#2563eb; color:#white;">📞 सीधे कॉल करें</a>
+      <a href="tel:${rawPhone}" class="btn-call" style="flex:1; text-align:center; text-decoration:none; padding:12px; border-radius:8px; font-weight:bold; background:#2563eb; color:white;">📞 सीधे कॉल करें</a>
       <a href="https://api.whatsapp.com/send?phone=91${rawPhone}&text=${waMsg}" target="_blank" class="btn-wa" style="flex:1; text-align:center; text-decoration:none; padding:12px; border-radius:8px; font-weight:bold; background:#25D366; color:white;">💬 WhatsApp मैसेज</a>
     </div>
   `;
