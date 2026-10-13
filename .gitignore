@@ -1,0 +1,5 @@
+*.before-*
+*.backup
+seo-backup-*
+*.seo-backup
+*.map-backup
