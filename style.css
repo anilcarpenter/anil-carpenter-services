@@ -196,3 +196,77 @@ header { background: #ffffff; border-bottom: 1px solid var(--line); position: st
 .uc-cat-card:hover {
   text-decoration: none;
 }
+
+/* =========================================
+   DARK PORTAL THEME (Background & Base)
+   ========================================= */
+
+/* 1. पूरी वेबसाइट का बैकग्राउंड गहरा (Dark Navy/Black) */
+body {
+    background-color: #0B132B !important; /* गहरा नेवी ब्लू */
+    color: #E2E8F0 !important; /* टेक्स्ट को हल्का सफेद-ग्रे कर दिया */
+    background-image: radial-gradient(circle at 50% 0%, #1C2541 0%, #0B132B 70%) !important;
+}
+
+/* 2. हेडर (Header) */
+header {
+    background-color: rgba(11, 19, 43, 0.9) !important;
+    border-bottom: 1px solid #1C2541 !important;
+}
+header a, header .brand span {
+    color: #FFFFFF !important;
+}
+
+/* 3. हीरो सेक्शन (Hero Section) का टेक्स्ट */
+.hero h1, .hero p, .hero-trust div {
+    color: #F8FAFC !important;
+}
+.hero h1 span {
+    color: #C9A84C !important; /* मुख्य शब्दों को गोल्डन कलर */
+}
+
+/* 4. सर्विस के बटन वाले ब्लॉक (जो सफेद थे) */
+.uc-categories {
+    background-color: transparent !important;
+}
+.uc-cat-card {
+    background-color: #1C2541 !important; /* डार्क कार्ड */
+    border: 1px solid #3A506B !important;
+    color: #E2E8F0 !important;
+}
+.uc-cat-card span {
+    color: #E2E8F0 !important;
+}
+
+/* 5. "About Us" वाला सेक्शन */
+.about-short {
+    background-color: transparent !important;
+}
+.about-content h2, .about-content p, .about-points div {
+    color: #CBD5E1 !important;
+}
+.about-content h2 span {
+    color: #C9A84C !important;
+}
+
+/* 6. पार्टनर सेक्शन (Partner Section) - जहाँ फॉर्म हैं */
+.partner-section {
+    background-color: transparent !important;
+}
+.partner-card, .partner-form-container {
+    background-color: #1C2541 !important;
+    border: 1px solid #3A506B !important;
+    color: #E2E8F0 !important;
+}
+.partner-card h3 {
+    color: #FFFFFF !important;
+}
+/* इनपुट बॉक्स (Form fields) */
+input, select, textarea {
+    background-color: #0B132B !important;
+    border: 1px solid #3A506B !important;
+    color: #FFFFFF !important;
+}
+input::placeholder {
+    color: #94A3B8 !important;
+}
