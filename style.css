@@ -271,39 +271,73 @@ input::placeholder {
     color: #94A3B8 !important;
 }
 /* =========================================
-   DARK THEME TEXT FIX (गायब टेक्स्ट को सफेद करने के लिए)
+   FINAL DARK PORTAL THEME (पूरी तरह फिक्स)
    ========================================= */
 
-/* सारे टेक्स्ट को सफेद करो ताकि डार्क बैकग्राउंड पर दिखे */
-h1, h2, h3, h4, h5, h6, p, span, div, label {
+/* 1. मुख्य बैकग्राउंड गहरा */
+body {
+    background-color: #0B132B !important;
+    background-image: radial-gradient(circle at 50% 0%, #1C2541 0%, #0B132B 70%) !important;
     color: #F8FAFC !important;
 }
 
-/* मुख्य हेडिंग के कीवर्ड्स को गोल्डन रखो */
+/* 2. सभी सेक्शन का सफेद बैकग्राउंड हटाओ (ट्रांसपेरेंट करो) */
+section, .hero, .hero-grid, .container, .about-short, .faq-section, .partner-section, .uc-categories {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* 3. सारे टेक्स्ट (हेडिंग, पैराग्राफ, लिस्ट) को सफेद करो */
+h1, h2, h3, h4, h5, h6, p, span, div, li, label {
+    color: #F8FAFC !important;
+}
+
+/* 4. मुख्य हेडिंग के कीवर्ड्स गोल्डन रहें */
 .hero h1 span, .about-content h2 span {
     color: #C9A84C !important; 
 }
 
-/* FAQ वाले सेक्शन का बैकग्राउंड और टेक्स्ट */
-.faq-section, .faq, .accordion {
-    background-color: transparent !important;
-}
-.faq-item, .accordion-item, .faq h3 {
-    background-color: #1C2541 !important;
-    color: #FFFFFF !important;
-    border: 1px solid #3A506B !important;
+/* 5. हीरो सेक्शन के पीछे का हल्का सफेद रंग हटाओ */
+.hero {
+    background: transparent !important;
 }
 
-/* पार्टनर फॉर्म के इनपुट बॉक्स */
+/* 6. सर्विस कार्ड्स (जो सफेद थे, उन्हें डार्क ब्लू और गोल्डन बॉर्डर दो) */
+.uc-cat-card {
+    background-color: #1C2541 !important;
+    border: 1px solid #3A506B !important;
+}
+.uc-cat-card span, .uc-cat-card .uc-icon {
+    color: #C9A84C !important; /* आइकॉन गोल्डन */
+}
+
+/* 7. FAQ वाले बॉक्स (जो सफेद थे) */
+.faq-item, .accordion-item {
+    background-color: #1C2541 !important;
+    border: 1px solid #3A506B !important;
+}
+.faq-item h3, .accordion-item h3, .faq p {
+    color: #F8FAFC !important;
+}
+
+/* 8. पार्टनर फॉर्म के इनपुट बॉक्स */
 input, select, textarea {
     background-color: #0B132B !important;
     color: #FFFFFF !important;
     border: 1px solid #3A506B !important;
 }
 
-/* बटन जो सफेद थे, उन्हें डार्क ब्लू करो */
-.btn.light {
+/* 9. "Call Now" जैसे हल्के बटन */
+.btn.light, .call-btn {
     background-color: #1C2541 !important;
     color: #FFFFFF !important;
     border: 1px solid #3A506B !important;
+}
+
+/* 10. फुटर (Footer) */
+footer {
+    background-color: #0B132B !important;
+}
+footer a, footer p {
+    color: #CBD5E1 !important;
 }
