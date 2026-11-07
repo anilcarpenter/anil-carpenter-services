@@ -1,88 +1,104 @@
 :root {
   --p: #0b5cff;
   --pd: #0645c7;
-  --ink: #111827;
-  --muted: #667085;
-  --line: #e6eaf0;
-  --bg: #f7f9fc;
-  --card: #fff;
-  --shadow: 0 12px 35px rgba(16, 24, 40, .08);
+  --gold: #C9A84C;
+  --ink: #F8FAFC; 
+  --muted: #94A3B8; 
+  --line: #1C2541; 
+  --bg: #0B132B; 
+  --card: #1C2541; 
+  --shadow: 0 12px 35px rgba(0, 0, 0, .4);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: Inter, system-ui, -apple-system, sans-serif; color: var(--ink); line-height: 1.5; background: #fff; }
+
+/* पूरी वेबसाइट का गहरा बैकग्राउंड */
+body { 
+  font-family: Inter, system-ui, -apple-system, sans-serif; 
+  color: var(--ink); 
+  line-height: 1.5; 
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 50% 0%, #1C2541 0%, #0B132B 70%);
+  padding-bottom: 60px;
+}
 a { text-decoration: none; color: inherit; }
 
 .container { width: min(1180px, 92%); margin: auto; }
 .btn { border: 0; border-radius: 11px; padding: 12px 18px; cursor: pointer; font-weight: 750; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; }
 .primary { background: var(--p); color: #fff; }
 .primary:hover { background: var(--pd); }
-.light { background: #eef4ff; color: var(--p); }
+.light { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid var(--line); }
 .full-w { width: 100%; }
 
 /* HEADER */
-header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, .95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+header { position: sticky; top: 0; z-index: 100; background: rgba(11, 19, 43, .95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 850; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 850; color: #fff;}
 .logo { width: 42px; height: 42px; border-radius: 12px; background: var(--p); color: #fff; display: grid; place-items: center; font-size: 20px; }
-.links { display: flex; gap: 24px; font-size: 14px; font-weight: 650; color: #344054; }
-.links a:hover { color: var(--p); }
-.actions { display: flex; gap: 10px; }
+.main-menu { display: flex; align-items: center; gap: 15px; }
+.nav-link { text-decoration: none; color: #CBD5E1; font-size: 14px; font-weight: 600; transition: 0.2s; }
+.nav-link:hover { color: var(--gold); }
+.highlight-link { background: #1C2541; color: #fff; padding: 6px 12px; border-radius: 6px; border: 1px solid #3A506B; }
 
-/* HERO */
-.hero { padding: 60px 0; background: radial-gradient(circle at 80% 15%, rgba(11, 92, 255, .13), transparent 28%), linear-gradient(180deg, #fff, #f5f8ff); }
+/* HERO SECTION (सफेद बैकग्राउंड हटा दिया गया है) */
+.hero { padding: 60px 0; background: transparent; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
-.tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px; border-radius: 999px; background: #eef4ff; color: var(--p); font-size: 13px; font-weight: 800; margin-bottom: 18px; }
+.tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px; border-radius: 999px; background: #1C2541; color: #F8FAFC; font-size: 13px; font-weight: 800; margin-bottom: 18px; border: 1px solid var(--line);}
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #12a150; }
-h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
-h1 span { color: var(--p); }
+h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; color: #fff; }
+h1 span { color: var(--gold); }
 .hero p { font-size: 17px; color: var(--muted); margin-bottom: 24px; }
 .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-trust { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 28px; font-size: 13px; color: #475467; }
+.hero-trust { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 28px; font-size: 13px; color: #CBD5E1; }
 
 /* HERO VISUAL CARD */
-.hero-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: var(--shadow); }
-.hero-photo { height: 220px; border-radius: 14px; background: linear-gradient(135deg, #dce9ff, #eef2f7); display: grid; place-items: center; position: relative; }
-.tool { font-size: 64px; }
-.verified { position: absolute; left: 12px; bottom: 12px; background: #fff; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 800; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-.rating { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; }
-.stars { color: #f59e0b; font-weight: 800; }
+.hero-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: var(--shadow); }
+.hero-photo { height: 220px; border-radius: 14px; background: #0B132B; display: grid; place-items: center; position: relative; overflow: hidden;}
+.verified { position: absolute; left: 12px; bottom: 12px; background: #fff; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 800; color: #111; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.rating { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; color: #fff;}
+.stars { color: var(--gold); font-weight: 800; }
 
 /* UC CATEGORY GRID */
-.uc-categories { padding: 60px 0; background: #fff; }
+.uc-categories { padding: 60px 0; background: transparent; }
 .head { margin-bottom: 30px; text-align: center; }
-.head h2 { font-size: 28px; letter-spacing: -.5px; }
+.head h2 { font-size: 28px; letter-spacing: -.5px; color: #fff; }
 .head p { color: var(--muted); margin-top: 6px; }
 .uc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 20px; }
-.uc-cat-card { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 24px 12px; text-align: center; cursor: pointer; transition: 0.2s ease-in-out; }
-.uc-cat-card:hover { border-color: var(--p); transform: translateY(-4px); background: #fff; box-shadow: var(--shadow); }
+.uc-cat-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 12px; text-align: center; cursor: pointer; transition: 0.2s; text-decoration: none;}
+.uc-cat-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: var(--shadow); }
 .uc-icon { font-size: 36px; margin-bottom: 10px; }
-.uc-cat-card span { font-size: 14px; font-weight: 750; color: var(--ink); display: block; }
+.uc-cat-card span { font-size: 14px; font-weight: 750; color: var(--gold); display: block; }
 
-/* RATE CARD SECTION */
-.price-section { padding: 60px 0; }
-.gray { background: var(--bg); }
-.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.price-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 28px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
-.price-card.highlight { border: 2px solid var(--p); box-shadow: var(--shadow); }
-.price-card .badge { position: absolute; top: -12px; right: 20px; background: var(--p); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; }
-.price-card h3 { font-size: 18px; margin-bottom: 8px; }
-.price-card .price { font-size: 30px; font-weight: 850; color: var(--p); margin: 10px 0 16px; }
-.price-card .price span { font-size: 13px; color: var(--muted); font-weight: 500; }
-.price-card ul { list-style: none; margin-bottom: 24px; font-size: 14px; color: #475467; }
-.price-card ul li { margin-bottom: 10px; }
+/* PREMIUM RATE CARD (जो HTML में है) */
+#transparent-rates { background: #0C1B33 !important; color: #FFF; border: 1px solid var(--line); }
+#transparent-rates .ac-rate-card { background: #1E3A5F !important; border: 2px solid var(--gold) !important; }
 
-/* REVIEWS & FAQ */
-.reviews-section, .faq-section, .about-short { padding: 60px 0; }
-.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-.review-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-.review-card p { font-size: 14px; color: #344054; margin: 10px 0; }
-.faq-list details { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; cursor: pointer; }
-.faq-list summary { font-weight: 750; font-size: 16px; display: flex; justify-content: space-between; align-items: center; }
+/* ABOUT SECTION */
+.about-short { padding: 60px 0; background: transparent; }
+.about-content h2 { color: #fff; }
+.about-content h2 span { color: var(--gold); }
+.about-content p, .about-points div { color: #CBD5E1; }
+
+/* FAQ SECTION */
+.faq-section { padding: 60px 0; background: transparent; }
+.faq-section h2 { color: #fff; text-align: center; margin-bottom: 30px;}
+.faq-list details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; cursor: pointer; }
+.faq-list summary { font-weight: 750; font-size: 16px; display: flex; justify-content: space-between; align-items: center; color: #fff; }
+
+/* WORKER PARTNER SECTION */
+.partner-section { padding: 60px 0; background: transparent; }
+.partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 20px; }
+.partner-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
+.partner-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--gold); }
+
+/* FORM INPUTS */
+form label { display: block; font-size: 13px; font-weight: 700; margin: 12px 0 4px; color: #CBD5E1;}
+form input, form select, form textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 10px; font-family: inherit; font-size: 14px; outline: none; background: #0B132B; color: #fff; }
+form input:focus, form select:focus, form textarea:focus { border-color: var(--p); }
 
 /* FOOTER */
-.site-footer { background: #111827; color: #9ca3af; padding: 40px 0 20px; }
+.site-footer { background: #081021; color: #9ca3af; padding: 40px 0 20px; border-top: 1px solid var(--line);}
 .footer-main { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid #1f2937; padding-bottom: 24px; }
 .footer-brand h2 { color: #fff; margin-bottom: 6px; }
 .footer-bottom { text-align: center; padding-top: 20px; font-size: 13px; }
@@ -90,254 +106,31 @@ h1 span { color: var(--p); }
 /* MODAL */
 .modal { position: fixed; inset: 0; display: none; place-items: center; z-index: 1000; padding: 15px; }
 .modal.active { display: grid; }
-.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
-.modal-box { position: relative; background: #fff; width: min(480px, 100%); border-radius: 20px; padding: 28px; z-index: 1001; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.modal-close { position: absolute; top: 16px; right: 16px; border: 0; background: #f3f4f6; width: 32px; height: 32px; border-radius: 50%; font-size: 20px; cursor: pointer; }
-.modal-header { margin-bottom: 20px; }
-.modal-header h2 { font-size: 20px; font-weight: 800; }
-form label { display: block; font-size: 13px; font-weight: 700; margin: 12px 0 4px; }
-form input, form select, form textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 10px; font-family: inherit; font-size: 14px; outline: none; }
-form input:focus, form select:focus, form textarea:focus { border-color: var(--p); }
-.booking-status { margin-top: 10px; font-size: 13px; font-weight: 700; text-align: center; color: var(--p); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); }
+.modal-box { position: relative; background: var(--card); border: 1px solid var(--line); width: min(480px, 100%); border-radius: 20px; padding: 28px; z-index: 1001; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+.modal-close { position: absolute; top: 16px; right: 16px; border: 0; background: #0B132B; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-size: 20px; cursor: pointer; }
+.modal-header h2 { font-size: 20px; font-weight: 800; color: #fff; }
 
 /* MOBILE BOTTOM APP BAR */
-.mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 10px 16px; border-top: 1px solid var(--line); box-shadow: 0 -4px 15px rgba(0,0,0,0.08); z-index: 999; gap: 10px; }
+.mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0B132B; padding: 10px 16px; border-top: 1px solid var(--line); z-index: 999; gap: 10px; }
 .m-btn { flex: 1; padding: 12px; border-radius: 10px; font-weight: 800; text-align: center; border: none; cursor: pointer; font-size: 14px; text-decoration: none; }
-.m-btn.call { background: #eef4ff; color: var(--p); }
+.m-btn.call { background: #1C2541; color: var(--gold); border: 1px solid var(--line); }
 .m-btn.book { background: var(--p); color: #fff; }
 
-/* WORKER PARTNER SECTION */
-.partner-section { padding: 60px 0; background: #fff; }
-.partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 20px; }
-.partner-card { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
-.partner-card.highlight { border: 2px solid var(--p); background: #fff; box-shadow: var(--shadow); }
-.partner-card h3 { font-size: 20px; margin-bottom: 12px; }
-
-.profile-header { display: flex; align-items: center; gap: 14px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
-.profile-header .avatar { width: 48px; height: 48px; border-radius: 50%; background: #eef4ff; display: grid; place-items: center; font-size: 24px; }
-.profile-header h4 { font-size: 18px; color: var(--ink); }
-.profile-header small { color: var(--muted); }
-
-/* DROPDOWN & MENU STYLES */
-header { background: #ffffff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1000; }
-.nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
-.main-menu { display: flex; align-items: center; gap: 15px; }
-.nav-link { text-decoration: none; color: #334155; font-size: 14px; font-weight: 600; transition: 0.2s; }
-.nav-link:hover { color: var(--p); }
-.highlight-link { background: #eff6ff; color: var(--p); padding: 6px 12px; border-radius: 6px; border: 1px solid #bfdbfe; }
-
-/* Dropdown */
-.dropdown { position: relative; display: inline-block; }
-.dropbtn { background: none; border: none; font-size: 14px; font-weight: 700; color: var(--p); cursor: pointer; padding: 6px 10px; }
-.dropdown-content { display: none; position: absolute; right: 0; background-color: #ffffff; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border-radius: 8px; border: 1px solid var(--line); z-index: 1001; }
-.dropdown-content a { color: #334155; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
-.dropdown-content a:hover { background-color: #f1f5f9; color: var(--p); }
-.dropdown:hover .dropdown-content { display: block; }
-
-/* MOBILE MENU TOGGLE - FIXED FOR PROPER OVERLAY & CLICK */
-.menu-toggle { display: none; background: none; border: none; font-size: 26px; cursor: pointer; color: var(--ink); }
+/* मोबाइल व्यू */
+.menu-toggle { display: none; background: none; border: none; font-size: 26px; cursor: pointer; color: #fff; }
 
 @media (max-width: 900px) {
-  .menu-toggle { 
-    display: block !important; 
-  }
-  
+  .menu-toggle { display: block !important; }
   .links, .main-menu { 
-    display: none; 
-    flex-direction: column; 
-    position: absolute; 
-    top: 72px; /* हेडर की सही ऊँचाई के नीचे */
-    left: 0; 
-    right: 0; 
-    background: #ffffff; 
-    padding: 20px; 
-    border-bottom: 2px solid var(--line); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
-    z-index: 9999; 
-    gap: 12px;
+    display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; 
+    background: #0B132B; padding: 20px; border-bottom: 2px solid var(--line); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5); z-index: 9999; gap: 12px;
   }
-
-  .links.active, .main-menu.active { 
-    display: flex !important; 
-  }
-
-  /* मोबाइल में ड्रॉपडाउन का बिहेवियर ठीक करने के लिए */
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    border: none;
-    padding-left: 15px;
-    background: #f8fafc;
-  }
-  .dropdown:hover .dropdown-content {
-    display: none; /* मोबाइल में हवर की जगह क्लिक पर खुलेगा या नॉर्मल दिखेगा */
-  }
-}
-
-/* Lucknow Blog Card Image Style */
-.blog-card .card-img {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
+  .links.active, .main-menu.active { display: flex !important; }
 }
 
 @media (max-width: 768px) {
   .hero-grid { grid-template-columns: 1fr; }
   .mobile-bottom-bar { display: flex; }
-  body { padding-bottom: 60px; }
-}
-.uc-cat-card {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  cursor: pointer;
-}
-
-.uc-cat-card:hover {
-  text-decoration: none;
-}
-
-/* =========================================
-   DARK PORTAL THEME (Background & Base)
-   ========================================= */
-
-/* 1. पूरी वेबसाइट का बैकग्राउंड गहरा (Dark Navy/Black) */
-body {
-    background-color: #0B132B !important; /* गहरा नेवी ब्लू */
-    color: #E2E8F0 !important; /* टेक्स्ट को हल्का सफेद-ग्रे कर दिया */
-    background-image: radial-gradient(circle at 50% 0%, #1C2541 0%, #0B132B 70%) !important;
-}
-
-/* 2. हेडर (Header) */
-header {
-    background-color: rgba(11, 19, 43, 0.9) !important;
-    border-bottom: 1px solid #1C2541 !important;
-}
-header a, header .brand span {
-    color: #FFFFFF !important;
-}
-
-/* 3. हीरो सेक्शन (Hero Section) का टेक्स्ट */
-.hero h1, .hero p, .hero-trust div {
-    color: #F8FAFC !important;
-}
-.hero h1 span {
-    color: #C9A84C !important; /* मुख्य शब्दों को गोल्डन कलर */
-}
-
-/* 4. सर्विस के बटन वाले ब्लॉक (जो सफेद थे) */
-.uc-categories {
-    background-color: transparent !important;
-}
-.uc-cat-card {
-    background-color: #1C2541 !important; /* डार्क कार्ड */
-    border: 1px solid #3A506B !important;
-    color: #E2E8F0 !important;
-}
-.uc-cat-card span {
-    color: #E2E8F0 !important;
-}
-
-/* 5. "About Us" वाला सेक्शन */
-.about-short {
-    background-color: transparent !important;
-}
-.about-content h2, .about-content p, .about-points div {
-    color: #CBD5E1 !important;
-}
-.about-content h2 span {
-    color: #C9A84C !important;
-}
-
-/* 6. पार्टनर सेक्शन (Partner Section) - जहाँ फॉर्म हैं */
-.partner-section {
-    background-color: transparent !important;
-}
-.partner-card, .partner-form-container {
-    background-color: #1C2541 !important;
-    border: 1px solid #3A506B !important;
-    color: #E2E8F0 !important;
-}
-.partner-card h3 {
-    color: #FFFFFF !important;
-}
-/* इनपुट बॉक्स (Form fields) */
-input, select, textarea {
-    background-color: #0B132B !important;
-    border: 1px solid #3A506B !important;
-    color: #FFFFFF !important;
-}
-input::placeholder {
-    color: #94A3B8 !important;
-}
-/* =========================================
-   FINAL DARK PORTAL THEME (पूरी तरह फिक्स)
-   ========================================= */
-
-/* 1. मुख्य बैकग्राउंड गहरा */
-body {
-    background-color: #0B132B !important;
-    background-image: radial-gradient(circle at 50% 0%, #1C2541 0%, #0B132B 70%) !important;
-    color: #F8FAFC !important;
-}
-
-/* 2. सभी सेक्शन का सफेद बैकग्राउंड हटाओ (ट्रांसपेरेंट करो) */
-section, .hero, .hero-grid, .container, .about-short, .faq-section, .partner-section, .uc-categories {
-    background-color: transparent !important;
-    background: transparent !important;
-}
-
-/* 3. सारे टेक्स्ट (हेडिंग, पैराग्राफ, लिस्ट) को सफेद करो */
-h1, h2, h3, h4, h5, h6, p, span, div, li, label {
-    color: #F8FAFC !important;
-}
-
-/* 4. मुख्य हेडिंग के कीवर्ड्स गोल्डन रहें */
-.hero h1 span, .about-content h2 span {
-    color: #C9A84C !important; 
-}
-
-/* 5. हीरो सेक्शन के पीछे का हल्का सफेद रंग हटाओ */
-.hero {
-    background: transparent !important;
-}
-
-/* 6. सर्विस कार्ड्स (जो सफेद थे, उन्हें डार्क ब्लू और गोल्डन बॉर्डर दो) */
-.uc-cat-card {
-    background-color: #1C2541 !important;
-    border: 1px solid #3A506B !important;
-}
-.uc-cat-card span, .uc-cat-card .uc-icon {
-    color: #C9A84C !important; /* आइकॉन गोल्डन */
-}
-
-/* 7. FAQ वाले बॉक्स (जो सफेद थे) */
-.faq-item, .accordion-item {
-    background-color: #1C2541 !important;
-    border: 1px solid #3A506B !important;
-}
-.faq-item h3, .accordion-item h3, .faq p {
-    color: #F8FAFC !important;
-}
-
-/* 8. पार्टनर फॉर्म के इनपुट बॉक्स */
-input, select, textarea {
-    background-color: #0B132B !important;
-    color: #FFFFFF !important;
-    border: 1px solid #3A506B !important;
-}
-
-/* 9. "Call Now" जैसे हल्के बटन */
-.btn.light, .call-btn {
-    background-color: #1C2541 !important;
-    color: #FFFFFF !important;
-    border: 1px solid #3A506B !important;
-}
-
-/* 10. फुटर (Footer) */
-footer {
-    background-color: #0B132B !important;
-}
-footer a, footer p {
-    color: #CBD5E1 !important;
 }
