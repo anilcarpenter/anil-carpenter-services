@@ -270,3 +270,40 @@ input, select, textarea {
 input::placeholder {
     color: #94A3B8 !important;
 }
+/* =========================================
+   DARK THEME TEXT FIX (गायब टेक्स्ट को सफेद करने के लिए)
+   ========================================= */
+
+/* सारे टेक्स्ट को सफेद करो ताकि डार्क बैकग्राउंड पर दिखे */
+h1, h2, h3, h4, h5, h6, p, span, div, label {
+    color: #F8FAFC !important;
+}
+
+/* मुख्य हेडिंग के कीवर्ड्स को गोल्डन रखो */
+.hero h1 span, .about-content h2 span {
+    color: #C9A84C !important; 
+}
+
+/* FAQ वाले सेक्शन का बैकग्राउंड और टेक्स्ट */
+.faq-section, .faq, .accordion {
+    background-color: transparent !important;
+}
+.faq-item, .accordion-item, .faq h3 {
+    background-color: #1C2541 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #3A506B !important;
+}
+
+/* पार्टनर फॉर्म के इनपुट बॉक्स */
+input, select, textarea {
+    background-color: #0B132B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #3A506B !important;
+}
+
+/* बटन जो सफेद थे, उन्हें डार्क ब्लू करो */
+.btn.light {
+    background-color: #1C2541 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #3A506B !important;
+}
